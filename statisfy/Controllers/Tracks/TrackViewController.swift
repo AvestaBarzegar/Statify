@@ -151,7 +151,6 @@ class TrackViewController: UIViewController, UIScrollViewDelegate {
         scrollView.addSubview(fourWeeksView)
         scrollView.addSubview(sixMonthView)
         scrollView.addSubview(allTimeView)
-        debugPrint("hello world")
         let safeArea = view.layoutMarginsGuide
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: safeArea.topAnchor),
