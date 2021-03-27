@@ -1,0 +1,7 @@
+line_length:
+    warning: 250
+    error: 300
+    
+disabled_rules:
+    - trailing_whitespace
+    - identifier_name
