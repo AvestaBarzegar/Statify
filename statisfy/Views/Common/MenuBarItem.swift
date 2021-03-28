@@ -16,8 +16,6 @@ class MenuBarItem: UICollectionViewCell {
     var menuBarItemText: String? {
         didSet {
             menuBarItemLabel.text = menuBarItemText
-            menuBarItemLabel.contentMode = .center
-
         }
     }
     

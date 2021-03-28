@@ -12,15 +12,15 @@ class StatisticsCollectionViewCell: UICollectionViewCell {
     static let identifier = "StatisticsCollectionViewCell"
     
     // MARK: - Putting information into Cell
-    var trackInfo: TileInfo? {
+    var tileInfo: TileInfo? {
         didSet {
-            if let url = trackInfo?.imgURL {
+            if let url = tileInfo?.imgURL {
                 trackImage.lazyLoadImageUsingURL(urlString: url, placeholder: nil)
             }
-            if let title = trackInfo?.title {
+            if let title = tileInfo?.title {
                 trackOrArtistLabel.text = title
             }
-            if let placement = trackInfo?.position {
+            if let placement = tileInfo?.position {
                 placementLabel.text = "#\(placement)"
             }
         }
@@ -33,7 +33,7 @@ class StatisticsCollectionViewCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.backgroundColor = UIColor.yellow
+        imageView.backgroundColor = UIColor.systemGray
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = Constants.cornerRadius.rawValue
         return imageView

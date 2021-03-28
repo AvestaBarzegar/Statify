@@ -24,7 +24,7 @@ class StatisticsCollectionScrollView: UIView {
         let insets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         
         let layout = UICollectionViewFlowLayout()
-        let width = UIScreen.main.bounds.width / 2 - 30
+        let width = (UIScreen.main.bounds.width - 60) / 2
         layout.itemSize = CGSize(width: width, height: width)
         layout.minimumLineSpacing = 20
         layout.scrollDirection = .vertical
@@ -82,7 +82,7 @@ extension StatisticsCollectionScrollView: UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let tracks = tracks else {
-            return 50
+            return 0
         }
         return tracks.count
     }
@@ -92,7 +92,7 @@ extension StatisticsCollectionScrollView: UICollectionViewDelegate, UICollection
             return UICollectionViewCell()
         }
         if let track = tracks?[indexPath.row] {
-            cell.trackInfo = track
+            cell.tileInfo = track
         }
         
         return cell
