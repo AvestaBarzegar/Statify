@@ -45,6 +45,8 @@ class TrackViewController: UIViewController {
         return tracks
     }()
     
+    let headerInfo = SectionHeaderViewModel(title: "Top Tracks", leftImageName: nil, rightImageName: nil)
+    
     // MARK: - Init Views
     
     private lazy var collectionView: UICollectionView = {
@@ -76,7 +78,7 @@ class TrackViewController: UIViewController {
     private lazy var headerView: SectionHeaderView = {
         let header = SectionHeaderView()
         header.translatesAutoresizingMaskIntoConstraints = false
-        header.title = "Top Tracks"
+        header.info = headerInfo
         return header
     }()
     

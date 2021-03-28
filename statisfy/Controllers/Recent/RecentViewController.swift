@@ -9,6 +9,8 @@ import UIKit
 
 class RecentViewController: UIViewController {
     
+    // MARK: - Data
+    
     private lazy var recentTracks: [RecentTrackInfo] = {
         var tracks: [RecentTrackInfo] = []
         for index in 1...50 {
@@ -17,6 +19,10 @@ class RecentViewController: UIViewController {
         }
         return tracks
     }()
+    
+    let headerInfo = SectionHeaderViewModel(title: "Recently Played", leftImageName: nil, rightImageName: nil)
+    
+    // MARK: - Init Views
 
     private lazy var tableView: UITableView = {
         let view = UITableView()
@@ -33,9 +39,11 @@ class RecentViewController: UIViewController {
     private lazy var headerView: SectionHeaderView = {
         let header = SectionHeaderView()
         header.translatesAutoresizingMaskIntoConstraints = false
-        header.title = "Recently Played"
+        header.info = headerInfo
         return header
     }()
+    
+    // MARK: - Layout Views
     
     override func viewDidLoad() {
         super.viewDidLoad()

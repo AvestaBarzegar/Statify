@@ -9,7 +9,7 @@ import UIKit
 
 class ArtistViewController: UIViewController, UIScrollViewDelegate {
 
-    // MARK: - Temp Data
+    // MARK: - Data
     
     let numOfPages: CGFloat = 3
     
@@ -46,6 +46,8 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
         return tracks
     }()
     
+    let headerInfo = SectionHeaderViewModel(title: "Top Artists", leftImageName: nil, rightImageName: nil)
+    
     // MARK: - Init Views
     
     private lazy var collectionView: UICollectionView = {
@@ -77,7 +79,7 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
     private lazy var headerView: SectionHeaderView = {
         let header = SectionHeaderView()
         header.translatesAutoresizingMaskIntoConstraints = false
-        header.title = "Top Artists"
+        header.info = headerInfo
         return header
     }()
     
