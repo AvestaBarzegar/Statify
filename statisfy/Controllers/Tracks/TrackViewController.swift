@@ -9,100 +9,34 @@ import UIKit
 
 class TrackViewController: UIViewController, UIScrollViewDelegate {
     
-    let numOfPages: CGFloat = 3
+    // MARK: - Temp Data
     
-    let track1 = TileInfo(title: "Silver Soul", position: 1, imgURL: "https://homepages.cae.wisc.edu/~ece533/images/airplane.png")
-    let track2 = TileInfo(title: "Zebra", position: 2, imgURL: "https://homepages.cae.wisc.edu/~ece533/images/arctichare.png")
-    let track3 = TileInfo(title: "Space Song", position: 3, imgURL: "https://homepages.cae.wisc.edu/~ece533/images/boat.png")
+    let numOfPages: CGFloat = 3
     
     private lazy var fourWeekTracks: [TileInfo] = {
         var tracks: [TileInfo] = []
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
+        for index in 1...50 {
+            let track = TileInfo(title: "Silver Soul", position: index, imgURL: "https://i.pinimg.com/originals/3b/22/21/3b22217a65c57f568ca8da56cee2efdf.jpg")
+            tracks.append(track)
+        }
         return tracks
     }()
     
     private lazy var sixMonthTracks: [TileInfo] = {
         var tracks: [TileInfo] = []
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        
+        for index in 1...50 {
+            let track = TileInfo(title: "Chanel", position: index, imgURL: "https://upload.wikimedia.org/wikipedia/en/7/7c/Frank_Ocean_Chanel_Cover.jpg")
+            tracks.append(track)
+        }
         return tracks
     }()
     
     private lazy var allTimeTracks: [TileInfo] = {
         var tracks: [TileInfo] = []
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
-        tracks.append(track1)
-        tracks.append(track2)
-        tracks.append(track3)
+        for index in 1...50 {
+            let track = TileInfo(title: "Space Song", position: index, imgURL: "https://upload.wikimedia.org/wikipedia/en/thumb/0/00/Beach_House_-_Depression_Cherry.png/220px-Beach_House_-_Depression_Cherry.png")
+            tracks.append(track)
+        }
         
         return tracks
     }()

@@ -10,6 +10,7 @@ import Foundation
 struct TileInfo {
     
     let title: String?
-    let position: Int?
+    // To-do: Change position to let constant <3
+    var position: Int?
     let imgURL: String?
 }
