@@ -49,10 +49,11 @@ class DownloadedImageView: UIImageView {
 
                 if let unwrappedData = data, let imageToCache = UIImage(data: unwrappedData) {
 
+                    let resizedImage = imageToCache.downSample(width: 300)
                     if self.imageURL == url {
-                        self.image = imageToCache
+                        self.image = resizedImage
                     }
-                    imageCache.setObject(imageToCache, forKey: url as AnyObject)
+                    imageCache.setObject(resizedImage, forKey: url as AnyObject)
                 }
             })
         }).resume()
