@@ -126,8 +126,6 @@ extension ArtistViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.x > 0 && scrollView.contentOffset.x < scrollView.bounds.width * 3 {
-            menuBar.sliderViewLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 3
-        }
+        menuBar.sliderViewLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 3
     }
 }
