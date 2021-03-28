@@ -13,15 +13,16 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
     static let identifier = "StatisticsCollectionScrollView"
     
     // MARK: - Init views
+    let padding: CGFloat = 16.0
     
     lazy var collectionView: UICollectionView = {
         
-        let insets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        let insets = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         
         let layout = UICollectionViewFlowLayout()
-        let width = (UIScreen.main.bounds.width - 60) / 2
+        let width = (UIScreen.main.bounds.width - padding * 3) / 2
         layout.itemSize = CGSize(width: width, height: width)
-        layout.minimumLineSpacing = 20
+        layout.minimumLineSpacing = padding
         layout.scrollDirection = .vertical
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)

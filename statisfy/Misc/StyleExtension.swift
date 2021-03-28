@@ -98,9 +98,9 @@ extension UIColor {
 extension UIImage {
     
     func downSample(width: CGFloat) -> UIImage {
-        let scale = self.size.height / self.size.width
-        let newWidth = self.size.width > 200 ? 200 : self.size.width
-        let newHeight = newWidth * scale
+        let aspectRatio = self.size.height / self.size.width
+        let newWidth = self.size.width > width ? width : self.size.width
+        let newHeight = newWidth * aspectRatio
         let newSize = CGSize(width: newWidth, height: newHeight)
         UIGraphicsBeginImageContext(newSize)
         self.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))

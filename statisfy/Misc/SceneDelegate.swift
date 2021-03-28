@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         window.overrideUserInterfaceStyle = .dark
         window.backgroundColor = .backgroundColor
-        let rootViewController = AppTabBarController()
+        let rootViewController = WelcomeViewController()
         window.rootViewController = rootViewController
         self.window = window
         window.makeKeyAndVisible()

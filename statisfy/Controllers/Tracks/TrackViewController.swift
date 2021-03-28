@@ -37,7 +37,6 @@ class TrackViewController: UIViewController {
             let track = TileInfo(title: "Space Song", position: index, imgURL: "https://upload.wikimedia.org/wikipedia/en/thumb/0/00/Beach_House_-_Depression_Cherry.png/220px-Beach_House_-_Depression_Cherry.png")
             tracks.append(track)
         }
-        
         return tracks
     }()
     

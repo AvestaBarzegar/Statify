@@ -50,9 +50,8 @@ class WelcomeViewController: UIViewController {
     func getStartedClicked() {
         debugPrint("Wow, someone wanted to get started!")
         // To-do: put logic for showing webView when button is tapped
-        self.navigationController?.pushViewController(AppTabBarController(), animated: true)
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        appDelegate?.window?.rootViewController = AppTabBarController()
+        let window = self.view.window
+        window?.rootViewController = AppTabBarController()
     }
 
     // MARK: - Layout views
