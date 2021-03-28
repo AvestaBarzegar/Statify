@@ -131,4 +131,17 @@ extension MenuBar: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        oldIndex = currentIndex
+        currentIndex = indexPath.row
+        
+        if let baseViewController = baseViewController as? TrackViewController {
+            baseViewController.menuScrollItem(indexPath: indexPath)
+        }
+        
+        if let baseViewController = baseViewController as? ArtistViewController {
+            baseViewController.menuScrollItem(indexPath: indexPath)
+        }
+    }
+    
 }

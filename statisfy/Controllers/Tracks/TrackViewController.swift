@@ -97,6 +97,10 @@ class TrackViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
     }
+    
+    func menuScrollItem(indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
+    }
 }
 
 extension TrackViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

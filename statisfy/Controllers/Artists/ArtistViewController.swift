@@ -98,6 +98,10 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
             collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
     }
+    
+    func menuScrollItem(indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
+    }
 }
 
 extension ArtistViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
