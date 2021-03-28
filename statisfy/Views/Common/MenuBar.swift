@@ -26,7 +26,7 @@ class MenuBar: UIView {
         
         let layout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width / 3
-        let height: CGFloat = Constants.menuBarHeight.rawValue
+        let height: CGFloat = MenuBarItem.menuHeight
         layout.itemSize = CGSize(width: width, height: height)
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .horizontal

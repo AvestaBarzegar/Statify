@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C97059D1260FFF1C007FEB90 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D0260FFF1C007FEB90 /* MenuBar.swift */; };
 		C97059D326100263007FEB90 /* MenuBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D226100263007FEB90 /* MenuBarItem.swift */; };
-		C97059D626100C82007FEB90 /* RecenTrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D526100C82007FEB90 /* RecenTrackTableViewCell.swift */; };
+		C97059D626100C82007FEB90 /* RecentTrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D526100C82007FEB90 /* RecentTrackTableViewCell.swift */; };
 		C97D09A7260FA7150019734F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97D098B260FA7150019734F /* Assets.xcassets */; };
 		C97D09A8260FA7150019734F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D098C260FA7150019734F /* AppDelegate.swift */; };
 		C97D09B9260FA7E60019734F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97D09B8260FA7E60019734F /* LaunchScreen.storyboard */; };
@@ -33,7 +33,7 @@
 		C5E1BB871A24B609ADC46CEA /* Pods-statisfy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-statisfy.debug.xcconfig"; path = "Target Support Files/Pods-statisfy/Pods-statisfy.debug.xcconfig"; sourceTree = "<group>"; };
 		C97059D0260FFF1C007FEB90 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		C97059D226100263007FEB90 /* MenuBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarItem.swift; sourceTree = "<group>"; };
-		C97059D526100C82007FEB90 /* RecenTrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecenTrackTableViewCell.swift; sourceTree = "<group>"; };
+		C97059D526100C82007FEB90 /* RecentTrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTrackTableViewCell.swift; sourceTree = "<group>"; };
 		C97D0973260FA6C30019734F /* statisfy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = statisfy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97D0984260FA6C40019734F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C97D098B260FA7150019734F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		C97059D426100C49007FEB90 /* Recent */ = {
 			isa = PBXGroup;
 			children = (
-				C97059D526100C82007FEB90 /* RecenTrackTableViewCell.swift */,
+				C97059D526100C82007FEB90 /* RecentTrackTableViewCell.swift */,
 			);
 			path = Recent;
 			sourceTree = "<group>";
@@ -358,7 +358,7 @@
 				C97059D1260FFF1C007FEB90 /* MenuBar.swift in Sources */,
 				C97D09BD260FA8BC0019734F /* SceneDelegate.swift in Sources */,
 				C97D09C4260FA8F20019734F /* StatisticsCollectionScrollView.swift in Sources */,
-				C97059D626100C82007FEB90 /* RecenTrackTableViewCell.swift in Sources */,
+				C97059D626100C82007FEB90 /* RecentTrackTableViewCell.swift in Sources */,
 				C97D09C8260FA9200019734F /* AppTabBarController.swift in Sources */,
 				C97D09C3260FA8F20019734F /* StatisticsCollectionViewCell.swift in Sources */,
 				C97D09BF260FA8E30019734F /* DownloadedImageView.swift in Sources */,

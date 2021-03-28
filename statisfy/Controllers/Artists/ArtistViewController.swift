@@ -98,7 +98,7 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
             menuBar.topAnchor.constraint(equalTo: safeArea.topAnchor),
             menuBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             menuBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            menuBar.heightAnchor.constraint(equalToConstant: Constants.menuBarHeight.rawValue),
+            menuBar.heightAnchor.constraint(equalToConstant: MenuBarItem.menuHeight),
             
             scrollView.topAnchor.constraint(equalTo: menuBar.bottomAnchor),
             scrollView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),

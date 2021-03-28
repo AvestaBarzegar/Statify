@@ -8,21 +8,35 @@
 import UIKit
 
 class RecentViewController: UIViewController {
-    
-    
 
     private lazy var tableView: UITableView = {
         let view = UITableView()
-        let insets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.backgroundColor
         view.delegate = self
         view.dataSource = self
+        view.showsVerticalScrollIndicator = false
+        view.showsHorizontalScrollIndicator = false
+        view.register(RecentTrackTableViewCell.self, forCellReuseIdentifier: RecentTrackTableViewCell.identifier)
         return view
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setup()
+    }
+    
+    private func setup() {
+        self.view.backgroundColor = UIColor.backgroundColor
+        self.view.addSubview(tableView)
+        let safeArea = view.layoutMarginsGuide
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        ])
     }
     
     /*
@@ -42,11 +56,14 @@ extension RecentViewController: UITableViewDataSource, UITableViewDelegate {
         return 10
     }
     
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return RecentTrackTableViewCell.cellHeight
     }
     
-    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentTrackTableViewCell.identifier) as? RecentTrackTableViewCell else { return UITableViewCell() }
+        return cell
+        
+    }
     
 }

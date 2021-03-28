@@ -10,6 +10,7 @@ import UIKit
 class MenuBarItem: UICollectionViewCell {
     
     static let identifier = "MenuBarItem"
+    static let menuHeight: CGFloat = 64
     
     // MARK: - Putting information into Cell
     var menuBarItemText: String? {
