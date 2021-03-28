@@ -42,7 +42,7 @@ extension UIFont {
     }
     
     static var tabBarFont: UIFont {
-        return UIFont.systemFont(ofSize: 10, weight: .semibold)
+        return UIFont.systemFont(ofSize: 12, weight: .semibold)
     }
     
     static var bodyFontBolded: UIFont {
