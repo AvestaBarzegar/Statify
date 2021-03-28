@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class MenuBarItem: UICollectionViewCell {
     
     static let identifier = "MenuBarItem"
