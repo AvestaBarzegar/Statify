@@ -12,9 +12,27 @@ class MenuBar: UIView {
     // MARK: - Handling Cell information and states
     var menuBarItemTitles: [String]?
     
+    weak var baseViewController: UIViewController?
+    
     var sliderViewLeftAnchorConstraint: NSLayoutConstraint?
     
-    var currentIndex: Int = 0
+    var currentIndex: Int = 0 {
+        didSet {
+            let indexPath = IndexPath(row: currentIndex, section: 0)
+            let cell = collectionView.cellForItem(at: indexPath) as? MenuBarItem
+            cell?.current = true
+        }
+    }
+    
+    var oldIndex: Int? {
+        didSet {
+            let indexPath = IndexPath(row: currentIndex, section: 0)
+            let cell = collectionView.cellForItem(at: indexPath) as? MenuBarItem
+            cell?.current = false
+        }
+    }
+    
+//    var currentIndex: Int = 0
     
     // MARK: - Init views
     
@@ -111,30 +129,6 @@ extension MenuBar: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.menuBarItemText = menuBarItemTitles?[indexPath.row]
         
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let oldIndexPath = IndexPath(row: currentIndex, section: 0)
-        guard let oldCell = collectionView.cellForItem(at: oldIndexPath) as? MenuBarItem else { return }
-        oldCell.current = false
-        
-        currentIndex = indexPath.row
-        guard let selectedCell = collectionView.cellForItem(at: indexPath) as? MenuBarItem else { return }
-        selectedCell.current = true
-        
-        let newLocation = CGFloat(indexPath.item) * frame.width / 3
-        sliderViewLeftAnchorConstraint?.constant = newLocation
-        
-        UIView.animate(
-            withDuration: 0.75,
-            delay: 0,
-            usingSpringWithDamping: 1,
-            initialSpringVelocity: 1.5,
-            options: .curveEaseOut,
-            animations: {
-                self.layoutIfNeeded()
-            },
-            completion: nil)
     }
     
 }

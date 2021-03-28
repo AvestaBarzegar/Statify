@@ -70,6 +70,7 @@ class TrackViewController: UIViewController {
         let menu = MenuBar()
         menu.translatesAutoresizingMaskIntoConstraints = false
         menu.menuBarItemTitles = ["Last 4 Weeks", "Last 6 Months", "All Time"]
+        menu.baseViewController = self
         return menu
     }()
     
@@ -119,4 +120,14 @@ extension TrackViewController: UICollectionViewDataSource, UICollectionViewDeleg
         return collectionView.bounds.size
     }
     
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        menuBar.oldIndex = menuBar.currentIndex
+        menuBar.currentIndex = Int(targetContentOffset.pointee.x / view.frame.width)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x > 0 && scrollView.contentOffset.x < scrollView.bounds.width * 3 {
+            menuBar.sliderViewLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 3
+        }
+    }
 }
