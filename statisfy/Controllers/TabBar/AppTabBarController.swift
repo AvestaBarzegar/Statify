@@ -14,14 +14,13 @@ class AppTabBarController: UITabBarController {
     private lazy var tabBars: [UITabBarItem] = {
         var arr = [UITabBarItem]()
         
-        let firstItem = UITabBarItem()
-        firstItem.title = "Top Tracks"
+        let tabBarInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
         
-        let secondItem = UITabBarItem()
-        secondItem.title = "Top Artists"
+        let firstItem = UITabBarItem(title: "Tracks", image: UIImage(systemName: "music.note.house"), selectedImage: UIImage(systemName: "music.note.house"))
         
-        let thirdItem = UITabBarItem()
-        thirdItem.title = "Recent Tracks"
+        let secondItem = UITabBarItem(title: "Artists", image: UIImage(systemName: "person.3"), selectedImage: UIImage(systemName: "person.3.fill"))
+        
+        let thirdItem = UITabBarItem(title: "Recent", image: UIImage(systemName: "music.note"), selectedImage: UIImage(systemName: "music.note.list"))
         
         arr.append(firstItem)
         arr.append(secondItem)

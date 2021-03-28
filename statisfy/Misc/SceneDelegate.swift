@@ -69,10 +69,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             NSAttributedString.Key.foregroundColor: colorSelected,
             NSAttributedString.Key.font: font
         ]
-        
+
         UITabBarItem.appearance().setTitleTextAttributes(attributesNormal, for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes(attributesSelected, for: .selected)
         UITabBar.appearance().barTintColor = UIColor.spotifyGray
+        UITabBar.appearance().tintColor = UIColor.spotifyGreen
         
     }
 
