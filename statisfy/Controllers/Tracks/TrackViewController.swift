@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TrackViewController: UIViewController, UIScrollViewDelegate {
+class TrackViewController: UIViewController {
     
     // MARK: - Temp Data
     
@@ -41,37 +41,31 @@ class TrackViewController: UIViewController, UIScrollViewDelegate {
         return tracks
     }()
     
+    private lazy var tracks: [[TileInfo]] = {
+        let tracks = [fourWeekTracks, sixMonthTracks, allTimeTracks]
+        return tracks
+    }()
+    
     // MARK: - Init Views
     
-    private lazy var scrollView: UIScrollView = {
-        let view = UIScrollView()
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.collectionViewLayout = layout
+        view.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.showsHorizontalScrollIndicator = false
         view.showsVerticalScrollIndicator = false
         view.delegate = self
+        view.dataSource = self
+        view.register(StatisticsCollectionScrollView.self, forCellWithReuseIdentifier: StatisticsCollectionScrollView.identifier)
         view.isPagingEnabled = true
         view.backgroundColor = .backgroundColor
         return view
     }()
-       
-    private lazy var fourWeeksView: StatisticsCollectionScrollView = {
-        let view = StatisticsCollectionScrollView()
-        view.tracks = fourWeekTracks
-        return view
-    }()
-    
-    private lazy var sixMonthView: StatisticsCollectionScrollView = {
-        let view = StatisticsCollectionScrollView()
-        view.tracks = sixMonthTracks
-        return view
-    }()
-    
-    private lazy var allTimeView: StatisticsCollectionScrollView = {
-        let view = StatisticsCollectionScrollView()
-        view.tracks = allTimeTracks
-        return view
-    }()
-    
+
     private lazy var menuBar: MenuBar = {
         let menu = MenuBar()
         menu.translatesAutoresizingMaskIntoConstraints = false
@@ -88,11 +82,8 @@ class TrackViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func setup() {
-        self.view.addSubview(scrollView)
+        self.view.addSubview(collectionView)
         self.view.addSubview(menuBar)
-        scrollView.addSubview(fourWeeksView)
-        scrollView.addSubview(sixMonthView)
-        scrollView.addSubview(allTimeView)
         let safeArea = view.layoutMarginsGuide
         NSLayoutConstraint.activate([
             menuBar.topAnchor.constraint(equalTo: safeArea.topAnchor),
@@ -100,30 +91,37 @@ class TrackViewController: UIViewController, UIScrollViewDelegate {
             menuBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             menuBar.heightAnchor.constraint(equalToConstant: MenuBarItem.menuHeight),
             
-            scrollView.topAnchor.constraint(equalTo: menuBar.bottomAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+            collectionView.topAnchor.constraint(equalTo: menuBar.bottomAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        scrollView.contentSize = CGSize(width: scrollView.bounds.width * numOfPages, height: scrollView.bounds.height)
-        fourWeeksView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
-        sixMonthView.frame = CGRect(x: scrollView.bounds.width, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
-        allTimeView.frame = CGRect(x: scrollView.bounds.width * 2, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
+    }
+}
+
+extension TrackViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return tracks.count
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatisticsCollectionScrollView.identifier, for: indexPath) as? StatisticsCollectionScrollView
+        cell?.tracks = tracks[indexPath.row]
+        return cell ?? UICollectionViewCell()
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return collectionView.bounds.size
+    }
+    
 }

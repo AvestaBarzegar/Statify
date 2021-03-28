@@ -7,17 +7,12 @@
 
 import UIKit
 
-class StatisticsCollectionScrollView: UIView {
+class StatisticsCollectionScrollView: UICollectionViewCell {
     
     var tracks: [TileInfo]?
-
-    // MARK: - Init views
+    static let identifier = "StatisticsCollectionScrollView"
     
-    let contentView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    // MARK: - Init views
     
     lazy var collectionView: UICollectionView = {
         
@@ -36,7 +31,9 @@ class StatisticsCollectionScrollView: UIView {
         cv.dataSource = self
         cv.delegate = self
         cv.translatesAutoresizingMaskIntoConstraints = false
-        
+        cv.showsVerticalScrollIndicator = false
+        cv.showsHorizontalScrollIndicator = false
+        cv.register(StatisticsCollectionViewCell.self, forCellWithReuseIdentifier: StatisticsCollectionViewCell.identifier)
         return cv
     }()
 
@@ -53,15 +50,8 @@ class StatisticsCollectionScrollView: UIView {
     }
     
     private func setup() {
-        setupCollectionView()
-        self.addSubview(contentView)
         contentView.addSubview(collectionView)
         NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: self.topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            contentView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            
             collectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
@@ -69,13 +59,7 @@ class StatisticsCollectionScrollView: UIView {
 
         ])
     }
-    
-    private func setupCollectionView() {
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.register(StatisticsCollectionViewCell.self, forCellWithReuseIdentifier: StatisticsCollectionViewCell.identifier)
-    }
-    
+
 }
 
 extension StatisticsCollectionScrollView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
