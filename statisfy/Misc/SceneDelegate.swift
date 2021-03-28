@@ -59,9 +59,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func setupTabBarAppearances() {
         let font = UIFont.tabBarFont
         let colorSelected = UIColor.spotifyGreen
-        
+        let cololorUnselected = UIColor.spotifyWhite
         let attributesNormal = [
-            NSAttributedString.Key.foregroundColor: colorSelected,
+            NSAttributedString.Key.foregroundColor: cololorUnselected,
             NSAttributedString.Key.font: font
         ]
         

@@ -97,11 +97,6 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
             collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-    }
 }
 
 extension ArtistViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

@@ -7,10 +7,21 @@
 
 import UIKit
 
+
 class MenuBarItem: UICollectionViewCell {
     
     static let identifier = "MenuBarItem"
     static let menuHeight: CGFloat = 64
+    
+    var current: Bool = false {
+        didSet {
+            if current == true {
+                menuBarItemLabel.textColor = UIColor.spotifyGreen
+            } else {
+                menuBarItemLabel.textColor = UIColor.spotifyWhite
+            }
+        }
+    }
     
     // MARK: - Putting information into Cell
     var menuBarItemText: String? {

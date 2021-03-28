@@ -9,8 +9,12 @@ import UIKit
 
 class MenuBar: UIView {
 
-    // MARK: - Handling how many items in bar
+    // MARK: - Handling Cell information and states
     var menuBarItemTitles: [String]?
+    
+    var sliderViewLeftAnchorConstraint: NSLayoutConstraint?
+    
+    var currentIndex: Int = 0
     
     // MARK: - Init views
     
@@ -41,6 +45,13 @@ class MenuBar: UIView {
         
         return cv
     }()
+    
+    let sliderView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.green
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
     // MARK: - Layout Views
     
@@ -57,6 +68,7 @@ class MenuBar: UIView {
     private func setup() {
         setupCollectionView()
         self.addSubview(contentView)
+        self.addSubview(sliderView)
         contentView.addSubview(collectionView)
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: self.topAnchor),
@@ -67,9 +79,14 @@ class MenuBar: UIView {
             collectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-            collectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor)
-
+            collectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            
+            sliderView.heightAnchor.constraint(equalToConstant: 2),
+            sliderView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            sliderView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 1/3)
         ])
+        sliderViewLeftAnchorConstraint = sliderView.leftAnchor.constraint(equalTo: contentView.leftAnchor)
+        sliderViewLeftAnchorConstraint?.isActive = true
     }
     
     private func setupCollectionView() {
@@ -87,10 +104,37 @@ extension MenuBar: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuBarItem.identifier, for: indexPath) as? MenuBarItem else { return UICollectionViewCell() }
+        if indexPath.row == currentIndex {
+            cell.current = true
+        }
         
         cell.menuBarItemText = menuBarItemTitles?[indexPath.row]
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let oldIndexPath = IndexPath(row: currentIndex, section: 0)
+        guard let oldCell = collectionView.cellForItem(at: oldIndexPath) as? MenuBarItem else { return }
+        oldCell.current = false
+        
+        currentIndex = indexPath.row
+        guard let selectedCell = collectionView.cellForItem(at: indexPath) as? MenuBarItem else { return }
+        selectedCell.current = true
+        
+        let newLocation = CGFloat(indexPath.item) * frame.width / 3
+        sliderViewLeftAnchorConstraint?.constant = newLocation
+        
+        UIView.animate(
+            withDuration: 0.75,
+            delay: 0,
+            usingSpringWithDamping: 1,
+            initialSpringVelocity: 1.5,
+            options: .curveEaseOut,
+            animations: {
+                self.layoutIfNeeded()
+            },
+            completion: nil)
     }
     
 }

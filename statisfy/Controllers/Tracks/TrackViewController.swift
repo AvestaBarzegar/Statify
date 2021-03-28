@@ -97,11 +97,6 @@ class TrackViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-    }
 }
 
 extension TrackViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
