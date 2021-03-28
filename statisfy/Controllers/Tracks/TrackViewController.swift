@@ -50,15 +50,11 @@ class TrackViewController: UIViewController {
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 0
-        let safeArea = view.layoutMarginsGuide
-        let height = safeArea.layoutFrame.height - MenuBarItem.menuHeight
-        let width = UIScreen.main.bounds.width
-        layout.itemSize = CGSize(width: width, height: height)
         layout.scrollDirection = .horizontal
 
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.collectionViewLayout = layout
+        view.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.showsHorizontalScrollIndicator = false
         view.showsVerticalScrollIndicator = false
@@ -66,7 +62,7 @@ class TrackViewController: UIViewController {
         view.dataSource = self
         view.register(StatisticsCollectionScrollView.self, forCellWithReuseIdentifier: StatisticsCollectionScrollView.identifier)
         view.isPagingEnabled = true
-        view.backgroundColor = .green
+        view.backgroundColor = .backgroundColor
         return view
     }()
 
@@ -108,7 +104,7 @@ class TrackViewController: UIViewController {
     }
 }
 
-extension TrackViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension TrackViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tracks.count
@@ -118,6 +114,14 @@ extension TrackViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatisticsCollectionScrollView.identifier, for: indexPath) as? StatisticsCollectionScrollView
         cell?.tracks = tracks[indexPath.row]
         return cell ?? UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return collectionView.bounds.size
     }
     
 }
