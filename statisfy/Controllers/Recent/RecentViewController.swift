@@ -8,6 +8,15 @@
 import UIKit
 
 class RecentViewController: UIViewController {
+    
+    private lazy var recentTracks: [RecentTrackInfo] = {
+        var tracks: [RecentTrackInfo] = []
+        for index in 1...50 {
+            let track = RecentTrackInfo(artist: "Pop Smoke", track: "Christopher Walking", imgURL: "https://www.rapreviews.com/wp-content/uploads/2020/02/popsmoke-woovol2.jpg")
+            tracks.append(track)
+        }
+        return tracks
+    }()
 
     private lazy var tableView: UITableView = {
         let view = UITableView()
@@ -53,7 +62,7 @@ class RecentViewController: UIViewController {
 extension RecentViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return recentTracks.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -62,6 +71,7 @@ extension RecentViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentTrackTableViewCell.identifier) as? RecentTrackTableViewCell else { return UITableViewCell() }
+        cell.recentTrackInfo = recentTracks[indexPath.row]
         return cell
         
     }
