@@ -73,6 +73,13 @@ class TrackViewController: UIViewController {
         return menu
     }()
     
+    private lazy var headerView: SectionHeaderView = {
+        let header = SectionHeaderView()
+        header.translatesAutoresizingMaskIntoConstraints = false
+        header.title = "Top Tracks"
+        return header
+    }()
+    
     // MARK: - Layout Views
 
     override func viewDidLoad() {
@@ -103,9 +110,15 @@ class TrackViewController: UIViewController {
         self.collectionView.alpha = 0
         self.view.addSubview(collectionView)
         self.view.addSubview(menuBar)
+        self.view.addSubview(headerView)
         let safeArea = view.layoutMarginsGuide
         NSLayoutConstraint.activate([
-            menuBar.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            headerView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: Constants.headerViewHeight.rawValue),
+            
+            menuBar.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             menuBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             menuBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             menuBar.heightAnchor.constraint(equalToConstant: MenuBarItem.menuHeight),
@@ -121,6 +134,8 @@ class TrackViewController: UIViewController {
         collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
     }
 }
+
+    // MARK: - UICollectionView Methods
 
 extension TrackViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     

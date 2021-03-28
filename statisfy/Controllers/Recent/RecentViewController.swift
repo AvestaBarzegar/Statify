@@ -30,6 +30,13 @@ class RecentViewController: UIViewController {
         return view
     }()
     
+    private lazy var headerView: SectionHeaderView = {
+        let header = SectionHeaderView()
+        header.translatesAutoresizingMaskIntoConstraints = false
+        header.title = "Recently Played"
+        return header
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -58,9 +65,15 @@ class RecentViewController: UIViewController {
         self.tableView.alpha = 0
         self.view.backgroundColor = UIColor.backgroundColor
         self.view.addSubview(tableView)
+        self.view.addSubview(headerView)
         let safeArea = view.layoutMarginsGuide
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            headerView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: Constants.headerViewHeight.rawValue),
+            
+            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)

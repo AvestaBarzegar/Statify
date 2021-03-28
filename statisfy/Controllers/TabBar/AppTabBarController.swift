@@ -16,15 +16,15 @@ class AppTabBarController: UITabBarController {
         
         let tabBarInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
         
-        let firstItem = UITabBarItem(title: "Tracks", image: UIImage(systemName: "music.note.house"), selectedImage: UIImage(systemName: "music.note.house"))
+        let trackItem = UITabBarItem(title: "Tracks", image: UIImage(systemName: "music.note.house"), selectedImage: UIImage(systemName: "music.note.house"))
         
-        let secondItem = UITabBarItem(title: "Artists", image: UIImage(systemName: "person.3"), selectedImage: UIImage(systemName: "person.3.fill"))
+        let artistItem = UITabBarItem(title: "Artists", image: UIImage(systemName: "person.3"), selectedImage: UIImage(systemName: "person.3.fill"))
         
-        let thirdItem = UITabBarItem(title: "Recent", image: UIImage(systemName: "music.note"), selectedImage: UIImage(systemName: "music.note.list"))
+        let recentItem = UITabBarItem(title: "Recent", image: UIImage(systemName: "clock"), selectedImage: UIImage(systemName: "clock.fill"))
         
-        arr.append(firstItem)
-        arr.append(secondItem)
-        arr.append(thirdItem)
+        arr.append(trackItem)
+        arr.append(artistItem)
+        arr.append(recentItem)
         return arr
         
     }()

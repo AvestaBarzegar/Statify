@@ -12,6 +12,7 @@ enum Constants: CGFloat {
     
     case cornerRadius = 8.0
     case animationDuration = 0.75
+    case headerViewHeight = 48.0
 }
 
 extension UIFont {
@@ -41,7 +42,7 @@ extension UIFont {
     }
     
     static var tabBarFont: UIFont {
-        return UIFont.systemFont(ofSize: 15, weight: .semibold)
+        return UIFont.systemFont(ofSize: 10, weight: .semibold)
     }
     
     static var bodyFontBolded: UIFont {

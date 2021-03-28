@@ -10,7 +10,7 @@ import UIKit
 class MenuBarItem: UICollectionViewCell {
     
     static let identifier = "MenuBarItem"
-    static let menuHeight: CGFloat = 64
+    static let menuHeight: CGFloat = 48
     
     var current: Bool = false {
         didSet {
