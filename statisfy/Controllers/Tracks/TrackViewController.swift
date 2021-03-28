@@ -11,20 +11,20 @@ class TrackViewController: UIViewController, UIScrollViewDelegate {
     
     let numOfPages: CGFloat = 3
     
-    let track1 = TrackInfo(title: "Silver Soul", position: 1, imgURL: "https://homepages.cae.wisc.edu/~ece533/images/airplane.png")
-    let track2 = TrackInfo(title: "Zebra", position: 2, imgURL: "https://homepages.cae.wisc.edu/~ece533/images/arctichare.png")
-    let track3 = TrackInfo(title: "Space Song", position: 3, imgURL: "https://homepages.cae.wisc.edu/~ece533/images/boat.png")
+    let track1 = TileInfo(title: "Silver Soul", position: 1, imgURL: "https://homepages.cae.wisc.edu/~ece533/images/airplane.png")
+    let track2 = TileInfo(title: "Zebra", position: 2, imgURL: "https://homepages.cae.wisc.edu/~ece533/images/arctichare.png")
+    let track3 = TileInfo(title: "Space Song", position: 3, imgURL: "https://homepages.cae.wisc.edu/~ece533/images/boat.png")
     
-    private lazy var fourWeekTracks: [TrackInfo] = {
-        var tracks: [TrackInfo] = []
+    private lazy var fourWeekTracks: [TileInfo] = {
+        var tracks: [TileInfo] = []
         tracks.append(track1)
         tracks.append(track2)
         tracks.append(track3)
         return tracks
     }()
     
-    private lazy var sixMonthTracks: [TrackInfo] = {
-        var tracks: [TrackInfo] = []
+    private lazy var sixMonthTracks: [TileInfo] = {
+        var tracks: [TileInfo] = []
         tracks.append(track1)
         tracks.append(track2)
         tracks.append(track3)
@@ -65,8 +65,8 @@ class TrackViewController: UIViewController, UIScrollViewDelegate {
         return tracks
     }()
     
-    private lazy var allTimeTracks: [TrackInfo] = {
-        var tracks: [TrackInfo] = []
+    private lazy var allTimeTracks: [TileInfo] = {
+        var tracks: [TileInfo] = []
         tracks.append(track1)
         tracks.append(track2)
         tracks.append(track3)
@@ -119,23 +119,30 @@ class TrackViewController: UIViewController, UIScrollViewDelegate {
         view.backgroundColor = .backgroundColor
         return view
     }()
-    
-    private lazy var fourWeeksView: TrackStatisticsView = {
-        let view = TrackStatisticsView()
+       
+    private lazy var fourWeeksView: StatisticsCollectionScrollView = {
+        let view = StatisticsCollectionScrollView()
         view.tracks = fourWeekTracks
         return view
     }()
     
-    private lazy var sixMonthView: TrackStatisticsView = {
-        let view = TrackStatisticsView()
+    private lazy var sixMonthView: StatisticsCollectionScrollView = {
+        let view = StatisticsCollectionScrollView()
         view.tracks = sixMonthTracks
         return view
     }()
     
-    private lazy var allTimeView: TrackStatisticsView = {
-        let view = TrackStatisticsView()
+    private lazy var allTimeView: StatisticsCollectionScrollView = {
+        let view = StatisticsCollectionScrollView()
         view.tracks = allTimeTracks
         return view
+    }()
+    
+    private lazy var menuBar: MenuBar = {
+        let menu = MenuBar()
+        menu.translatesAutoresizingMaskIntoConstraints = false
+        menu.menuBarItemTitles = ["Last 4 Weeks", "Last 6 Months", "All Time"]
+        return menu
     }()
     
     // MARK: - Layout Views
@@ -148,12 +155,18 @@ class TrackViewController: UIViewController, UIScrollViewDelegate {
     
     private func setup() {
         self.view.addSubview(scrollView)
+        self.view.addSubview(menuBar)
         scrollView.addSubview(fourWeeksView)
         scrollView.addSubview(sixMonthView)
         scrollView.addSubview(allTimeView)
         let safeArea = view.layoutMarginsGuide
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            menuBar.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            menuBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            menuBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            menuBar.heightAnchor.constraint(equalToConstant: Constants.menuBarHeight.rawValue),
+            
+            scrollView.topAnchor.constraint(equalTo: menuBar.bottomAnchor),
             scrollView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)

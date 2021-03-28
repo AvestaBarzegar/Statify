@@ -7,21 +7,20 @@
 
 import UIKit
 
-class TrackStatisticsCell: UICollectionViewCell {
+class StatisticsCollectionViewCell: UICollectionViewCell {
     
-    static let identifier = "TrackStatisticsCell"
+    static let identifier = "StatisticsCollectionViewCell"
     
     // MARK: - Putting information into Cell
-    var trackInfo: TrackInfo? {
+    var trackInfo: TileInfo? {
         didSet {
-            guard let trackInfo = trackInfo else { return }
-            if let url = trackInfo.imgURL {
+            if let url = trackInfo?.imgURL {
                 trackImage.lazyLoadImageUsingURL(urlString: url, placeholder: nil)
             }
-            if let title = trackInfo.title {
+            if let title = trackInfo?.title {
                 trackOrArtistLabel.text = title
             }
-            if let placement = trackInfo.position {
+            if let placement = trackInfo?.position {
                 placementLabel.text = "#\(placement)"
             }
         }
@@ -49,9 +48,9 @@ class TrackStatisticsCell: UICollectionViewCell {
         label.text = "REALLY LONG TEXT THAT TAKES UP A LOT OF SPACE AND IS VERY ANNOYING"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.shadowColor = UIColor.black.cgColor
-        label.layer.shadowRadius = 0.5
+        label.layer.shadowRadius = 5
         label.layer.shadowOpacity = 1.0
-        label.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+        label.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
         label.layer.masksToBounds = false
         return label
     }()
@@ -65,9 +64,9 @@ class TrackStatisticsCell: UICollectionViewCell {
         label.text = "REALLY LONG TEXT THAT TAKES UP A LOT OF SPACE AND IS VERY ANNOYING"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.shadowColor = UIColor.black.cgColor
-        label.layer.shadowRadius = 0.5
+        label.layer.shadowRadius = 5
         label.layer.shadowOpacity = 1.0
-        label.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+        label.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
         label.layer.masksToBounds = false
         return label
     }()

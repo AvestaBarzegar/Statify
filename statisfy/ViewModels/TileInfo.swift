@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TrackInfo {
+struct TileInfo {
     
     let title: String?
     let position: Int?

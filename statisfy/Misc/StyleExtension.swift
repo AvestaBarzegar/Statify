@@ -11,7 +11,7 @@ import UIKit
 enum Constants: CGFloat {
     
     case cornerRadius = 8.0
-    
+    case menuBarHeight = 64
 }
 
 extension UIFont {

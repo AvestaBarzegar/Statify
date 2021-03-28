@@ -7,20 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C97059D1260FFF1C007FEB90 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D0260FFF1C007FEB90 /* MenuBar.swift */; };
+		C97059D326100263007FEB90 /* MenuBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D226100263007FEB90 /* MenuBarItem.swift */; };
 		C97D09A7260FA7150019734F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97D098B260FA7150019734F /* Assets.xcassets */; };
 		C97D09A8260FA7150019734F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D098C260FA7150019734F /* AppDelegate.swift */; };
 		C97D09B9260FA7E60019734F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97D09B8260FA7E60019734F /* LaunchScreen.storyboard */; };
 		C97D09BB260FA7FE0019734F /* StyleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09BA260FA7FE0019734F /* StyleExtension.swift */; };
 		C97D09BD260FA8BC0019734F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09BC260FA8BC0019734F /* SceneDelegate.swift */; };
 		C97D09BF260FA8E30019734F /* DownloadedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09BE260FA8E30019734F /* DownloadedImageView.swift */; };
-		C97D09C3260FA8F20019734F /* TrackStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09C1260FA8F20019734F /* TrackStatisticsCell.swift */; };
-		C97D09C4260FA8F20019734F /* TrackStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09C2260FA8F20019734F /* TrackStatisticsView.swift */; };
+		C97D09C3260FA8F20019734F /* StatisticsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09C1260FA8F20019734F /* StatisticsCollectionViewCell.swift */; };
+		C97D09C4260FA8F20019734F /* StatisticsCollectionScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09C2260FA8F20019734F /* StatisticsCollectionScrollView.swift */; };
 		C97D09C6260FA91A0019734F /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09C5260FA91A0019734F /* RecentViewController.swift */; };
 		C97D09C8260FA9200019734F /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09C7260FA9200019734F /* AppTabBarController.swift */; };
 		C97D09CA260FA92B0019734F /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09C9260FA92B0019734F /* TrackViewController.swift */; };
 		C97D09CC260FA94C0019734F /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09CB260FA94C0019734F /* ArtistViewController.swift */; };
 		C97D09CE260FA9740019734F /* WelcomeVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09CD260FA9740019734F /* WelcomeVIewController.swift */; };
-		C97D09D3260FE5F70019734F /* TrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09D2260FE5F70019734F /* TrackInfo.swift */; };
+		C97D09D3260FE5F70019734F /* TileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09D2260FE5F70019734F /* TileInfo.swift */; };
 		DFBF7D81A25565FE893E676D /* Pods_statisfy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +30,8 @@
 		6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_statisfy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF2D5B978843954F4803993 /* Pods-statisfy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-statisfy.release.xcconfig"; path = "Target Support Files/Pods-statisfy/Pods-statisfy.release.xcconfig"; sourceTree = "<group>"; };
 		C5E1BB871A24B609ADC46CEA /* Pods-statisfy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-statisfy.debug.xcconfig"; path = "Target Support Files/Pods-statisfy/Pods-statisfy.debug.xcconfig"; sourceTree = "<group>"; };
+		C97059D0260FFF1C007FEB90 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		C97059D226100263007FEB90 /* MenuBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarItem.swift; sourceTree = "<group>"; };
 		C97D0973260FA6C30019734F /* statisfy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = statisfy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97D0984260FA6C40019734F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C97D098B260FA7150019734F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -36,14 +40,14 @@
 		C97D09BA260FA7FE0019734F /* StyleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleExtension.swift; sourceTree = "<group>"; };
 		C97D09BC260FA8BC0019734F /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C97D09BE260FA8E30019734F /* DownloadedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadedImageView.swift; sourceTree = "<group>"; };
-		C97D09C1260FA8F20019734F /* TrackStatisticsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackStatisticsCell.swift; sourceTree = "<group>"; };
-		C97D09C2260FA8F20019734F /* TrackStatisticsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackStatisticsView.swift; sourceTree = "<group>"; };
+		C97D09C1260FA8F20019734F /* StatisticsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionViewCell.swift; sourceTree = "<group>"; };
+		C97D09C2260FA8F20019734F /* StatisticsCollectionScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionScrollView.swift; sourceTree = "<group>"; };
 		C97D09C5260FA91A0019734F /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
 		C97D09C7260FA9200019734F /* AppTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
 		C97D09C9260FA92B0019734F /* TrackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackViewController.swift; sourceTree = "<group>"; };
 		C97D09CB260FA94C0019734F /* ArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		C97D09CD260FA9740019734F /* WelcomeVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeVIewController.swift; sourceTree = "<group>"; };
-		C97D09D2260FE5F70019734F /* TrackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackInfo.swift; sourceTree = "<group>"; };
+		C97D09D2260FE5F70019734F /* TileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +118,7 @@
 		C97D098E260FA7150019734F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				C97D09D2260FE5F70019734F /* TrackInfo.swift */,
+				C97D09D2260FE5F70019734F /* TileInfo.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -129,7 +133,7 @@
 		C97D0990260FA7150019734F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C97D09C0260FA8EA0019734F /* Tracks */,
+				C97D09C0260FA8EA0019734F /* Statistics */,
 				C97D0996260FA7150019734F /* Common */,
 			);
 			path = Views;
@@ -139,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				C97D09BE260FA8E30019734F /* DownloadedImageView.swift */,
+				C97059D0260FFF1C007FEB90 /* MenuBar.swift */,
+				C97059D226100263007FEB90 /* MenuBarItem.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -202,13 +208,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		C97D09C0260FA8EA0019734F /* Tracks */ = {
+		C97D09C0260FA8EA0019734F /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
-				C97D09C1260FA8F20019734F /* TrackStatisticsCell.swift */,
-				C97D09C2260FA8F20019734F /* TrackStatisticsView.swift */,
+				C97D09C1260FA8F20019734F /* StatisticsCollectionViewCell.swift */,
+				C97D09C2260FA8F20019734F /* StatisticsCollectionScrollView.swift */,
 			);
-			path = Tracks;
+			path = Statistics;
 			sourceTree = "<group>";
 		};
 		CA83E08D240F364AB2AD9B04 /* Frameworks */ = {
@@ -333,17 +339,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				C97D09A8260FA7150019734F /* AppDelegate.swift in Sources */,
-				C97D09D3260FE5F70019734F /* TrackInfo.swift in Sources */,
+				C97D09D3260FE5F70019734F /* TileInfo.swift in Sources */,
 				C97D09CA260FA92B0019734F /* TrackViewController.swift in Sources */,
 				C97D09C6260FA91A0019734F /* RecentViewController.swift in Sources */,
 				C97D09CE260FA9740019734F /* WelcomeVIewController.swift in Sources */,
 				C97D09BB260FA7FE0019734F /* StyleExtension.swift in Sources */,
+				C97059D1260FFF1C007FEB90 /* MenuBar.swift in Sources */,
 				C97D09BD260FA8BC0019734F /* SceneDelegate.swift in Sources */,
-				C97D09C4260FA8F20019734F /* TrackStatisticsView.swift in Sources */,
+				C97D09C4260FA8F20019734F /* StatisticsCollectionScrollView.swift in Sources */,
 				C97D09C8260FA9200019734F /* AppTabBarController.swift in Sources */,
-				C97D09C3260FA8F20019734F /* TrackStatisticsCell.swift in Sources */,
+				C97D09C3260FA8F20019734F /* StatisticsCollectionViewCell.swift in Sources */,
 				C97D09BF260FA8E30019734F /* DownloadedImageView.swift in Sources */,
 				C97D09CC260FA94C0019734F /* ArtistViewController.swift in Sources */,
+				C97059D326100263007FEB90 /* MenuBarItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

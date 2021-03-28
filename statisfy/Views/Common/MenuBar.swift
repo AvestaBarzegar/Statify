@@ -1,16 +1,17 @@
 //
-//  TrackStatisticsView.swift
-//  statisfy-spotify-ios
+//  MenuBar.swift
+//  statisfy
 //
-//  Created by Avesta Barzegar on 2021-03-26.
+//  Created by Avesta Barzegar on 2021-03-27.
 //
 
 import UIKit
 
-class TrackStatisticsView: UIView {
-    
-    var tracks: [TrackInfo]?
+class MenuBar: UIView {
 
+    // MARK: - Handling how many items in bar
+    var menuBarItemTitles: [String]?
+    
     // MARK: - Init views
     
     let contentView: UIView = {
@@ -21,13 +22,14 @@ class TrackStatisticsView: UIView {
     
     lazy var collectionView: UICollectionView = {
         
-        let insets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         let layout = UICollectionViewFlowLayout()
-        let width = UIScreen.main.bounds.width / 2 - 30
-        layout.itemSize = CGSize(width: width, height: width)
-        layout.minimumLineSpacing = 20
-        layout.scrollDirection = .vertical
+        let width = UIScreen.main.bounds.width / 3
+        let height: CGFloat = Constants.menuBarHeight.rawValue
+        layout.itemSize = CGSize(width: width, height: height)
+        layout.minimumLineSpacing = 0
+        layout.scrollDirection = .horizontal
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.contentInset = insets
@@ -73,27 +75,20 @@ class TrackStatisticsView: UIView {
     private func setupCollectionView() {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.register(TrackStatisticsCell.self, forCellWithReuseIdentifier: TrackStatisticsCell.identifier)
+        collectionView.register(MenuBarItem.self, forCellWithReuseIdentifier: MenuBarItem.identifier)
     }
-    
 }
 
-extension TrackStatisticsView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension MenuBar: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let tracks = tracks else {
-            return 50
-        }
-        return tracks.count
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrackStatisticsCell.identifier, for: indexPath) as? TrackStatisticsCell else {
-            return UICollectionViewCell()
-        }
-        if let track = tracks?[indexPath.row] {
-            cell.trackInfo = track
-        }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuBarItem.identifier, for: indexPath) as? MenuBarItem else { return UICollectionViewCell() }
+        
+        cell.menuBarItemText = menuBarItemTitles?[indexPath.row]
         
         return cell
     }
