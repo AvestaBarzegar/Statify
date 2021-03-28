@@ -34,7 +34,7 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
     private lazy var allTimeTracks: [TileInfo] = {
         var tracks: [TileInfo] = []
         for index in 1...50 {
-            let track = TileInfo(title: "JPEGMAFIA", position: index, imgURL: "https://www.wnrn.org/wp-content/uploads/2020/03/BeachHousePMVH100111.jpg")
+            let track = TileInfo(title: "JPEGMAFIA", position: index, imgURL: "https://cdns-images.dzcdn.net/images/artist/66251bd5d137fb7270d66c407a6f96e2/500x500.jpg")
             tracks.append(track)
         }
         
