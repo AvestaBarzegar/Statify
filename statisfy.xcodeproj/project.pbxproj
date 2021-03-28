@@ -11,6 +11,8 @@
 		C97059D326100263007FEB90 /* MenuBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D226100263007FEB90 /* MenuBarItem.swift */; };
 		C97059D626100C82007FEB90 /* RecentTrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D526100C82007FEB90 /* RecentTrackTableViewCell.swift */; };
 		C97059D826101B0E007FEB90 /* RecentTrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D726101B0E007FEB90 /* RecentTrackInfo.swift */; };
+		C97BD80D2610CC6A0016720D /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD80C2610CC6A0016720D /* Endpoint.swift */; };
+		C97BD8112610D05B0016720D /* VerticalAndHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD8102610D05B0016720D /* VerticalAndHorizontalScrollView.swift */; };
 		C97D09A7260FA7150019734F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97D098B260FA7150019734F /* Assets.xcassets */; };
 		C97D09A8260FA7150019734F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D098C260FA7150019734F /* AppDelegate.swift */; };
 		C97D09B9260FA7E60019734F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97D09B8260FA7E60019734F /* LaunchScreen.storyboard */; };
@@ -36,6 +38,8 @@
 		C97059D226100263007FEB90 /* MenuBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarItem.swift; sourceTree = "<group>"; };
 		C97059D526100C82007FEB90 /* RecentTrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTrackTableViewCell.swift; sourceTree = "<group>"; };
 		C97059D726101B0E007FEB90 /* RecentTrackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTrackInfo.swift; sourceTree = "<group>"; };
+		C97BD80C2610CC6A0016720D /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		C97BD8102610D05B0016720D /* VerticalAndHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalAndHorizontalScrollView.swift; sourceTree = "<group>"; };
 		C97D0973260FA6C30019734F /* statisfy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = statisfy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97D0984260FA6C40019734F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C97D098B260FA7150019734F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,6 +85,22 @@
 				C97059D526100C82007FEB90 /* RecentTrackTableViewCell.swift */,
 			);
 			path = Recent;
+			sourceTree = "<group>";
+		};
+		C97BD80E2610CC6D0016720D /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				C97BD80C2610CC6A0016720D /* Endpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		C97BD80F2610D0320016720D /* CustomControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C97BD8102610D05B0016720D /* VerticalAndHorizontalScrollView.swift */,
+			);
+			path = CustomControllers;
 			sourceTree = "<group>";
 		};
 		C97D096A260FA6C30019734F = {
@@ -139,6 +159,7 @@
 		C97D098F260FA7150019734F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				C97BD80E2610CC6D0016720D /* Endpoints */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -166,6 +187,7 @@
 		C97D099B260FA7150019734F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C97BD80F2610D0320016720D /* CustomControllers */,
 				C97D099C260FA7150019734F /* Recent */,
 				C97D099E260FA7150019734F /* TabBar */,
 				C97D09A0260FA7150019734F /* Tracks */,
@@ -355,6 +377,7 @@
 				C97D09A8260FA7150019734F /* AppDelegate.swift in Sources */,
 				C97D09D3260FE5F70019734F /* TileInfo.swift in Sources */,
 				C97059D826101B0E007FEB90 /* RecentTrackInfo.swift in Sources */,
+				C97BD8112610D05B0016720D /* VerticalAndHorizontalScrollView.swift in Sources */,
 				C97D09CA260FA92B0019734F /* TrackViewController.swift in Sources */,
 				C97D09C6260FA91A0019734F /* RecentViewController.swift in Sources */,
 				C97D09CE260FA9740019734F /* WelcomeVIewController.swift in Sources */,
@@ -367,6 +390,7 @@
 				C97D09C3260FA8F20019734F /* StatisticsCollectionViewCell.swift in Sources */,
 				C97D09BF260FA8E30019734F /* DownloadedImageView.swift in Sources */,
 				C97D09CC260FA94C0019734F /* ArtistViewController.swift in Sources */,
+				C97BD80D2610CC6A0016720D /* Endpoint.swift in Sources */,
 				C97059D326100263007FEB90 /* MenuBarItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
