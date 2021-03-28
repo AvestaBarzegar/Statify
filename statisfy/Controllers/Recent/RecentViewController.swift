@@ -36,7 +36,26 @@ class RecentViewController: UIViewController {
         setup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIView.animate(withDuration: Double(Constants.animationDuration.rawValue),
+                       delay: 0,
+                       options: .curveEaseInOut,
+                       animations: {
+                        self.tableView.alpha = 1.0
+                       },
+                       completion: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.tableView.alpha = 0
+    }
+    
     private func setup() {
+        self.tableView.alpha = 0
         self.view.backgroundColor = UIColor.backgroundColor
         self.view.addSubview(tableView)
         let safeArea = view.layoutMarginsGuide

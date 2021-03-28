@@ -11,6 +11,7 @@ import UIKit
 enum Constants: CGFloat {
     
     case cornerRadius = 8.0
+    case animationDuration = 0.75
 }
 
 extension UIFont {

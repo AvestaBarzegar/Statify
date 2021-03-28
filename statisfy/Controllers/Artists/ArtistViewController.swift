@@ -34,7 +34,7 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
     private lazy var allTimeArtists: [TileInfo] = {
         var tracks: [TileInfo] = []
         for index in 1...50 {
-            let track = TileInfo(title: "JPEGMAFIA", position: index, imgURL: "https://cdns-images.dzcdn.net/images/artist/66251bd5d137fb7270d66c407a6f96e2/500x500.jpg")
+            let track = TileInfo(title: "JPEGMAFIA", position: index, imgURL: "https://i.scdn.co/image/ab96d74e74ef64f37918bca8f004010509524417")
             tracks.append(track)
         }
         
@@ -82,7 +82,26 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
         setup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIView.animate(withDuration: Double(Constants.animationDuration.rawValue),
+                       delay: 0,
+                       options: .curveEaseInOut,
+                       animations: {
+                        self.collectionView.alpha = 1.0
+                       },
+                       completion: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.collectionView.alpha = 0
+    }
+    
     private func setup() {
+        self.collectionView.alpha = 0
         self.view.addSubview(collectionView)
         self.view.addSubview(menuBar)
         let safeArea = view.layoutMarginsGuide

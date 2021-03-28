@@ -81,7 +81,26 @@ class TrackViewController: UIViewController {
         setup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIView.animate(withDuration: Double(Constants.animationDuration.rawValue),
+                       delay: 0,
+                       options: .curveEaseInOut,
+                       animations: {
+                        self.collectionView.alpha = 1.0
+                       },
+                       completion: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.collectionView.alpha = 0
+    }
+    
     private func setup() {
+        self.collectionView.alpha = 0
         self.view.addSubview(collectionView)
         self.view.addSubview(menuBar)
         let safeArea = view.layoutMarginsGuide
