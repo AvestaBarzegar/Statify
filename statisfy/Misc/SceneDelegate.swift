@@ -21,8 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         window.overrideUserInterfaceStyle = .dark
         window.backgroundColor = .backgroundColor
-        let rootViewController = WelcomeViewController()
-        window.rootViewController = rootViewController
+        setRootVc(window: window)
         self.window = window
         window.makeKeyAndVisible()
         
@@ -74,7 +73,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UITabBarItem.appearance().setTitleTextAttributes(attributesSelected, for: .selected)
         UITabBar.appearance().barTintColor = UIColor.spotifyGray
         UITabBar.appearance().tintColor = UIColor.spotifyGreen
-        
+    }
+    
+    func setRootVc(window: UIWindow) {
+        if AuthManager.shared.isSignedIn {
+            let rootViewController = AppTabBarController()
+            window.rootViewController = rootViewController
+        } else {
+            let rootViewController = WelcomeViewController()
+            window.rootViewController = rootViewController
+        }
     }
 
 }

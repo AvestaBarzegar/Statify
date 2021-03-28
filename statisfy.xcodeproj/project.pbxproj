@@ -13,6 +13,8 @@
 		C97059D826101B0E007FEB90 /* RecentTrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D726101B0E007FEB90 /* RecentTrackInfo.swift */; };
 		C97BD80D2610CC6A0016720D /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD80C2610CC6A0016720D /* Endpoint.swift */; };
 		C97BD8132610F6D70016720D /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD8122610F6D70016720D /* SectionHeaderView.swift */; };
+		C97BD8162610FF350016720D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD8152610FF350016720D /* AuthManager.swift */; };
+		C97BD818261101460016720D /* SensitiveInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD817261101460016720D /* SensitiveInformation.swift */; };
 		C97D09A7260FA7150019734F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97D098B260FA7150019734F /* Assets.xcassets */; };
 		C97D09A8260FA7150019734F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D098C260FA7150019734F /* AppDelegate.swift */; };
 		C97D09B9260FA7E60019734F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97D09B8260FA7E60019734F /* LaunchScreen.storyboard */; };
@@ -40,6 +42,8 @@
 		C97059D726101B0E007FEB90 /* RecentTrackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTrackInfo.swift; sourceTree = "<group>"; };
 		C97BD80C2610CC6A0016720D /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		C97BD8122610F6D70016720D /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		C97BD8152610FF350016720D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		C97BD817261101460016720D /* SensitiveInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensitiveInformation.swift; sourceTree = "<group>"; };
 		C97D0973260FA6C30019734F /* statisfy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = statisfy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97D0984260FA6C40019734F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C97D098B260FA7150019734F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,6 +99,14 @@
 			path = Endpoints;
 			sourceTree = "<group>";
 		};
+		C97BD8142610FF2A0016720D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C97BD8152610FF350016720D /* AuthManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		C97D096A260FA6C30019734F = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +147,7 @@
 				C97D09BC260FA8BC0019734F /* SceneDelegate.swift */,
 				C97D09B8260FA7E60019734F /* LaunchScreen.storyboard */,
 				C97D09BA260FA7FE0019734F /* StyleExtension.swift */,
+				C97BD817261101460016720D /* SensitiveInformation.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -151,6 +164,7 @@
 		C97D098F260FA7150019734F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				C97BD8142610FF2A0016720D /* Managers */,
 				C97BD80E2610CC6D0016720D /* Endpoints */,
 			);
 			path = Networking;
@@ -380,8 +394,10 @@
 				C97D09C8260FA9200019734F /* AppTabBarController.swift in Sources */,
 				C97D09C3260FA8F20019734F /* StatisticsCollectionViewCell.swift in Sources */,
 				C97BD8132610F6D70016720D /* SectionHeaderView.swift in Sources */,
+				C97BD8162610FF350016720D /* AuthManager.swift in Sources */,
 				C97D09BF260FA8E30019734F /* DownloadedImageView.swift in Sources */,
 				C97D09CC260FA94C0019734F /* ArtistViewController.swift in Sources */,
+				C97BD818261101460016720D /* SensitiveInformation.swift in Sources */,
 				C97BD80D2610CC6A0016720D /* Endpoint.swift in Sources */,
 				C97059D326100263007FEB90 /* MenuBarItem.swift in Sources */,
 			);
