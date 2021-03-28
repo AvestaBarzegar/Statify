@@ -12,7 +12,8 @@ enum Constants: CGFloat {
     
     case cornerRadius = 8.0
     case animationDuration = 0.75
-    case headerViewHeight = 48.0
+    case headerViewHeight = 48
+    case buttonSize = 36
 }
 
 extension UIFont {

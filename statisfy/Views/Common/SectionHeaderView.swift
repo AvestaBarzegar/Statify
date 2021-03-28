@@ -11,7 +11,7 @@ class SectionHeaderView: UIView {
     
     // MARK: - Interaction Logic
 
-    var delegate: SectionHeaderViewDelegate?
+    weak var delegate: SectionHeaderViewDelegate?
     
     @objc
     func leftButtonClicked() {
@@ -30,15 +30,19 @@ class SectionHeaderView: UIView {
             headerLabel.text = info?.title
             
             if let leftImageName = info?.leftImageName {
+                let configuration = UIImage.SymbolConfiguration(pointSize: 30)
                 leftButtonView.addTarget(self, action: #selector(leftButtonClicked), for: .touchUpInside)
-                let leftImage = UIImage(systemName: leftImageName)
+                let leftImage = UIImage(systemName: leftImageName, withConfiguration: configuration)
                 leftButtonView.setImage(leftImage, for: .normal)
+                leftButtonView.imageView?.tintColor = UIColor.spotifyWhite
             }
             
             if let rightImageName = info?.rightImageName {
+                let configuration = UIImage.SymbolConfiguration(pointSize: 30)
                 rightButtonView.addTarget(self, action: #selector(rightButtonClicked), for: .touchUpInside)
-                let rightImage = UIImage(systemName: rightImageName)
+                let rightImage = UIImage(systemName: rightImageName, withConfiguration: configuration)
                 rightButtonView.setImage(rightImage, for: .normal)
+                rightButtonView.imageView?.tintColor = UIColor.spotifyWhite
             }
         }
     }
@@ -86,12 +90,12 @@ class SectionHeaderView: UIView {
         NSLayoutConstraint.activate([
             leftButtonView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             leftButtonView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
-            leftButtonView.widthAnchor.constraint(equalToConstant: 36),
+            leftButtonView.widthAnchor.constraint(equalToConstant: Constants.buttonSize.rawValue),
             leftButtonView.heightAnchor.constraint(equalTo: leftButtonView.widthAnchor),
             
             rightButtonView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             rightButtonView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
-            rightButtonView.widthAnchor.constraint(equalToConstant: 36),
+            rightButtonView.widthAnchor.constraint(equalToConstant: Constants.buttonSize.rawValue),
             rightButtonView.heightAnchor.constraint(equalTo: rightButtonView.widthAnchor),
             
             headerLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
@@ -103,7 +107,7 @@ class SectionHeaderView: UIView {
 
 // MARK: - SectionHeaderViewDelegate methods
 
-protocol SectionHeaderViewDelegate {
+protocol SectionHeaderViewDelegate: AnyObject {
     
     func leftButtonClicked()
     
