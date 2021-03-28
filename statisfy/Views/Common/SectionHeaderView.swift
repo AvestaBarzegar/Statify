@@ -47,7 +47,4 @@ class SectionHeaderView: UIView {
             headerLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
         ])
     }
-    
-
-
 }

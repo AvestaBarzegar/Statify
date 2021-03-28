@@ -48,7 +48,7 @@ class RecentViewController: UIViewController {
         
         UIView.animate(withDuration: Double(Constants.animationDuration.rawValue),
                        delay: 0,
-                       options: .curveEaseInOut,
+                       options: .curveLinear,
                        animations: {
                         self.tableView.alpha = 1.0
                        },

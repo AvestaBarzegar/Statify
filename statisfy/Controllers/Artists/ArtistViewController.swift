@@ -94,7 +94,7 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
         
         UIView.animate(withDuration: Double(Constants.animationDuration.rawValue),
                        delay: 0,
-                       options: .curveEaseInOut,
+                       options: .curveLinear,
                        animations: {
                         self.collectionView.alpha = 1.0
                        },
