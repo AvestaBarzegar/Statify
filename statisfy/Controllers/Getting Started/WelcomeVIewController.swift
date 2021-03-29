@@ -63,7 +63,7 @@ class WelcomeViewController: UIViewController {
     
     private func handleSignIn(success: Bool) {
         // to-do: yell at user on error
-        guard let success { else return }
+        guard success else { return }
         
         let mainTabBarVC = AppTabBarController()
         let window = self.view.window

@@ -56,11 +56,11 @@ final class AuthManager: Endpoint {
         return url
     }
     
-    private var accessToken: String? {
+    var accessToken: String? {
         return UserDefaults.standard.string(forKey: "access_token")
     }
     
-    private var refreshToken: String? {
+    var refreshToken: String? {
         return UserDefaults.standard.string(forKey: "refresh_token")
     }
     
@@ -68,7 +68,7 @@ final class AuthManager: Endpoint {
         return UserDefaults.standard.object(forKey: "expiration_date") as? Date
     }
     
-    private var shouldRefreshToken: Bool {
+    var shouldRefreshToken: Bool {
         guard let expirationDate = tokenExpirationDate else { return false }
         let currentDate = Date()
         let fiveMinutes: TimeInterval = 300
