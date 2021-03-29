@@ -52,6 +52,7 @@ class WelcomeViewController: UIViewController {
         let vc = AuthViewController()
         vc.completionHandler = { [weak self] success in
             DispatchQueue.main.async {
+                vc.dismiss(animated: true, completion: nil)
                 self?.handleSignIn(success: success)
             }
         }
