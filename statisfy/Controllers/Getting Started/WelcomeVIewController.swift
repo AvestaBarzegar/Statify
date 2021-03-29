@@ -68,7 +68,7 @@ class WelcomeViewController: UIViewController {
         
         let mainTabBarVC = AppTabBarController()
         let window = self.view.window
-        window?.rootViewController = mainTabBarVC()
+        window?.rootViewController = mainTabBarVC
     }
 
     // MARK: - Layout views
