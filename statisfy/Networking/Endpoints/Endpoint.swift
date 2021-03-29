@@ -15,8 +15,8 @@ enum Methods: String {
 
 enum Scheme: String {
     
-    case http = "HTTP://"
-    case https = "HTTPS://"
+    case http = "http://"
+    case https = "https://"
 }
 
 protocol Endpoint {
@@ -33,7 +33,7 @@ protocol Endpoint {
     var pathParameters: String { get }
     
     /// Example: [URLQueryItem(name: "api_key", value: "API_KEY)]
-    var parameters: [URLQueryItem] { get }
+    var parameters: [URLQueryItem]? { get }
     
     /// Example: "GET"
     var method: Methods.RawValue { get }

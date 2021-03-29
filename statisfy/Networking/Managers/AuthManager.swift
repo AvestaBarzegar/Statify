@@ -7,22 +7,33 @@
 
 import Foundation
 
+enum AuthConstants: String {
+    
+    case topScope = "user-top-read"
+    case recentScope = "user-read-recently-played"
+    case redirectURI = "http://avestabarzegar.com/"
+}
+
 final class AuthManager: Endpoint {
     
     var scheme: Scheme.RawValue = Scheme.https.rawValue
     
     var baseURL: String = "accounts.spotify.com/"
     
-    var path: String = "authorize?response_type=code"
+    var path: String = "authorize"
     
-    var pathParameters: String = "&client_id=\()"
+    var pathParameters: String = "?response_type=code&client_id=\(ClientInfo.clientId.rawValue)"
     
-    var parameters: [URLQueryItem]
+    var scopes: String = "&scope=\(AuthConstants.topScope.rawValue),\(AuthConstants.recentScope.rawValue)"
     
-    var method: Methods.RawValue
+    var redirectURI: String = "&redirect_uri=\(AuthConstants.redirectURI.rawValue)"
+    
+    var parameters: [URLQueryItem]?
+    
+    var method: Methods.RawValue = Methods.get.rawValue
     
     func urlBuilder() -> String? {
-        let url = scheme + baseURL + path
+        let url = scheme + baseURL + path + pathParameters + scopes + redirectURI
         return url
     }
     
@@ -35,8 +46,9 @@ final class AuthManager: Endpoint {
     }
     
     public var signInURL: URL? {
-        let string = '&client_id=' + my_client_id + (scopes ? '&scope=' + encodeURIComponent(scopes) : '') + '&redirect_uri=' + encodeURIComponent(redirect_uri)
-        return string
+        guard let string = urlBuilder() else { return nil }
+        guard let url = URL(string: string) else { return nil }
+        return url
     }
     
     private var accessToken: String? {
