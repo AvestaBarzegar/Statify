@@ -79,9 +79,9 @@ extension UIColor {
     static var backgroundColor: UIColor {
         return UIColor(red: 40/255, green: 36/255, blue: 44/255, alpha: 1)
     }
-//    static var backgroundColor: UIColor {
-//        return UIColor(red: 67/255, green: 58/255, blue: 63/255, alpha: 1)
-//    }
+    static var backgroundColor2: UIColor {
+        return UIColor(red: 67/255, green: 58/255, blue: 63/255, alpha: 1)
+    }
     
     static var spotifyTurkoise: UIColor {
         return UIColor(red: 61/255, green: 90/255, blue: 108/255, alpha: 1)

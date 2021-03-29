@@ -49,10 +49,20 @@ class WelcomeViewController: UIViewController {
     @objc
     func getStartedClicked() {
         debugPrint("Wow, someone wanted to get started!")
+        let vc = AuthViewController()
+        vc.completionHandler = { [weak self] success in
+            DispatchQueue.main.async {
+                self?.handleSignIn(success: success)
+            }
+        }
         // To-do: put logic for showing webView when button is tapped
 //        let window = self.view.window
 //        window?.rootViewController = AppTabBarController()
-        self.present(AuthViewController(), animated: true, completion: nil)
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    private func handleSignIn(success: Bool) {
+        // Log user in or yell at them for error
     }
 
     // MARK: - Layout views

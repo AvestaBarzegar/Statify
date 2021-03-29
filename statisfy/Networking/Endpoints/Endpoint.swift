@@ -38,4 +38,7 @@ protocol Endpoint {
     /// Example: "GET"
     var method: Methods.RawValue { get }
     
+    func urlBuilder() -> String?
+    
 }
+

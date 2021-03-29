@@ -13,6 +13,8 @@ class AuthViewController: UIViewController {
     // MARK: - Interaction Logic
     let headerInfo = SectionHeaderViewModel(title: "Login", leftImageName: "xmark.circle.fill", rightImageName: nil)
     
+    public var completionHandler: ((Bool) -> Void)?
+    
     // MARK: - Init Views
     
     private lazy var headerView: SectionHeaderView = {
