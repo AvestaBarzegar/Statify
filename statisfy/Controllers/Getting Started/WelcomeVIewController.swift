@@ -78,6 +78,7 @@ class WelcomeViewController: UIViewController {
         self.view.addSubview(headerLabel)
         self.view.addSubview(subHeaderLabel)
         self.view.addSubview(getStartedButton)
+        let safeArea = self.view.layoutMarginsGuide
         
         NSLayoutConstraint.activate([
             headerLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
@@ -86,7 +87,7 @@ class WelcomeViewController: UIViewController {
             subHeaderLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
             subHeaderLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
             
-            getStartedButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -36),
+            getStartedButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -36),
             getStartedButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 36),
             getStartedButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -36),
             getStartedButton.heightAnchor.constraint(equalToConstant: 48)

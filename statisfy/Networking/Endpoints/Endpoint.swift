@@ -30,15 +30,14 @@ protocol Endpoint {
     /// Example: /v1/me/top/
     var path: String { get }
     
-    var pathParameters: String { get }
+    var pathParameters: String? { get }
     
     /// Example: [URLQueryItem(name: "api_key", value: "API_KEY)]
     var parameters: [URLQueryItem]? { get }
     
     /// Example: "GET"
-    var method: Methods.RawValue { get }
+    var method: Methods.RawValue? { get }
     
     func urlBuilder() -> String?
     
 }
-

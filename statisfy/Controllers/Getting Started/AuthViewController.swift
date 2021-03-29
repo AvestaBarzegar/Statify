@@ -45,6 +45,7 @@ class AuthViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setup()
+        loadWebView()
     }
     
     private func setup() {
@@ -63,8 +64,13 @@ class AuthViewController: UIViewController {
             webView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 8),
             webView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             webView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            webView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ])
+    }
+    
+    private func loadWebView() {
+        guard let url = AuthManager.shared.signInURL else { return }
+        webView.load(URLRequest(url: url))
     }
 
 }
@@ -80,6 +86,18 @@ extension AuthViewController: SectionHeaderViewDelegate {
     }
 }
 
-extension AuthViewController: WKNavigationDelegate {
+extension AuthViewController: WKNavigationDelegate, WKUIDelegate {
     
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        guard let url = webView.url else { return }
+        
+        // Exchange code for access token
+        guard let code = URLComponents(string: url.absoluteString)?.queryItems?.first(where: { $0.name == "code" })?.value else { return }
+        
+        print("code: \(code)")
+        TokenManager.shared.exchangeCodeForToken(code: code, completion: { _ in 
+            
+        })
+        
+    }
 }
