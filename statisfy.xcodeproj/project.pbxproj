@@ -17,6 +17,8 @@
 		C97BD818261101460016720D /* SensitiveInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD817261101460016720D /* SensitiveInformation.swift */; };
 		C97BD81A261103E80016720D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD819261103E80016720D /* AuthViewController.swift */; };
 		C97BD81C261104540016720D /* SectionHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD81B261104540016720D /* SectionHeaderViewModel.swift */; };
+		C97BD81F26117F110016720D /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD81E26117F110016720D /* TokenManager.swift */; };
+		C97BD82226117F540016720D /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD82126117F540016720D /* AuthResponse.swift */; };
 		C97D09A7260FA7150019734F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97D098B260FA7150019734F /* Assets.xcassets */; };
 		C97D09A8260FA7150019734F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D098C260FA7150019734F /* AppDelegate.swift */; };
 		C97D09B9260FA7E60019734F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97D09B8260FA7E60019734F /* LaunchScreen.storyboard */; };
@@ -48,6 +50,8 @@
 		C97BD817261101460016720D /* SensitiveInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensitiveInformation.swift; sourceTree = "<group>"; };
 		C97BD819261103E80016720D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		C97BD81B261104540016720D /* SectionHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderViewModel.swift; sourceTree = "<group>"; };
+		C97BD81E26117F110016720D /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		C97BD82126117F540016720D /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		C97D0973260FA6C30019734F /* statisfy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = statisfy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97D0984260FA6C40019734F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C97D098B260FA7150019734F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,9 +110,26 @@
 		C97BD8142610FF2A0016720D /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				C97BD8152610FF350016720D /* AuthManager.swift */,
+				C97BD81D26117EFC0016720D /* TokenAuth */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		C97BD81D26117EFC0016720D /* TokenAuth */ = {
+			isa = PBXGroup;
+			children = (
+				C97BD8152610FF350016720D /* AuthManager.swift */,
+				C97BD81E26117F110016720D /* TokenManager.swift */,
+			);
+			path = TokenAuth;
+			sourceTree = "<group>";
+		};
+		C97BD82026117F230016720D /* ResponseModels */ = {
+			isa = PBXGroup;
+			children = (
+				C97BD82126117F540016720D /* AuthResponse.swift */,
+			);
+			path = ResponseModels;
 			sourceTree = "<group>";
 		};
 		C97D096A260FA6C30019734F = {
@@ -252,6 +273,7 @@
 		C97D09A6260FA7150019734F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C97BD82026117F230016720D /* ResponseModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -407,6 +429,8 @@
 				C97D09CC260FA94C0019734F /* ArtistViewController.swift in Sources */,
 				C97BD818261101460016720D /* SensitiveInformation.swift in Sources */,
 				C97BD80D2610CC6A0016720D /* Endpoint.swift in Sources */,
+				C97BD81F26117F110016720D /* TokenManager.swift in Sources */,
+				C97BD82226117F540016720D /* AuthResponse.swift in Sources */,
 				C97059D326100263007FEB90 /* MenuBarItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

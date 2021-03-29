@@ -62,7 +62,12 @@ class WelcomeViewController: UIViewController {
     }
     
     private func handleSignIn(success: Bool) {
-        // Log user in or yell at them for error
+        // to-do: yell at user on error
+        guard let success { else return }
+        
+        let mainTabBarVC = AppTabBarController()
+        let window = self.view.window
+        window?.rootViewController = AppTabBarController()
     }
 
     // MARK: - Layout views
