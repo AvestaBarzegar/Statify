@@ -70,7 +70,6 @@ final class TokenManager: Endpoint {
                 do {
                     let result = try JSONDecoder().decode(AuthResponse.self, from: data)
                     self?.cacheToken(result: result)
-                    print(result)
                     completion(true)
                     
                 } catch {

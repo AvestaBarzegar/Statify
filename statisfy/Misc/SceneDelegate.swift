@@ -24,7 +24,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         setRootVc(window: window)
         self.window = window
         window.makeKeyAndVisible()
-        print(AuthManager.shared.urlBuilder())
         
     }
 

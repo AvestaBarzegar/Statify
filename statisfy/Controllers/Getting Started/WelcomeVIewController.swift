@@ -48,7 +48,6 @@ class WelcomeViewController: UIViewController {
     
     @objc
     func getStartedClicked() {
-        debugPrint("Wow, someone wanted to get started!")
         let vc = AuthViewController()
         vc.completionHandler = { [weak self] success in
             DispatchQueue.main.async {
@@ -67,7 +66,7 @@ class WelcomeViewController: UIViewController {
         guard success else { return }
         
         let mainTabBarVC = AppTabBarController()
-        let window = self.view.window
+        weak var window = self.view.window
         window?.rootViewController = mainTabBarVC
     }
 
