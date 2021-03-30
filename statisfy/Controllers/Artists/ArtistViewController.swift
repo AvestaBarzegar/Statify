@@ -13,44 +13,6 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
     
     let numOfPages: CGFloat = 3
     
-//    private lazy var networkTracks: [[TileInfo]] = {
-//        let tracks = [ArtistManager.shared.shortArtists?.allInfo, ArtistManager.shared.mediumArtists?.allInfo, ArtistManager.shared.longArtists?.allInfo]
-//        return tracks
-//    }()
-    
-    private lazy var fourWeekArtists: [TileInfo] = {
-        var tracks: [TileInfo] = []
-        for index in 1...50 {
-            let track = TileInfo(title: "Beach House", position: index, imgURL: "https://www.wnrn.org/wp-content/uploads/2020/03/BeachHousePMVH100111.jpg")
-            tracks.append(track)
-        }
-        return tracks
-    }()
-    
-    private lazy var sixMonthArtists: [TileInfo] = {
-        var tracks: [TileInfo] = []
-        for index in 1...50 {
-            let track = TileInfo(title: "Beach House", position: index, imgURL: "https://www.wnrn.org/wp-content/uploads/2020/03/BeachHousePMVH100111.jpg")
-            tracks.append(track)
-        }
-        return tracks
-    }()
-    
-    private lazy var allTimeArtists: [TileInfo] = {
-        var tracks: [TileInfo] = []
-        for index in 1...50 {
-            let track = TileInfo(title: "JPEGMAFIA", position: index, imgURL: "https://i.scdn.co/image/ab96d74e74ef64f37918bca8f004010509524417")
-            tracks.append(track)
-        }
-        
-        return tracks
-    }()
-    
-    private lazy var tracks: [[TileInfo]] = {
-        let tracks = [fourWeekArtists, sixMonthArtists, allTimeArtists]
-        return tracks
-    }()
-    
     let headerInfo = SectionHeaderViewModel(title: "Top Artists", leftImageName: nil, rightImageName: nil)
     
     // MARK: - Init Views
@@ -144,7 +106,7 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
         ArtistManager.shared.getShortArtists(with: token, completion: { completion in
             DispatchQueue.main.async {
                 if completion == true {
-                    self.collectionView.reloadData()
+                    print("Short artists were a success")
                 } else {
                     print("damn couldn't get the short artists")
                 }
@@ -154,9 +116,9 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
         ArtistManager.shared.getMediumArtists(with: token, completion: { completion in
             DispatchQueue.main.async {
                 if completion == true {
-                    self.collectionView.reloadData()
+                    print("Medium artists were a success")
                 } else {
-                    print("damn couldn't get the short artists")
+                    print("damn couldn't get the medium artists")
                 }
             }
         })
@@ -165,11 +127,13 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
             DispatchQueue.main.async {
                 if completion == true {
                     self.collectionView.reloadData()
+                    print("long artists were a success")
                 } else {
-                    print("damn couldn't get the short artists")
+                    print("damn couldn't get the long artists")
                 }
             }
         })
+        self.collectionView.reloadData()
     }
     
     func menuScrollItem(indexPath: IndexPath) {
@@ -182,7 +146,7 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
 extension ArtistViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tracks.count
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

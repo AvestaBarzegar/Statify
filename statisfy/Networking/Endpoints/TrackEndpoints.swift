@@ -1,5 +1,5 @@
 //
-//  TrackEndpoints.swift
+//  ArtistEndpoints.swift
 //  statisfy
 //
 //  Created by Avesta Barzegar on 2021-03-30.
@@ -11,9 +11,9 @@ struct TrackLongEndpoint: Endpoint {
     
     var scheme: Scheme.RawValue = Scheme.https.rawValue
     
-    var baseURL: String = "api.spotify.com/"
+    var baseURL: String = "api.spotify.com"
     
-    var path: String = "v1/me/top/tracks"
+    var path: String = "/v1/me/top/tracks"
     
     var pathParameters: String?
     
@@ -43,9 +43,9 @@ struct TrackMediumEndpoint: Endpoint {
     
     var scheme: Scheme.RawValue = Scheme.https.rawValue
     
-    var baseURL: String = "api.spotify.com/"
+    var baseURL: String = "api.spotify.com"
     
-    var path: String = "v1/me/top/tracks"
+    var path: String = "/v1/me/top/tracks"
     
     var pathParameters: String?
     
@@ -75,9 +75,9 @@ struct TrackShortEndpoint: Endpoint {
     
     var scheme: Scheme.RawValue = Scheme.https.rawValue
     
-    var baseURL: String = "api.spotify.com/"
+    var baseURL: String = "api.spotify.com"
     
-    var path: String = "v1/me/top/tracks"
+    var path: String = "/v1/me/top/tracks"
     
     var pathParameters: String?
     
