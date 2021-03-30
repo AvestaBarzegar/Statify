@@ -18,9 +18,9 @@ final class AuthManager: Endpoint {
     
     var scheme: Scheme.RawValue = Scheme.https.rawValue
     
-    var baseURL: String = "accounts.spotify.com/"
+    var baseURL: String = "accounts.spotify.com"
     
-    var path: String = "authorize"
+    var path: String = "/authorize"
     
     var pathParameters: String? = "?response_type=code&client_id=\(ClientInfo.clientId.rawValue)"
     
@@ -30,15 +30,24 @@ final class AuthManager: Endpoint {
     
     var showDialog: String = "&show_dialog=TRUE"
     
-    var parameters: [URLQueryItem]?
+    var parameters: [URLQueryItem]? = [
+        URLQueryItem(name: "response_type", value: "code"),
+        URLQueryItem(name: "client_id", value: ClientInfo.clientId.rawValue),
+        URLQueryItem(name: "scope", value: ("\(AuthConstants.topScope.rawValue),\(AuthConstants.recentScope.rawValue)")),
+        URLQueryItem(name: "redirect_uri", value: AuthConstants.redirectURI.rawValue),
+        URLQueryItem(name: "show_dialog", value: "TRUE")
+    
+    ]
     
     var method: Methods.RawValue?
     
-    func urlBuilder() -> String? {
-        let base: String = scheme + baseURL + path
-        guard let pathParameters = pathParameters else { return nil }
-        let params: String = pathParameters + scopes
-        let url: String = base + params + redirectURI + showDialog
+    func urlBuilder() -> URL? {
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = baseURL
+        components.path = path
+        components.queryItems = parameters
+        let url = components.url
         return url
     }
     
@@ -48,12 +57,6 @@ final class AuthManager: Endpoint {
     
     var isSignedIn: Bool {
         return accessToken != nil
-    }
-    
-    public var signInURL: URL? {
-        guard let string = urlBuilder() else { return nil }
-        guard let url = URL(string: string) else { return nil }
-        return url
     }
     
     var accessToken: String? {

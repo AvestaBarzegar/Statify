@@ -15,8 +15,8 @@ enum Methods: String {
 
 enum Scheme: String {
     
-    case http = "http://"
-    case https = "https://"
+    case http
+    case https
 }
 
 protocol Endpoint {
@@ -38,6 +38,6 @@ protocol Endpoint {
     /// Example: "GET"
     var method: Methods.RawValue? { get }
     
-    func urlBuilder() -> String?
+    func urlBuilder() -> URL?
     
 }

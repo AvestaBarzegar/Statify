@@ -33,6 +33,7 @@
 		C97D09CC260FA94C0019734F /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09CB260FA94C0019734F /* ArtistViewController.swift */; };
 		C97D09CE260FA9740019734F /* WelcomeVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09CD260FA9740019734F /* WelcomeVIewController.swift */; };
 		C97D09D3260FE5F70019734F /* TileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09D2260FE5F70019734F /* TileInfo.swift */; };
+		C98301DB261263AD00EE54A6 /* ArtistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98301DA261263AD00EE54A6 /* ArtistManager.swift */; };
 		DFBF7D81A25565FE893E676D /* Pods_statisfy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		C97D09CB260FA94C0019734F /* ArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		C97D09CD260FA9740019734F /* WelcomeVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeVIewController.swift; sourceTree = "<group>"; };
 		C97D09D2260FE5F70019734F /* TileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileInfo.swift; sourceTree = "<group>"; };
+		C98301DA261263AD00EE54A6 /* ArtistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		C97BD8142610FF2A0016720D /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				C98301D92612638100EE54A6 /* Main */,
 				C97BD81D26117EFC0016720D /* TokenAuth */,
 			);
 			path = Managers;
@@ -220,10 +223,10 @@
 		C97D099B260FA7150019734F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C97D09A2260FA7150019734F /* Artists */,
 				C97D099C260FA7150019734F /* Recent */,
 				C97D099E260FA7150019734F /* TabBar */,
 				C97D09A0260FA7150019734F /* Tracks */,
-				C97D09A2260FA7150019734F /* Artists */,
 				C97D09A4260FA7150019734F /* Getting Started */,
 			);
 			path = Controllers;
@@ -273,6 +276,7 @@
 		C97D09A6260FA7150019734F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C98301D82612631900EE54A6 /* TabBarModels */,
 				C97BD82026117F230016720D /* ResponseModels */,
 			);
 			path = Models;
@@ -285,6 +289,21 @@
 				C97D09C2260FA8F20019734F /* StatisticsCollectionScrollView.swift */,
 			);
 			path = Statistics;
+			sourceTree = "<group>";
+		};
+		C98301D82612631900EE54A6 /* TabBarModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBarModels;
+			sourceTree = "<group>";
+		};
+		C98301D92612638100EE54A6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C98301DA261263AD00EE54A6 /* ArtistManager.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		CA83E08D240F364AB2AD9B04 /* Frameworks */ = {
@@ -430,6 +449,7 @@
 				C97BD818261101460016720D /* SensitiveInformation.swift in Sources */,
 				C97BD80D2610CC6A0016720D /* Endpoint.swift in Sources */,
 				C97BD81F26117F110016720D /* TokenManager.swift in Sources */,
+				C98301DB261263AD00EE54A6 /* ArtistManager.swift in Sources */,
 				C97BD82226117F540016720D /* AuthResponse.swift in Sources */,
 				C97059D326100263007FEB90 /* MenuBarItem.swift in Sources */,
 			);

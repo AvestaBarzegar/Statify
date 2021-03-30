@@ -69,8 +69,10 @@ class AuthViewController: UIViewController {
     }
     
     private func loadWebView() {
-        guard let url = AuthManager.shared.signInURL else { return }
-        webView.load(URLRequest(url: url))
+        
+        guard let urlObj = AuthManager.shared.urlBuilder() else { return }
+        print(urlObj)
+        webView.load(URLRequest(url: urlObj))
     }
 
 }
@@ -93,6 +95,7 @@ extension AuthViewController: WKNavigationDelegate, WKUIDelegate {
         
         // Exchange code for access token
         guard let code = URLComponents(string: url.absoluteString)?.queryItems?.first(where: { $0.name == "code" })?.value else { return }
+        print("code :\(code)")
         
         webView.isHidden = true
         TokenManager.shared.exchangeCodeForToken(code: code, completion: { [weak self](success) in

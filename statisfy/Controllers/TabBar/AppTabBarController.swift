@@ -16,7 +16,7 @@ class AppTabBarController: UITabBarController {
         
         let tabBarInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
         
-        let trackItem = UITabBarItem(title: "Tracks", image: UIImage(systemName: "music.note.house"), selectedImage: UIImage(systemName: "music.note.house"))
+        let trackItem = UITabBarItem(title: "Tracks", image: UIImage(systemName: "music.note.house"), selectedImage: UIImage(systemName: "music.note.house.fill"))
         
         let artistItem = UITabBarItem(title: "Artists", image: UIImage(systemName: "person.3"), selectedImage: UIImage(systemName: "person.3.fill"))
         

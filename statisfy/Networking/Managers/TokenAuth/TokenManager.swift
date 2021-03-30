@@ -11,9 +11,9 @@ final class TokenManager: Endpoint {
 
     var scheme: Scheme.RawValue = Scheme.https.rawValue
     
-    var baseURL: String = "accounts.spotify.com/"
+    var baseURL: String = "accounts.spotify.com"
     
-    var path: String = "api/token/"
+    var path: String = "/api/token"
     
     var pathParameters: String?
     
@@ -24,8 +24,12 @@ final class TokenManager: Endpoint {
     
     var method: Methods.RawValue? = Methods.post.rawValue
     
-    func urlBuilder() -> String? {
-        let url = scheme + baseURL + path
+    func urlBuilder() -> URL? {
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = baseURL
+        components.path = path
+        let url = components.url
         return url
     }
     
@@ -38,8 +42,8 @@ final class TokenManager: Endpoint {
         completion: @escaping (Bool) -> Void
     ) {
         // Build up URL
-        guard let urlString = urlBuilder() else { return }
-        guard let url = URL(string: urlString) else { return }
+        guard let url = urlBuilder() else { return }
+        print("url: \(url)")
         
         // build up request Params
         var components = URLComponents()
@@ -70,9 +74,11 @@ final class TokenManager: Endpoint {
                 do {
                     let result = try JSONDecoder().decode(AuthResponse.self, from: data)
                     self?.cacheToken(result: result)
+                    print("token: \(result)")
                     completion(true)
                     
                 } catch {
+                    print("could not get token")
                     completion(false)
                 }
             }).resume()
@@ -90,8 +96,7 @@ final class TokenManager: Endpoint {
         // refresh the token
         
         // Build up URL
-        guard let urlString = urlBuilder() else { return }
-        guard let url = URL(string: urlString) else { return }
+        guard let url = urlBuilder() else { return }
         
         // build up request Params
         var components = URLComponents()
