@@ -7,24 +7,144 @@
 
 import Foundation
 
-final class ArtistManager: Endpoint {
+final class ArtistManager {
     
-    var scheme: Scheme.RawValue = Scheme.https.rawValue
+    static let shared = ArtistManager()
     
-    var baseURL: String = "api.spotify.com/"
+    var shortArtists: TileInformationArray?
+    var mediumArtists: ArtistItem?
+    var longArtists: ArtistItem?
     
-    var path: String = "v1/me/top/artists"
+    private init() {}
     
-    var pathParameters: String? = "?time_range=long_"
-    
-    var parameters: [URLQueryItem]?
-    
-    var method: Methods.RawValue? = Methods.get.rawValue
-    
-    func urlBuilder() -> URL? {
-        let url = scheme + baseURL + path
-        let urlObj = URL(string: url)
-        return urlObj
+    func getShortArtists(with token: String, completion: @escaping (Bool) -> Void) {
+        guard let url = ArtistShortEndpoint.shared.urlBuilder() else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = ArtistShortEndpoint.shared.method
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard error == nil else {
+                print("ERROR: ", error as Any)
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                print("NO RESPONSE")
+                return
+            }
+            
+            guard response.statusCode == 200 else {
+                print("BAD RESPONSE: ", response.statusCode)
+                return
+            }
+            
+            guard let data = data else {
+                print("NO DATA")
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let artists = try decoder.decode(ArtistItem.self, from: data)
+                self.shortArtists = TileInformationArray(artists: artists)
+                completion(true)
+            } catch {
+                print("CATCH: ", error)
+                completion(false)
+            }
+            
+        }.resume()
+        
     }
     
+    func getMediumArtists(with token: String, completion: @escaping (Bool) -> Void) {
+        guard let url = ArtistMediumEndpoint.shared.urlBuilder() else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = ArtistMediumEndpoint.shared.method
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard error == nil else {
+                print("ERROR: ", error as Any)
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                print("NO RESPONSE")
+                return
+            }
+            
+            guard response.statusCode == 200 else {
+                print("BAD RESPONSE: ", response.statusCode)
+                return
+            }
+            
+            guard let data = data else {
+                print("NO DATA")
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let artists = try decoder.decode(ArtistItem.self, from: data)
+                self.mediumArtists = artists
+                print(artists)
+                completion(true)
+            } catch {
+                print("CATCH: ", error)
+                completion(false)
+            }
+            
+        }
+        
+    }
+    
+    func getLongArtists(with token: String, completion: @escaping (Bool?) -> Void) {
+        guard let url = ArtistLongEndpoint.shared.urlBuilder() else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = ArtistLongEndpoint.shared.method
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard error == nil else {
+                print("ERROR: ", error as Any)
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                print("NO RESPONSE")
+                return
+            }
+            
+            guard response.statusCode == 200 else {
+                print("BAD RESPONSE: ", response.statusCode)
+                return
+            }
+            
+            guard let data = data else {
+                print("NO DATA")
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let artists = try decoder.decode(ArtistItem.self, from: data)
+                self.longArtists = artists
+                print(artists)
+                completion(true)
+            } catch {
+                print("CATCH: ", error)
+                completion(false)
+            }
+            
+        }
+        
+    }
 }

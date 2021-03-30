@@ -60,6 +60,10 @@ class AppTabBarController: UITabBarController {
         self.viewControllers = tabViewControllers
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
     /*
     // MARK: - Navigation
 

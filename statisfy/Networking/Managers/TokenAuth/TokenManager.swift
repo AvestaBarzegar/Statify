@@ -43,7 +43,6 @@ final class TokenManager: Endpoint {
     ) {
         // Build up URL
         guard let url = urlBuilder() else { return }
-        print("url: \(url)")
         
         // build up request Params
         var components = URLComponents()
@@ -74,7 +73,6 @@ final class TokenManager: Endpoint {
                 do {
                     let result = try JSONDecoder().decode(AuthResponse.self, from: data)
                     self?.cacheToken(result: result)
-                    print("token: \(result)")
                     completion(true)
                     
                 } catch {

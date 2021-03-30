@@ -9,7 +9,11 @@ import UIKit
 
 class StatisticsCollectionScrollView: UICollectionViewCell {
     
-    var tracks: [TileInfo]?
+    var tracks: [TileInfo]? {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     static let identifier = "StatisticsCollectionScrollView"
     
     // MARK: - Init views

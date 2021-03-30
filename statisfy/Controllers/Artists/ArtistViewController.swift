@@ -13,10 +13,11 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
     
     let numOfPages: CGFloat = 3
     
+    
     private lazy var fourWeekArtists: [TileInfo] = {
         var tracks: [TileInfo] = []
         for index in 1...50 {
-            let track = TileInfo(title: "Frank Ocean", position: index, imgURL: "https://i.redd.it/1x58g8jtjndx.jpg")
+            let track = TileInfo(title: "Beach House", position: index, imgURL: "https://www.wnrn.org/wp-content/uploads/2020/03/BeachHousePMVH100111.jpg")
             tracks.append(track)
         }
         return tracks
@@ -89,6 +90,7 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setup()
+        getInformation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -133,6 +135,19 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
         ])
     }
     
+    private func getInformation() {
+        guard let token = AuthManager.shared.accessToken else { return }
+        ArtistManager.shared.getShortArtists(with: token, completion: { completion in
+            DispatchQueue.main.async {
+                if completion == true {
+                    self.collectionView.reloadData()
+                } else {
+                    print("damn couldn't get the short artists")
+                }
+            }
+        })
+    }
+    
     func menuScrollItem(indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
     }
@@ -148,7 +163,11 @@ extension ArtistViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatisticsCollectionScrollView.identifier, for: indexPath) as? StatisticsCollectionScrollView
+        if indexPath.row == 0 {
+            cell?.tracks = ArtistManager.shared.shortArtists?.allInfo
+        } else {
         cell?.tracks = tracks[indexPath.row]
+        }
         return cell ?? UICollectionViewCell()
     }
     

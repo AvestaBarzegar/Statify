@@ -62,6 +62,9 @@
 		C983022B2612D46400EE54A6 /* Pods_statisfy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */; };
 		C983022D2612D46400EE54A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97D098B260FA7150019734F /* Assets.xcassets */; };
 		C983022E2612D46400EE54A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97D09B8260FA7E60019734F /* LaunchScreen.storyboard */; };
+		C98302382612DE3B00EE54A6 /* ArtistEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98302372612DE3B00EE54A6 /* ArtistEndpoints.swift */; };
+		C983023A2612DE5700EE54A6 /* TrackEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98302392612DE5700EE54A6 /* TrackEndpoints.swift */; };
+		C983023C2612E13B00EE54A6 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983023B2612E13B00EE54A6 /* Artist.swift */; };
 		DFBF7D81A25565FE893E676D /* Pods_statisfy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +103,9 @@
 		C98301DA261263AD00EE54A6 /* ArtistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistManager.swift; sourceTree = "<group>"; };
 		C98302332612D46400EE54A6 /* statisfy prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "statisfy prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C98302342612D46400EE54A6 /* statisfy copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "statisfy copy-Info.plist"; path = "/Users/avestabarzegar/dev/iOS/statisfy/statisfy copy-Info.plist"; sourceTree = "<absolute>"; };
+		C98302372612DE3B00EE54A6 /* ArtistEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistEndpoints.swift; sourceTree = "<group>"; };
+		C98302392612DE5700EE54A6 /* TrackEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackEndpoints.swift; sourceTree = "<group>"; };
+		C983023B2612E13B00EE54A6 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				C97BD80C2610CC6A0016720D /* Endpoint.swift */,
+				C98302372612DE3B00EE54A6 /* ArtistEndpoints.swift */,
+				C98302392612DE5700EE54A6 /* TrackEndpoints.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -334,6 +342,7 @@
 		C98301D82612631900EE54A6 /* TabBarModels */ = {
 			isa = PBXGroup;
 			children = (
+				C983023B2612E13B00EE54A6 /* Artist.swift */,
 			);
 			path = TabBarModels;
 			sourceTree = "<group>";
@@ -542,6 +551,7 @@
 				C97D09CA260FA92B0019734F /* TrackViewController.swift in Sources */,
 				C97D09C6260FA91A0019734F /* RecentViewController.swift in Sources */,
 				C97D09CE260FA9740019734F /* WelcomeVIewController.swift in Sources */,
+				C983023C2612E13B00EE54A6 /* Artist.swift in Sources */,
 				C97D09BB260FA7FE0019734F /* StyleExtension.swift in Sources */,
 				C97059D1260FFF1C007FEB90 /* MenuBar.swift in Sources */,
 				C97D09BD260FA8BC0019734F /* SceneDelegate.swift in Sources */,
@@ -551,6 +561,7 @@
 				C97059D626100C82007FEB90 /* RecentTrackTableViewCell.swift in Sources */,
 				C97D09C8260FA9200019734F /* AppTabBarController.swift in Sources */,
 				C97D09C3260FA8F20019734F /* StatisticsCollectionViewCell.swift in Sources */,
+				C98302382612DE3B00EE54A6 /* ArtistEndpoints.swift in Sources */,
 				C97BD8132610F6D70016720D /* SectionHeaderView.swift in Sources */,
 				C97BD8162610FF350016720D /* AuthManager.swift in Sources */,
 				C97D09BF260FA8E30019734F /* DownloadedImageView.swift in Sources */,
@@ -561,6 +572,7 @@
 				C98301DB261263AD00EE54A6 /* ArtistManager.swift in Sources */,
 				C97BD82226117F540016720D /* AuthResponse.swift in Sources */,
 				C97059D326100263007FEB90 /* MenuBarItem.swift in Sources */,
+				C983023A2612DE5700EE54A6 /* TrackEndpoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
