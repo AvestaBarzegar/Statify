@@ -26,7 +26,7 @@ struct ArtistLongEndpoint: Endpoint {
     
     var method: Methods.RawValue? = Methods.get.rawValue
     
-    static let shared =  ArtistShortEndpoint()
+    static let shared =  ArtistLongEndpoint()
     
     func urlBuilder() -> URL? {
         var components = URLComponents()
@@ -58,7 +58,7 @@ struct ArtistMediumEndpoint: Endpoint {
     
     var method: Methods.RawValue? = Methods.get.rawValue
     
-    static let shared =  ArtistShortEndpoint()
+    static let shared =  ArtistMediumEndpoint()
     
     func urlBuilder() -> URL? {
         var components = URLComponents()

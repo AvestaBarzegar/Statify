@@ -13,6 +13,10 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
     
     let numOfPages: CGFloat = 3
     
+//    private lazy var networkTracks: [[TileInfo]] = {
+//        let tracks = [ArtistManager.shared.shortArtists?.allInfo, ArtistManager.shared.mediumArtists?.allInfo, ArtistManager.shared.longArtists?.allInfo]
+//        return tracks
+//    }()
     
     private lazy var fourWeekArtists: [TileInfo] = {
         var tracks: [TileInfo] = []
@@ -146,6 +150,26 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
                 }
             }
         })
+        
+        ArtistManager.shared.getMediumArtists(with: token, completion: { completion in
+            DispatchQueue.main.async {
+                if completion == true {
+                    self.collectionView.reloadData()
+                } else {
+                    print("damn couldn't get the short artists")
+                }
+            }
+        })
+        
+        ArtistManager.shared.getLongArtists(with: token, completion: { completion in
+            DispatchQueue.main.async {
+                if completion == true {
+                    self.collectionView.reloadData()
+                } else {
+                    print("damn couldn't get the short artists")
+                }
+            }
+        })
     }
     
     func menuScrollItem(indexPath: IndexPath) {
@@ -165,8 +189,10 @@ extension ArtistViewController: UICollectionViewDataSource, UICollectionViewDele
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatisticsCollectionScrollView.identifier, for: indexPath) as? StatisticsCollectionScrollView
         if indexPath.row == 0 {
             cell?.tracks = ArtistManager.shared.shortArtists?.allInfo
+        } else if indexPath.row == 1 {
+            cell?.tracks = ArtistManager.shared.mediumArtists?.allInfo
         } else {
-        cell?.tracks = tracks[indexPath.row]
+            cell?.tracks = ArtistManager.shared.longArtists?.allInfo
         }
         return cell ?? UICollectionViewCell()
     }

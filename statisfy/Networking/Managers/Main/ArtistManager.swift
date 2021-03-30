@@ -12,8 +12,8 @@ final class ArtistManager {
     static let shared = ArtistManager()
     
     var shortArtists: TileInformationArray?
-    var mediumArtists: ArtistItem?
-    var longArtists: ArtistItem?
+    var mediumArtists: TileInformationArray?
+    var longArtists: TileInformationArray?
     
     private init() {}
     
@@ -92,15 +92,14 @@ final class ArtistManager {
             do {
                 let decoder = JSONDecoder()
                 let artists = try decoder.decode(ArtistItem.self, from: data)
-                self.mediumArtists = artists
-                print(artists)
+                self.mediumArtists = TileInformationArray(artists: artists)
                 completion(true)
             } catch {
                 print("CATCH: ", error)
                 completion(false)
             }
             
-        }
+        }.resume()
         
     }
     
@@ -136,15 +135,14 @@ final class ArtistManager {
             do {
                 let decoder = JSONDecoder()
                 let artists = try decoder.decode(ArtistItem.self, from: data)
-                self.longArtists = artists
-                print(artists)
+                self.longArtists = TileInformationArray(artists: artists)
                 completion(true)
             } catch {
                 print("CATCH: ", error)
                 completion(false)
             }
             
-        }
+        }.resume()
         
     }
 }
