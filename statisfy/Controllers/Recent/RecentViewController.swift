@@ -11,10 +11,10 @@ class RecentViewController: UIViewController {
     
     // MARK: - Data
     
-    private lazy var recentTracks: [RecentTrackInfo] = {
-        var tracks: [RecentTrackInfo] = []
+    private lazy var recentTracks: [RecentTrackViewModel] = {
+        var tracks: [RecentTrackViewModel] = []
         for index in 1...50 {
-            let track = RecentTrackInfo(artist: "Pop Smoke", track: "Christopher Walking", imgURL: "https://www.rapreviews.com/wp-content/uploads/2020/02/popsmoke-woovol2.jpg")
+            let track = RecentTrackViewModel(artist: "Pop Smoke", track: "Christopher Walking", imgURL: "https://www.rapreviews.com/wp-content/uploads/2020/02/popsmoke-woovol2.jpg")
             tracks.append(track)
         }
         return tracks
@@ -49,6 +49,7 @@ class RecentViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setup()
+        getInformation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,6 +89,22 @@ class RecentViewController: UIViewController {
         ])
     }
     
+    private func getInformation() {
+        guard let token = AuthManager.shared.accessToken else { return }
+        RecentManager.shared.getRecentTracks(with: token, completion: { [weak self] completion in
+            if completion == true {
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                    print(RecentManager.shared.recentTrackInfo)
+                    print(RecentManager.shared.recentTrackInfo.count)
+                }
+            } else {
+                print("damn we couldn't get the recent tracks")
+            }
+            
+        })
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -102,7 +119,7 @@ class RecentViewController: UIViewController {
 extension RecentViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recentTracks.count
+        return RecentManager.shared.recentTrackInfo.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -111,7 +128,7 @@ extension RecentViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentTrackTableViewCell.identifier) as? RecentTrackTableViewCell else { return UITableViewCell() }
-        cell.recentTrackInfo = recentTracks[indexPath.row]
+        cell.recentTrackInfo = RecentManager.shared.recentTrackInfo[indexPath.row]
         return cell
         
     }

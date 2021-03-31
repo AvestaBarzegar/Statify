@@ -50,7 +50,7 @@ class StatisticsCollectionViewCell: UICollectionViewCell {
         label.layer.shadowColor = UIColor.black.cgColor
         label.layer.shadowRadius = 5
         label.layer.shadowOpacity = 1.0
-        label.layer.shadowOffset = CGSize(width: 5, height: 5)
+        label.layer.shadowOffset = CGSize(width: 3, height: 3)
         label.layer.masksToBounds = false
         return label
     }()
@@ -66,7 +66,7 @@ class StatisticsCollectionViewCell: UICollectionViewCell {
         label.layer.shadowColor = UIColor.black.cgColor
         label.layer.shadowRadius = 5
         label.layer.shadowOpacity = 1.0
-        label.layer.shadowOffset = CGSize(width: 5, height: 5)
+        label.layer.shadowOffset = CGSize(width: 3, height: 3)
         label.layer.masksToBounds = false
         return label
     }()

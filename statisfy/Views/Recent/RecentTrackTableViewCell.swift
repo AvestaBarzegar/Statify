@@ -13,7 +13,7 @@ class RecentTrackTableViewCell: UITableViewCell {
     static let cellHeight: CGFloat = 108
         
         // MARK: - Initialize and configure view variables
-    var recentTrackInfo: RecentTrackInfo? {
+    var recentTrackInfo: RecentTrackViewModel? {
         didSet {
             if let url = recentTrackInfo?.imgURL {
                 songImage.lazyLoadImageUsingURL(urlString: url, placeholder: nil)
