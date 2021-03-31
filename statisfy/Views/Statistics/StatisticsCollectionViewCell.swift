@@ -43,14 +43,14 @@ class StatisticsCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.tableCellFontBolded
         label.textColor = UIColor.spotifyWhite
-        label.numberOfLines = 0
+        label.numberOfLines = 4
         label.lineBreakMode = .byTruncatingTail
         label.text = "REALLY LONG TEXT THAT TAKES UP A LOT OF SPACE AND IS VERY ANNOYING"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.shadowColor = UIColor.black.cgColor
         label.layer.shadowRadius = 5
         label.layer.shadowOpacity = 1.0
-        label.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
+        label.layer.shadowOffset = CGSize(width: 5, height: 5)
         label.layer.masksToBounds = false
         return label
     }()
@@ -66,7 +66,7 @@ class StatisticsCollectionViewCell: UICollectionViewCell {
         label.layer.shadowColor = UIColor.black.cgColor
         label.layer.shadowRadius = 5
         label.layer.shadowOpacity = 1.0
-        label.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
+        label.layer.shadowOffset = CGSize(width: 5, height: 5)
         label.layer.masksToBounds = false
         return label
     }()
@@ -88,7 +88,6 @@ class StatisticsCollectionViewCell: UICollectionViewCell {
         self.contentView.addSubview(trackImage)
         trackImage.addSubview(trackOrArtistLabel)
         trackImage.addSubview(placementLabel)
-        
         NSLayoutConstraint.activate([
             trackImage.topAnchor.constraint(equalTo: contentView.topAnchor),
             trackImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
