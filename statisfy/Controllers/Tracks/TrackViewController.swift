@@ -88,6 +88,7 @@ class TrackViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setup()
+        getInformation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -132,6 +133,41 @@ class TrackViewController: UIViewController {
         ])
     }
     
+    private func getInformation() {
+        guard let token = AuthManager.shared.accessToken else { return }
+        TrackManager.shared.getShortTracks(with: token, completion: { completion in
+            DispatchQueue.main.async {
+                if completion == true {
+                    print("Short Tracks were a success")
+                } else {
+                    print("damn couldn't get the short artists")
+                }
+            }
+        })
+        
+        TrackManager.shared.getMediumTracks(with: token, completion: { completion in
+            DispatchQueue.main.async {
+                if completion == true {
+                    print("Medium Tracks were a success")
+                } else {
+                    print("damn couldn't get the medium artists")
+                }
+            }
+        })
+        
+        TrackManager.shared.getLongTracks(with: token, completion: { completion in
+            DispatchQueue.main.async {
+                if completion == true {
+                    self.collectionView.reloadData()
+                    print("long Tracks were a success")
+                } else {
+                    print("damn couldn't get the long artists")
+                }
+            }
+        })
+        self.collectionView.reloadData()
+    }
+    
     func menuScrollItem(indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
     }
@@ -147,7 +183,13 @@ extension TrackViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatisticsCollectionScrollView.identifier, for: indexPath) as? StatisticsCollectionScrollView
-        cell?.tracks = tracks[indexPath.row]
+        if indexPath.row == 0 {
+            cell?.tracks = TrackManager.shared.shortTracks?.allInfo
+        } else if indexPath.row == 1 {
+            cell?.tracks = TrackManager.shared.mediumTracks?.allInfo
+        } else {
+            cell?.tracks = TrackManager.shared.longTracks?.allInfo
+        }
         return cell ?? UICollectionViewCell()
     }
     
