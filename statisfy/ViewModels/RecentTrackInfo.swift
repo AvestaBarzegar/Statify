@@ -13,4 +13,10 @@ struct RecentTrackInfo {
     // To-do: Change position to let constant <3
     let track: String?
     let imgURL: String?
+    
+    init(artist: String?, track: String?, imgURL: String?) {
+        self.artist = artist
+        self.track = track
+        self.imgURL = imgURL
+    }
 }
