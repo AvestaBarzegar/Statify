@@ -48,8 +48,8 @@ final class TrackManager {
             
             do {
                 let decoder = JSONDecoder()
-                let artists = try decoder.decode(ArtistItem.self, from: data)
-                self.shortTracks = TileInformationArray(artists: artists)
+                let tracks = try decoder.decode(TrackItem.self, from: data)
+                self.shortTracks = TileInformationArray(tracks: tracks)
                 completion(true)
             } catch {
                 print("CATCH: ", error)
@@ -91,8 +91,8 @@ final class TrackManager {
             
             do {
                 let decoder = JSONDecoder()
-                let artists = try decoder.decode(ArtistItem.self, from: data)
-                self.mediumTracks = TileInformationArray(artists: artists)
+                let tracks = try decoder.decode(TrackItem.self, from: data)
+                self.mediumTracks = TileInformationArray(tracks: tracks)
                 completion(true)
             } catch {
                 print("CATCH: ", error)
@@ -134,8 +134,8 @@ final class TrackManager {
             
             do {
                 let decoder = JSONDecoder()
-                let artists = try decoder.decode(ArtistItem.self, from: data)
-                self.longTracks = TileInformationArray(artists: artists)
+                let tracks = try decoder.decode(TrackItem.self, from: data)
+                self.longTracks = TileInformationArray(tracks: tracks)
                 completion(true)
             } catch {
                 print("CATCH: ", error)

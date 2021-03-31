@@ -43,7 +43,7 @@ class StatisticsCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.tableCellFontBolded
         label.textColor = UIColor.spotifyWhite
-        label.numberOfLines = 1
+        label.numberOfLines = 0
         label.lineBreakMode = .byTruncatingTail
         label.text = "REALLY LONG TEXT THAT TAKES UP A LOT OF SPACE AND IS VERY ANNOYING"
         label.translatesAutoresizingMaskIntoConstraints = false
