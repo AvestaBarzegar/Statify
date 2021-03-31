@@ -65,6 +65,10 @@
 		C98302382612DE3B00EE54A6 /* ArtistEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98302372612DE3B00EE54A6 /* ArtistEndpoints.swift */; };
 		C983023A2612DE5700EE54A6 /* TrackEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98302392612DE5700EE54A6 /* TrackEndpoints.swift */; };
 		C983023C2612E13B00EE54A6 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983023B2612E13B00EE54A6 /* Artist.swift */; };
+		C99084E62614066100E2F0E6 /* TrackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084E52614066100E2F0E6 /* TrackManager.swift */; };
+		C99084E72614066100E2F0E6 /* TrackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084E52614066100E2F0E6 /* TrackManager.swift */; };
+		C99084E92614097A00E2F0E6 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084E82614097A00E2F0E6 /* Track.swift */; };
+		C99084EA2614097A00E2F0E6 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084E82614097A00E2F0E6 /* Track.swift */; };
 		DFBF7D81A25565FE893E676D /* Pods_statisfy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +110,8 @@
 		C98302372612DE3B00EE54A6 /* ArtistEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistEndpoints.swift; sourceTree = "<group>"; };
 		C98302392612DE5700EE54A6 /* TrackEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackEndpoints.swift; sourceTree = "<group>"; };
 		C983023B2612E13B00EE54A6 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		C99084E52614066100E2F0E6 /* TrackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackManager.swift; sourceTree = "<group>"; };
+		C99084E82614097A00E2F0E6 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				C983023B2612E13B00EE54A6 /* Artist.swift */,
+				C99084E82614097A00E2F0E6 /* Track.swift */,
 			);
 			path = TabBarModels;
 			sourceTree = "<group>";
@@ -351,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				C98301DA261263AD00EE54A6 /* ArtistManager.swift */,
+				C99084E52614066100E2F0E6 /* TrackManager.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -556,6 +564,7 @@
 				C97059D1260FFF1C007FEB90 /* MenuBar.swift in Sources */,
 				C97D09BD260FA8BC0019734F /* SceneDelegate.swift in Sources */,
 				C97D09C4260FA8F20019734F /* StatisticsCollectionScrollView.swift in Sources */,
+				C99084E92614097A00E2F0E6 /* Track.swift in Sources */,
 				C97BD81A261103E80016720D /* AuthViewController.swift in Sources */,
 				C97BD81C261104540016720D /* SectionHeaderViewModel.swift in Sources */,
 				C97059D626100C82007FEB90 /* RecentTrackTableViewCell.swift in Sources */,
@@ -563,6 +572,7 @@
 				C97D09C3260FA8F20019734F /* StatisticsCollectionViewCell.swift in Sources */,
 				C98302382612DE3B00EE54A6 /* ArtistEndpoints.swift in Sources */,
 				C97BD8132610F6D70016720D /* SectionHeaderView.swift in Sources */,
+				C99084E62614066100E2F0E6 /* TrackManager.swift in Sources */,
 				C97BD8162610FF350016720D /* AuthManager.swift in Sources */,
 				C97D09BF260FA8E30019734F /* DownloadedImageView.swift in Sources */,
 				C97D09CC260FA94C0019734F /* ArtistViewController.swift in Sources */,
@@ -594,9 +604,11 @@
 				C983021C2612D46400EE54A6 /* SectionHeaderViewModel.swift in Sources */,
 				C983021D2612D46400EE54A6 /* RecentTrackTableViewCell.swift in Sources */,
 				C983021E2612D46400EE54A6 /* AppTabBarController.swift in Sources */,
+				C99084EA2614097A00E2F0E6 /* Track.swift in Sources */,
 				C983021F2612D46400EE54A6 /* StatisticsCollectionViewCell.swift in Sources */,
 				C98302202612D46400EE54A6 /* SectionHeaderView.swift in Sources */,
 				C98302212612D46400EE54A6 /* AuthManager.swift in Sources */,
+				C99084E72614066100E2F0E6 /* TrackManager.swift in Sources */,
 				C98302222612D46400EE54A6 /* DownloadedImageView.swift in Sources */,
 				C98302232612D46400EE54A6 /* ArtistViewController.swift in Sources */,
 				C98302242612D46400EE54A6 /* SensitiveInformation.swift in Sources */,

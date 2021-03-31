@@ -20,6 +20,12 @@ struct TileInfo {
         self.imgURL = artist.images?[0].url
     }
     
+    init(track: Track, index: Int) {
+        self.title = track.name
+        self.position = index
+        self.imgURL = track.album?.images?[0].url
+    }
+    
     init(title: String, position: Int, imgURL: String) {
         self.title = title
         self.position = position
@@ -37,6 +43,16 @@ struct TileInformationArray {
         
         for (index, artist) in artists.items.enumerated() {
             let tile = TileInfo(artist: artist, index: index + 1)
+            tiles.append(tile)
+        }
+        self.allInfo = tiles
+    }
+    
+    init(tracks: TrackItem) {
+        var tiles: [TileInfo] = []
+        
+        for (index, track) in tracks.items.enumerated() {
+            let tile = TileInfo(track: track, index: index + 1)
             tiles.append(tile)
         }
         self.allInfo = tiles
