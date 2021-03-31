@@ -155,10 +155,10 @@ class TrackViewController: UIViewController {
             }
         })
         
-        TrackManager.shared.getLongTracks(with: token, completion: { completion in
+        TrackManager.shared.getLongTracks(with: token, completion: { [ weak self] completion in
             DispatchQueue.main.async {
                 if completion == true {
-                    self.collectionView.reloadData()
+                    self?.collectionView.reloadData()
                     print("long Tracks were a success")
                 } else {
                     print("damn couldn't get the long artists")
@@ -169,7 +169,7 @@ class TrackViewController: UIViewController {
     }
     
     func menuScrollItem(indexPath: IndexPath) {
-        collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
+        collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
     }
 }
 

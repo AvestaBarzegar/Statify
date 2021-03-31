@@ -36,7 +36,6 @@ final class AuthManager: Endpoint {
         URLQueryItem(name: "scope", value: ("\(AuthConstants.topScope.rawValue),\(AuthConstants.recentScope.rawValue)")),
         URLQueryItem(name: "redirect_uri", value: AuthConstants.redirectURI.rawValue),
         URLQueryItem(name: "show_dialog", value: "TRUE")
-    
     ]
     
     var method: Methods.RawValue?

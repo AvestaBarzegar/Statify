@@ -123,10 +123,10 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
             }
         })
         
-        ArtistManager.shared.getLongArtists(with: token, completion: { completion in
+        ArtistManager.shared.getLongArtists(with: token, completion: { [ weak self] completion in
             DispatchQueue.main.async {
                 if completion == true {
-                    self.collectionView.reloadData()
+                    self?.collectionView.reloadData()
                     print("long artists were a success")
                 } else {
                     print("damn couldn't get the long artists")

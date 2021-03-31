@@ -38,7 +38,7 @@ class DownloadedImageView: UIImageView {
         }
 
         // image does not available in cache.. so retrieving it from url...
-        URLSession.shared.dataTask(with: url as URL, completionHandler: { (data, _, error) in
+        URLSession.shared.dataTask(with: url as URL, completionHandler: { [ weak self] (data, _, error) in
 
             if error != nil {
                 print(error as Any)
@@ -49,9 +49,9 @@ class DownloadedImageView: UIImageView {
 
                 if let unwrappedData = data, let imageToCache = UIImage(data: unwrappedData) {
 
-                    let resizedImage = imageToCache.downSample(width: UIScreen.main.bounds.width / 2 - 30)
-                    if self.imageURL == url {
-                        self.image = resizedImage
+                    let resizedImage = imageToCache.downSample(width: UIScreen.main.bounds.width * 2/3)
+                    if self?.imageURL == url {
+                        self?.image = resizedImage
                     }
                     imageCache.setObject(resizedImage, forKey: url as AnyObject)
                 }
