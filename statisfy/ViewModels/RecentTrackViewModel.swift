@@ -23,7 +23,16 @@ struct RecentTrackViewModel {
     init(track: Track?) {
         self.artist = track?.artists?[0].name
         self.track = track?.name
-        self.imgURL = track?.album?.images?[0].url
+        var last: Images = Images(height: -1, url: "", width: -1)
+        if let images = track?.album?.images {
+            for (index, image) in images.enumerated() {
+                if image.width < 200 && index != 0 {
+                    break
+                }
+                last = image
+            }
+        }
+        self.imgURL = last.url
     }
 }
 
