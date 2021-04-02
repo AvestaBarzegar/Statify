@@ -77,6 +77,10 @@
 		C99084F326141B4600E2F0E6 /* RecentTrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084F126141B4600E2F0E6 /* RecentTrackModel.swift */; };
 		C99447B02616AEE200E2991D /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447AF2616AEE200E2991D /* Requests.swift */; };
 		C99447B12616AEE400E2991D /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447AF2616AEE200E2991D /* Requests.swift */; };
+		C99447B42616B25800E2991D /* Environments.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447B32616B25800E2991D /* Environments.swift */; };
+		C99447B52616B25800E2991D /* Environments.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447B32616B25800E2991D /* Environments.swift */; };
+		C99447B82616B52900E2991D /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447B72616B52900E2991D /* NetworkSession.swift */; };
+		C99447B92616B52900E2991D /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447B72616B52900E2991D /* NetworkSession.swift */; };
 		DFBF7D81A25565FE893E676D /* Pods_statisfy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +128,8 @@
 		C99084EE26141A2400E2F0E6 /* RecentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentManager.swift; sourceTree = "<group>"; };
 		C99084F126141B4600E2F0E6 /* RecentTrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTrackModel.swift; sourceTree = "<group>"; };
 		C99447AF2616AEE200E2991D /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		C99447B32616B25800E2991D /* Environments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environments.swift; sourceTree = "<group>"; };
+		C99447B72616B52900E2991D /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +266,8 @@
 		C97D098F260FA7150019734F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				C99447B62616B51700E2991D /* NetworkSessions */,
+				C99447B22616B24300E2991D /* Environments */,
 				C99447AE2616AECA00E2991D /* Requests */,
 				C97BD8142610FF2A0016720D /* Managers */,
 				C97BD80E2610CC6D0016720D /* Endpoints */,
@@ -385,6 +393,22 @@
 				C99447AF2616AEE200E2991D /* Requests.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		C99447B22616B24300E2991D /* Environments */ = {
+			isa = PBXGroup;
+			children = (
+				C99447B32616B25800E2991D /* Environments.swift */,
+			);
+			path = Environments;
+			sourceTree = "<group>";
+		};
+		C99447B62616B51700E2991D /* NetworkSessions */ = {
+			isa = PBXGroup;
+			children = (
+				C99447B72616B52900E2991D /* NetworkSession.swift */,
+			);
+			path = NetworkSessions;
 			sourceTree = "<group>";
 		};
 		CA83E08D240F364AB2AD9B04 /* Frameworks */ = {
@@ -598,6 +622,7 @@
 				C97D09C3260FA8F20019734F /* StatisticsCollectionViewCell.swift in Sources */,
 				C98302382612DE3B00EE54A6 /* ArtistEndpoints.swift in Sources */,
 				C97BD8132610F6D70016720D /* SectionHeaderView.swift in Sources */,
+				C99447B82616B52900E2991D /* NetworkSession.swift in Sources */,
 				C99084E62614066100E2F0E6 /* TrackManager.swift in Sources */,
 				C97BD8162610FF350016720D /* AuthManager.swift in Sources */,
 				C97D09BF260FA8E30019734F /* DownloadedImageView.swift in Sources */,
@@ -610,6 +635,7 @@
 				C98301DB261263AD00EE54A6 /* ArtistManager.swift in Sources */,
 				C97BD82226117F540016720D /* AuthResponse.swift in Sources */,
 				C97059D326100263007FEB90 /* MenuBarItem.swift in Sources */,
+				C99447B42616B25800E2991D /* Environments.swift in Sources */,
 				C983023A2612DE5700EE54A6 /* TrackEndpoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -621,6 +647,7 @@
 				C98302112612D46400EE54A6 /* AppDelegate.swift in Sources */,
 				C99447B12616AEE400E2991D /* Requests.swift in Sources */,
 				C98302122612D46400EE54A6 /* TileInfo.swift in Sources */,
+				C99447B92616B52900E2991D /* NetworkSession.swift in Sources */,
 				C98302132612D46400EE54A6 /* RecentTrackViewModel.swift in Sources */,
 				C98302142612D46400EE54A6 /* TrackViewController.swift in Sources */,
 				C99084F026141A2400E2F0E6 /* RecentManager.swift in Sources */,
@@ -639,6 +666,7 @@
 				C983021F2612D46400EE54A6 /* StatisticsCollectionViewCell.swift in Sources */,
 				C98302202612D46400EE54A6 /* SectionHeaderView.swift in Sources */,
 				C98302212612D46400EE54A6 /* AuthManager.swift in Sources */,
+				C99447B52616B25800E2991D /* Environments.swift in Sources */,
 				C99084ED2614197900E2F0E6 /* RecentlyPlayedEndpoint.swift in Sources */,
 				C99084E72614066100E2F0E6 /* TrackManager.swift in Sources */,
 				C98302222612D46400EE54A6 /* DownloadedImageView.swift in Sources */,
