@@ -23,7 +23,6 @@ enum APIError: Error {
     case unknown
 }
 
-
 /// Class that handles the dispatch of requests to an environment with a given configuration.
 class APIRequestDispatcher: RequestDispatcherProtocol {
 
@@ -53,8 +52,7 @@ class APIRequestDispatcher: RequestDispatcherProtocol {
             return nil
         }
         // Add the environment specific headers.
-        let headersVar = 
-            environment.headers?.forEach({ (key: String, value: String) in
+        environment.headers?.forEach({ (key: String, value: String) in
             urlRequest.addValue(value, forHTTPHeaderField: key)
         })
 
@@ -69,12 +67,10 @@ class APIRequestDispatcher: RequestDispatcherProtocol {
             task = networkSession.downloadTask(request: urlRequest, progressHandler: request.progressHandler, completionHandler: { [weak self] (fileUrl, urlResponse, error) in
                 self?.handleFileTaskResponse(fileUrl: fileUrl, urlResponse: urlResponse, error: error, completion: completion)
             })
-            break
         case .upload:
             task = networkSession.uploadTask(with: urlRequest, from: URL(fileURLWithPath: ""), progressHandler: request.progressHandler, completion: { [weak self] (data, urlResponse, error) in
                 self?.handleJsonTaskResponse(data: data, urlResponse: urlResponse, error: error, completion: completion)
             })
-            break
         case .none:
             print("ERROR: THERE WAS NO CASE")
         }
@@ -156,7 +152,7 @@ class APIRequestDispatcher: RequestDispatcherProtocol {
         do {
             let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
             return .success(json)
-        } catch (let exception) {
+        } catch let exception {
             return .failure(APIError.parseError(exception.localizedDescription))
         }
     }

@@ -17,7 +17,7 @@ class APINetworkSession: NSObject {
     private typealias ProgressAndCompletionHandlers = (progress: ProgressHandler?, completion: ((URL?, URLResponse?, Error?) -> Void)?)
 
     /// Dictionary containing associations of `ProgressAndCompletionHandlers` to `URLSessionTask` instances.
-    private var taskToHandlersMap: [URLSessionTask : ProgressAndCompletionHandlers] = [:]
+    private var taskToHandlersMap: [URLSessionTask: ProgressAndCompletionHandlers] = [:]
 
     /// Convenience initializer.
     public override convenience init() {
@@ -45,7 +45,6 @@ class APINetworkSession: NSObject {
         super.init()
         self.session = URLSession(configuration: configuration, delegate: self, delegateQueue: delegateQueue)
     }
-
 
     /// Associates a `URLSessionTask` instance with its `ProgressAndCompletionHandlers`
     /// - Parameters:
@@ -124,8 +123,6 @@ extension APINetworkSession: URLSessionDelegate {
         set(handlers: nil, for: task)
     }
 }
-
-
 
 extension APINetworkSession: URLSessionDownloadDelegate {
 

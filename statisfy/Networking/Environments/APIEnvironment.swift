@@ -21,15 +21,15 @@ enum APIEnvironment: EnvironmentProtocol {
         switch self {
         case .development:
             return [
-                "Content-Type" : "application/json",
-                "Authorization" : "Bearer \(UserDefaults.standard.string(forKey: "access_token"))",
-                "Accept" : "application/json"
+                "Content-Type": "application/json",
+                "Authorization": "Bearer \(UserDefaults.standard.string(forKey: "access_token") ?? "")",
+                "Accept": "application/json"
             ]
         case .production:
             return [
-                "Content-Type" : "application/json",
-                "Authorization" : "Bearer \(UserDefaults.standard.string(forKey: "access_token"))",
-                "Accept" : "application/json"
+                "Content-Type": "application/json",
+                "Authorization": "Bearer \(UserDefaults.standard.string(forKey: "access_token") ?? "")",
+                "Accept": "application/json"
             ]
         }
     }

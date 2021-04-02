@@ -18,10 +18,10 @@ protocol OperationProtocol {
     /// - Parameters:
     ///   - requestDispatcher: `RequestDispatcherProtocol` object that will execute the request.
     ///   - completion: Completion block.
-    func execute(in requestDispatcher: RequestDispatcherProtocol, completion: @escaping (Output) -> Void) ->  Void
+    func execute(in requestDispatcher: RequestDispatcherProtocol, completion: @escaping (Output) -> Void)
 
     /// Cancel the operation.
-    func cancel() -> Void
+    func cancel()
 }
 
 /// The expected result of an API Operation.

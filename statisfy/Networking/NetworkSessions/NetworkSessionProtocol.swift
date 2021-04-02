@@ -28,5 +28,5 @@ protocol NetworkSessionProtocol {
     ///   - fileURL: The source file `URL`.
     ///   - progressHandler: Optional `ProgressHandler` callback.
     ///   - completion: he completion handler for the upload task.
-    func uploadTask(with request: URLRequest, from fileURL: URL, progressHandler: ProgressHandler?, completion: @escaping (Data?, URLResponse?, Error?)-> Void) -> URLSessionUploadTask?
+    func uploadTask(with request: URLRequest, from fileURL: URL, progressHandler: ProgressHandler?, completion: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionUploadTask?
 }
