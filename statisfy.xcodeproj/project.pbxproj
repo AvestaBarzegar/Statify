@@ -77,10 +77,16 @@
 		C99084F326141B4600E2F0E6 /* RecentTrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084F126141B4600E2F0E6 /* RecentTrackModel.swift */; };
 		C99447B02616AEE200E2991D /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447AF2616AEE200E2991D /* Requests.swift */; };
 		C99447B12616AEE400E2991D /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447AF2616AEE200E2991D /* Requests.swift */; };
-		C99447B42616B25800E2991D /* Environments.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447B32616B25800E2991D /* Environments.swift */; };
-		C99447B52616B25800E2991D /* Environments.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447B32616B25800E2991D /* Environments.swift */; };
-		C99447B82616B52900E2991D /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447B72616B52900E2991D /* NetworkSession.swift */; };
-		C99447B92616B52900E2991D /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447B72616B52900E2991D /* NetworkSession.swift */; };
+		C99447B42616B25800E2991D /* EnvironmentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447B32616B25800E2991D /* EnvironmentProtocol.swift */; };
+		C99447B52616B25800E2991D /* EnvironmentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447B32616B25800E2991D /* EnvironmentProtocol.swift */; };
+		C99447B82616B52900E2991D /* NetworkSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447B72616B52900E2991D /* NetworkSessionProtocol.swift */; };
+		C99447B92616B52900E2991D /* NetworkSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447B72616B52900E2991D /* NetworkSessionProtocol.swift */; };
+		C99447BC2616B6FA00E2991D /* OperationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447BB2616B6FA00E2991D /* OperationProtocol.swift */; };
+		C99447BD2616B6FA00E2991D /* OperationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447BB2616B6FA00E2991D /* OperationProtocol.swift */; };
+		C99447BF2616B71300E2991D /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447BE2616B71300E2991D /* APIEnvironment.swift */; };
+		C99447C02616B71300E2991D /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447BE2616B71300E2991D /* APIEnvironment.swift */; };
+		C99447C22616B73500E2991D /* APINetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447C12616B73500E2991D /* APINetworkSession.swift */; };
+		C99447C32616B73500E2991D /* APINetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447C12616B73500E2991D /* APINetworkSession.swift */; };
 		DFBF7D81A25565FE893E676D /* Pods_statisfy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,8 +134,11 @@
 		C99084EE26141A2400E2F0E6 /* RecentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentManager.swift; sourceTree = "<group>"; };
 		C99084F126141B4600E2F0E6 /* RecentTrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTrackModel.swift; sourceTree = "<group>"; };
 		C99447AF2616AEE200E2991D /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
-		C99447B32616B25800E2991D /* Environments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environments.swift; sourceTree = "<group>"; };
-		C99447B72616B52900E2991D /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
+		C99447B32616B25800E2991D /* EnvironmentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentProtocol.swift; sourceTree = "<group>"; };
+		C99447B72616B52900E2991D /* NetworkSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionProtocol.swift; sourceTree = "<group>"; };
+		C99447BB2616B6FA00E2991D /* OperationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationProtocol.swift; sourceTree = "<group>"; };
+		C99447BE2616B71300E2991D /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
+		C99447C12616B73500E2991D /* APINetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APINetworkSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +275,7 @@
 		C97D098F260FA7150019734F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				C99447BA2616B6EB00E2991D /* Operations */,
 				C99447B62616B51700E2991D /* NetworkSessions */,
 				C99447B22616B24300E2991D /* Environments */,
 				C99447AE2616AECA00E2991D /* Requests */,
@@ -398,7 +408,8 @@
 		C99447B22616B24300E2991D /* Environments */ = {
 			isa = PBXGroup;
 			children = (
-				C99447B32616B25800E2991D /* Environments.swift */,
+				C99447B32616B25800E2991D /* EnvironmentProtocol.swift */,
+				C99447BE2616B71300E2991D /* APIEnvironment.swift */,
 			);
 			path = Environments;
 			sourceTree = "<group>";
@@ -406,9 +417,18 @@
 		C99447B62616B51700E2991D /* NetworkSessions */ = {
 			isa = PBXGroup;
 			children = (
-				C99447B72616B52900E2991D /* NetworkSession.swift */,
+				C99447B72616B52900E2991D /* NetworkSessionProtocol.swift */,
+				C99447C12616B73500E2991D /* APINetworkSession.swift */,
 			);
 			path = NetworkSessions;
+			sourceTree = "<group>";
+		};
+		C99447BA2616B6EB00E2991D /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				C99447BB2616B6FA00E2991D /* OperationProtocol.swift */,
+			);
+			path = Operations;
 			sourceTree = "<group>";
 		};
 		CA83E08D240F364AB2AD9B04 /* Frameworks */ = {
@@ -605,6 +625,7 @@
 				C97D09D3260FE5F70019734F /* TileInfo.swift in Sources */,
 				C97059D826101B0E007FEB90 /* RecentTrackViewModel.swift in Sources */,
 				C97D09CA260FA92B0019734F /* TrackViewController.swift in Sources */,
+				C99447C22616B73500E2991D /* APINetworkSession.swift in Sources */,
 				C97D09C6260FA91A0019734F /* RecentViewController.swift in Sources */,
 				C97D09CE260FA9740019734F /* WelcomeVIewController.swift in Sources */,
 				C983023C2612E13B00EE54A6 /* ArtistModel.swift in Sources */,
@@ -618,11 +639,12 @@
 				C97BD81A261103E80016720D /* AuthViewController.swift in Sources */,
 				C97BD81C261104540016720D /* SectionHeaderViewModel.swift in Sources */,
 				C97059D626100C82007FEB90 /* RecentTrackTableViewCell.swift in Sources */,
+				C99447BF2616B71300E2991D /* APIEnvironment.swift in Sources */,
 				C97D09C8260FA9200019734F /* AppTabBarController.swift in Sources */,
 				C97D09C3260FA8F20019734F /* StatisticsCollectionViewCell.swift in Sources */,
 				C98302382612DE3B00EE54A6 /* ArtistEndpoints.swift in Sources */,
 				C97BD8132610F6D70016720D /* SectionHeaderView.swift in Sources */,
-				C99447B82616B52900E2991D /* NetworkSession.swift in Sources */,
+				C99447B82616B52900E2991D /* NetworkSessionProtocol.swift in Sources */,
 				C99084E62614066100E2F0E6 /* TrackManager.swift in Sources */,
 				C97BD8162610FF350016720D /* AuthManager.swift in Sources */,
 				C97D09BF260FA8E30019734F /* DownloadedImageView.swift in Sources */,
@@ -635,8 +657,9 @@
 				C98301DB261263AD00EE54A6 /* ArtistManager.swift in Sources */,
 				C97BD82226117F540016720D /* AuthResponse.swift in Sources */,
 				C97059D326100263007FEB90 /* MenuBarItem.swift in Sources */,
-				C99447B42616B25800E2991D /* Environments.swift in Sources */,
+				C99447B42616B25800E2991D /* EnvironmentProtocol.swift in Sources */,
 				C983023A2612DE5700EE54A6 /* TrackEndpoints.swift in Sources */,
+				C99447BC2616B6FA00E2991D /* OperationProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,7 +670,7 @@
 				C98302112612D46400EE54A6 /* AppDelegate.swift in Sources */,
 				C99447B12616AEE400E2991D /* Requests.swift in Sources */,
 				C98302122612D46400EE54A6 /* TileInfo.swift in Sources */,
-				C99447B92616B52900E2991D /* NetworkSession.swift in Sources */,
+				C99447B92616B52900E2991D /* NetworkSessionProtocol.swift in Sources */,
 				C98302132612D46400EE54A6 /* RecentTrackViewModel.swift in Sources */,
 				C98302142612D46400EE54A6 /* TrackViewController.swift in Sources */,
 				C99084F026141A2400E2F0E6 /* RecentManager.swift in Sources */,
@@ -666,7 +689,8 @@
 				C983021F2612D46400EE54A6 /* StatisticsCollectionViewCell.swift in Sources */,
 				C98302202612D46400EE54A6 /* SectionHeaderView.swift in Sources */,
 				C98302212612D46400EE54A6 /* AuthManager.swift in Sources */,
-				C99447B52616B25800E2991D /* Environments.swift in Sources */,
+				C99447C32616B73500E2991D /* APINetworkSession.swift in Sources */,
+				C99447B52616B25800E2991D /* EnvironmentProtocol.swift in Sources */,
 				C99084ED2614197900E2F0E6 /* RecentlyPlayedEndpoint.swift in Sources */,
 				C99084E72614066100E2F0E6 /* TrackManager.swift in Sources */,
 				C98302222612D46400EE54A6 /* DownloadedImageView.swift in Sources */,
@@ -674,9 +698,11 @@
 				C98302242612D46400EE54A6 /* SensitiveInformation.swift in Sources */,
 				C98302252612D46400EE54A6 /* Endpoint.swift in Sources */,
 				C98302262612D46400EE54A6 /* TokenManager.swift in Sources */,
+				C99447C02616B71300E2991D /* APIEnvironment.swift in Sources */,
 				C98302272612D46400EE54A6 /* ArtistManager.swift in Sources */,
 				C98302282612D46400EE54A6 /* AuthResponse.swift in Sources */,
 				C98302292612D46400EE54A6 /* MenuBarItem.swift in Sources */,
+				C99447BD2616B6FA00E2991D /* OperationProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
