@@ -89,6 +89,8 @@
 		C99447C32616B73500E2991D /* APINetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447C12616B73500E2991D /* APINetworkSession.swift */; };
 		C99447C52616B7C400E2991D /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447C42616B7C400E2991D /* APIOperation.swift */; };
 		C99447C62616B7C400E2991D /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447C42616B7C400E2991D /* APIOperation.swift */; };
+		C99447C82616B88D00E2991D /* RequestDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447C72616B88D00E2991D /* RequestDispatcher.swift */; };
+		C99447C92616B88D00E2991D /* RequestDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99447C72616B88D00E2991D /* RequestDispatcher.swift */; };
 		DFBF7D81A25565FE893E676D /* Pods_statisfy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +144,7 @@
 		C99447BE2616B71300E2991D /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
 		C99447C12616B73500E2991D /* APINetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APINetworkSession.swift; sourceTree = "<group>"; };
 		C99447C42616B7C400E2991D /* APIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
+		C99447C72616B88D00E2991D /* RequestDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDispatcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,6 +434,7 @@
 			children = (
 				C99447BB2616B6FA00E2991D /* OperationProtocol.swift */,
 				C99447C42616B7C400E2991D /* APIOperation.swift */,
+				C99447C72616B88D00E2991D /* RequestDispatcher.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -625,6 +629,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C99447C82616B88D00E2991D /* RequestDispatcher.swift in Sources */,
 				C97D09A8260FA7150019734F /* AppDelegate.swift in Sources */,
 				C97D09D3260FE5F70019734F /* TileInfo.swift in Sources */,
 				C97059D826101B0E007FEB90 /* RecentTrackViewModel.swift in Sources */,
@@ -706,6 +711,7 @@
 				C98302262612D46400EE54A6 /* TokenManager.swift in Sources */,
 				C99447C02616B71300E2991D /* APIEnvironment.swift in Sources */,
 				C98302272612D46400EE54A6 /* ArtistManager.swift in Sources */,
+				C99447C92616B88D00E2991D /* RequestDispatcher.swift in Sources */,
 				C98302282612D46400EE54A6 /* AuthResponse.swift in Sources */,
 				C98302292612D46400EE54A6 /* MenuBarItem.swift in Sources */,
 				C99447BD2616B6FA00E2991D /* OperationProtocol.swift in Sources */,
