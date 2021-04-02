@@ -9,25 +9,27 @@ import Foundation
 
 /// Environments enum.
 enum APIEnvironment: EnvironmentProtocol {
+    
     /// The development environment.
     case development
     /// The production environment.
     case production
     
     /// The default HTTP request headers for a given environment.
-    func headers(token: String) -> RequestHeaders {
+    
+    var headers: RequestHeaders? {
         switch self {
         case .development:
             return [
-                "Content-Type": "application/json",
-                "Authorization": "Bearer \(token)",
-                "Accept": "application/json"
+                "Content-Type" : "application/json",
+                "Authorization" : "Bearer \(UserDefaults.standard.string(forKey: "access_token"))",
+                "Accept" : "application/json"
             ]
         case .production:
             return [
-                "Content-Type": "application/json",
-                "Authorization": "Bearer \(token)",
-                "Accept": "application/json"
+                "Content-Type" : "application/json",
+                "Authorization" : "Bearer \(UserDefaults.standard.string(forKey: "access_token"))",
+                "Accept" : "application/json"
             ]
         }
     }

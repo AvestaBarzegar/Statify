@@ -53,7 +53,8 @@ class APIRequestDispatcher: RequestDispatcherProtocol {
             return nil
         }
         // Add the environment specific headers.
-        environment.headers?.forEach({ (key: String, value: String) in
+        let headersVar = 
+            environment.headers?.forEach({ (key: String, value: String) in
             urlRequest.addValue(value, forHTTPHeaderField: key)
         })
 
@@ -74,6 +75,8 @@ class APIRequestDispatcher: RequestDispatcherProtocol {
                 self?.handleJsonTaskResponse(data: data, urlResponse: urlResponse, error: error, completion: completion)
             })
             break
+        case .none:
+            print("ERROR: THERE WAS NO CASE")
         }
         // Start the task.
         task?.resume()
