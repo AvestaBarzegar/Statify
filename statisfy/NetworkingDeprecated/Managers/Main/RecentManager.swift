@@ -46,8 +46,6 @@ final class RecentManager {
                 let decoder = JSONDecoder()
                 let recentItems = try decoder.decode(RecentItemsArr.self, from: data)
                 self.recentTrackInfo = RecentTracksViewModelArray(items: recentItems)
-                print(recentItems)
-//                self.recentTrackInfo = RecentTracksViewModelArray(tracks: tracks).allInfo ?? []
                 completion(true)
             } catch {
                 print("CATCH: ", error)
