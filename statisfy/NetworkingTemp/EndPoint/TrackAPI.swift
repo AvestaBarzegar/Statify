@@ -6,3 +6,65 @@
 //
 
 import Foundation
+
+public enum TimeRange: String {
+    case shortTerm = "short_term"
+    case mediumTerm = "medium_term"
+    case longTerm = "long_term"
+}
+
+public enum TrackAPI {
+    case artist(timeRange: TimeRange)
+    case track(timeRange: TimeRange)
+}
+
+extension TrackAPI: EndPointType {
+    
+    var baseURL: URL {
+        let baseURL = "https://api.spotify.com"
+        let url = URL(string: baseURL)
+        return url!
+    }
+    
+    var path: String {
+        switch self {
+        case .artist:
+            return "/v1/me/top/artists"
+        case .track:
+            return "/v1/me/top/tracks"
+        }
+
+    }
+    
+    var httpMethod: HTTPMethod {
+        return .get
+    }
+    
+    var task: HTTPTask {
+        var parameters: Parameters = [
+            "limit": "50",
+            "offset": "0"
+        ]
+        switch self {
+        case .track(timeRange: let timeRange):
+            parameters["time_range"] = timeRange.rawValue
+            return .requestParametersAndHeaders(bodyParameters: nil,
+                                                urlParameters: parameters,
+                                                additionalHeaders: headers)
+        case .artist(timeRange: let timeRange):
+        parameters["time_range"] = timeRange.rawValue
+        return .requestParametersAndHeaders(bodyParameters: nil,
+                                            urlParameters: parameters,
+                                            additionalHeaders: headers)
+        }
+    }
+    
+    var headers: HTTPHeaders? {
+        let headers: HTTPHeaders = [
+            "Accept": "application/json",
+            "Authorization": "Bearer \(AuthManager.shared.accessToken ?? "")"
+        ]
+        return headers
+    }
+    
+}
