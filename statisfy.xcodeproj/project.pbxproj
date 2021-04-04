@@ -33,7 +33,6 @@
 		C97D09CC260FA94C0019734F /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09CB260FA94C0019734F /* ArtistViewController.swift */; };
 		C97D09CE260FA9740019734F /* WelcomeVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09CD260FA9740019734F /* WelcomeVIewController.swift */; };
 		C97D09D3260FE5F70019734F /* TileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09D2260FE5F70019734F /* TileInfo.swift */; };
-		C98301DB261263AD00EE54A6 /* ArtistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98301DA261263AD00EE54A6 /* ArtistManager.swift */; };
 		C98302112612D46400EE54A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D098C260FA7150019734F /* AppDelegate.swift */; };
 		C98302122612D46400EE54A6 /* TileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09D2260FE5F70019734F /* TileInfo.swift */; };
 		C98302132612D46400EE54A6 /* RecentTrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D726101B0E007FEB90 /* RecentTrackViewModel.swift */; };
@@ -56,17 +55,12 @@
 		C98302242612D46400EE54A6 /* SensitiveInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD817261101460016720D /* SensitiveInformation.swift */; };
 		C98302252612D46400EE54A6 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD80C2610CC6A0016720D /* Endpoint.swift */; };
 		C98302262612D46400EE54A6 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD81E26117F110016720D /* TokenManager.swift */; };
-		C98302272612D46400EE54A6 /* ArtistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98301DA261263AD00EE54A6 /* ArtistManager.swift */; };
 		C98302282612D46400EE54A6 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD82126117F540016720D /* AuthResponse.swift */; };
 		C98302292612D46400EE54A6 /* MenuBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D226100263007FEB90 /* MenuBarItem.swift */; };
 		C983022B2612D46400EE54A6 /* Pods_statisfy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */; };
 		C983022D2612D46400EE54A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97D098B260FA7150019734F /* Assets.xcassets */; };
 		C983022E2612D46400EE54A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97D09B8260FA7E60019734F /* LaunchScreen.storyboard */; };
-		C98302382612DE3B00EE54A6 /* ArtistEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98302372612DE3B00EE54A6 /* ArtistEndpoints.swift */; };
-		C983023A2612DE5700EE54A6 /* TrackEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98302392612DE5700EE54A6 /* TrackEndpoints.swift */; };
 		C983023C2612E13B00EE54A6 /* ArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983023B2612E13B00EE54A6 /* ArtistModel.swift */; };
-		C99084E62614066100E2F0E6 /* TrackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084E52614066100E2F0E6 /* TrackManager.swift */; };
-		C99084E72614066100E2F0E6 /* TrackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084E52614066100E2F0E6 /* TrackManager.swift */; };
 		C99084E92614097A00E2F0E6 /* TrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084E82614097A00E2F0E6 /* TrackModel.swift */; };
 		C99084EA2614097A00E2F0E6 /* TrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084E82614097A00E2F0E6 /* TrackModel.swift */; };
 		C99084EC2614197900E2F0E6 /* RecentlyPlayedEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084EB2614197900E2F0E6 /* RecentlyPlayedEndpoint.swift */; };
@@ -130,13 +124,9 @@
 		C97D09CB260FA94C0019734F /* ArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		C97D09CD260FA9740019734F /* WelcomeVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeVIewController.swift; sourceTree = "<group>"; };
 		C97D09D2260FE5F70019734F /* TileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileInfo.swift; sourceTree = "<group>"; };
-		C98301DA261263AD00EE54A6 /* ArtistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistManager.swift; sourceTree = "<group>"; };
 		C98302332612D46400EE54A6 /* statisfy prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "statisfy prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C98302342612D46400EE54A6 /* statisfy copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "statisfy copy-Info.plist"; path = "/Users/avestabarzegar/dev/iOS/statisfy/statisfy copy-Info.plist"; sourceTree = "<absolute>"; };
-		C98302372612DE3B00EE54A6 /* ArtistEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistEndpoints.swift; sourceTree = "<group>"; };
-		C98302392612DE5700EE54A6 /* TrackEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackEndpoints.swift; sourceTree = "<group>"; };
 		C983023B2612E13B00EE54A6 /* ArtistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistModel.swift; sourceTree = "<group>"; };
-		C99084E52614066100E2F0E6 /* TrackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackManager.swift; sourceTree = "<group>"; };
 		C99084E82614097A00E2F0E6 /* TrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModel.swift; sourceTree = "<group>"; };
 		C99084EB2614197900E2F0E6 /* RecentlyPlayedEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedEndpoint.swift; sourceTree = "<group>"; };
 		C99084EE26141A2400E2F0E6 /* RecentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentManager.swift; sourceTree = "<group>"; };
@@ -194,8 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				C97BD80C2610CC6A0016720D /* Endpoint.swift */,
-				C98302372612DE3B00EE54A6 /* ArtistEndpoints.swift */,
-				C98302392612DE5700EE54A6 /* TrackEndpoints.swift */,
 				C99084EB2614197900E2F0E6 /* RecentlyPlayedEndpoint.swift */,
 			);
 			path = Endpoints;
@@ -250,11 +238,11 @@
 		C97D0975260FA6C30019734F /* statisfy */ = {
 			isa = PBXGroup;
 			children = (
-				C99B6BCC261948FC004B88C1 /* NetworkingTemp */,
+				C99B6BCC261948FC004B88C1 /* NetworkingNew */,
 				C97D099B260FA7150019734F /* Controllers */,
 				C97D098A260FA7150019734F /* Misc */,
 				C97D09A6260FA7150019734F /* Models */,
-				C97D098F260FA7150019734F /* Networking */,
+				C97D098F260FA7150019734F /* NetworkingDeprecated */,
 				C97D098E260FA7150019734F /* ViewModels */,
 				C97D0990260FA7150019734F /* Views */,
 				C97D0984260FA6C40019734F /* Info.plist */,
@@ -285,13 +273,13 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		C97D098F260FA7150019734F /* Networking */ = {
+		C97D098F260FA7150019734F /* NetworkingDeprecated */ = {
 			isa = PBXGroup;
 			children = (
 				C97BD8142610FF2A0016720D /* Managers */,
 				C97BD80E2610CC6D0016720D /* Endpoints */,
 			);
-			path = Networking;
+			path = NetworkingDeprecated;
 			sourceTree = "<group>";
 		};
 		C97D0990260FA7150019734F /* Views */ = {
@@ -399,14 +387,12 @@
 		C98301D92612638100EE54A6 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				C98301DA261263AD00EE54A6 /* ArtistManager.swift */,
-				C99084E52614066100E2F0E6 /* TrackManager.swift */,
 				C99084EE26141A2400E2F0E6 /* RecentManager.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
 		};
-		C99B6BCC261948FC004B88C1 /* NetworkingTemp */ = {
+		C99B6BCC261948FC004B88C1 /* NetworkingNew */ = {
 			isa = PBXGroup;
 			children = (
 				C99B6BD02619492B004B88C1 /* Encoding */,
@@ -414,7 +400,7 @@
 				C99B6BCE2619491F004B88C1 /* Manager */,
 				C99B6BCD2619491A004B88C1 /* EndPoint */,
 			);
-			path = NetworkingTemp;
+			path = NetworkingNew;
 			sourceTree = "<group>";
 		};
 		C99B6BCD2619491A004B88C1 /* EndPoint */ = {
@@ -671,9 +657,7 @@
 				C97D09C8260FA9200019734F /* AppTabBarController.swift in Sources */,
 				C99B6BED2619529C004B88C1 /* SpotifyAPI.swift in Sources */,
 				C97D09C3260FA8F20019734F /* StatisticsCollectionViewCell.swift in Sources */,
-				C98302382612DE3B00EE54A6 /* ArtistEndpoints.swift in Sources */,
 				C97BD8132610F6D70016720D /* SectionHeaderView.swift in Sources */,
-				C99084E62614066100E2F0E6 /* TrackManager.swift in Sources */,
 				C97BD8162610FF350016720D /* AuthManager.swift in Sources */,
 				C99B6BD526194978004B88C1 /* HTTPMethod.swift in Sources */,
 				C97D09BF260FA8E30019734F /* DownloadedImageView.swift in Sources */,
@@ -684,10 +668,8 @@
 				C97BD81F26117F110016720D /* TokenManager.swift in Sources */,
 				C99084EC2614197900E2F0E6 /* RecentlyPlayedEndpoint.swift in Sources */,
 				C99B6BEA261950EB004B88C1 /* NetworkManager.swift in Sources */,
-				C98301DB261263AD00EE54A6 /* ArtistManager.swift in Sources */,
 				C97BD82226117F540016720D /* AuthResponse.swift in Sources */,
 				C97059D326100263007FEB90 /* MenuBarItem.swift in Sources */,
-				C983023A2612DE5700EE54A6 /* TrackEndpoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,14 +705,12 @@
 				C98302202612D46400EE54A6 /* SectionHeaderView.swift in Sources */,
 				C98302212612D46400EE54A6 /* AuthManager.swift in Sources */,
 				C99084ED2614197900E2F0E6 /* RecentlyPlayedEndpoint.swift in Sources */,
-				C99084E72614066100E2F0E6 /* TrackManager.swift in Sources */,
 				C99B6BDC26194A30004B88C1 /* ParameterEncoding.swift in Sources */,
 				C98302222612D46400EE54A6 /* DownloadedImageView.swift in Sources */,
 				C98302232612D46400EE54A6 /* ArtistViewController.swift in Sources */,
 				C98302242612D46400EE54A6 /* SensitiveInformation.swift in Sources */,
 				C98302252612D46400EE54A6 /* Endpoint.swift in Sources */,
 				C98302262612D46400EE54A6 /* TokenManager.swift in Sources */,
-				C98302272612D46400EE54A6 /* ArtistManager.swift in Sources */,
 				C99B6BE226194BC3004B88C1 /* JSONParameterEncoder.swift in Sources */,
 				C98302282612D46400EE54A6 /* AuthResponse.swift in Sources */,
 				C98302292612D46400EE54A6 /* MenuBarItem.swift in Sources */,
