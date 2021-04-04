@@ -63,10 +63,6 @@
 		C983023C2612E13B00EE54A6 /* ArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983023B2612E13B00EE54A6 /* ArtistModel.swift */; };
 		C99084E92614097A00E2F0E6 /* TrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084E82614097A00E2F0E6 /* TrackModel.swift */; };
 		C99084EA2614097A00E2F0E6 /* TrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084E82614097A00E2F0E6 /* TrackModel.swift */; };
-		C99084EC2614197900E2F0E6 /* RecentlyPlayedEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084EB2614197900E2F0E6 /* RecentlyPlayedEndpoint.swift */; };
-		C99084ED2614197900E2F0E6 /* RecentlyPlayedEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084EB2614197900E2F0E6 /* RecentlyPlayedEndpoint.swift */; };
-		C99084EF26141A2400E2F0E6 /* RecentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084EE26141A2400E2F0E6 /* RecentManager.swift */; };
-		C99084F026141A2400E2F0E6 /* RecentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084EE26141A2400E2F0E6 /* RecentManager.swift */; };
 		C99084F226141B4600E2F0E6 /* RecentTrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084F126141B4600E2F0E6 /* RecentTrackModel.swift */; };
 		C99084F326141B4600E2F0E6 /* RecentTrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084F126141B4600E2F0E6 /* RecentTrackModel.swift */; };
 		C99B6BD226194943004B88C1 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6BD126194943004B88C1 /* EndpointProtocol.swift */; };
@@ -128,8 +124,6 @@
 		C98302342612D46400EE54A6 /* statisfy copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "statisfy copy-Info.plist"; path = "/Users/avestabarzegar/dev/iOS/statisfy/statisfy copy-Info.plist"; sourceTree = "<absolute>"; };
 		C983023B2612E13B00EE54A6 /* ArtistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistModel.swift; sourceTree = "<group>"; };
 		C99084E82614097A00E2F0E6 /* TrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModel.swift; sourceTree = "<group>"; };
-		C99084EB2614197900E2F0E6 /* RecentlyPlayedEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedEndpoint.swift; sourceTree = "<group>"; };
-		C99084EE26141A2400E2F0E6 /* RecentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentManager.swift; sourceTree = "<group>"; };
 		C99084F126141B4600E2F0E6 /* RecentTrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTrackModel.swift; sourceTree = "<group>"; };
 		C99B6BD126194943004B88C1 /* EndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
 		C99B6BD426194978004B88C1 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -184,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				C97BD80C2610CC6A0016720D /* Endpoint.swift */,
-				C99084EB2614197900E2F0E6 /* RecentlyPlayedEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -192,7 +185,6 @@
 		C97BD8142610FF2A0016720D /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				C98301D92612638100EE54A6 /* Main */,
 				C97BD81D26117EFC0016720D /* TokenAuth */,
 			);
 			path = Managers;
@@ -382,14 +374,6 @@
 				C99084F126141B4600E2F0E6 /* RecentTrackModel.swift */,
 			);
 			path = TabBarModels;
-			sourceTree = "<group>";
-		};
-		C98301D92612638100EE54A6 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				C99084EE26141A2400E2F0E6 /* RecentManager.swift */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		C99B6BCC261948FC004B88C1 /* NetworkingNew */ = {
@@ -644,7 +628,6 @@
 				C97D09BB260FA7FE0019734F /* StyleExtension.swift in Sources */,
 				C97059D1260FFF1C007FEB90 /* MenuBar.swift in Sources */,
 				C97D09BD260FA8BC0019734F /* SceneDelegate.swift in Sources */,
-				C99084EF26141A2400E2F0E6 /* RecentManager.swift in Sources */,
 				C97D09C4260FA8F20019734F /* StatisticsCollectionScrollView.swift in Sources */,
 				C99B6BD8261949CD004B88C1 /* HTTPTask.swift in Sources */,
 				C99084E92614097A00E2F0E6 /* TrackModel.swift in Sources */,
@@ -666,7 +649,6 @@
 				C97BD818261101460016720D /* SensitiveInformation.swift in Sources */,
 				C97BD80D2610CC6A0016720D /* Endpoint.swift in Sources */,
 				C97BD81F26117F110016720D /* TokenManager.swift in Sources */,
-				C99084EC2614197900E2F0E6 /* RecentlyPlayedEndpoint.swift in Sources */,
 				C99B6BEA261950EB004B88C1 /* NetworkManager.swift in Sources */,
 				C97BD82226117F540016720D /* AuthResponse.swift in Sources */,
 				C97059D326100263007FEB90 /* MenuBarItem.swift in Sources */,
@@ -683,7 +665,6 @@
 				C99B6BE526194C7B004B88C1 /* NetworkRouter.swift in Sources */,
 				C99B6BEB261950EB004B88C1 /* NetworkManager.swift in Sources */,
 				C98302142612D46400EE54A6 /* TrackViewController.swift in Sources */,
-				C99084F026141A2400E2F0E6 /* RecentManager.swift in Sources */,
 				C99B6BE826194CCB004B88C1 /* Router.swift in Sources */,
 				C98302152612D46400EE54A6 /* RecentViewController.swift in Sources */,
 				C99084F326141B4600E2F0E6 /* RecentTrackModel.swift in Sources */,
@@ -704,7 +685,6 @@
 				C99B6BEE2619529C004B88C1 /* SpotifyAPI.swift in Sources */,
 				C98302202612D46400EE54A6 /* SectionHeaderView.swift in Sources */,
 				C98302212612D46400EE54A6 /* AuthManager.swift in Sources */,
-				C99084ED2614197900E2F0E6 /* RecentlyPlayedEndpoint.swift in Sources */,
 				C99B6BDC26194A30004B88C1 /* ParameterEncoding.swift in Sources */,
 				C98302222612D46400EE54A6 /* DownloadedImageView.swift in Sources */,
 				C98302232612D46400EE54A6 /* ArtistViewController.swift in Sources */,
