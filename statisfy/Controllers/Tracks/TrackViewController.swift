@@ -9,9 +9,8 @@ import UIKit
 
 class TrackViewController: UIViewController {
     
-    // MARK: - Temp Data
+    // MARK: - Data
 
-    
     private var information = [TileInformationArray?](repeating: nil, count: 3)
     
     let headerInfo = SectionHeaderViewModel(title: "Top Tracks", leftImageName: nil, rightImageName: nil)
@@ -104,6 +103,8 @@ class TrackViewController: UIViewController {
     
     private func getInformation() {
         let manager = NetworkManager()
+        
+        // Fetching top tracks in the past 4 weeks
         manager.getTracks(timeRange: .shortTerm) { [weak self] short, error in
             if error == nil {
                 DispatchQueue.main.async {
@@ -116,6 +117,7 @@ class TrackViewController: UIViewController {
             }
         }
         
+        // Fetching top tracks in the past 6 months
         manager.getTracks(timeRange: .mediumTerm) { [weak self] medium, error in
             if error == nil {
                 DispatchQueue.main.async {
@@ -128,6 +130,7 @@ class TrackViewController: UIViewController {
             }
         }
         
+        // Fetching top tracks of all time
         manager.getTracks(timeRange: .longTerm) { [weak self] long, error in
             if error == nil {
                 DispatchQueue.main.async {
@@ -139,6 +142,7 @@ class TrackViewController: UIViewController {
                 print(error as Any)
             }
         }
+        
     }
     
     func menuScrollItem(indexPath: IndexPath) {

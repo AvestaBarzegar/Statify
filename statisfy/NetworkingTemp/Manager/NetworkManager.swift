@@ -88,8 +88,8 @@ struct NetworkManager {
                     }
                     do {
                         let decoder = JSONDecoder()
-                        let tracks = try decoder.decode(TrackItem.self, from: responseData)
-                        let tracksViewModel = TileInformationArray(tracks: tracks)
+                        let artists = try decoder.decode(ArtistItem.self, from: responseData)
+                        let tracksViewModel = TileInformationArray(artists: artists)
                         completion(tracksViewModel, nil)
                         
                     } catch {
