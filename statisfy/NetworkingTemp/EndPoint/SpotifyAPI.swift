@@ -13,12 +13,12 @@ public enum TimeRange: String {
     case longTerm = "long_term"
 }
 
-public enum TrackAPI {
+public enum SpotifyAPI {
     case artist(timeRange: TimeRange)
     case track(timeRange: TimeRange)
 }
 
-extension TrackAPI: EndPointType {
+extension SpotifyAPI: EndPointType {
     
     var baseURL: URL {
         let baseURL = "https://api.spotify.com"
