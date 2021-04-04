@@ -148,10 +148,14 @@ class TrackViewController: UIViewController {
 //        })
         let manager = NetworkManager()
         manager.getTracks(timeRange: .shortTerm) { [weak self] short, error in
-            DispatchQueue.main.async {
-                print(short)
-                self?.shortTracks = short
-                self?.collectionView.reloadData()
+            if error == nil {
+                DispatchQueue.main.async {
+                    self?.shortTracks = short
+                    let indexPath = IndexPath(item: 0, section: 0)
+                    self?.collectionView.reloadItems(at: [indexPath])
+                }
+            } else {
+                print(error)
             }
         }
         
