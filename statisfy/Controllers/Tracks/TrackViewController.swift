@@ -9,41 +9,9 @@ import UIKit
 
 class TrackViewController: UIViewController {
     
-    // MARK: - Temp Data
-    
-    let numOfPages: CGFloat = 3
-    
-    private lazy var fourWeekTracks: [TileInfo] = {
-        var tracks: [TileInfo] = []
-        for index in 1...50 {
-            let track = TileInfo(title: "Silver Soul", position: index, imgURL: "https://i.pinimg.com/originals/3b/22/21/3b22217a65c57f568ca8da56cee2efdf.jpg")
-            tracks.append(track)
-        }
-        return tracks
-    }()
-    
-    private lazy var sixMonthTracks: [TileInfo] = {
-        var tracks: [TileInfo] = []
-        for index in 1...50 {
-            let track = TileInfo(title: "Chanel", position: index, imgURL: "https://upload.wikimedia.org/wikipedia/en/7/7c/Frank_Ocean_Chanel_Cover.jpg")
-            tracks.append(track)
-        }
-        return tracks
-    }()
-    
-    private lazy var allTimeTracks: [TileInfo] = {
-        var tracks: [TileInfo] = []
-        for index in 1...50 {
-            let track = TileInfo(title: "Space Song", position: index, imgURL: "https://upload.wikimedia.org/wikipedia/en/thumb/0/00/Beach_House_-_Depression_Cherry.png/220px-Beach_House_-_Depression_Cherry.png")
-            tracks.append(track)
-        }
-        return tracks
-    }()
-    
-    private lazy var tracks: [[TileInfo]] = {
-        let tracks = [fourWeekTracks, sixMonthTracks, allTimeTracks]
-        return tracks
-    }()
+    // MARK: - Data
+
+    private var information = [TileInformationArray?](repeating: nil, count: 3)
     
     let headerInfo = SectionHeaderViewModel(title: "Top Tracks", leftImageName: nil, rightImageName: nil)
     
@@ -134,38 +102,47 @@ class TrackViewController: UIViewController {
     }
     
     private func getInformation() {
-        guard let token = AuthManager.shared.accessToken else { return }
-        TrackManager.shared.getShortTracks(with: token, completion: { completion in
-            DispatchQueue.main.async {
-                if completion == true {
-                    print("Short Tracks were a success")
-                } else {
-                    print("damn couldn't get the short artists")
-                }
-            }
-        })
+        let manager = NetworkManager()
         
-        TrackManager.shared.getMediumTracks(with: token, completion: { completion in
-            DispatchQueue.main.async {
-                if completion == true {
-                    print("Medium Tracks were a success")
-                } else {
-                    print("damn couldn't get the medium artists")
+        // Fetching top tracks in the past 4 weeks
+        manager.getTracks(timeRange: .shortTerm) { [weak self] short, error in
+            if error == nil {
+                DispatchQueue.main.async {
+                    self?.information[0] = short
+                    let indexPath = IndexPath(item: 0, section: 0)
+                    self?.collectionView.reloadItems(at: [indexPath])
                 }
+            } else {
+                print(error as Any)
             }
-        })
+        }
         
-        TrackManager.shared.getLongTracks(with: token, completion: { [ weak self] completion in
-            DispatchQueue.main.async {
-                if completion == true {
-                    self?.collectionView.reloadData()
-                    print("long Tracks were a success")
-                } else {
-                    print("damn couldn't get the long artists")
+        // Fetching top tracks in the past 6 months
+        manager.getTracks(timeRange: .mediumTerm) { [weak self] medium, error in
+            if error == nil {
+                DispatchQueue.main.async {
+                    self?.information[1] = medium
+                    let indexPath = IndexPath(item: 1, section: 0)
+                    self?.collectionView.reloadItems(at: [indexPath])
                 }
+            } else {
+                print(error as Any)
             }
-        })
-        self.collectionView.reloadData()
+        }
+        
+        // Fetching top tracks of all time
+        manager.getTracks(timeRange: .longTerm) { [weak self] long, error in
+            if error == nil {
+                DispatchQueue.main.async {
+                    self?.information[2] = long
+                    let indexPath = IndexPath(item: 2, section: 0)
+                    self?.collectionView.reloadItems(at: [indexPath])
+                }
+            } else {
+                print(error as Any)
+            }
+        }
+        
     }
     
     func menuScrollItem(indexPath: IndexPath) {
@@ -178,18 +155,12 @@ class TrackViewController: UIViewController {
 extension TrackViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tracks.count
+        return information.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatisticsCollectionScrollView.identifier, for: indexPath) as? StatisticsCollectionScrollView
-        if indexPath.row == 0 {
-            cell?.tracks = TrackManager.shared.shortTracks?.allInfo
-        } else if indexPath.row == 1 {
-            cell?.tracks = TrackManager.shared.mediumTracks?.allInfo
-        } else {
-            cell?.tracks = TrackManager.shared.longTracks?.allInfo
-        }
+        cell?.tracks = information[indexPath.row]?.allInfo
         return cell ?? UICollectionViewCell()
     }
     

@@ -11,7 +11,7 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
 
     // MARK: - Data
     
-    let numOfPages: CGFloat = 3
+    private var information = [TileInformationArray?](repeating: nil, count: 3)
     
     let headerInfo = SectionHeaderViewModel(title: "Top Artists", leftImageName: nil, rightImageName: nil)
     
@@ -102,38 +102,46 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func getInformation() {
-        guard let token = AuthManager.shared.accessToken else { return }
-        ArtistManager.shared.getShortArtists(with: token, completion: { completion in
-            DispatchQueue.main.async {
-                if completion == true {
-                    print("Short artists were a success")
-                } else {
-                    print("damn couldn't get the short artists")
-                }
-            }
-        })
+        let manager = NetworkManager()
         
-        ArtistManager.shared.getMediumArtists(with: token, completion: { completion in
-            DispatchQueue.main.async {
-                if completion == true {
-                    print("Medium artists were a success")
-                } else {
-                    print("damn couldn't get the medium artists")
+        // Fetching top tracks in the past 4 weeks
+        manager.getArtists(timeRange: .shortTerm) { [weak self] short, error in
+            if error == nil {
+                DispatchQueue.main.async {
+                    self?.information[0] = short
+                    let indexPath = IndexPath(item: 0, section: 0)
+                    self?.collectionView.reloadItems(at: [indexPath])
                 }
+            } else {
+                print(error as Any)
             }
-        })
+        }
         
-        ArtistManager.shared.getLongArtists(with: token, completion: { [ weak self] completion in
-            DispatchQueue.main.async {
-                if completion == true {
-                    self?.collectionView.reloadData()
-                    print("long artists were a success")
-                } else {
-                    print("damn couldn't get the long artists")
+        // Fetching top tracks in the past 6 months
+        manager.getArtists(timeRange: .mediumTerm) { [weak self] medium, error in
+            if error == nil {
+                DispatchQueue.main.async {
+                    self?.information[1] = medium
+                    let indexPath = IndexPath(item: 1, section: 0)
+                    self?.collectionView.reloadItems(at: [indexPath])
                 }
+            } else {
+                print(error as Any)
             }
-        })
-        self.collectionView.reloadData()
+        }
+        
+        // Fetching top tracks of all time
+        manager.getArtists(timeRange: .longTerm) { [weak self] long, error in
+            if error == nil {
+                DispatchQueue.main.async {
+                    self?.information[2] = long
+                    let indexPath = IndexPath(item: 2, section: 0)
+                    self?.collectionView.reloadItems(at: [indexPath])
+                }
+            } else {
+                print(error as Any)
+            }
+        }
     }
     
     func menuScrollItem(indexPath: IndexPath) {
@@ -146,18 +154,12 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
 extension ArtistViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return information.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatisticsCollectionScrollView.identifier, for: indexPath) as? StatisticsCollectionScrollView
-        if indexPath.row == 0 {
-            cell?.tracks = ArtistManager.shared.shortArtists?.allInfo
-        } else if indexPath.row == 1 {
-            cell?.tracks = ArtistManager.shared.mediumArtists?.allInfo
-        } else {
-            cell?.tracks = ArtistManager.shared.longArtists?.allInfo
-        }
+        cell?.tracks = information[indexPath.row]?.allInfo
         return cell ?? UICollectionViewCell()
     }
     
