@@ -93,10 +93,15 @@ extension AuthViewController: WKNavigationDelegate, WKUIDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         guard let url = webView.url else { return }
         
+        if url.absoluteString == "http://avestabarzegar.com/?error=access_denied" {
+            webView.isHidden = true
+            self.dismiss(animated: true, completion: nil)
+        }
+        
         // Exchange code for access token
         guard let code = URLComponents(string: url.absoluteString)?.queryItems?.first(where: { $0.name == "code" })?.value else { return }
-        
         webView.isHidden = true
+
         TokenManager.shared.exchangeCodeForToken(code: code, completion: { [weak self](success) in
             DispatchQueue.main.async {
                 self?.dismiss(animated: true)
