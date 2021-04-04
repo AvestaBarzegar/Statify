@@ -53,7 +53,6 @@ class AppTabBarController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setupUI()
     }
     
     private func setupUI() {
@@ -62,7 +61,17 @@ class AppTabBarController: UITabBarController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        refreshAuth()
         
+    }
+    
+    func refreshAuth() {
+        TokenManager.shared.refreshToken(completion: { _ in
+            print("refreshed token")
+            DispatchQueue.main.async {
+                self.setupUI()
+            }
+        })
     }
     /*
     // MARK: - Navigation

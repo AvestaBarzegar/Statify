@@ -52,8 +52,8 @@ extension SpotifyAPI: EndPointType {
                                                 urlParameters: parameters,
                                                 additionalHeaders: headers)
         case .artist(timeRange: let timeRange):
-        parameters["time_range"] = timeRange.rawValue
-        return .requestParametersAndHeaders(bodyParameters: nil,
+            parameters["time_range"] = timeRange.rawValue
+            return .requestParametersAndHeaders(bodyParameters: nil,
                                             urlParameters: parameters,
                                             additionalHeaders: headers)
         }
