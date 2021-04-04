@@ -102,4 +102,34 @@ struct NetworkManager {
         }
     }
     
+    func getRecent(completion: @escaping(_ items: RecentTracksViewModelArray?, _ error: String?) -> Void) {
+        router.request(.recent) { data, response, error in
+            if error != nil {
+                completion(nil, "Please check your network connection.")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        let decoder = JSONDecoder()
+                        let items = try decoder.decode(RecentItemsArr.self, from: responseData)
+                        let tracksViewModel = RecentTracksViewModelArray(items: items)
+                        completion(tracksViewModel, nil)
+                        
+                    } catch {
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }
+        }
+    }
+    
 }

@@ -16,6 +16,7 @@ public enum TimeRange: String {
 public enum SpotifyAPI {
     case artist(timeRange: TimeRange)
     case track(timeRange: TimeRange)
+    case recent
 }
 
 extension SpotifyAPI: EndPointType {
@@ -32,6 +33,8 @@ extension SpotifyAPI: EndPointType {
             return "/v1/me/top/artists"
         case .track:
             return "/v1/me/top/tracks"
+        case .recent:
+            return "/v1/me/player/recently-played"
         }
 
     }
@@ -41,21 +44,33 @@ extension SpotifyAPI: EndPointType {
     }
     
     var task: HTTPTask {
-        var parameters: Parameters = [
-            "limit": "50",
-            "offset": "0"
-        ]
+        var parameters: Parameters = ["limit": "50"]
+        
         switch self {
         case .track(timeRange: let timeRange):
+            
             parameters["time_range"] = timeRange.rawValue
+            parameters["offset"] = "0"
+            
             return .requestParametersAndHeaders(bodyParameters: nil,
                                                 urlParameters: parameters,
                                                 additionalHeaders: headers)
+            
         case .artist(timeRange: let timeRange):
+            
             parameters["time_range"] = timeRange.rawValue
+            parameters["offset"] = "0"
+            
             return .requestParametersAndHeaders(bodyParameters: nil,
                                             urlParameters: parameters,
                                             additionalHeaders: headers)
+            
+        case .recent:
+            
+            return .requestParametersAndHeaders(bodyParameters: nil,
+                                                urlParameters: parameters,
+                                                additionalHeaders: headers)
+            
         }
     }
     
