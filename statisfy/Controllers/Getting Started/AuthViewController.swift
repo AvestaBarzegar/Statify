@@ -74,10 +74,6 @@ class AuthViewController: UIViewController {
         print(urlObj)
         webView.load(URLRequest(url: urlObj))
     }
-    
-    deinit {
-        print("Deinitialized Web View")
-    }
 
 }
 
