@@ -43,6 +43,35 @@ struct NetworkManager {
         }
     }
     
-    func getInformation(timeRange: TimeRange, completion: @escaping (_ [Track])
+    func getTracks(timeRange: TimeRange, completion: @escaping (_ tracks: TileInformationArray?, _ error: String?) -> Void) {
+        router.request(.artist(timeRange: timeRange)) { data, response, error in
+            if error != nil {
+                completion(nil, "Please check your network connection.")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        let decoder = JSONDecoder()
+                        let tracks = try decoder.decode(TrackItem.self, from: responseData)
+//                        self.shortTracks = TileInformationArray(tracks: tracks)
+                        let tracksViewModel = TileInformationArray(tracks: tracks)
+                        completion(tracksViewModel, nil)
+                        
+                    } catch {
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }
+        }
+    }
     
 }
