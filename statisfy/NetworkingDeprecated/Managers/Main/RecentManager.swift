@@ -11,7 +11,7 @@ final class RecentManager {
     
     static let shared = RecentManager()
     
-    var recentTrackInfo: [RecentTrackViewModel] = []
+    var recentTrackInfo: RecentTracksViewModelArray?
         
     func getRecentTracks(with token: String, completion: @escaping (Bool) -> Void) {
         guard let url = RecentlyPlayedEndpoint.shared.urlBuilder() else { return }
@@ -44,8 +44,10 @@ final class RecentManager {
             
             do {
                 let decoder = JSONDecoder()
-                let tracks = try decoder.decode(TrackItem.self, from: data)
-                self.recentTrackInfo = RecentTracksViewModelArray(tracks: tracks).allInfo ?? []
+                let recentItems = try decoder.decode(RecentItemsArr.self, from: data)
+                self.recentTrackInfo = RecentTracksViewModelArray(items: recentItems)
+                print(recentItems)
+//                self.recentTrackInfo = RecentTracksViewModelArray(tracks: tracks).allInfo ?? []
                 completion(true)
             } catch {
                 print("CATCH: ", error)

@@ -95,8 +95,6 @@ class RecentViewController: UIViewController {
             if completion == true {
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
-                    print(RecentManager.shared.recentTrackInfo)
-                    print(RecentManager.shared.recentTrackInfo.count)
                 }
             } else {
                 print("damn we couldn't get the recent tracks")
@@ -119,7 +117,7 @@ class RecentViewController: UIViewController {
 extension RecentViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return RecentManager.shared.recentTrackInfo.count
+        return RecentManager.shared.recentTrackInfo?.allInfo?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -128,7 +126,7 @@ extension RecentViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentTrackTableViewCell.identifier) as? RecentTrackTableViewCell else { return UITableViewCell() }
-        cell.recentTrackInfo = RecentManager.shared.recentTrackInfo[indexPath.row]
+        cell.recentTrackInfo = RecentManager.shared.recentTrackInfo?.allInfo?[indexPath.row]
         return cell
         
     }
