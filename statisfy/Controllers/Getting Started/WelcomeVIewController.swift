@@ -49,10 +49,10 @@ class WelcomeViewController: UIViewController {
     @objc
     func getStartedClicked() {
         let vc = AuthViewController()
-        vc.completionHandler = { [weak self] success in
+        vc.completionHandler = { [weak vc] success in
             DispatchQueue.main.async {
-                vc.dismiss(animated: true, completion: nil)
-                self?.handleSignIn(success: success)
+                vc?.dismiss(animated: true, completion: nil)
+                self.handleSignIn(success: success)
             }
         }
         // To-do: put logic for showing webView when button is tapped
@@ -68,6 +68,10 @@ class WelcomeViewController: UIViewController {
         let mainTabBarVC = AppTabBarController()
         weak var window = self.view.window
         window?.rootViewController = mainTabBarVC
+    }
+    
+    deinit {
+        print("Deinitialized Welcome View")
     }
 
     // MARK: - Layout views
