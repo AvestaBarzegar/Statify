@@ -28,5 +28,4 @@ public struct URLParameterEncoder: ParameterEncoder {
         }
     }
     
-    
 }

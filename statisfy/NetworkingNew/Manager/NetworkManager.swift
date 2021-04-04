@@ -24,7 +24,7 @@ enum Result<String> {
 
 struct NetworkManager {
     
-    private let router = Router<SpotifyAPI>()
+    private let router = Router<DataAnalyticsAPI>()
     
     func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String> {
         
