@@ -82,23 +82,6 @@ class RecentViewController: UIViewController {
         ])
     }
     
-    // MARK: - Networking Logic
-    
-    private func getInformation() {
-        
-        let manager = NetworkManager()
-        manager.getRecent { [weak self] recentArr, error in
-            if error != nil {
-                print(error as Any)
-            } else {
-                DispatchQueue.main.async {
-                    self?.information = recentArr
-                    self?.tableView.reloadData()
-                }
-            }
-        }
-    }
-    
     /*
     // MARK: - Navigation
 
@@ -127,4 +110,24 @@ extension RecentViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
     
+}
+
+// MARK: - Networking Logic
+
+extension RecentViewController {
+    
+    private func getInformation() {
+        
+        let manager = NetworkManager()
+        manager.getRecent { [weak self] recentArr, error in
+            if error != nil {
+                print(error as Any)
+            } else {
+                DispatchQueue.main.async {
+                    self?.information = recentArr
+                    self?.tableView.reloadData()
+                }
+            }
+        }
+    }
 }

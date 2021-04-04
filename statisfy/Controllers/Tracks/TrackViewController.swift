@@ -101,6 +101,47 @@ class TrackViewController: UIViewController {
         ])
     }
     
+    func menuScrollItem(indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
+    }
+}
+
+    // MARK: - UICollectionView Methods
+
+extension TrackViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return information.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatisticsCollectionScrollView.identifier, for: indexPath) as? StatisticsCollectionScrollView
+        cell?.tracks = information[indexPath.row]?.allInfo
+        return cell ?? UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return collectionView.bounds.size
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        menuBar.oldIndex = menuBar.currentIndex
+        menuBar.currentIndex = Int(targetContentOffset.pointee.x / view.frame.width)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        menuBar.sliderViewLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 3
+    }
+}
+
+// MARK: - Networking Logic
+
+extension TrackViewController {
+    
     private func getInformation() {
         let manager = NetworkManager()
         
@@ -143,41 +184,5 @@ class TrackViewController: UIViewController {
             }
         }
         
-    }
-    
-    func menuScrollItem(indexPath: IndexPath) {
-        collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
-    }
-}
-
-    // MARK: - UICollectionView Methods
-
-extension TrackViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return information.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatisticsCollectionScrollView.identifier, for: indexPath) as? StatisticsCollectionScrollView
-        cell?.tracks = information[indexPath.row]?.allInfo
-        return cell ?? UICollectionViewCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return collectionView.bounds.size
-    }
-    
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        menuBar.oldIndex = menuBar.currentIndex
-        menuBar.currentIndex = Int(targetContentOffset.pointee.x / view.frame.width)
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        menuBar.sliderViewLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 3
     }
 }
