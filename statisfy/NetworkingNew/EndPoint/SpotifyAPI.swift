@@ -66,7 +66,6 @@ extension SpotifyAPI: EndPointType {
                                             additionalHeaders: headers)
             
         case .recent:
-            
             return .requestParametersAndHeaders(bodyParameters: nil,
                                                 urlParameters: parameters,
                                                 additionalHeaders: headers)
