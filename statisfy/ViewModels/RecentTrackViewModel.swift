@@ -34,6 +34,21 @@ struct RecentTrackViewModel {
         }
         self.imgURL = last.url
     }
+    
+    init(recentItem: RecentItem?) {
+        self.artist = recentItem?.track?.artists?[0].name
+        self.track = recentItem?.track?.name
+        var last: Images = Images(height: -1, url: "", width: -1)
+        if let images = recentItem?.track?.album?.images {
+            for (index, image) in images.enumerated() {
+                if image.width < 200 && index != 0 {
+                    break
+                }
+                last = image
+            }
+        }
+        self.imgURL = last.url
+    }
 }
 
 struct RecentTracksViewModelArray {
@@ -48,5 +63,15 @@ struct RecentTracksViewModelArray {
             recentTracks.append(recentTrack)
         }
         self.allInfo = recentTracks
+    }
+    
+    init(items: RecentItemsArr) {
+        var recentItems: [RecentTrackViewModel] = []
+        
+        for item in items.items {
+            let recentItem = RecentTrackViewModel(recentItem: item)
+            recentItems.append(recentItem)
+        }
+        self.allInfo = recentItems
     }
 }
