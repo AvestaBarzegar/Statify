@@ -11,6 +11,8 @@ class TrackViewController: UIViewController {
     
     // MARK: - Temp Data
     
+    var shortTracks: TileInformationArray?
+    
     let numOfPages: CGFloat = 3
     
     private lazy var fourWeekTracks: [TileInfo] = {
@@ -135,15 +137,23 @@ class TrackViewController: UIViewController {
     
     private func getInformation() {
         guard let token = AuthManager.shared.accessToken else { return }
-        TrackManager.shared.getShortTracks(with: token, completion: { completion in
+//        TrackManager.shared.getShortTracks(with: token, completion: { completion in
+//            DispatchQueue.main.async {
+//                if completion == true {
+//                    print("Short Tracks were a success")
+//                } else {
+//                    print("damn couldn't get the short artists")
+//                }
+//            }
+//        })
+        let manager = NetworkManager()
+        manager.getTracks(timeRange: .shortTerm) { [weak self] short, error in
             DispatchQueue.main.async {
-                if completion == true {
-                    print("Short Tracks were a success")
-                } else {
-                    print("damn couldn't get the short artists")
-                }
+                print(short)
+                self?.shortTracks = short
+                self?.collectionView.reloadData()
             }
-        })
+        }
         
         TrackManager.shared.getMediumTracks(with: token, completion: { completion in
             DispatchQueue.main.async {
@@ -184,7 +194,7 @@ extension TrackViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatisticsCollectionScrollView.identifier, for: indexPath) as? StatisticsCollectionScrollView
         if indexPath.row == 0 {
-            cell?.tracks = TrackManager.shared.shortTracks?.allInfo
+            cell?.tracks = shortTracks?.allInfo
         } else if indexPath.row == 1 {
             cell?.tracks = TrackManager.shared.mediumTracks?.allInfo
         } else {
