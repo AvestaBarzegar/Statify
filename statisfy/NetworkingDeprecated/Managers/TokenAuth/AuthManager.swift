@@ -7,13 +7,6 @@
 
 import Foundation
 
-enum AuthConstants: String {
-    
-    case topScope = "user-top-read"
-    case recentScope = "user-read-recently-played"
-    case redirectURI = "http://avestabarzegar.com"
-}
-
 final class AuthManager: Endpoint {
     
     var scheme: Scheme.RawValue = Scheme.https.rawValue

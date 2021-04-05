@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C952A6B4261A8693007C15F4 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C952A6B3261A8693007C15F4 /* AuthAPI.swift */; };
+		C952A6B5261A8693007C15F4 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C952A6B3261A8693007C15F4 /* AuthAPI.swift */; };
 		C97059D1260FFF1C007FEB90 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D0260FFF1C007FEB90 /* MenuBar.swift */; };
 		C97059D326100263007FEB90 /* MenuBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D226100263007FEB90 /* MenuBarItem.swift */; };
 		C97059D626100C82007FEB90 /* RecentTrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D526100C82007FEB90 /* RecentTrackTableViewCell.swift */; };
@@ -92,6 +94,7 @@
 		6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_statisfy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF2D5B978843954F4803993 /* Pods-statisfy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-statisfy.release.xcconfig"; path = "Target Support Files/Pods-statisfy/Pods-statisfy.release.xcconfig"; sourceTree = "<group>"; };
 		C5E1BB871A24B609ADC46CEA /* Pods-statisfy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-statisfy.debug.xcconfig"; path = "Target Support Files/Pods-statisfy/Pods-statisfy.debug.xcconfig"; sourceTree = "<group>"; };
+		C952A6B3261A8693007C15F4 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		C97059D0260FFF1C007FEB90 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		C97059D226100263007FEB90 /* MenuBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarItem.swift; sourceTree = "<group>"; };
 		C97059D526100C82007FEB90 /* RecentTrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTrackTableViewCell.swift; sourceTree = "<group>"; };
@@ -392,6 +395,7 @@
 			children = (
 				C99B6BD126194943004B88C1 /* EndpointProtocol.swift */,
 				C99B6BEC2619529C004B88C1 /* DataAnalyticsAPI.swift */,
+				C952A6B3261A8693007C15F4 /* AuthAPI.swift */,
 			);
 			path = EndPoint;
 			sourceTree = "<group>";
@@ -629,6 +633,7 @@
 				C97059D1260FFF1C007FEB90 /* MenuBar.swift in Sources */,
 				C97D09BD260FA8BC0019734F /* SceneDelegate.swift in Sources */,
 				C97D09C4260FA8F20019734F /* StatisticsCollectionScrollView.swift in Sources */,
+				C952A6B4261A8693007C15F4 /* AuthAPI.swift in Sources */,
 				C99B6BD8261949CD004B88C1 /* HTTPTask.swift in Sources */,
 				C99084E92614097A00E2F0E6 /* TrackModel.swift in Sources */,
 				C97BD81A261103E80016720D /* AuthViewController.swift in Sources */,
@@ -665,6 +670,7 @@
 				C99B6BE526194C7B004B88C1 /* NetworkRouter.swift in Sources */,
 				C99B6BEB261950EB004B88C1 /* NetworkManager.swift in Sources */,
 				C98302142612D46400EE54A6 /* TrackViewController.swift in Sources */,
+				C952A6B5261A8693007C15F4 /* AuthAPI.swift in Sources */,
 				C99B6BE826194CCB004B88C1 /* Router.swift in Sources */,
 				C98302152612D46400EE54A6 /* RecentViewController.swift in Sources */,
 				C99084F326141B4600E2F0E6 /* RecentTrackModel.swift in Sources */,
