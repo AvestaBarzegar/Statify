@@ -6,6 +6,10 @@ function_body_length:
     warning: 50
     error: 70
     
+function_parameter_count:
+    warning: 10
+    error: 20
+    
 disabled_rules:
     - trailing_whitespace
     - identifier_name
