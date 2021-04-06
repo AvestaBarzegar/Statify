@@ -85,6 +85,13 @@ class ProgressView: UIView {
         
         shapeLayer.add(strokeAnimationGroup, forKey: nil)
         
+        let colorAnimation = StrokeColorAnimation(
+            colors: colors.map { $0.cgColor },
+            duration: strokeAnimationGroup.duration * Double(colors.count)
+        )
+
+        shapeLayer.add(colorAnimation, forKey: nil)
+        
         self.layer.addSublayer(shapeLayer)
     }
     
