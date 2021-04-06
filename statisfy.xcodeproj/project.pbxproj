@@ -85,6 +85,8 @@
 		C99B6BEB261950EB004B88C1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6BE9261950EB004B88C1 /* NetworkManager.swift */; };
 		C99B6BED2619529C004B88C1 /* DataAnalyticsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6BEC2619529C004B88C1 /* DataAnalyticsAPI.swift */; };
 		C99B6BEE2619529C004B88C1 /* DataAnalyticsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6BEC2619529C004B88C1 /* DataAnalyticsAPI.swift */; };
+		C9BD2E17261BF84500C0FBDA /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E16261BF84500C0FBDA /* ProgressView.swift */; };
+		C9BD2E18261BF84500C0FBDA /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E16261BF84500C0FBDA /* ProgressView.swift */; };
 		DFBF7D81A25565FE893E676D /* Pods_statisfy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +137,7 @@
 		C99B6BE626194CCB004B88C1 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		C99B6BE9261950EB004B88C1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C99B6BEC2619529C004B88C1 /* DataAnalyticsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAnalyticsAPI.swift; sourceTree = "<group>"; };
+		C9BD2E16261BF84500C0FBDA /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +290,7 @@
 		C97D0996260FA7150019734F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C9BD2E15261BF80900C0FBDA /* Spinner */,
 				C97D09BE260FA8E30019734F /* DownloadedImageView.swift */,
 				C97059D0260FFF1C007FEB90 /* MenuBar.swift */,
 				C97059D226100263007FEB90 /* MenuBarItem.swift */,
@@ -423,6 +427,14 @@
 				C99B6BE026194BC3004B88C1 /* JSONParameterEncoder.swift */,
 			);
 			path = Encoding;
+			sourceTree = "<group>";
+		};
+		C9BD2E15261BF80900C0FBDA /* Spinner */ = {
+			isa = PBXGroup;
+			children = (
+				C9BD2E16261BF84500C0FBDA /* ProgressView.swift */,
+			);
+			path = Spinner;
 			sourceTree = "<group>";
 		};
 		CA83E08D240F364AB2AD9B04 /* Frameworks */ = {
@@ -650,6 +662,7 @@
 				C97BD80D2610CC6A0016720D /* Endpoint.swift in Sources */,
 				C97BD81F26117F110016720D /* TokenManager.swift in Sources */,
 				C99B6BEA261950EB004B88C1 /* NetworkManager.swift in Sources */,
+				C9BD2E17261BF84500C0FBDA /* ProgressView.swift in Sources */,
 				C97BD82226117F540016720D /* AuthResponse.swift in Sources */,
 				C97059D326100263007FEB90 /* MenuBarItem.swift in Sources */,
 			);
@@ -676,6 +689,7 @@
 				C99B6BD626194978004B88C1 /* HTTPMethod.swift in Sources */,
 				C983021B2612D46400EE54A6 /* AuthViewController.swift in Sources */,
 				C983021C2612D46400EE54A6 /* SectionHeaderViewModel.swift in Sources */,
+				C9BD2E18261BF84500C0FBDA /* ProgressView.swift in Sources */,
 				C983021D2612D46400EE54A6 /* RecentTrackTableViewCell.swift in Sources */,
 				C983021E2612D46400EE54A6 /* AppTabBarController.swift in Sources */,
 				C99084EA2614097A00E2F0E6 /* TrackModel.swift in Sources */,
