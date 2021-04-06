@@ -155,7 +155,7 @@ extension TrackViewController {
                     self?.collectionView.reloadItems(at: indexPath)
                 }
             } else {
-                print(error as Any)
+                
             }
         }
         

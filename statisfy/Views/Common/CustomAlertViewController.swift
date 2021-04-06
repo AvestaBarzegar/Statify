@@ -10,8 +10,8 @@ import UIKit
 class CustomAlertViewController: UIViewController {
 
     // MARK: - Init Variables
-    var okTapped: () -> Void = {}
-    var cancelTapped: () -> Void = {}
+    private var okTapped: () -> Void = {}
+    private var cancelTapped: () -> Void = {}
     
     // MARK: - Init Views
     
@@ -76,12 +76,12 @@ class CustomAlertViewController: UIViewController {
     // MARK: - Button Targets
     
     @objc
-    func okClicked() {
+    private func okClicked() {
         okTapped()
     }
     
     @objc
-    func cancelClicked() {
+    private func cancelClicked() {
         cancelTapped()
         self.dismiss(animated: true, completion: nil)
     }
@@ -117,8 +117,6 @@ class CustomAlertViewController: UIViewController {
     func handleTap() {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
     
     private func constraintContainer() {
         NSLayoutConstraint.activate([
