@@ -25,6 +25,7 @@ class RecentViewController: UIViewController {
         view.dataSource = self
         view.showsVerticalScrollIndicator = false
         view.showsHorizontalScrollIndicator = false
+        view.separatorStyle = .none
         view.register(RecentTrackTableViewCell.self, forCellReuseIdentifier: RecentTrackTableViewCell.identifier)
         return view
     }()
