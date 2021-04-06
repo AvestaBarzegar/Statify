@@ -84,6 +84,7 @@ class SectionHeaderView: UIView {
     }
     
     private func setup() {
+        self.backgroundColor = UIColor.backgroundComplementColor
         self.addSubview(headerLabel)
         self.addSubview(leftButtonView)
         self.addSubview(rightButtonView)

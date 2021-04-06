@@ -42,7 +42,7 @@ class AuthViewController: UIViewController {
     }
     
     private func setup() {
-        self.view.backgroundColor = .spotifyGray
+        self.view.backgroundColor = UIColor.backgroundComplementColor
         let safeArea = self.view.layoutMarginsGuide
         self.view.addSubview(headerView)
         self.view.addSubview(webView)

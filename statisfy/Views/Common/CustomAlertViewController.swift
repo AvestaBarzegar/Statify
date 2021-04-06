@@ -18,7 +18,7 @@ class CustomAlertViewController: UIViewController {
     private lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.spotifyTurkoise
+        view.backgroundColor = UIColor.backgroundComplementColor
         view.layer.cornerRadius = Constants.cornerRadius.rawValue
         return view
     }()

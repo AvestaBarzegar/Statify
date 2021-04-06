@@ -100,6 +100,9 @@ extension UIColor {
     static var pear: UIColor {
         return UIColor(red: 203/255, green: 239/255, blue: 67/255, alpha: 1)
     }
+    static var backgroundComplementColor: UIColor {
+        return UIColor(red: 56/255, green: 57/255, blue: 63/255, alpha: 1)
+    }
     
 }
 

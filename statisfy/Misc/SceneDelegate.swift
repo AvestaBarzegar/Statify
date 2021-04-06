@@ -71,7 +71,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         UITabBarItem.appearance().setTitleTextAttributes(attributesNormal, for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes(attributesSelected, for: .selected)
-        UITabBar.appearance().barTintColor = UIColor.backgroundColor
+        UITabBar.appearance().barTintColor = UIColor.backgroundComplementColor
+        UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().tintColor = UIColor.spotifyGreen
     }
     
