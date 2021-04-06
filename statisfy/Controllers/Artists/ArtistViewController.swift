@@ -147,54 +147,52 @@ extension ArtistViewController {
         
         var counter = 0
         self.showSpinner(onView: self.view)
-        // Fetching top tracks in the past 4 weeks
+        
+        // Fetching top artists in the past 4 weeks
         manager.getArtists(timeRange: .shortTerm) { [weak self] short, error in
             if error == nil {
-                DispatchQueue.main.async {
-                    self?.information[0] = short
-                    let indexPath = IndexPath(item: 0, section: 0)
-                    self?.collectionView.reloadItems(at: [indexPath])
-                }
             } else {
                 print(error as Any)
             }
-            counter += 1
-            if counter == 3 {
-                self?.removeSpinner()
+            DispatchQueue.main.async {
+                counter += 1
+                self?.information[0] = short
+                if counter == 3 {
+                    self?.removeSpinner()
+                    self?.collectionView.reloadData()
+                }
             }
         }
         
-        // Fetching top tracks in the past 6 months
+        // Fetching top artists in the past 6 months
         manager.getArtists(timeRange: .mediumTerm) { [weak self] medium, error in
             if error == nil {
-                DispatchQueue.main.async {
-                    self?.information[1] = medium
-                    let indexPath = IndexPath(item: 1, section: 0)
-                    self?.collectionView.reloadItems(at: [indexPath])
-                }
             } else {
                 print(error as Any)
             }
-            counter += 1
-            if counter == 3 {
-                self?.removeSpinner()
+            DispatchQueue.main.async {
+                counter += 1
+                self?.information[1] = medium
+                if counter == 3 {
+                    self?.removeSpinner()
+                    self?.collectionView.reloadData()
+                }
             }
         }
         
-        // Fetching top tracks of all time
+        // Fetching top artists of all time
         manager.getArtists(timeRange: .longTerm) { [weak self] long, error in
             if error == nil {
-                DispatchQueue.main.async {
-                    self?.information[2] = long
-                    let indexPath = IndexPath(item: 2, section: 0)
-                    self?.collectionView.reloadItems(at: [indexPath])
-                }
             } else {
                 print(error as Any)
             }
-            counter += 1
-            if counter == 3 {
-                self?.removeSpinner()
+            DispatchQueue.main.async {
+                counter += 1
+                self?.information[2] = long
+                if counter == 3 {
+                    self?.removeSpinner()
+                    self?.collectionView.reloadData()
+                }
             }
         }
     }
