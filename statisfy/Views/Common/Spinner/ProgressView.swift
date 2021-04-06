@@ -88,5 +88,17 @@ class ProgressView: UIView {
         self.layer.addSublayer(shapeLayer)
     }
     
+    private func animateRotation() {
+        let rotationAnimation = RotationAnimation(
+            direction: .z,
+            fromValue: 0,
+            toValue: CGFloat.pi * 2,
+            duration: 2,
+            repeatCount: .greatestFiniteMagnitude
+        )
+        
+        self.layer.add(rotationAnimation, forKey: nil)
+    }
+    
     
 }
