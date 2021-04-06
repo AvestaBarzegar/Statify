@@ -117,6 +117,7 @@ extension ArtistViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatisticsCollectionScrollView.identifier, for: indexPath) as? StatisticsCollectionScrollView
         cell?.tracks = information[indexPath.row]?.allInfo
+        cell?.animating = !((information[indexPath.row]?.allInfo?.isEmpty) != nil)
         return cell ?? UICollectionViewCell()
     }
     
