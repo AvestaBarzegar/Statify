@@ -146,7 +146,6 @@ extension TrackViewController {
         let manager = NetworkManager()
         
         var counter = 0
-        self.showSpinner(onView: self.view)
         
         let customView = UIView()
         customView.frame = self.view.frame
@@ -154,6 +153,8 @@ extension TrackViewController {
         customView.layer.zPosition = CGFloat(MAXFLOAT)
         let windowCount = UIApplication.shared.windows.count - 1
         UIApplication.shared.windows[windowCount].addSubview(customView)
+        
+        self.showSpinner(onView: self.view)
         
         // Fetching top tracks in the past 4 weeks
         manager.getTracks(timeRange: .shortTerm) { [weak self] short, error in
@@ -208,6 +209,7 @@ extension TrackViewController {
                 }
             }
         }
-        
+        customView.removeFromSuperview()
+        self.removeSpinner()
     }
 }
