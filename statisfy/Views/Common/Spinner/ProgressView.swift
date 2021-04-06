@@ -116,6 +116,5 @@ class ProgressView: UIView {
         
         self.layer.add(rotationAnimation, forKey: nil)
     }
-    
-    
+        
 }
