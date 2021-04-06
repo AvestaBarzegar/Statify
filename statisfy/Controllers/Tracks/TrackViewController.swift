@@ -148,6 +148,13 @@ extension TrackViewController {
         var counter = 0
         self.showSpinner(onView: self.view)
         
+        let customView = UIView()
+        customView.frame = self.view.frame
+        customView.backgroundColor = UIColor.clear
+        customView.layer.zPosition = CGFloat(MAXFLOAT)
+        let windowCount = UIApplication.shared.windows.count - 1
+        UIApplication.shared.windows[windowCount].addSubview(customView)
+        
         // Fetching top tracks in the past 4 weeks
         manager.getTracks(timeRange: .shortTerm) { [weak self] short, error in
             if error == nil {
@@ -160,6 +167,7 @@ extension TrackViewController {
                 self?.information[0] = short
                 if counter == 3 {
                     self?.removeSpinner()
+                    customView.removeFromSuperview()
                     self?.collectionView.reloadData()
                 }
             }
@@ -177,6 +185,7 @@ extension TrackViewController {
                 self?.information[1] = medium
                 if counter == 3 {
                     self?.removeSpinner()
+                    customView.removeFromSuperview()
                     self?.collectionView.reloadData()
                 }
             }
@@ -194,6 +203,7 @@ extension TrackViewController {
                 self?.information[2] = long
                 if counter == 3 {
                     self?.removeSpinner()
+                    customView.removeFromSuperview()
                     self?.collectionView.reloadData()
                 }
             }
