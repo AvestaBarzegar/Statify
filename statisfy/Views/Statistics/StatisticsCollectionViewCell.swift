@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Horizontally scrolling scrolView
 class StatisticsCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "StatisticsCollectionViewCell"

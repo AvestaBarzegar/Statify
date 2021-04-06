@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Vertically scrolling scrollView
 class StatisticsCollectionScrollView: UICollectionViewCell {
     
     var tracks: [TileInfo]? {
@@ -40,6 +41,13 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
         cv.showsHorizontalScrollIndicator = false
         cv.register(StatisticsCollectionViewCell.self, forCellWithReuseIdentifier: StatisticsCollectionViewCell.identifier)
         return cv
+    }()
+    
+    private lazy var spinner: ProgressView = {
+        let spinner = ProgressView(colors: SpinnerColors.normal, lineWidth: 5.0)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.isAnimating = true
+        return spinner
     }()
 
     // MARK: - Layout Views
