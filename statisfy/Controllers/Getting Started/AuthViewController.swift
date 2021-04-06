@@ -100,7 +100,7 @@ extension AuthViewController: WKNavigationDelegate {
         guard let code = URLComponents(string: url.absoluteString)?.queryItems?.first(where: { $0.name == "code" })?.value else { return }
         
         webView.isHidden = true
-        TokenManager.shared.exchangeCodeForToken(code: code, completion: { [weak self](success) in
+        TokenManager.shared.exchangeCodeForToken(code: code, completion: { [weak self] (success) in
             DispatchQueue.main.async {
                 self?.dismiss(animated: true)
                 self?.completionHandler?(success)

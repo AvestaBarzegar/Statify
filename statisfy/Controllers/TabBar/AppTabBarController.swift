@@ -66,10 +66,10 @@ class AppTabBarController: UITabBarController {
     }
     
     func refreshAuth() {
-        TokenManager.shared.refreshToken(completion: { _ in
+        TokenManager.shared.refreshToken(completion: { [weak self] _ in
             print("refreshed token")
             DispatchQueue.main.async {
-                self.setupUI()
+                self?.setupUI()
             }
         })
     }
