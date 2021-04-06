@@ -59,4 +59,34 @@ class ProgressView: UIView {
     private lazy var shapeLayer: ProgressShapeLayer = {
         return ProgressShapeLayer(lineWidth: lineWidth)
     }()
+    
+    // MARK: - Animation functions
+    private func animateStroke() {
+        
+        let startAnimation = StrokeAnimation(
+            type: .start,
+            beginTime: 0.25,
+            fromValue: 0.0,
+            toValue: 1.0,
+            duration: 0.75
+        )
+
+        let endAnimation = StrokeAnimation(
+            type: .end,
+            fromValue: 0.0,
+            toValue: 1.0,
+            duration: 0.75
+        )
+        
+        let strokeAnimationGroup = CAAnimationGroup()
+        strokeAnimationGroup.duration = 1
+        strokeAnimationGroup.repeatDuration = .infinity
+        strokeAnimationGroup.animations = [startAnimation, endAnimation]
+        
+        shapeLayer.add(strokeAnimationGroup, forKey: nil)
+        
+        self.layer.addSublayer(shapeLayer)
+    }
+    
+    
 }
