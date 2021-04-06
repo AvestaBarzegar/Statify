@@ -22,9 +22,12 @@ class AppTabBarController: UITabBarController {
         
         let recentItem = UITabBarItem(title: "Recent", image: UIImage(systemName: "clock"), selectedImage: UIImage(systemName: "clock.fill"))
         
+        let settingsItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape"), selectedImage: UIImage(systemName: "gearshape.fill"))
+        
         arr.append(trackItem)
         arr.append(artistItem)
         arr.append(recentItem)
+        arr.append(settingsItem)
         return arr
         
     }()
@@ -41,9 +44,13 @@ class AppTabBarController: UITabBarController {
         let thirdVC = RecentViewController()
         thirdVC.tabBarItem = tabBars[2]
         
+        let fourthVC = SettingsViewController()
+        fourthVC.tabBarItem = tabBars[3]
+        
         arr.append(firstVC)
         arr.append(secondVC)
         arr.append(thirdVC)
+        arr.append(fourthVC)
         return arr
     }()
     

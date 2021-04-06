@@ -97,6 +97,8 @@
 		C9BD2E24261BFA2A00C0FBDA /* StrokeColorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E22261BFA2A00C0FBDA /* StrokeColorAnimation.swift */; };
 		C9BD2E26261BFBB800C0FBDA /* SpinnerViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E25261BFBB800C0FBDA /* SpinnerViewControllerExtensions.swift */; };
 		C9BD2E27261BFBB800C0FBDA /* SpinnerViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E25261BFBB800C0FBDA /* SpinnerViewControllerExtensions.swift */; };
+		C9BD2E2A261C214000C0FBDA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E29261C214000C0FBDA /* SettingsViewController.swift */; };
+		C9BD2E2B261C214000C0FBDA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E29261C214000C0FBDA /* SettingsViewController.swift */; };
 		DFBF7D81A25565FE893E676D /* Pods_statisfy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */; };
 /* End PBXBuildFile section */
 
@@ -153,6 +155,7 @@
 		C9BD2E1F261BF9DA00C0FBDA /* RotationAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationAnimation.swift; sourceTree = "<group>"; };
 		C9BD2E22261BFA2A00C0FBDA /* StrokeColorAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeColorAnimation.swift; sourceTree = "<group>"; };
 		C9BD2E25261BFBB800C0FBDA /* SpinnerViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewControllerExtensions.swift; sourceTree = "<group>"; };
+		C9BD2E29261C214000C0FBDA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +320,7 @@
 		C97D099B260FA7150019734F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C9BD2E28261C212100C0FBDA /* Settings */,
 				C97D09A2260FA7150019734F /* Artists */,
 				C97D099C260FA7150019734F /* Recent */,
 				C97D099E260FA7150019734F /* TabBar */,
@@ -455,6 +459,14 @@
 				C9BD2E25261BFBB800C0FBDA /* SpinnerViewControllerExtensions.swift */,
 			);
 			path = Spinner;
+			sourceTree = "<group>";
+		};
+		C9BD2E28261C212100C0FBDA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C9BD2E29261C214000C0FBDA /* SettingsViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		CA83E08D240F364AB2AD9B04 /* Frameworks */ = {
@@ -682,6 +694,7 @@
 				C99B6BD526194978004B88C1 /* HTTPMethod.swift in Sources */,
 				C97D09BF260FA8E30019734F /* DownloadedImageView.swift in Sources */,
 				C97D09CC260FA94C0019734F /* ArtistViewController.swift in Sources */,
+				C9BD2E2A261C214000C0FBDA /* SettingsViewController.swift in Sources */,
 				C99084F226141B4600E2F0E6 /* RecentTrackModel.swift in Sources */,
 				C97BD818261101460016720D /* SensitiveInformation.swift in Sources */,
 				C97BD80D2610CC6A0016720D /* Endpoint.swift in Sources */,
@@ -730,6 +743,7 @@
 				C99B6BDC26194A30004B88C1 /* ParameterEncoding.swift in Sources */,
 				C98302222612D46400EE54A6 /* DownloadedImageView.swift in Sources */,
 				C98302232612D46400EE54A6 /* ArtistViewController.swift in Sources */,
+				C9BD2E2B261C214000C0FBDA /* SettingsViewController.swift in Sources */,
 				C98302242612D46400EE54A6 /* SensitiveInformation.swift in Sources */,
 				C98302252612D46400EE54A6 /* Endpoint.swift in Sources */,
 				C98302262612D46400EE54A6 /* TokenManager.swift in Sources */,
