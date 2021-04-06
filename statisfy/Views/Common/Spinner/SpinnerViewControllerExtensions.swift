@@ -49,6 +49,30 @@ extension UIViewController {
             customSpinner = spinnerView
         }
         blocker = blockerView
-        
+    }
+    
+    func removeSpinner() {
+        switch spinnerType {
+        case .basic:
+            DispatchQueue.main.async {
+                basicSpinner?.removeFromSuperview()
+                blocker?.removeFromSuperview()
+                basicSpinner = nil
+                blocker = nil
+            }
+        case .custom:
+            DispatchQueue.main.async {
+                customSpinner?.isAnimating = false
+                customSpinner?.removeFromSuperview()
+                blocker?.removeFromSuperview()
+                customSpinner = nil
+                blocker = nil
+            }
+        case .none:
+            debugPrint("Cannot remove a spinner that does not exist")
+        }
+        DispatchQueue.main.async {
+            spinnerType = nil
+        }
     }
 }
