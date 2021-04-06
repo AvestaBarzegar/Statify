@@ -73,7 +73,6 @@ class AppTabBarController: UITabBarController {
     }
     
     func refreshAuth() {
-        guard WelcomeViewController.isRoot == false else { return }
         TokenManager.shared.refreshToken(completion: { [weak self] _ in
             print("refreshed token")
             DispatchQueue.main.async {

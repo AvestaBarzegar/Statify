@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = AppTabBarController()
+        setRootVc(window: window)
         window.makeKeyAndVisible()
         window.overrideUserInterfaceStyle = .dark
         self.window = window
@@ -36,6 +36,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+    func setRootVc(window: UIWindow) {
+        if !AuthManager.shared.isSignedIn {
+            let rootViewController = WelcomeViewController()
+            window.rootViewController = rootViewController
+            return
+        } else {
+            let rootViewController = AppTabBarController()
+            window.rootViewController = rootViewController
+            return
+        }
     }
 
 }

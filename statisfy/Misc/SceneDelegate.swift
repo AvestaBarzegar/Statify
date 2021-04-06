@@ -82,7 +82,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = rootViewController
             return
         } else {
-            WelcomeViewController.isRoot = false
             let rootViewController = AppTabBarController()
             window.rootViewController = rootViewController
             return
