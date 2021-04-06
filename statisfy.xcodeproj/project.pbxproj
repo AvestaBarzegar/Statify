@@ -87,6 +87,8 @@
 		C99B6BEE2619529C004B88C1 /* DataAnalyticsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6BEC2619529C004B88C1 /* DataAnalyticsAPI.swift */; };
 		C9BD2E17261BF84500C0FBDA /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E16261BF84500C0FBDA /* ProgressView.swift */; };
 		C9BD2E18261BF84500C0FBDA /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E16261BF84500C0FBDA /* ProgressView.swift */; };
+		C9BD2E1A261BF89700C0FBDA /* ProgressShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E19261BF89700C0FBDA /* ProgressShapeLayer.swift */; };
+		C9BD2E1B261BF89700C0FBDA /* ProgressShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E19261BF89700C0FBDA /* ProgressShapeLayer.swift */; };
 		DFBF7D81A25565FE893E676D /* Pods_statisfy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +140,7 @@
 		C99B6BE9261950EB004B88C1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C99B6BEC2619529C004B88C1 /* DataAnalyticsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAnalyticsAPI.swift; sourceTree = "<group>"; };
 		C9BD2E16261BF84500C0FBDA /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		C9BD2E19261BF89700C0FBDA /* ProgressShapeLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressShapeLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				C9BD2E16261BF84500C0FBDA /* ProgressView.swift */,
+				C9BD2E19261BF89700C0FBDA /* ProgressShapeLayer.swift */,
 			);
 			path = Spinner;
 			sourceTree = "<group>";
@@ -633,6 +637,7 @@
 				C97D09D3260FE5F70019734F /* TileInfo.swift in Sources */,
 				C97059D826101B0E007FEB90 /* RecentTrackViewModel.swift in Sources */,
 				C97D09CA260FA92B0019734F /* TrackViewController.swift in Sources */,
+				C9BD2E1A261BF89700C0FBDA /* ProgressShapeLayer.swift in Sources */,
 				C99B6BDB26194A30004B88C1 /* ParameterEncoding.swift in Sources */,
 				C97D09C6260FA91A0019734F /* RecentViewController.swift in Sources */,
 				C97D09CE260FA9740019734F /* WelcomeVIewController.swift in Sources */,
@@ -708,6 +713,7 @@
 				C99B6BE226194BC3004B88C1 /* JSONParameterEncoder.swift in Sources */,
 				C98302282612D46400EE54A6 /* AuthResponse.swift in Sources */,
 				C98302292612D46400EE54A6 /* MenuBarItem.swift in Sources */,
+				C9BD2E1B261BF89700C0FBDA /* ProgressShapeLayer.swift in Sources */,
 				C99B6BD326194943004B88C1 /* EndpointProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
