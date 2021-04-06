@@ -15,6 +15,19 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
             collectionView.reloadData()
         }
     }
+    
+    var animating: Bool = true {
+        didSet {
+            if animating {
+                spinner.isHidden = !animating
+                spinner.isAnimating = animating
+            } else {
+                spinner.isHidden = !animating
+                spinner.isAnimating = animating
+            }
+        }
+    }
+    
     static let identifier = "StatisticsCollectionScrollView"
     
     // MARK: - Init views
@@ -46,7 +59,6 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
     private lazy var spinner: ProgressView = {
         let spinner = ProgressView(colors: SpinnerColors.normal, lineWidth: 5.0)
         spinner.translatesAutoresizingMaskIntoConstraints = false
-        spinner.isAnimating = true
         return spinner
     }()
 
@@ -64,13 +76,19 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
     
     private func setup() {
         contentView.addSubview(collectionView)
+        contentView.addSubview(spinner)
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-            collectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor)
-
+            collectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            
+            spinner.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
+            spinner.widthAnchor.constraint(equalToConstant: 50),
+            spinner.heightAnchor.constraint(equalTo: spinner.widthAnchor)
         ])
+        spinner.isAnimating = true
     }
 
 }
