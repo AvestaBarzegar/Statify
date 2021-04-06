@@ -145,6 +145,9 @@ extension TrackViewController {
     private func getInformation() {
         let manager = NetworkManager()
         
+        var counter = 0
+        self.showSpinner(onView: self.view)
+        
         // Fetching top tracks in the past 4 weeks
         manager.getTracks(timeRange: .shortTerm) { [weak self] short, error in
             if error == nil {
@@ -155,6 +158,10 @@ extension TrackViewController {
                 }
             } else {
                 print(error as Any)
+            }
+            counter += 1
+            if counter == 3 {
+                self?.removeSpinner()
             }
         }
         
@@ -169,6 +176,10 @@ extension TrackViewController {
             } else {
                 print(error as Any)
             }
+            counter += 1
+            if counter == 3 {
+                self?.removeSpinner()
+            }
         }
         
         // Fetching top tracks of all time
@@ -181,6 +192,10 @@ extension TrackViewController {
                 }
             } else {
                 print(error as Any)
+            }
+            counter += 1
+            if counter == 3 {
+                self?.removeSpinner()
             }
         }
         
