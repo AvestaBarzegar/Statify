@@ -119,12 +119,21 @@ extension RecentViewController {
     private func getInformation() {
         self.showSpinner(onView: self.view)
         let manager = NetworkManager()
+        
+        let customView = UIView()
+        customView.frame = self.view.frame
+        customView.backgroundColor = UIColor.clear
+        customView.layer.zPosition = CGFloat(MAXFLOAT)
+        let windowCount = UIApplication.shared.windows.count - 1
+        UIApplication.shared.windows[windowCount].addSubview(customView)
+        
         manager.getRecent { [weak self] recentArr, error in
             if error != nil {
                 print(error as Any)
             } else {
                 DispatchQueue.main.async {
                     self?.information = recentArr
+                    customView.removeFromSuperview()
                     self?.tableView.reloadData()
                 }
             }
