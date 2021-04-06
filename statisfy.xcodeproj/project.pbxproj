@@ -89,6 +89,8 @@
 		C9BD2E18261BF84500C0FBDA /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E16261BF84500C0FBDA /* ProgressView.swift */; };
 		C9BD2E1A261BF89700C0FBDA /* ProgressShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E19261BF89700C0FBDA /* ProgressShapeLayer.swift */; };
 		C9BD2E1B261BF89700C0FBDA /* ProgressShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E19261BF89700C0FBDA /* ProgressShapeLayer.swift */; };
+		C9BD2E1D261BF95100C0FBDA /* StrokeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E1C261BF95100C0FBDA /* StrokeAnimation.swift */; };
+		C9BD2E1E261BF95100C0FBDA /* StrokeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E1C261BF95100C0FBDA /* StrokeAnimation.swift */; };
 		DFBF7D81A25565FE893E676D /* Pods_statisfy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +143,7 @@
 		C99B6BEC2619529C004B88C1 /* DataAnalyticsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAnalyticsAPI.swift; sourceTree = "<group>"; };
 		C9BD2E16261BF84500C0FBDA /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		C9BD2E19261BF89700C0FBDA /* ProgressShapeLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressShapeLayer.swift; sourceTree = "<group>"; };
+		C9BD2E1C261BF95100C0FBDA /* StrokeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -437,6 +440,7 @@
 			children = (
 				C9BD2E16261BF84500C0FBDA /* ProgressView.swift */,
 				C9BD2E19261BF89700C0FBDA /* ProgressShapeLayer.swift */,
+				C9BD2E1C261BF95100C0FBDA /* StrokeAnimation.swift */,
 			);
 			path = Spinner;
 			sourceTree = "<group>";
@@ -655,6 +659,7 @@
 				C97059D626100C82007FEB90 /* RecentTrackTableViewCell.swift in Sources */,
 				C99B6BD226194943004B88C1 /* EndpointProtocol.swift in Sources */,
 				C97D09C8260FA9200019734F /* AppTabBarController.swift in Sources */,
+				C9BD2E1D261BF95100C0FBDA /* StrokeAnimation.swift in Sources */,
 				C99B6BED2619529C004B88C1 /* DataAnalyticsAPI.swift in Sources */,
 				C97D09C3260FA8F20019734F /* StatisticsCollectionViewCell.swift in Sources */,
 				C97BD8132610F6D70016720D /* SectionHeaderView.swift in Sources */,
@@ -701,6 +706,7 @@
 				C99B6BDF26194AB6004B88C1 /* URLParameterEncoder.swift in Sources */,
 				C99B6BD9261949CD004B88C1 /* HTTPTask.swift in Sources */,
 				C983021F2612D46400EE54A6 /* StatisticsCollectionViewCell.swift in Sources */,
+				C9BD2E1E261BF95100C0FBDA /* StrokeAnimation.swift in Sources */,
 				C99B6BEE2619529C004B88C1 /* DataAnalyticsAPI.swift in Sources */,
 				C98302202612D46400EE54A6 /* SectionHeaderView.swift in Sources */,
 				C98302212612D46400EE54A6 /* AuthManager.swift in Sources */,
