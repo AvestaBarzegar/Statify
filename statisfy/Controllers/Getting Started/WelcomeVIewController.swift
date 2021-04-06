@@ -98,5 +98,9 @@ class WelcomeViewController: UIViewController {
             getStartedButton.heightAnchor.constraint(equalToConstant: 48)
         ])
     }
+    
+    deinit {
+        print("deinitialized WelcomeVC")
+    }
 
 }

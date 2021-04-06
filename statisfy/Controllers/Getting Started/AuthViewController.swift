@@ -26,14 +26,7 @@ class AuthViewController: UIViewController {
     }()
     
     private let webView: WKWebView = {
-        let prefs = WKPreferences()
-        prefs.javaScriptEnabled = true
-        
-        let config = WKWebViewConfiguration()
-        config.preferences = prefs
-        
-        let webView = WKWebView(frame: .zero,
-                                configuration: config)
+        let webView = WKWebView(frame: .zero)
         webView.translatesAutoresizingMaskIntoConstraints = false
         return webView
         
@@ -74,6 +67,10 @@ class AuthViewController: UIViewController {
         print(urlObj)
         webView.load(URLRequest(url: urlObj))
     }
+    
+    deinit {
+        print("deinitialized AuthVC")
+    }
 
 }
 
@@ -88,7 +85,7 @@ extension AuthViewController: SectionHeaderViewDelegate {
     }
 }
 
-extension AuthViewController: WKNavigationDelegate, WKUIDelegate {
+extension AuthViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         guard let url = webView.url else { return }
@@ -101,12 +98,12 @@ extension AuthViewController: WKNavigationDelegate, WKUIDelegate {
         // Exchange code for access token
         guard let code = URLComponents(string: url.absoluteString)?.queryItems?.first(where: { $0.name == "code" })?.value else { return }
         
-        
         webView.isHidden = true
         TokenManager.shared.exchangeCodeForToken(code: code, completion: { [weak self](success) in
             DispatchQueue.main.async {
                 self?.dismiss(animated: true)
                 self?.completionHandler?(success)
+                self?.webView.removeFromSuperview()
             }
         })
         
