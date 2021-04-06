@@ -145,6 +145,8 @@ extension ArtistViewController {
     private func getInformation() {
         let manager = NetworkManager()
         
+        var counter = 0
+        self.showSpinner(onView: self.view)
         // Fetching top tracks in the past 4 weeks
         manager.getArtists(timeRange: .shortTerm) { [weak self] short, error in
             if error == nil {
@@ -155,6 +157,10 @@ extension ArtistViewController {
                 }
             } else {
                 print(error as Any)
+            }
+            counter += 1
+            if counter == 3 {
+                self?.removeSpinner()
             }
         }
         
@@ -169,6 +175,10 @@ extension ArtistViewController {
             } else {
                 print(error as Any)
             }
+            counter += 1
+            if counter == 3 {
+                self?.removeSpinner()
+            }
         }
         
         // Fetching top tracks of all time
@@ -181,6 +191,10 @@ extension ArtistViewController {
                 }
             } else {
                 print(error as Any)
+            }
+            counter += 1
+            if counter == 3 {
+                self?.removeSpinner()
             }
         }
     }
