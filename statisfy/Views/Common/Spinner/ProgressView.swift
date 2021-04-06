@@ -36,7 +36,7 @@ class ProgressView: UIView {
     }
     
     // Convenience initializers without specification of frame
-    convenience init(colors: [UIColor] = [UIColor.spotifyGreen], lineWidth: CGFloat = 5.0) {
+    convenience init(colors: [UIColor] = SpinnerColors.normal, lineWidth: CGFloat = 5.0) {
         self.init(frame: .zero, colors: colors, lineWidth: lineWidth)
     }
     

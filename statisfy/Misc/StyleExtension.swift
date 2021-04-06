@@ -16,6 +16,11 @@ enum Constants: CGFloat {
     case buttonSize = 36
 }
 
+struct SpinnerColors {
+    
+    static let normal = [UIColor.spotifyGreen]
+}
+
 extension UIFont {
     
     static var headerFont: UIFont {

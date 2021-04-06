@@ -19,7 +19,7 @@ var spinnerType: SpinnerType?
 
 extension UIViewController {
     
-    func showSpinner(onView: UIView, type: SpinnerType = .custom, colors: [UIColor]? = [UIColor.spotifyGreen]) {
+    func showSpinner(onView: UIView, type: SpinnerType = .custom, colors: [UIColor]? = SpinnerColors.normal) {
         spinnerType = type
         let blockerView = UIView()
         blockerView.frame = onView.frame
@@ -38,7 +38,7 @@ extension UIViewController {
             }
             basicSpinner = spinnerView
         case .custom:
-            let spinnerView = ProgressView(colors: colors ?? [UIColor.spotifyGreen], lineWidth: 5.0)
+            let spinnerView = ProgressView(colors: colors ?? SpinnerColors.normal, lineWidth: 5.0)
             spinnerView.frame.size = CGSize(width: 50, height: 50)
             spinnerView.center = blockerView.center
             DispatchQueue.main.async {
