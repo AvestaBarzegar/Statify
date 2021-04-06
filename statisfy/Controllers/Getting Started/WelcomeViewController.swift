@@ -55,9 +55,7 @@ class WelcomeViewController: UIViewController {
                 self?.handleSignIn(success: success)
             }
         }
-        // To-do: put logic for showing webView when button is tapped
-//        let window = self.view.window
-//        window?.rootViewController = AppTabBarController()
+
         self.present(vc, animated: true, completion: nil)
     }
     
