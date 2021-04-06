@@ -78,6 +78,7 @@ class CustomAlertViewController: UIViewController {
     @objc
     private func okClicked() {
         okTapped()
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc
@@ -115,6 +116,7 @@ class CustomAlertViewController: UIViewController {
     
     @objc
     private func handleTap() {
+        cancelTapped()
         self.dismiss(animated: true, completion: nil)
     }
     
