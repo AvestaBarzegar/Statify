@@ -71,17 +71,19 @@ class AuthViewController: UIViewController {
     
     deinit {
         print("deinitialized AuthVC")
+        webView.stopLoading()
+        webView.removeFromSuperview()
     }
 
 }
 
 extension AuthViewController: SectionHeaderViewDelegate {
     
-    func leftButtonClicked() {
+    func didSelectLeftButton() {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func rightButtonClicked() {
+    func didSelectRightButton() {
         return
     }
 }

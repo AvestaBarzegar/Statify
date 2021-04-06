@@ -14,13 +14,13 @@ class SectionHeaderView: UIView {
     weak var delegate: SectionHeaderViewDelegate?
     
     @objc
-    func leftButtonClicked() {
-        delegate?.leftButtonClicked()
+    func didSelectLeftButton() {
+        delegate?.didSelectLeftButton()
     }
     
     @objc
-    func rightButtonClicked() {
-        delegate?.rightButtonClicked()
+    func didSelectRightButton() {
+        delegate?.didSelectRightButton()
     }
     
     // MARK: - Init Views
@@ -31,7 +31,7 @@ class SectionHeaderView: UIView {
             
             if let leftImageName = info?.leftImageName {
                 let configuration = UIImage.SymbolConfiguration(pointSize: 30)
-                leftButtonView.addTarget(self, action: #selector(leftButtonClicked), for: .touchUpInside)
+                leftButtonView.addTarget(self, action: #selector(didSelectLeftButton), for: .touchUpInside)
                 let leftImage = UIImage(systemName: leftImageName, withConfiguration: configuration)
                 leftButtonView.setImage(leftImage, for: .normal)
                 leftButtonView.imageView?.tintColor = UIColor.spotifyWhite
@@ -39,7 +39,7 @@ class SectionHeaderView: UIView {
             
             if let rightImageName = info?.rightImageName {
                 let configuration = UIImage.SymbolConfiguration(pointSize: 30)
-                rightButtonView.addTarget(self, action: #selector(rightButtonClicked), for: .touchUpInside)
+                rightButtonView.addTarget(self, action: #selector(didSelectRightButton), for: .touchUpInside)
                 let rightImage = UIImage(systemName: rightImageName, withConfiguration: configuration)
                 rightButtonView.setImage(rightImage, for: .normal)
                 rightButtonView.imageView?.tintColor = UIColor.spotifyWhite
@@ -109,7 +109,7 @@ class SectionHeaderView: UIView {
 
 protocol SectionHeaderViewDelegate: AnyObject {
     
-    func leftButtonClicked()
+    func didSelectLeftButton()
     
-    func rightButtonClicked()
+    func didSelectRightButton()
 }
