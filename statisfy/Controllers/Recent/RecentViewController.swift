@@ -98,6 +98,7 @@ extension RecentViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentTrackTableViewCell.identifier) as? RecentTrackTableViewCell else { return UITableViewCell() }
         cell.recentTrackInfo = information?.allInfo?[indexPath.row]
+        
         return cell
         
     }
