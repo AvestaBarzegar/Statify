@@ -12,6 +12,19 @@ import UIKit
 
 class ProgressView: UIView {
     
+    // Mutate this property to animate and unanimate the spinner
+    var isAnimating: Bool = false {
+        didSet {
+            if isAnimating {
+                self.animateStroke()
+                self.animateRotation()
+            } else {
+                self.shapeLayer.removeFromSuperlayer()
+                self.layer.removeAllAnimations()
+            }
+        }
+    }
+    
     // MARK: - Initializers
     init(frame: CGRect,
          colors: [UIColor],
