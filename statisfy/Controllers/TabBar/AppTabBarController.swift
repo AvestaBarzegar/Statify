@@ -66,13 +66,14 @@ class AppTabBarController: UITabBarController {
         self.viewControllers = tabViewControllers
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         refreshAuth()
         
     }
     
     func refreshAuth() {
+        guard WelcomeViewController.isRoot == false else { return }
         TokenManager.shared.refreshToken(completion: { [weak self] _ in
             print("refreshed token")
             DispatchQueue.main.async {

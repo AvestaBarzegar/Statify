@@ -9,6 +9,8 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
 
+    static var isRoot = false
+    
     // MARK: - Init views
     private let headerLabel: UILabel = {
         let label = UILabel()
@@ -65,11 +67,13 @@ class WelcomeViewController: UIViewController {
         
         let mainTabBarVC = AppTabBarController()
         weak var window = self.view.window
+        WelcomeViewController.isRoot = false
         window?.rootViewController = mainTabBarVC
     }
 
     // MARK: - Layout views
     override func viewDidLoad() {
+        WelcomeViewController.isRoot = true
         super.viewDidLoad()
         
         self.view.backgroundColor = .backgroundColor

@@ -77,12 +77,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func setRootVc(window: UIWindow) {
-        if AuthManager.shared.isSignedIn {
-            let rootViewController = AppTabBarController()
-            window.rootViewController = rootViewController
-        } else {
+        if !AuthManager.shared.isSignedIn {
             let rootViewController = WelcomeViewController()
             window.rootViewController = rootViewController
+            return
+        } else {
+            WelcomeViewController.isRoot = false
+            let rootViewController = AppTabBarController()
+            window.rootViewController = rootViewController
+            return
         }
     }
 

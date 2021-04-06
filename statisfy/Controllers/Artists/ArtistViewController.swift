@@ -146,7 +146,6 @@ extension ArtistViewController {
     private func getInformation() {
         let manager = NetworkManager()
         
-        UserDefaults.standard.setValue("123142", forKey: "access_token")
         // Fetching top artists in the past 4 weeks
         manager.getArtists(timeRange: .shortTerm) { [weak self] short, error in
             let indexPath = [IndexPath(row: 0, section: 0)]
