@@ -114,7 +114,7 @@ class CustomAlertViewController: UIViewController {
     }
     
     @objc
-    func handleTap() {
+    private func handleTap() {
         self.dismiss(animated: true, completion: nil)
     }
     

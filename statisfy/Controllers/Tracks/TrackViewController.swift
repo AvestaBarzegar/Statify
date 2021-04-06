@@ -155,7 +155,15 @@ extension TrackViewController {
                     self?.collectionView.reloadItems(at: indexPath)
                 }
             } else {
-                
+                if let error = error {
+                    DispatchQueue.main.async {
+                        CustomAlertViewController.showAlertOn(self!, "ERROR", error, "Retry", cancelButtonText: "cancel") {
+                            self?.getInformation()
+                        } cancelAction: {
+                            self?.getInformation()
+                        }
+                    }
+                }
             }
         }
         
@@ -168,7 +176,15 @@ extension TrackViewController {
                     self?.collectionView.reloadItems(at: indexPath)
                 }
             } else {
-                print(error as Any)
+                if let error = error {
+                    DispatchQueue.main.async {
+                        CustomAlertViewController.showAlertOn(self!, "ERROR", error, "Retry", cancelButtonText: "cancel") {
+                            self?.getInformation()
+                        } cancelAction: {
+                            self?.getInformation()
+                        }
+                    }
+                }
             }
         }
         
@@ -181,8 +197,15 @@ extension TrackViewController {
                     self?.collectionView.reloadItems(at: indexPath)
                 }
             } else {
-                print(error as Any)
-                
+                if let error = error {
+                    DispatchQueue.main.async {
+                        CustomAlertViewController.showAlertOn(self!, "ERROR", error, "Retry", cancelButtonText: "cancel") {
+                            self?.getInformation()
+                        } cancelAction: {
+                            self?.getInformation()
+                        }
+                    }
+                }
             }
         }
     }
