@@ -117,6 +117,7 @@ extension TrackViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatisticsCollectionScrollView.identifier, for: indexPath) as? StatisticsCollectionScrollView
         cell?.tracks = information[indexPath.row]?.allInfo
+        cell?.animating = !((information[indexPath.row]?.allInfo?.isEmpty) != nil)
         return cell ?? UICollectionViewCell()
     }
     
@@ -150,6 +151,8 @@ extension TrackViewController {
             if error == nil {
                 DispatchQueue.main.async {
                     let indexPath = [IndexPath(row: 0, section: 0)]
+                    let cell = self?.collectionView.cellForItem(at: indexPath[0]) as? StatisticsCollectionScrollView
+                    cell?.animating = false
                     self?.information[0] = short
                     self?.collectionView.reloadItems(at: indexPath)
                 }
@@ -163,6 +166,8 @@ extension TrackViewController {
             if error == nil {
                 DispatchQueue.main.async {
                     let indexPath = [IndexPath(row: 1, section: 0)]
+                    let cell = self?.collectionView.cellForItem(at: indexPath[0]) as? StatisticsCollectionScrollView
+                    cell?.animating = false
                     self?.information[1] = medium
                     self?.collectionView.reloadItems(at: indexPath)
                 }
@@ -176,6 +181,8 @@ extension TrackViewController {
             if error == nil {
                 DispatchQueue.main.async {
                     let indexPath = [IndexPath(row: 2, section: 0)]
+                    let cell = self?.collectionView.cellForItem(at: indexPath[0]) as? StatisticsCollectionScrollView
+                    cell?.animating = false
                     self?.information[2] = long
                     self?.collectionView.reloadItems(at: indexPath)
                 }
