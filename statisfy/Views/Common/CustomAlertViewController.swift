@@ -12,6 +12,7 @@ class CustomAlertViewController: UIViewController {
     // MARK: - Init Variables
     var okTapped: () -> Void = {}
     var cancelTapped: () -> Void = {}
+    weak var parentVC: UIViewController?
     
     // MARK: - Init Views
     
@@ -81,6 +82,7 @@ class CustomAlertViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setup()
     }
     
     private func setup() {
@@ -106,15 +108,30 @@ class CustomAlertViewController: UIViewController {
     
     private func constraintHeaderAndBody() {
         NSLayoutConstraint.activate([
-            headerLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16),
+            headerLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
             headerLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
-            headerLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8)
+            headerLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+            
+            bodyLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 8),
+            bodyLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
+            bodyLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8)
         
         ])
     }
     
     private func constraintButtons() {
+        NSLayoutConstraint.activate([
+            cancelButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 8),
+            cancelButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
+            cancelButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+            cancelButton.heightAnchor.constraint(equalToConstant: 40),
+            
+            okButton.bottomAnchor.constraint(equalTo: cancelButton.topAnchor, constant: 8),
+            okButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
+            okButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+            okButton.heightAnchor.constraint(equalToConstant: 40)
         
+        ])
     }
     
     
