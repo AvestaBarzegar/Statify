@@ -210,6 +210,5 @@ extension TrackViewController {
             }
         }
         customView.removeFromSuperview()
-        self.removeSpinner()
     }
 }

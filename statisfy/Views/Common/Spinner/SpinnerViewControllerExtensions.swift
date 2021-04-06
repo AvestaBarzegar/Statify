@@ -69,6 +69,13 @@ extension UIViewController {
                 blocker = nil
             }
         case .none:
+            customSpinner?.isAnimating = false
+            customSpinner?.removeFromSuperview()
+            blocker?.removeFromSuperview()
+            basicSpinner?.removeFromSuperview()
+            basicSpinner = nil
+            customSpinner = nil
+            blocker = nil
             debugPrint("Cannot remove a spinner that does not exist")
         }
         DispatchQueue.main.async {
