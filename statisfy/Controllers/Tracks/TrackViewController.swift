@@ -148,9 +148,9 @@ extension TrackViewController {
 
         // Fetching top tracks in the past 4 weeks
         manager.getTracks(timeRange: .shortTerm) { [weak self] short, error in
+            let indexPath = [IndexPath(row: 0, section: 0)]
             if error == nil {
                 DispatchQueue.main.async {
-                    let indexPath = [IndexPath(row: 0, section: 0)]
                     self?.information[0] = short
                     self?.collectionView.reloadItems(at: indexPath)
                 }
@@ -160,7 +160,7 @@ extension TrackViewController {
                         CustomAlertViewController.showAlertOn(self!, "ERROR", error, "Retry", cancelButtonText: "cancel") {
                             self?.getInformation()
                         } cancelAction: {
-                            self?.getInformation()
+
                         }
                     }
                 }
@@ -169,9 +169,9 @@ extension TrackViewController {
         
         // Fetching top tracks in the past 6 months
         manager.getTracks(timeRange: .mediumTerm) { [weak self] medium, error in
+            let indexPath = [IndexPath(row: 1, section: 0)]
             if error == nil {
                 DispatchQueue.main.async {
-                    let indexPath = [IndexPath(row: 1, section: 0)]
                     self?.information[1] = medium
                     self?.collectionView.reloadItems(at: indexPath)
                 }
@@ -181,7 +181,7 @@ extension TrackViewController {
                         CustomAlertViewController.showAlertOn(self!, "ERROR", error, "Retry", cancelButtonText: "cancel") {
                             self?.getInformation()
                         } cancelAction: {
-                            self?.getInformation()
+
                         }
                     }
                 }
@@ -190,9 +190,9 @@ extension TrackViewController {
         
         // Fetching top tracks of all time
         manager.getTracks(timeRange: .longTerm) { [weak self] long, error in
+            let indexPath = [IndexPath(row: 2, section: 0)]
             if error == nil {
                 DispatchQueue.main.async {
-                    let indexPath = [IndexPath(row: 2, section: 0)]
                     self?.information[2] = long
                     self?.collectionView.reloadItems(at: indexPath)
                 }
@@ -202,7 +202,7 @@ extension TrackViewController {
                         CustomAlertViewController.showAlertOn(self!, "ERROR", error, "Retry", cancelButtonText: "cancel") {
                             self?.getInformation()
                         } cancelAction: {
-                            self?.getInformation()
+
                         }
                     }
                 }

@@ -145,44 +145,69 @@ extension ArtistViewController {
     
     private func getInformation() {
         let manager = NetworkManager()
-                
+        
+        UserDefaults.standard.setValue("123142", forKey: "access_token")
         // Fetching top artists in the past 4 weeks
         manager.getArtists(timeRange: .shortTerm) { [weak self] short, error in
+            let indexPath = [IndexPath(row: 0, section: 0)]
             if error == nil {
                 DispatchQueue.main.async {
-                    let indexPath = [IndexPath(row: 0, section: 0)]
                     self?.information[0] = short
                     self?.collectionView.reloadItems(at: indexPath)
                 }
             } else {
-                print(error as Any)
+                if let error = error {
+                    DispatchQueue.main.async {
+                        CustomAlertViewController.showAlertOn(self!, "ERROR", error, "Retry", cancelButtonText: "cancel") {
+                            self?.getInformation()
+                        } cancelAction: {
+
+                        }
+                    }
+                }
             }
         }
         
         // Fetching top artists in the past 6 months
         manager.getArtists(timeRange: .mediumTerm) { [weak self] medium, error in
+            let indexPath = [IndexPath(row: 1, section: 0)]
             if error == nil {
                 DispatchQueue.main.async {
-                    let indexPath = [IndexPath(row: 1, section: 0)]
                     self?.information[1] = medium
                     self?.collectionView.reloadItems(at: indexPath)
                 }
                 
             } else {
-                print(error as Any)
+                if let error = error {
+                    DispatchQueue.main.async {
+                        CustomAlertViewController.showAlertOn(self!, "ERROR", error, "Retry", cancelButtonText: "cancel") {
+                            self?.getInformation()
+                        } cancelAction: {
+
+                        }
+                    }
+                }
             }
         }
         
         // Fetching top artists of all time
         manager.getArtists(timeRange: .longTerm) { [weak self] long, error in
+            let indexPath = [IndexPath(row: 2, section: 0)]
             if error == nil {
                 DispatchQueue.main.async {
-                    let indexPath = [IndexPath(row: 2, section: 0)]
                     self?.information[2] = long
                     self?.collectionView.reloadItems(at: indexPath)
                 }
             } else {
-                print(error as Any)
+                if let error = error {
+                    DispatchQueue.main.async {
+                        CustomAlertViewController.showAlertOn(self!, "ERROR", error, "Retry", cancelButtonText: "cancel") {
+                            self?.getInformation()
+                        } cancelAction: {
+
+                        }
+                    }
+                }
                 
             }
         }

@@ -113,24 +113,24 @@ extension RecentViewController {
         self.showSpinner(onView: self.view)
         let manager = NetworkManager()
         
-        let customView = UIView()
-        customView.frame = self.view.frame
-        customView.backgroundColor = UIColor.clear
-        customView.layer.zPosition = CGFloat(MAXFLOAT)
-        let windowCount = UIApplication.shared.windows.count - 1
-        UIApplication.shared.windows[windowCount].addSubview(customView)
-        
         manager.getRecent { [weak self] recentArr, error in
             if error != nil {
-                print(error as Any)
+                if let error = error {
+                    DispatchQueue.main.async {
+                        CustomAlertViewController.showAlertOn(self!, "ERROR", error, "Retry", cancelButtonText: "cancel") {
+                            self?.getInformation()
+                        } cancelAction: {
+                            
+                        }
+                    }
+                }
             } else {
                 DispatchQueue.main.async {
                     self?.information = recentArr
-                    customView.removeFromSuperview()
+                    self?.removeSpinner()
                     self?.tableView.reloadData()
                 }
             }
-            self?.removeSpinner()
         }
     }
 }
