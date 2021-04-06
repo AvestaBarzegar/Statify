@@ -9,12 +9,12 @@ import Foundation
 
 enum NetworkResponse: String {
     case success
-    case authError = "You need to be authenticated first."
-    case badRequest = "Bad Request."
-    case outdated = "The url you requested is outdated."
-    case failed = "Network request failed."
-    case noData = "Response returned with no data to decode."
-    case unableToDecode = "Could not decode the response."
+    case authError = "You need to be authenticated first. Try logging out and logging back in."
+    case badRequest = "Bad Request. Try relogging or resetting your connection."
+    case outdated = "The url you requested is outdated. Try relogging or resetting your connection."
+    case failed = "Network request failed. Check your connection."
+    case noData = "Response returned with no data to decode. Server returned no data, try relogging or resetting your connection."
+    case unableToDecode = "Could not decode the response. Try relogging or resetting your connection."
 }
 
 enum Result<String> {

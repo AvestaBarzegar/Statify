@@ -145,7 +145,7 @@ extension TrackViewController {
     
     private func getInformation() {
         let manager = NetworkManager()
-                
+
         // Fetching top tracks in the past 4 weeks
         manager.getTracks(timeRange: .shortTerm) { [weak self] short, error in
             if error == nil {
