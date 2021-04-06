@@ -117,7 +117,7 @@ extension RecentViewController: UITableViewDataSource, UITableViewDelegate {
 extension RecentViewController {
     
     private func getInformation() {
-        
+        self.showSpinner(onView: self.view)
         let manager = NetworkManager()
         manager.getRecent { [weak self] recentArr, error in
             if error != nil {
@@ -128,6 +128,7 @@ extension RecentViewController {
                     self?.tableView.reloadData()
                 }
             }
+            self?.removeSpinner()
         }
     }
 }
