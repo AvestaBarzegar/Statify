@@ -151,8 +151,6 @@ extension TrackViewController {
             if error == nil {
                 DispatchQueue.main.async {
                     let indexPath = [IndexPath(row: 0, section: 0)]
-                    let cell = self?.collectionView.cellForItem(at: indexPath[0]) as? StatisticsCollectionScrollView
-                    cell?.animating = false
                     self?.information[0] = short
                     self?.collectionView.reloadItems(at: indexPath)
                 }
@@ -166,8 +164,6 @@ extension TrackViewController {
             if error == nil {
                 DispatchQueue.main.async {
                     let indexPath = [IndexPath(row: 1, section: 0)]
-                    let cell = self?.collectionView.cellForItem(at: indexPath[0]) as? StatisticsCollectionScrollView
-                    cell?.animating = false
                     self?.information[1] = medium
                     self?.collectionView.reloadItems(at: indexPath)
                 }
@@ -181,8 +177,6 @@ extension TrackViewController {
             if error == nil {
                 DispatchQueue.main.async {
                     let indexPath = [IndexPath(row: 2, section: 0)]
-                    let cell = self?.collectionView.cellForItem(at: indexPath[0]) as? StatisticsCollectionScrollView
-                    cell?.animating = false
                     self?.information[2] = long
                     self?.collectionView.reloadItems(at: indexPath)
                 }
