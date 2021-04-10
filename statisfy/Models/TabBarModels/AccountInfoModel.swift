@@ -8,12 +8,13 @@
 import Foundation
 
 struct AccountInfoModel: Codable {
-    
+
     let displayName: String?
     let email: String?
+    
     let followers: Followers?
     let images: [Images]?
-    
+
     enum CodingKeys: String, CodingKey {
         case displayName = "display_name"
         case email
@@ -24,7 +25,7 @@ struct AccountInfoModel: Codable {
 
 struct Followers: Codable {
     let total: Int?
-    
+
     enum CodingKeys: String, CodingKey {
         case total
     }
