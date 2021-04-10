@@ -28,7 +28,7 @@ class CustomAlertViewController: UIViewController {
         label.numberOfLines = 1
         label.lineBreakMode = .byTruncatingTail
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.font = UIFont.subHeaderFontBold
         label.textColor = UIColor.spotifyWhite
         label.text = "Header"
