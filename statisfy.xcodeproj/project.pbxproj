@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C93BA23E2621440100D96751 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BA23D2621440100D96751 /* SettingsTableViewCell.swift */; };
+		C93BA23F2621440100D96751 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BA23D2621440100D96751 /* SettingsTableViewCell.swift */; };
+		C93BA2412621488500D96751 /* AccountCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BA2402621488500D96751 /* AccountCardView.swift */; };
+		C93BA2422621488500D96751 /* AccountCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BA2402621488500D96751 /* AccountCardView.swift */; };
 		C9457B7B261CD5BC00B3A60D /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9457B7A261CD5BC00B3A60D /* CustomAlertViewController.swift */; };
 		C9457B7C261CD5BC00B3A60D /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9457B7A261CD5BC00B3A60D /* CustomAlertViewController.swift */; };
 		C97059D1260FFF1C007FEB90 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D0260FFF1C007FEB90 /* MenuBar.swift */; };
@@ -108,6 +112,8 @@
 		6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_statisfy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF2D5B978843954F4803993 /* Pods-statisfy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-statisfy.release.xcconfig"; path = "Target Support Files/Pods-statisfy/Pods-statisfy.release.xcconfig"; sourceTree = "<group>"; };
 		C5E1BB871A24B609ADC46CEA /* Pods-statisfy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-statisfy.debug.xcconfig"; path = "Target Support Files/Pods-statisfy/Pods-statisfy.debug.xcconfig"; sourceTree = "<group>"; };
+		C93BA23D2621440100D96751 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		C93BA2402621488500D96751 /* AccountCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCardView.swift; sourceTree = "<group>"; };
 		C9457B7A261CD5BC00B3A60D /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		C97059D0260FFF1C007FEB90 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		C97059D226100263007FEB90 /* MenuBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarItem.swift; sourceTree = "<group>"; };
@@ -188,6 +194,15 @@
 				BDF2D5B978843954F4803993 /* Pods-statisfy.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C93BA23C262143E900D96751 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C93BA23D2621440100D96751 /* SettingsTableViewCell.swift */,
+				C93BA2402621488500D96751 /* AccountCardView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		C97059D426100C49007FEB90 /* Recent */ = {
@@ -301,6 +316,7 @@
 		C97D0990260FA7150019734F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C93BA23C262143E900D96751 /* Settings */,
 				C97059D426100C49007FEB90 /* Recent */,
 				C97D09C0260FA8EA0019734F /* Statistics */,
 				C97D0996260FA7150019734F /* Common */,
@@ -670,6 +686,7 @@
 				C97D09D3260FE5F70019734F /* TileInfo.swift in Sources */,
 				C97059D826101B0E007FEB90 /* RecentTrackViewModel.swift in Sources */,
 				C97D09CA260FA92B0019734F /* TrackViewController.swift in Sources */,
+				C93BA2412621488500D96751 /* AccountCardView.swift in Sources */,
 				C9BD2E1A261BF89700C0FBDA /* ProgressShapeLayer.swift in Sources */,
 				C99B6BDB26194A30004B88C1 /* ParameterEncoding.swift in Sources */,
 				C97D09C6260FA91A0019734F /* RecentViewController.swift in Sources */,
@@ -683,6 +700,7 @@
 				C9BD2E20261BF9DA00C0FBDA /* RotationAnimation.swift in Sources */,
 				C99B6BD8261949CD004B88C1 /* HTTPTask.swift in Sources */,
 				C99084E92614097A00E2F0E6 /* TrackModel.swift in Sources */,
+				C93BA23E2621440100D96751 /* SettingsTableViewCell.swift in Sources */,
 				C97BD81A261103E80016720D /* AuthViewController.swift in Sources */,
 				C99B6BE426194C7B004B88C1 /* NetworkRouter.swift in Sources */,
 				C99B6BE126194BC3004B88C1 /* JSONParameterEncoder.swift in Sources */,
@@ -753,9 +771,11 @@
 				C98302242612D46400EE54A6 /* SensitiveInformation.swift in Sources */,
 				C98302252612D46400EE54A6 /* Endpoint.swift in Sources */,
 				C98302262612D46400EE54A6 /* TokenManager.swift in Sources */,
+				C93BA23F2621440100D96751 /* SettingsTableViewCell.swift in Sources */,
 				C99B6BE226194BC3004B88C1 /* JSONParameterEncoder.swift in Sources */,
 				C98302282612D46400EE54A6 /* AuthResponse.swift in Sources */,
 				C98302292612D46400EE54A6 /* MenuBarItem.swift in Sources */,
+				C93BA2422621488500D96751 /* AccountCardView.swift in Sources */,
 				C9BD2E24261BFA2A00C0FBDA /* StrokeColorAnimation.swift in Sources */,
 				C9BD2E1B261BF89700C0FBDA /* ProgressShapeLayer.swift in Sources */,
 				C99B6BD326194943004B88C1 /* EndpointProtocol.swift in Sources */,
