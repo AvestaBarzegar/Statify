@@ -111,7 +111,7 @@ extension RecentViewController {
     
     private func getInformation() {
         self.showSpinner(onView: self.view)
-        let manager = NetworkManager()
+        let manager = AnalyticsManager()
         
         manager.getRecent { [weak self] recentArr, error in
             if error != nil {

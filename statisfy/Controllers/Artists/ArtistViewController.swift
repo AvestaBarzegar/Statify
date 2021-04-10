@@ -144,7 +144,7 @@ extension ArtistViewController: UICollectionViewDataSource, UICollectionViewDele
 extension ArtistViewController {
     
     private func getInformation() {
-        let manager = NetworkManager()
+        let manager = AnalyticsManager()
         
         // Fetching top artists in the past 4 weeks
         manager.getArtists(timeRange: .shortTerm) { [weak self] short, error in

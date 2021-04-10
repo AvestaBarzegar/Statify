@@ -144,7 +144,7 @@ extension TrackViewController: UICollectionViewDataSource, UICollectionViewDeleg
 extension TrackViewController {
     
     private func getInformation() {
-        let manager = NetworkManager()
+        let manager = AnalyticsManager()
 
         // Fetching top tracks in the past 4 weeks
         manager.getTracks(timeRange: .shortTerm) { [weak self] short, error in
