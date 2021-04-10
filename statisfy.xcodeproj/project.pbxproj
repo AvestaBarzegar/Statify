@@ -11,6 +11,8 @@
 		C93BA23F2621440100D96751 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BA23D2621440100D96751 /* SettingsTableViewCell.swift */; };
 		C93BA2412621488500D96751 /* AccountCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BA2402621488500D96751 /* AccountCardView.swift */; };
 		C93BA2422621488500D96751 /* AccountCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BA2402621488500D96751 /* AccountCardView.swift */; };
+		C93BA24426214C4700D96751 /* AccountCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BA24326214C4700D96751 /* AccountCardViewModel.swift */; };
+		C93BA24526214C4700D96751 /* AccountCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BA24326214C4700D96751 /* AccountCardViewModel.swift */; };
 		C9457B7B261CD5BC00B3A60D /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9457B7A261CD5BC00B3A60D /* CustomAlertViewController.swift */; };
 		C9457B7C261CD5BC00B3A60D /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9457B7A261CD5BC00B3A60D /* CustomAlertViewController.swift */; };
 		C97059D1260FFF1C007FEB90 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D0260FFF1C007FEB90 /* MenuBar.swift */; };
@@ -114,6 +116,7 @@
 		C5E1BB871A24B609ADC46CEA /* Pods-statisfy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-statisfy.debug.xcconfig"; path = "Target Support Files/Pods-statisfy/Pods-statisfy.debug.xcconfig"; sourceTree = "<group>"; };
 		C93BA23D2621440100D96751 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		C93BA2402621488500D96751 /* AccountCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCardView.swift; sourceTree = "<group>"; };
+		C93BA24326214C4700D96751 /* AccountCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCardViewModel.swift; sourceTree = "<group>"; };
 		C9457B7A261CD5BC00B3A60D /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		C97059D0260FFF1C007FEB90 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		C97059D226100263007FEB90 /* MenuBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarItem.swift; sourceTree = "<group>"; };
@@ -300,6 +303,7 @@
 				C97D09D2260FE5F70019734F /* TileInfo.swift */,
 				C97059D726101B0E007FEB90 /* RecentTrackViewModel.swift */,
 				C97BD81B261104540016720D /* SectionHeaderViewModel.swift */,
+				C93BA24326214C4700D96751 /* AccountCardViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -719,6 +723,7 @@
 				C97D09CC260FA94C0019734F /* ArtistViewController.swift in Sources */,
 				C9BD2E2A261C214000C0FBDA /* SettingsViewController.swift in Sources */,
 				C99084F226141B4600E2F0E6 /* RecentTrackModel.swift in Sources */,
+				C93BA24426214C4700D96751 /* AccountCardViewModel.swift in Sources */,
 				C97BD818261101460016720D /* SensitiveInformation.swift in Sources */,
 				C97BD80D2610CC6A0016720D /* Endpoint.swift in Sources */,
 				C97BD81F26117F110016720D /* TokenManager.swift in Sources */,
@@ -758,6 +763,7 @@
 				C983021E2612D46400EE54A6 /* AppTabBarController.swift in Sources */,
 				C99084EA2614097A00E2F0E6 /* TrackModel.swift in Sources */,
 				C99B6BDF26194AB6004B88C1 /* URLParameterEncoder.swift in Sources */,
+				C93BA24526214C4700D96751 /* AccountCardViewModel.swift in Sources */,
 				C99B6BD9261949CD004B88C1 /* HTTPTask.swift in Sources */,
 				C983021F2612D46400EE54A6 /* StatisticsCollectionViewCell.swift in Sources */,
 				C9BD2E1E261BF95100C0FBDA /* StrokeAnimation.swift in Sources */,
