@@ -83,6 +83,10 @@ class RecentViewController: UIViewController {
         ])
     }
     
+    deinit {
+        print("deinit Recent")
+    }
+    
 }
 
 extension RecentViewController: UITableViewDataSource, UITableViewDelegate {

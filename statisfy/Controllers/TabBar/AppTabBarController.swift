@@ -72,6 +72,11 @@ class AppTabBarController: UITabBarController {
         
     }
     
+    
+    deinit {
+        print("deinit App TabBar")
+    }
+    
     func refreshAuth() {
         TokenManager.shared.refreshToken(completion: { [weak self] _ in
             print("refreshed token")
