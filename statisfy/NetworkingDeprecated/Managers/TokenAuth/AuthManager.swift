@@ -11,7 +11,8 @@ enum AuthConstants: String {
     
     case topScope = "user-top-read"
     case recentScope = "user-read-recently-played"
-    case userInfoSpace = "user-read-private"
+    case userInfoScope = "user-read-private"
+    case userEmailScope = "user-read-email"
     case redirectURI = "http://avestabarzegar.com"
 }
 
@@ -25,7 +26,7 @@ final class AuthManager: Endpoint {
     
     var pathParameters: String? = "?response_type=code&client_id=\(ClientInfo.clientId.rawValue)"
     
-    var scopes: String = "&scope=\(AuthConstants.topScope.rawValue),\(AuthConstants.recentScope.rawValue),\(AuthConstants.userInfoSpace.rawValue)"
+    var scopes: String = "&scope=\(AuthConstants.topScope.rawValue),\(AuthConstants.recentScope.rawValue),\(AuthConstants.userInfoScope.rawValue),\(AuthConstants.userEmailScope.rawValue)"
     
     var redirectURI: String = "&redirect_uri=\(AuthConstants.redirectURI.rawValue)"
     
