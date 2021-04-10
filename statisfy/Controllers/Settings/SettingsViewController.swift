@@ -37,6 +37,8 @@ class SettingsViewController: UIViewController {
         view.showsVerticalScrollIndicator = false
         view.showsHorizontalScrollIndicator = false
         view.separatorStyle = .none
+        view.isScrollEnabled = false
+
         view.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.identifier)
         return view
     }()
@@ -79,13 +81,13 @@ class SettingsViewController: UIViewController {
         let safeArea = view.layoutMarginsGuide
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            headerView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             headerView.heightAnchor.constraint(equalToConstant: Constants.headerViewHeight.rawValue),
             
             accountCardView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 16),
-            accountCardView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
-            accountCardView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
+            accountCardView.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: 0),
+            accountCardView.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: 0),
             accountCardView.heightAnchor.constraint(equalToConstant: 96),
             
             tableView.topAnchor.constraint(equalTo: accountCardView.bottomAnchor, constant: 16),
@@ -110,11 +112,35 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             print("Cell was wrong")
             return UITableViewCell()
         }
+        
+        switch indexPath.row {
+        case 0:
+            cell.settingText = "Feedback"
+        case 1:
+            cell.settingText = "Logout"
+        default:
+            break
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return SettingsTableViewCell.cellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            print("Tapped feedback")
+        case 1:
+            UserDefaults.standard.setValue(nil, forKey: "access_token")
+            UserDefaults.standard.setValue(nil, forKey: "refresh_token")
+            UserDefaults.standard.setValue(nil, forKey: "expiration_date")
+            let window = self.view.window
+            window?.rootViewController = WelcomeViewController()
+        default:
+            break
+        }
     }
     
 }

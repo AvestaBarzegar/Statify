@@ -12,7 +12,15 @@ class SettingsTableViewCell: UITableViewCell {
     // MARK: - Class Constants
     
     static let identifier = "SettingsTableViewCell"
-    static let cellHeight: CGFloat = 80
+    static let cellHeight: CGFloat = 88
+    
+    // MARK: - Init variables
+    
+    var settingText: String? {
+        didSet {
+            settingLabel.text = settingText
+        }
+    }
     
     // MARK: - Init Views
     
@@ -22,6 +30,16 @@ class SettingsTableViewCell: UITableViewCell {
         view.backgroundColor = UIColor.backgroundComplementColor
         view.layer.cornerRadius = Constants.cornerRadius.rawValue
         return view
+    }()
+    
+    private lazy var settingLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.spotifyWhite
+        label.font = UIFont.subHeaderFontBold
+        label.text = "Sample Text"
+        label.textAlignment = .center
+        return label
     }()
     
     // MARK: - Initializers
@@ -40,12 +58,17 @@ class SettingsTableViewCell: UITableViewCell {
     // MARK: - Layout
     
     private func sharedLayout() {
+        self.contentView.backgroundColor = UIColor.backgroundColor
         self.contentView.addSubview(containerView)
+        containerView.addSubview(settingLabel)
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8),
-            containerView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 8),
+            containerView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 24),
             containerView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -8),
-            containerView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -8)
+            containerView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -24),
+            
+            settingLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            settingLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 16)
         ])
     }
 
