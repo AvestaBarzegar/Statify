@@ -26,8 +26,6 @@ final class AuthManager: Endpoint {
     
     var pathParameters: String? = "?response_type=code&client_id=\(ClientInfo.clientId.rawValue)"
     
-    var scopes: String = "&scope=\(AuthConstants.topScope.rawValue),\(AuthConstants.recentScope.rawValue),\(AuthConstants.userInfoScope.rawValue),\(AuthConstants.userEmailScope.rawValue)"
-    
     var redirectURI: String = "&redirect_uri=\(AuthConstants.redirectURI.rawValue)"
     
     var showDialog: String = "&show_dialog=TRUE"
@@ -35,7 +33,7 @@ final class AuthManager: Endpoint {
     var parameters: [URLQueryItem]? = [
         URLQueryItem(name: "response_type", value: "code"),
         URLQueryItem(name: "client_id", value: ClientInfo.clientId.rawValue),
-        URLQueryItem(name: "scope", value: ("\(AuthConstants.topScope.rawValue),\(AuthConstants.recentScope.rawValue)")),
+        URLQueryItem(name: "scope", value: ("\(AuthConstants.topScope.rawValue),\(AuthConstants.recentScope.rawValue),\(AuthConstants.userInfoScope.rawValue),\(AuthConstants.userEmailScope.rawValue)")),
         URLQueryItem(name: "redirect_uri", value: AuthConstants.redirectURI.rawValue),
         URLQueryItem(name: "show_dialog", value: "TRUE")
     ]

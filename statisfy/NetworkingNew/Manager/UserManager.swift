@@ -43,7 +43,6 @@ struct UserManager {
                     }
                     do {
                         let decoder = JSONDecoder()
-                        
                         let account = try decoder.decode(AccountInfoModel.self, from: responseData)
                         let accountViewModel = AccountCardViewModel(accountInfo: account)
                         completion(accountViewModel, nil)

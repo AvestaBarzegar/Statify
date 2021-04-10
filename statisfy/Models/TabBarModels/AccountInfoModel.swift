@@ -11,7 +11,6 @@ struct AccountInfoModel: Codable {
 
     let displayName: String?
     let email: String?
-    
     let followers: Followers?
     let images: [Images]?
 
