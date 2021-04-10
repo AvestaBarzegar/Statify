@@ -58,7 +58,7 @@ class RecentTrackTableViewCell: UITableViewCell {
     private lazy var songImage: DownloadedImageView = {
         let imageView = DownloadedImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = UIColor.spotifyGreen
+        imageView.backgroundColor = UIColor.spotifyGray
         imageView.layer.cornerRadius = Constants.cornerRadius.rawValue
         imageView.clipsToBounds = true
         return imageView
