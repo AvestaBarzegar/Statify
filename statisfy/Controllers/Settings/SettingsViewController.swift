@@ -22,6 +22,12 @@ class SettingsViewController: UIViewController {
         return header
     }()
     
+    private lazy var accountCardView: AccountCardView = {
+        let card = AccountCardView()
+        card.translatesAutoresizingMaskIntoConstraints = false
+        return card
+    }()
+    
     private lazy var tableView: UITableView = {
         let view = UITableView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -51,6 +57,7 @@ class SettingsViewController: UIViewController {
                        delay: 0,
                        options: .curveLinear,
                        animations: {
+                        self.accountCardView.alpha = 1.0
                         self.tableView.alpha = 1.0
                        },
                        completion: nil)
@@ -60,9 +67,11 @@ class SettingsViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         self.tableView.alpha = 0
+        self.accountCardView.alpha = 0
     }
     
     private func setup() {
+        self.view.addSubview(accountCardView)
         self.view.addSubview(headerView)
         self.view.addSubview(tableView)
         
@@ -73,7 +82,12 @@ class SettingsViewController: UIViewController {
             headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             headerView.heightAnchor.constraint(equalToConstant: Constants.headerViewHeight.rawValue),
             
-            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+            accountCardView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 16),
+            accountCardView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
+            accountCardView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
+            accountCardView.heightAnchor.constraint(equalToConstant: 96),
+            
+            tableView.topAnchor.constraint(equalTo: accountCardView.bottomAnchor, constant: 16),
             tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
