@@ -18,8 +18,8 @@ class CustomAlertViewController: UIViewController {
     private lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.backgroundComplementColor
-        view.layer.cornerRadius = Constants.cornerRadius.rawValue
+        view.backgroundColor = UIColor.spotifyTurkoise
+        view.layer.cornerRadius = Constants.cornerRadius.rawValue * 4
         return view
     }()
     
@@ -28,7 +28,7 @@ class CustomAlertViewController: UIViewController {
         label.numberOfLines = 1
         label.lineBreakMode = .byTruncatingTail
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.font = UIFont.subHeaderFontBold
         label.textColor = UIColor.spotifyWhite
         label.text = "Header"
@@ -55,7 +55,7 @@ class CustomAlertViewController: UIViewController {
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.subHeaderFont
         button.backgroundColor = UIColor.spotifyGreen
-        button.layer.cornerRadius = Constants.cornerRadius.rawValue
+        button.layer.cornerRadius = 23
         button.addTarget(self, action: #selector(okClicked), for: .touchUpInside)
         return button
     }()
@@ -68,7 +68,7 @@ class CustomAlertViewController: UIViewController {
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.subHeaderFont
         button.backgroundColor = UIColor.spotifyWhite
-        button.layer.cornerRadius = Constants.cornerRadius.rawValue
+        button.layer.cornerRadius = 23
         button.addTarget(self, action: #selector(cancelClicked), for: .touchUpInside)
         return button
     }()
@@ -147,12 +147,12 @@ class CustomAlertViewController: UIViewController {
             cancelButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -24),
             cancelButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24),
             cancelButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
-            cancelButton.heightAnchor.constraint(equalToConstant: 45),
+            cancelButton.heightAnchor.constraint(equalToConstant: 46),
             
             okButton.bottomAnchor.constraint(equalTo: cancelButton.topAnchor, constant: -16),
             okButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24),
             okButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
-            okButton.heightAnchor.constraint(equalToConstant: 45)
+            okButton.heightAnchor.constraint(equalToConstant: 46)
         
         ])
     }

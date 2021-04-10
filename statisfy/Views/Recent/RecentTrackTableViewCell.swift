@@ -30,7 +30,7 @@ class RecentTrackTableViewCell: UITableViewCell {
     private lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.backgroundComplementColor
+        view.backgroundColor = UIColor.spotifyGray
         view.layer.cornerRadius = Constants.cornerRadius.rawValue
         return view
     }()

@@ -98,7 +98,7 @@ class AccountCardView: UIView {
     private func sharedLayout() {
         self.layer.cornerRadius = Constants.cornerRadius.rawValue
         
-        self.backgroundColor = UIColor.backgroundComplementColor
+        self.backgroundColor = UIColor.spotifyGray
         self.addSubview(profileImageView)
         self.addSubview(emailLabel)
         self.addSubview(nameLabel)
