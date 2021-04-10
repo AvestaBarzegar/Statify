@@ -72,7 +72,6 @@ class AppTabBarController: UITabBarController {
         
     }
     
-    
     deinit {
         print("deinit App TabBar")
     }

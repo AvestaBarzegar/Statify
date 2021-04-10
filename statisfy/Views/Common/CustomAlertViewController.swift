@@ -55,7 +55,7 @@ class CustomAlertViewController: UIViewController {
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.subHeaderFont
         button.backgroundColor = UIColor.spotifyGreen
-        button.layer.cornerRadius = 23
+        button.layer.cornerRadius = 24
         button.addTarget(self, action: #selector(okClicked), for: .touchUpInside)
         return button
     }()
@@ -68,7 +68,7 @@ class CustomAlertViewController: UIViewController {
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.subHeaderFont
         button.backgroundColor = UIColor.spotifyWhite
-        button.layer.cornerRadius = 23
+        button.layer.cornerRadius = 24
         button.addTarget(self, action: #selector(cancelClicked), for: .touchUpInside)
         return button
     }()
@@ -147,12 +147,12 @@ class CustomAlertViewController: UIViewController {
             cancelButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -24),
             cancelButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24),
             cancelButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
-            cancelButton.heightAnchor.constraint(equalToConstant: 46),
+            cancelButton.heightAnchor.constraint(equalToConstant: 48),
             
-            okButton.bottomAnchor.constraint(equalTo: cancelButton.topAnchor, constant: -16),
+            okButton.bottomAnchor.constraint(equalTo: cancelButton.topAnchor, constant: -24),
             okButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24),
             okButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
-            okButton.heightAnchor.constraint(equalToConstant: 46)
+            okButton.heightAnchor.constraint(equalToConstant: 48)
         
         ])
     }

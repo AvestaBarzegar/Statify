@@ -12,7 +12,7 @@ class SettingsTableViewCell: UITableViewCell {
     // MARK: - Class Constants
     
     static let identifier = "SettingsTableViewCell"
-    static let cellHeight: CGFloat = 88
+    static let cellHeight: CGFloat = 80
     
     // MARK: - Init variables
     
@@ -36,7 +36,7 @@ class SettingsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.spotifyWhite
-        label.font = UIFont.subHeaderFontBold
+        label.font = UIFont.tableCellFontBolded
         label.text = "Sample Text"
         label.textAlignment = .center
         return label
@@ -65,7 +65,7 @@ class SettingsTableViewCell: UITableViewCell {
             containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8),
             containerView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 24),
             containerView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -8),
-            containerView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -24),
+            containerView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -16),
             
             settingLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             settingLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 16)

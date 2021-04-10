@@ -85,7 +85,7 @@ class SettingsViewController: UIViewController {
             headerView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             headerView.heightAnchor.constraint(equalToConstant: Constants.headerViewHeight.rawValue),
             
-            accountCardView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 16),
+            accountCardView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 32),
             accountCardView.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: 0),
             accountCardView.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: 0),
             accountCardView.heightAnchor.constraint(equalToConstant: 96),
@@ -133,7 +133,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             print("Tapped feedback")
         case 1:
-            CustomAlertViewController.showAlertOn(self, "Logout", "You pressed the log out button, are you sure? You can always log back in at any time.", "Log me out", cancelButtonText: "Cancel") {
+            CustomAlertViewController.showAlertOn(self, "Logout", "Are you sure you want to log out?", "Log me out", cancelButtonText: "Cancel") {
                 UserDefaults.standard.setValue(nil, forKey: "access_token")
                 UserDefaults.standard.setValue(nil, forKey: "refresh_token")
                 UserDefaults.standard.setValue(nil, forKey: "expiration_date")

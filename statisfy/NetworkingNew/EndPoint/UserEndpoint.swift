@@ -53,5 +53,4 @@ extension UserAPI: EndPointType {
         }
     }
     
-    
 }
