@@ -42,9 +42,9 @@ struct Follower: Codable {
 
 struct Images: Codable {
     
-    let height: Int
+    let height: Int?
     let url: String
-    let width: Int
+    let width: Int?
     
     enum CodingKeys: String, CodingKey {
         case height

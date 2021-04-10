@@ -26,8 +26,10 @@ struct RecentTrackViewModel {
         var last: Images = Images(height: -1, url: "", width: -1)
         if let images = track?.album?.images {
             for (index, image) in images.enumerated() {
-                if image.width < 200 && index != 0 {
-                    break
+                if let width = image.width {
+                    if width < 200 && index != 0 {
+                        break
+                    }
                 }
                 last = image
             }
@@ -41,8 +43,10 @@ struct RecentTrackViewModel {
         var last: Images = Images(height: -1, url: "", width: -1)
         if let images = recentItem?.track?.album?.images {
             for (index, image) in images.enumerated() {
-                if image.width < 150 && index != 0 {
-                    break
+                if let width = image.width {
+                    if width < 150 && index != 0 {
+                        break
+                    }
                 }
                 last = image
             }
