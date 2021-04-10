@@ -14,10 +14,10 @@ struct AccountCardViewModel {
     let followerCount: Int?
     let imageURL: String?
     
-    init(cardModel: AccountInfoItemModel) {
-        self.email = cardModel.accountInfo?.email
-        self.name = cardModel.accountInfo?.displayName
-        self.followerCount = cardModel.accountInfo?.followers?.total
-        self.imageURL = cardModel.accountInfo?.images?[0].url
-    }
+//    init(cardModel: AccountInfoItemModel) {
+//        self.email = cardModel.accountInfo?.email
+//        self.name = cardModel.accountInfo?.displayName
+//        self.followerCount = cardModel.accountInfo?.followers?.total
+//        self.imageURL = cardModel.accountInfo?.images?[0].url
+//    }
 }

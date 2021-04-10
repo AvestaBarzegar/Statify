@@ -7,11 +7,7 @@
 
 import Foundation
 
-struct AccountInfoItemModel: Codable {
-    let accountInfo: AccountInfo?
-}
-
-struct AccountInfo: Codable {
+struct AccountInfoModel: Codable {
     
     let displayName: String?
     let email: String?

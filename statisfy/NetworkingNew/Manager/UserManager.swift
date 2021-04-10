@@ -43,9 +43,11 @@ struct UserManager {
                     }
                     do {
                         let decoder = JSONDecoder()
-                        let account = try decoder.decode(AccountInfoItemModel.self, from: responseData)
-                        let accountViewModel = AccountCardViewModel(cardModel: account)
-                        completion(accountViewModel, nil)
+                        let account = try decoder.decode(AccountInfoModel.self, from: responseData)
+                        print(account)
+                        completion(nil, nil)
+//                        let accountViewModel = AccountCardViewModel(cardModel: account)
+                        
 
                     } catch {
                         completion(nil, NetworkResponse.unableToDecode.rawValue)

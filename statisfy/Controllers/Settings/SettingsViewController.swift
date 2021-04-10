@@ -48,6 +48,7 @@ class SettingsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setup()
+        getInfo()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,4 +109,20 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         return UITableViewCell()
     }
     
+}
+
+// MARK: - Networking Logic
+
+extension SettingsViewController {
+    
+    private func getInfo() {
+        let manager = UserManager()
+        manager.getAccountInfo { accountInfo, error in
+            if let error = error {
+                print(error)
+            } else {
+                print(accountInfo)
+            }
+        }
+    }
 }
