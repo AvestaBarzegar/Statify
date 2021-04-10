@@ -6,3 +6,30 @@
 //
 
 import Foundation
+
+struct AccountInfoItemModel: Codable {
+    let accountInfo: AccountInfo?
+}
+
+struct AccountInfo: Codable {
+    
+    let displayName: String?
+    let email: String?
+    let followers: Followers?
+    let images: [Images]?
+    
+    enum CodingKeys: String, CodingKey {
+        case displayName = "display_name"
+        case email
+        case followers
+        case images
+    }
+}
+
+struct Followers: Codable {
+    let total: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case total
+    }
+}
