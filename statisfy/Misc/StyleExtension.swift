@@ -51,6 +51,10 @@ extension UIFont {
         return UIFont.systemFont(ofSize: 12, weight: .semibold)
     }
     
+    static var alertFont: UIFont {
+        return UIFont.systemFont(ofSize: 14, weight: .bold)
+    }
+    
     static var bodyFontBolded: UIFont {
         return UIFont.systemFont(ofSize: 16, weight: .semibold)
     }

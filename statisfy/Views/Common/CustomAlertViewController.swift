@@ -41,7 +41,7 @@ class CustomAlertViewController: UIViewController {
         label.lineBreakMode = .byTruncatingTail
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont.bodyFontBolded
+        label.font = UIFont.alertFont
         label.textColor = UIColor.spotifyWhite
         label.text = "Header"
         return label
@@ -53,7 +53,7 @@ class CustomAlertViewController: UIViewController {
         button.setTitle("Ok", for: .normal)
         button.setTitleColor(UIColor.spotifyWhite, for: .normal)
         button.titleLabel?.textAlignment = .center
-        button.titleLabel?.font = UIFont.subHeaderFont
+        button.titleLabel?.font = UIFont.bodyFontBolded
         button.backgroundColor = UIColor.spotifyGreen
         button.layer.cornerRadius = 24
         button.addTarget(self, action: #selector(okClicked), for: .touchUpInside)
@@ -66,7 +66,7 @@ class CustomAlertViewController: UIViewController {
         button.setTitle("Cancel", for: .normal)
         button.setTitleColor(UIColor.spotifyGreen, for: .normal)
         button.titleLabel?.textAlignment = .center
-        button.titleLabel?.font = UIFont.subHeaderFont
+        button.titleLabel?.font = UIFont.bodyFontBolded
         button.backgroundColor = UIColor.spotifyWhite
         button.layer.cornerRadius = 24
         button.addTarget(self, action: #selector(cancelClicked), for: .touchUpInside)
@@ -164,7 +164,7 @@ class CustomAlertViewController: UIViewController {
         alert.modalTransitionStyle = .crossDissolve
         
         alert.headerLabel.text = headerText.uppercased()
-        alert.bodyLabel.text = bodyText
+        alert.bodyLabel.text = bodyText.uppercased()
         
         alert.okButton.setTitle(okButtonText.uppercased(), for: .normal)
         alert.cancelButton.setTitle(cancelButtonText.uppercased(), for: .normal)
