@@ -22,7 +22,7 @@ enum Result<String> {
     case failure(String)
 }
 
-struct NetworkManager {
+struct AnalyticsManager {
     
     private let router = Router<DataAnalyticsAPI>()
     

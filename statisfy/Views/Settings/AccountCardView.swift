@@ -116,7 +116,7 @@ class AccountCardView: UIView {
 
             followerCountLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8),
             followerCountLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8.0),
-            nameLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8),
+            followerCountLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8)
         ])
     }
 }
