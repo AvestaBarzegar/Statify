@@ -133,11 +133,15 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             print("Tapped feedback")
         case 1:
-            UserDefaults.standard.setValue(nil, forKey: "access_token")
-            UserDefaults.standard.setValue(nil, forKey: "refresh_token")
-            UserDefaults.standard.setValue(nil, forKey: "expiration_date")
-            let window = self.view.window
-            window?.rootViewController = WelcomeViewController()
+            CustomAlertViewController.showAlertOn(self, "Logout", "You pressed the log out button, are you sure? You can always log back in at any time.", "Log me out", cancelButtonText: "Cancel") {
+                UserDefaults.standard.setValue(nil, forKey: "access_token")
+                UserDefaults.standard.setValue(nil, forKey: "refresh_token")
+                UserDefaults.standard.setValue(nil, forKey: "expiration_date")
+                let window = self.view.window
+                window?.rootViewController = WelcomeViewController()
+            } cancelAction: {
+                print("pressed cancel")
+            }
         default:
             break
         }
