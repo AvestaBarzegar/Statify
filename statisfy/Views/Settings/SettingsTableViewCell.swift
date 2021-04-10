@@ -9,8 +9,22 @@ import UIKit
 
 class SettingsTableViewCell: UITableViewCell {
 
+    // MARK: - Class Constants
+    
     static let identifier = "SettingsTableViewCell"
-    static let cellHeight: CGFloat = 64
+    static let cellHeight: CGFloat = 80
+    
+    // MARK: - Init Views
+    
+    let containerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.backgroundComplementColor
+        view.layer.cornerRadius = Constants.cornerRadius.rawValue
+        return view
+    }()
+    
+    // MARK: - Initializers
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -20,10 +34,19 @@ class SettingsTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        sharedLayout()
     }
     
+    // MARK: - Layout
+    
     private func sharedLayout() {
-        
+        self.contentView.addSubview(containerView)
+        NSLayoutConstraint.activate([
+            containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8),
+            containerView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 8),
+            containerView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -8),
+            containerView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -8)
+        ])
     }
 
 }
