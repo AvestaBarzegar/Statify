@@ -122,7 +122,6 @@ extension SettingsViewController {
                 print(error)
             } else {
                 DispatchQueue.main.async {
-                    print(accountInfo)
                     self?.accountCardView.cardInfo = accountInfo
                 }
             }

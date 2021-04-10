@@ -61,7 +61,7 @@ class AccountCardView: UIView {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.bodyFont
+        label.font = UIFont.bodyFontBolded
         label.textColor = UIColor.spotifyWhite
         label.numberOfLines = 1
         label.lineBreakMode = .byTruncatingTail
@@ -72,7 +72,7 @@ class AccountCardView: UIView {
     private lazy var followerCountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.bodyFont
+        label.font = UIFont.bodyFontBolded
         label.textColor = UIColor.spotifyGreen
         label.numberOfLines = 1
         label.lineBreakMode = .byTruncatingTail
