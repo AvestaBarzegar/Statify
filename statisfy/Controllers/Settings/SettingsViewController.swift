@@ -117,11 +117,14 @@ extension SettingsViewController {
     
     private func getInfo() {
         let manager = UserManager()
-        manager.getAccountInfo { accountInfo, error in
+        manager.getAccountInfo { [weak self] accountInfo, error in
             if let error = error {
                 print(error)
             } else {
-                print(accountInfo)
+                DispatchQueue.main.async {
+                    print(accountInfo)
+                    self?.accountCardView.cardInfo = accountInfo
+                }
             }
         }
     }

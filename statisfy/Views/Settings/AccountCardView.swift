@@ -24,6 +24,10 @@ class AccountCardView: UIView {
                 emailLabel.text = email
             }
             
+            if let name = cardInfo?.name {
+                nameLabel.text = name
+            }
+            
             if let followerCount = cardInfo?.followerCount {
                 followerCountLabel.text = "\(followerCount) Followers"
             } else {
