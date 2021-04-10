@@ -22,23 +22,18 @@ class SettingsViewController: UIViewController {
         return header
     }()
     
-    private lazy var button: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor.green
-        button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
-        return button
+    private lazy var tableView: UITableView = {
+        let view = UITableView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.backgroundColor
+        view.delegate = self
+        view.dataSource = self
+        view.showsVerticalScrollIndicator = false
+        view.showsHorizontalScrollIndicator = false
+        view.separatorStyle = .none
+        view.register(RecentTrackTableViewCell.self, forCellReuseIdentifier: RecentTrackTableViewCell.identifier)
+        return view
     }()
-    
-    @objc
-    func buttonClicked() {
-        CustomAlertViewController.showAlertOn(self, "Error", "Could not reach server", "Try Again", cancelButtonText: "Cancel") {
-            print("pressed retry")
-        } cancelAction: {
-            print("pressed cancel")
-        }
-
-    }
     
     // MARK: - Layout Views
     
@@ -49,9 +44,27 @@ class SettingsViewController: UIViewController {
         setup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIView.animate(withDuration: Double(Constants.animationDuration.rawValue),
+                       delay: 0,
+                       options: .curveLinear,
+                       animations: {
+                        self.tableView.alpha = 1.0
+                       },
+                       completion: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.tableView.alpha = 0
+    }
+    
     private func setup() {
         self.view.addSubview(headerView)
-        self.view.addSubview(button)
+        self.view.addSubview(tableView)
         
         let safeArea = view.layoutMarginsGuide
         NSLayoutConstraint.activate([
@@ -60,11 +73,25 @@ class SettingsViewController: UIViewController {
             headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             headerView.heightAnchor.constraint(equalToConstant: Constants.headerViewHeight.rawValue),
             
-            button.heightAnchor.constraint(equalToConstant: 40),
-            button.widthAnchor.constraint(equalToConstant: 40),
-            button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
     }
 
+}
+
+// MARK: - TableView Methods
+
+extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
 }
