@@ -93,7 +93,7 @@ extension AuthViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         guard let url = webView.url else { return }
         
-        if url.absoluteString == "http://avestabarzegar.com/?error=access_denied" {
+        if url.absoluteString == "\(ClientInfo.redirectURI.rawValue)/?error=access_denied" {
             webView.isHidden = true
             self.dismiss(animated: true, completion: nil)
         }
