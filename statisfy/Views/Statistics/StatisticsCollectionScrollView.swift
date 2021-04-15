@@ -113,4 +113,11 @@ extension StatisticsCollectionScrollView: UICollectionViewDelegate, UICollection
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as? StatisticsCollectionViewCell
+        let artist = cell?.tileInfo?.artist
+        debugPrint(artist as Any)
+        
+    }
+    
 }

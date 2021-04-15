@@ -13,6 +13,7 @@ struct TileInfo {
     // To-do: Change position to let constant <3
     var position: Int?
     let imgURL: String?
+    let artist: String?
     
     init(artist: Artist, index: Int) {
         self.title = artist.name
@@ -30,6 +31,7 @@ struct TileInfo {
             }
         }
         self.imgURL = last.url
+        self.artist = artist.name
     }
     
     init(track: Track, index: Int) {
@@ -47,12 +49,14 @@ struct TileInfo {
             }
         }
         self.imgURL = last.url
+        self.artist = track.artists?.first?.name
     }
     
-    init(title: String, position: Int, imgURL: String) {
+    init(title: String, position: Int, imgURL: String, artist: String) {
         self.title = title
         self.position = position
         self.imgURL = imgURL
+        self.artist = artist
     }
     
 }
