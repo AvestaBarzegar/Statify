@@ -22,11 +22,11 @@ extension UserAPI: EndPointType {
             let url = URL(string: baseURL)
             return url!
         case .token:
-            let baseURL = "http://localhost:80"
+            let baseURL = "http://localhost"
             let url = URL(string: baseURL)
             return url!
         case .refreshToken:
-            let baseURL = "http://localhost:80"
+            let baseURL = "http://localhost"
             let url = URL(string: baseURL)
             return url!
         }

@@ -131,7 +131,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            print("Tapped feedback")
+            let feedback = FeedbackViewController()
+            self.present(feedback, animated: true, completion: nil)
         case 1:
             CustomAlertViewController.showAlertOn(self, "Logout", "Are you sure you want to log out?", "Log me out", cancelButtonText: "Cancel") {
                 UserDefaults.standard.setValue(nil, forKey: "access_token")
