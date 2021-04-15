@@ -49,9 +49,29 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                 try self.configureParameters(bodyParameters: bodyParameters,
                                              urlParameters: urlParameters,
                                              request: &request)
+            case .requestURLBodyEncoded(bodyParameters: let bodyParameters,
+                                        urlParameters: let urlParameters):
+                try self.configureParameters(bodyParameters: bodyParameters,
+                                             urlParameters: urlParameters,
+                                             request: &request)
                 
             }
             return request
+        } catch {
+            throw error
+        }
+    }
+    
+    fileprivate func configureParametersURLEncoded(bodyParameters: Parameters?,
+                                                   urlParameters: Parameters?,
+                                                   request: inout URLRequest) throws {
+        do {
+            if let bodyParameters = bodyParameters {
+                try URLBodyEncoder.encode(urlRequest: &request, with: bodyParameters)
+            }
+            if let urlParameters = urlParameters {
+                try URLParameterEncoder.encode(urlRequest: &request, with: urlParameters)
+            }
         } catch {
             throw error
         }
