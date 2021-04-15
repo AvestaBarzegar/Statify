@@ -154,7 +154,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 extension SettingsViewController {
     
     private func getInfo() {
-        let manager = UserManager()
+        let manager = UserManager.shared
         manager.getAccountInfo { [weak self] accountInfo, error in
             if let error = error {
                 print(error)

@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct UserManager {
+final class UserManager {
+    
+    static let shared = UserManager()
     
     private let router = Router<UserAPI>()
     
@@ -57,12 +59,12 @@ struct UserManager {
         }
     }
     
-    func getToken(code: String, completion: @escaping(_ token: AuthResponse?, _ error: String?) -> Void) {
+    func exchangeCodeForToken(code: String, completion: @escaping(_ token: AuthResponse?, _ error: String?) -> Void) {
         router.request(.token(code: code)) { data, response, error in
             if error != nil {
                 completion(nil, "Please check your network connection.")
             }
-            
+                        
             if let response = response as? HTTPURLResponse {
                 let result = self.handleNetworkResponse(response)
                 switch result {
@@ -74,6 +76,7 @@ struct UserManager {
                     do {
                         let decoder = JSONDecoder()
                         let token = try decoder.decode(AuthResponse.self, from: responseData)
+                        self.cacheToken(result: token)
                         completion(token, nil)
                     } catch {
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
@@ -83,6 +86,15 @@ struct UserManager {
                 }
             }
         }
+    }
+    
+    private func cacheToken(result: AuthResponse) {
+        UserDefaults.standard.setValue(result.accessToken, forKey: "access_token")
+        if let refreshTokenVal = result.refreshToken {
+            UserDefaults.standard.setValue(refreshTokenVal, forKey: "refresh_token")
+        }
+        let expiryDate = Date().addingTimeInterval(TimeInterval(result.expiresIn))
+        UserDefaults.standard.setValue(expiryDate, forKey: "expiration_date")
     }
     
 }

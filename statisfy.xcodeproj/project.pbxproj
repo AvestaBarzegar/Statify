@@ -79,6 +79,7 @@
 		C99084EA2614097A00E2F0E6 /* TrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084E82614097A00E2F0E6 /* TrackModel.swift */; };
 		C99084F226141B4600E2F0E6 /* RecentTrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084F126141B4600E2F0E6 /* RecentTrackModel.swift */; };
 		C99084F326141B4600E2F0E6 /* RecentTrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084F126141B4600E2F0E6 /* RecentTrackModel.swift */; };
+		C997D9752628992A00C41704 /* AuthRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C997D9742628992A00C41704 /* AuthRequestModels.swift */; };
 		C99B6BD226194943004B88C1 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6BD126194943004B88C1 /* EndpointProtocol.swift */; };
 		C99B6BD326194943004B88C1 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6BD126194943004B88C1 /* EndpointProtocol.swift */; };
 		C99B6BD526194978004B88C1 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6BD426194978004B88C1 /* HTTPMethod.swift */; };
@@ -160,6 +161,7 @@
 		C983023B2612E13B00EE54A6 /* ArtistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistModel.swift; sourceTree = "<group>"; };
 		C99084E82614097A00E2F0E6 /* TrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModel.swift; sourceTree = "<group>"; };
 		C99084F126141B4600E2F0E6 /* RecentTrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTrackModel.swift; sourceTree = "<group>"; };
+		C997D9742628992A00C41704 /* AuthRequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestModels.swift; sourceTree = "<group>"; };
 		C99B6BD126194943004B88C1 /* EndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
 		C99B6BD426194978004B88C1 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		C99B6BD7261949CD004B88C1 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
@@ -250,12 +252,12 @@
 			path = TokenAuth;
 			sourceTree = "<group>";
 		};
-		C97BD82026117F230016720D /* ResponseModels */ = {
+		C97BD82026117F230016720D /* AuthResponseModels */ = {
 			isa = PBXGroup;
 			children = (
 				C97BD82126117F540016720D /* AuthResponse.swift */,
 			);
-			path = ResponseModels;
+			path = AuthResponseModels;
 			sourceTree = "<group>";
 		};
 		C97D096A260FA6C30019734F = {
@@ -407,8 +409,9 @@
 		C97D09A6260FA7150019734F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C98301D82612631900EE54A6 /* TabBarModels */,
-				C97BD82026117F230016720D /* ResponseModels */,
+				C98301D82612631900EE54A6 /* TabBarResponseModels */,
+				C97BD82026117F230016720D /* AuthResponseModels */,
+				C997D9742628992A00C41704 /* AuthRequestModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -422,7 +425,7 @@
 			path = Statistics;
 			sourceTree = "<group>";
 		};
-		C98301D82612631900EE54A6 /* TabBarModels */ = {
+		C98301D82612631900EE54A6 /* TabBarResponseModels */ = {
 			isa = PBXGroup;
 			children = (
 				C983023B2612E13B00EE54A6 /* ArtistModel.swift */,
@@ -430,7 +433,7 @@
 				C99084F126141B4600E2F0E6 /* RecentTrackModel.swift */,
 				C93BA24626215B6500D96751 /* AccountInfoModel.swift */,
 			);
-			path = TabBarModels;
+			path = TabBarResponseModels;
 			sourceTree = "<group>";
 		};
 		C99B6BCC261948FC004B88C1 /* NetworkingNew */ = {
@@ -716,6 +719,7 @@
 				C9BD2E20261BF9DA00C0FBDA /* RotationAnimation.swift in Sources */,
 				C99B6BD8261949CD004B88C1 /* HTTPTask.swift in Sources */,
 				C99084E92614097A00E2F0E6 /* TrackModel.swift in Sources */,
+				C997D9752628992A00C41704 /* AuthRequestModels.swift in Sources */,
 				C93BA23E2621440100D96751 /* SettingsTableViewCell.swift in Sources */,
 				C97BD81A261103E80016720D /* AuthViewController.swift in Sources */,
 				C99B6BE426194C7B004B88C1 /* NetworkRouter.swift in Sources */,

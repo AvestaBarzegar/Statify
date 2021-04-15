@@ -22,11 +22,11 @@ extension UserAPI: EndPointType {
             let url = URL(string: baseURL)
             return url!
         case .token:
-            let baseURL = "http://localhost:25565"
+            let baseURL = "http://localhost:80"
             let url = URL(string: baseURL)
             return url!
         case .refreshToken:
-            let baseURL = "http://localhost:25565"
+            let baseURL = "http://localhost:80"
             let url = URL(string: baseURL)
             return url!
         }
@@ -37,9 +37,9 @@ extension UserAPI: EndPointType {
         case .user:
             return "/v1/me"
         case .token:
-            return "api/token"
+            return "/api/token"
         case .refreshToken:
-            return "api/refresh_token"
+            return "/api/refresh_token"
         }
     }
     
@@ -61,10 +61,9 @@ extension UserAPI: EndPointType {
                                             urlParameters: nil,
                                             additionalHeaders: headers)
         case .token(code: let code):
-            var parameters: Parameters = [:]
-            parameters["code"] = code
-            return .requestParameters(bodyParameters: nil,
-                                      urlParameters: parameters)
+            let bodyParameters: Parameters = ["code": code]
+            return .requestParameters(bodyParameters: bodyParameters,
+                                      urlParameters: nil)
         default:
             return .requestParameters(bodyParameters: nil,
                                       urlParameters: nil)

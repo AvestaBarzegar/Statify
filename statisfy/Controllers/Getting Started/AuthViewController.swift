@@ -100,15 +100,22 @@ extension AuthViewController: WKNavigationDelegate {
         
         // Exchange code for access token
         guard let code = URLComponents(string: url.absoluteString)?.queryItems?.first(where: { $0.name == "code" })?.value else { return }
-        
+        print(code)
         webView.isHidden = true
-        TokenManager.shared.exchangeCodeForToken(code: code, completion: { [weak self] (success) in
-            DispatchQueue.main.async {
-                self?.dismiss(animated: true)
-                self?.completionHandler?(success)
-                self?.webView.removeFromSuperview()
-            }
-        })
         
+//        UserManager.shared.exchangeCodeForToken(code: code) { [weak self] _, error in
+//            DispatchQueue.main.async {
+//                if error != nil {
+//                    self?.webView.removeFromSuperview()
+//                    self?.completionHandler?(false)
+//                } else {
+//                    self?.webView.removeFromSuperview()
+//                    self?.completionHandler?(true)
+//                    self?.dismiss(animated: true)
+//
+//                }
+//            }
+//        }
+
     }
 }
