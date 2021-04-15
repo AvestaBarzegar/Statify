@@ -31,7 +31,6 @@
 		C97BD818261101460016720D /* SensitiveInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD817261101460016720D /* SensitiveInformation.swift */; };
 		C97BD81A261103E80016720D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD819261103E80016720D /* AuthViewController.swift */; };
 		C97BD81C261104540016720D /* SectionHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD81B261104540016720D /* SectionHeaderViewModel.swift */; };
-		C97BD81F26117F110016720D /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD81E26117F110016720D /* TokenManager.swift */; };
 		C97BD82226117F540016720D /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD82126117F540016720D /* AuthResponse.swift */; };
 		C97D09A7260FA7150019734F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97D098B260FA7150019734F /* Assets.xcassets */; };
 		C97D09A8260FA7150019734F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D098C260FA7150019734F /* AppDelegate.swift */; };
@@ -68,7 +67,6 @@
 		C98302232612D46400EE54A6 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D09CB260FA94C0019734F /* ArtistViewController.swift */; };
 		C98302242612D46400EE54A6 /* SensitiveInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD817261101460016720D /* SensitiveInformation.swift */; };
 		C98302252612D46400EE54A6 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD80C2610CC6A0016720D /* Endpoint.swift */; };
-		C98302262612D46400EE54A6 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD81E26117F110016720D /* TokenManager.swift */; };
 		C98302282612D46400EE54A6 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD82126117F540016720D /* AuthResponse.swift */; };
 		C98302292612D46400EE54A6 /* MenuBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D226100263007FEB90 /* MenuBarItem.swift */; };
 		C983022B2612D46400EE54A6 /* Pods_statisfy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */; };
@@ -140,7 +138,6 @@
 		C97BD817261101460016720D /* SensitiveInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensitiveInformation.swift; sourceTree = "<group>"; };
 		C97BD819261103E80016720D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		C97BD81B261104540016720D /* SectionHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderViewModel.swift; sourceTree = "<group>"; };
-		C97BD81E26117F110016720D /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		C97BD82126117F540016720D /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		C97D0973260FA6C30019734F /* statisfy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = statisfy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97D0984260FA6C40019734F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -250,7 +247,6 @@
 			isa = PBXGroup;
 			children = (
 				C97BD8152610FF350016720D /* AuthManager.swift */,
-				C97BD81E26117F110016720D /* TokenManager.swift */,
 			);
 			path = TokenAuth;
 			sourceTree = "<group>";
@@ -750,7 +746,6 @@
 				C93BA24426214C4700D96751 /* AccountCardViewModel.swift in Sources */,
 				C97BD818261101460016720D /* SensitiveInformation.swift in Sources */,
 				C97BD80D2610CC6A0016720D /* Endpoint.swift in Sources */,
-				C97BD81F26117F110016720D /* TokenManager.swift in Sources */,
 				C99B6BEA261950EB004B88C1 /* AnalyticsManager.swift in Sources */,
 				C9BD2E17261BF84500C0FBDA /* ProgressView.swift in Sources */,
 				C97BD82226117F540016720D /* AuthResponse.swift in Sources */,
@@ -802,7 +797,6 @@
 				C9BD2E2B261C214000C0FBDA /* SettingsViewController.swift in Sources */,
 				C98302242612D46400EE54A6 /* SensitiveInformation.swift in Sources */,
 				C98302252612D46400EE54A6 /* Endpoint.swift in Sources */,
-				C98302262612D46400EE54A6 /* TokenManager.swift in Sources */,
 				C93BA23F2621440100D96751 /* SettingsTableViewCell.swift in Sources */,
 				C99B6BE226194BC3004B88C1 /* JSONParameterEncoder.swift in Sources */,
 				C98302282612D46400EE54A6 /* AuthResponse.swift in Sources */,

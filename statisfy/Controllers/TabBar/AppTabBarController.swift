@@ -66,8 +66,8 @@ class AppTabBarController: UITabBarController {
         self.viewControllers = tabViewControllers
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         refreshAuth()
         
     }
@@ -77,11 +77,21 @@ class AppTabBarController: UITabBarController {
     }
     
     func refreshAuth() {
-        TokenManager.shared.refreshToken(completion: { [weak self] _ in
-            print("refreshed token")
-            DispatchQueue.main.async {
-                self?.setupUI()
+//        TokenManager.shared.refreshToken(completion: { [weak self] _ in
+//            print("refreshed token")
+//            DispatchQueue.main.async {
+//                self?.setupUI()
+//            }
+//        })
+        UserManager.shared.refreshAccessToken { [weak self] _, error in
+            if error != nil {
+                print("error")
+            } else {
+                print("refresh token")
+                DispatchQueue.main.async {
+                    self?.setupUI()
+                }
             }
-        })
+        }
     }
 }
