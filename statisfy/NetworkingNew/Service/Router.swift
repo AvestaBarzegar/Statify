@@ -51,7 +51,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                                              request: &request)
             case .requestURLBodyEncoded(bodyParameters: let bodyParameters,
                                         urlParameters: let urlParameters):
-                try self.configureParameters(bodyParameters: bodyParameters,
+                try self.configureParametersURLEncoded(bodyParameters: bodyParameters,
                                              urlParameters: urlParameters,
                                              request: &request)
                 

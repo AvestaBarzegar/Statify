@@ -61,12 +61,9 @@ extension UserAPI: EndPointType {
                                             urlParameters: nil,
                                             additionalHeaders: headers)
         case .token(code: let code):
-            let urlParameters: Parameters = ["code": code]
-            return .requestParameters(bodyParameters: nil,
-                                      urlParameters: urlParameters)
-            return .requestParametersAndHeaders(bodyParameters: nil,
-                                                urlParameters: <#T##Parameters?#>,
-                                                additionalHeaders: <#T##HTTPHeaders?#>)
+            let bodyParameters: Parameters = ["code": code]
+            return .requestURLBodyEncoded(bodyParameters: bodyParameters,
+                                          urlParameters: nil)
         default:
             return .requestParameters(bodyParameters: nil,
                                       urlParameters: nil)
