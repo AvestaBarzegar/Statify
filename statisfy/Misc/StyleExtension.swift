@@ -11,7 +11,7 @@ import UIKit
 enum Constants: CGFloat {
     
     case cornerRadius = 8.0
-    case animationDuration = 0.75
+    case animationDuration = 0.375
     case headerViewHeight = 48
     case buttonSize = 36
 }
