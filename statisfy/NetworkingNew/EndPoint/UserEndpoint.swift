@@ -9,20 +9,33 @@ import Foundation
 
 public enum UserAPI {
     case user
+    case token
+    case refreshToken
 }
 
 extension UserAPI: EndPointType {
     
     var baseURL: URL {
-        let baseURL = "https://api.spotify.com"
-        let url = URL(string: baseURL)
-        return url!
+        switch self {
+        case .user:
+            let baseURL = "https://api.spotify.com"
+            let url = URL(string: baseURL)
+            return url!
+        case .token:
+            let baseURL = "http://localhost:25565"
+        case .refreshToken:
+            let baseURL = "http://localhost:25565"
+        }
     }
     
     var path: String {
         switch self {
         case .user:
             return "/v1/me"
+        case .token:
+            return "api/token"
+        case .refreshToken:
+            return "api/refresh_token"
         }
     }
     
@@ -30,6 +43,10 @@ extension UserAPI: EndPointType {
         switch self {
         case .user:
             return .get
+        case .token:
+            return .post
+        case .refreshToken:
+            return .post
         }
     }
     
@@ -39,6 +56,8 @@ extension UserAPI: EndPointType {
             return .requestParametersAndHeaders(bodyParameters: nil,
                                             urlParameters: nil,
                                             additionalHeaders: headers)
+        case .token:
+            return .requestParameters(bodyParameters: <#T##Parameters?#>, urlParameters: <#T##Parameters?#>)
         }
     }
     
