@@ -80,6 +80,8 @@
 		C99084F226141B4600E2F0E6 /* RecentTrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084F126141B4600E2F0E6 /* RecentTrackModel.swift */; };
 		C99084F326141B4600E2F0E6 /* RecentTrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99084F126141B4600E2F0E6 /* RecentTrackModel.swift */; };
 		C997D9752628992A00C41704 /* AuthRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C997D9742628992A00C41704 /* AuthRequestModels.swift */; };
+		C997D9772628A0C100C41704 /* URLEncodedBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C997D9762628A0C100C41704 /* URLEncodedBody.swift */; };
+		C997D9782628A0C100C41704 /* URLEncodedBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C997D9762628A0C100C41704 /* URLEncodedBody.swift */; };
 		C99B6BD226194943004B88C1 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6BD126194943004B88C1 /* EndpointProtocol.swift */; };
 		C99B6BD326194943004B88C1 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6BD126194943004B88C1 /* EndpointProtocol.swift */; };
 		C99B6BD526194978004B88C1 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6BD426194978004B88C1 /* HTTPMethod.swift */; };
@@ -162,6 +164,7 @@
 		C99084E82614097A00E2F0E6 /* TrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModel.swift; sourceTree = "<group>"; };
 		C99084F126141B4600E2F0E6 /* RecentTrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTrackModel.swift; sourceTree = "<group>"; };
 		C997D9742628992A00C41704 /* AuthRequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestModels.swift; sourceTree = "<group>"; };
+		C997D9762628A0C100C41704 /* URLEncodedBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncodedBody.swift; sourceTree = "<group>"; };
 		C99B6BD126194943004B88C1 /* EndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
 		C99B6BD426194978004B88C1 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		C99B6BD7261949CD004B88C1 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
@@ -483,6 +486,7 @@
 				C99B6BDA26194A30004B88C1 /* ParameterEncoding.swift */,
 				C99B6BDD26194AB6004B88C1 /* URLParameterEncoder.swift */,
 				C99B6BE026194BC3004B88C1 /* JSONParameterEncoder.swift */,
+				C997D9762628A0C100C41704 /* URLEncodedBody.swift */,
 			);
 			path = Encoding;
 			sourceTree = "<group>";
@@ -711,6 +715,7 @@
 				C97D09C6260FA91A0019734F /* RecentViewController.swift in Sources */,
 				C97D09CE260FA9740019734F /* WelcomeViewController.swift in Sources */,
 				C9457B7B261CD5BC00B3A60D /* CustomAlertViewController.swift in Sources */,
+				C997D9772628A0C100C41704 /* URLEncodedBody.swift in Sources */,
 				C983023C2612E13B00EE54A6 /* ArtistModel.swift in Sources */,
 				C97D09BB260FA7FE0019734F /* StyleExtension.swift in Sources */,
 				C97059D1260FFF1C007FEB90 /* MenuBar.swift in Sources */,
@@ -804,6 +809,7 @@
 				C93BA24B26215C8C00D96751 /* UserEndpoint.swift in Sources */,
 				C98302292612D46400EE54A6 /* MenuBarItem.swift in Sources */,
 				C93BA2422621488500D96751 /* AccountCardView.swift in Sources */,
+				C997D9782628A0C100C41704 /* URLEncodedBody.swift in Sources */,
 				C9BD2E24261BFA2A00C0FBDA /* StrokeColorAnimation.swift in Sources */,
 				C9BD2E1B261BF89700C0FBDA /* ProgressShapeLayer.swift in Sources */,
 				C99B6BD326194943004B88C1 /* EndpointProtocol.swift in Sources */,
