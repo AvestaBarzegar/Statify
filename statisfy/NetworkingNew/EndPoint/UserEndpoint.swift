@@ -9,7 +9,7 @@ import Foundation
 
 public enum UserAPI {
     case user
-    case token
+    case token(code: String)
     case refreshToken
 }
 
@@ -23,8 +23,12 @@ extension UserAPI: EndPointType {
             return url!
         case .token:
             let baseURL = "http://localhost:25565"
+            let url = URL(string: baseURL)
+            return url!
         case .refreshToken:
             let baseURL = "http://localhost:25565"
+            let url = URL(string: baseURL)
+            return url!
         }
     }
     
@@ -56,8 +60,14 @@ extension UserAPI: EndPointType {
             return .requestParametersAndHeaders(bodyParameters: nil,
                                             urlParameters: nil,
                                             additionalHeaders: headers)
-        case .token:
-            return .requestParameters(bodyParameters: <#T##Parameters?#>, urlParameters: <#T##Parameters?#>)
+        case .token(code: let code):
+            var parameters: Parameters = [:]
+            parameters["code"] = code
+            return .requestParameters(bodyParameters: nil,
+                                      urlParameters: parameters)
+        default:
+            return .requestParameters(bodyParameters: nil,
+                                      urlParameters: nil)
         }
     }
     
@@ -69,6 +79,10 @@ extension UserAPI: EndPointType {
                 "Authorization": "Bearer \(AuthManager.shared.accessToken ?? "")"
             ]
             return headers
+        case .token:
+            return nil
+        default:
+            return nil
         }
     }
     
