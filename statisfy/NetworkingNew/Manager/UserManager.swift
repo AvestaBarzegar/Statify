@@ -97,4 +97,8 @@ final class UserManager {
         UserDefaults.standard.setValue(expiryDate, forKey: "expiration_date")
     }
     
+    func refreshAccessToken() {
+        
+    }
+    
 }
