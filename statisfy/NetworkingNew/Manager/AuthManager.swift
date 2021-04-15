@@ -16,9 +16,9 @@ enum AuthConstants: String {
     case redirectURI = "http://avestabarzegar.com"
 }
 
-final class AuthManager: Endpoint {
+final class AuthManager {
     
-    var scheme: Scheme.RawValue = Scheme.https.rawValue
+    var scheme: String = "https"
     
     var baseURL: String = "accounts.spotify.com"
     
@@ -37,8 +37,6 @@ final class AuthManager: Endpoint {
         URLQueryItem(name: "redirect_uri", value: AuthConstants.redirectURI.rawValue),
         URLQueryItem(name: "show_dialog", value: "TRUE")
     ]
-    
-    var method: Methods.RawValue?
     
     func urlBuilder() -> URL? {
         var components = URLComponents()
