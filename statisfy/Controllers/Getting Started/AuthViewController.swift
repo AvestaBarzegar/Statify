@@ -100,6 +100,7 @@ extension AuthViewController: WKNavigationDelegate {
         
         // Exchange code for access token
         guard let code = URLComponents(string: url.absoluteString)?.queryItems?.first(where: { $0.name == "code" })?.value else { return }
+        
         webView.isHidden = true
         
         UserManager.shared.exchangeCodeForToken(code: code) { [weak self] _, error in
