@@ -77,7 +77,6 @@ class AppTabBarController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refreshAuth()
-        
     }
     
     deinit {
@@ -98,7 +97,7 @@ class AppTabBarController: UITabBarController {
                 }
             }
         case .demo:
-            break;
+            break
         }
     }
 }

@@ -64,7 +64,6 @@ class AuthViewController: UIViewController {
     private func loadWebView() {
         
         guard let urlObj = AuthManager.shared.urlBuilder() else { return }
-        print(urlObj)
         let request = URLRequest(url: urlObj)
         webView.load(request)
     }
