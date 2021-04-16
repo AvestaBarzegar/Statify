@@ -144,7 +144,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
                 let window = self.view.window
                 window?.rootViewController = WelcomeViewController()
             } cancelAction: {
-                print("pressed cancel")
+                
             }
         default:
             break
@@ -170,7 +170,6 @@ extension SettingsViewController {
         let manager = UserManager.shared
         manager.getAccountInfo { [weak self] accountInfo, error in
             if let error = error {
-                print(error)
             } else {
                 DispatchQueue.main.async {
                     self?.accountCardView.cardInfo = accountInfo

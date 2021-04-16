@@ -39,7 +39,7 @@ class WelcomeViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Get Started", for: .normal)
         button.titleLabel?.textColor = UIColor.spotifyWhite
-        button.titleLabel?.font = UIFont.subHeaderFont
+        button.titleLabel?.font = UIFont.tableCellFontBolded
         button.addTarget(self, action: #selector(getStartedClicked), for: .touchUpInside)
         return button
     }()
