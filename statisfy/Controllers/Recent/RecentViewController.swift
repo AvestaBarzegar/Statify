@@ -13,11 +13,33 @@ class RecentViewController: UIViewController {
     
     private var informationType = AppTabBarController.informationType
     
-    private var information: RecentTracksViewModelArray?
+    private var information: RecentTracksViewModelArray? {
+        didSet {
+            self.removeSpinner()
+            self.tableView.reloadData()
+            if information?.allInfo == nil {
+                noInformationLabel.isHidden = false
+            }
+            guard let informationArr = information?.allInfo else { return }
+            noInformationLabel.isHidden = !informationArr.isEmpty
+        }
+    }
     
     let headerInfo = SectionHeaderViewModel(title: "Recently Played", leftImageName: nil, rightImageName: nil)
     
     // MARK: - Init Views
+    
+    private lazy var noInformationLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "No History Available"
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = UIColor.spotifyWhite
+        label.font = UIFont.welcomeSubtitleFont
+        label.isHidden = true
+        return label
+    }()
 
     private lazy var tableView: UITableView = {
         let view = UITableView()
@@ -56,6 +78,7 @@ class RecentViewController: UIViewController {
                        options: .curveLinear,
                        animations: {
                         self.tableView.alpha = 1.0
+                        self.noInformationLabel.alpha = 1.0
                        },
                        completion: nil)
     }
@@ -64,6 +87,7 @@ class RecentViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         self.tableView.alpha = 0
+        self.noInformationLabel.alpha = 0.0
     }
     
     private func setup() {
@@ -71,8 +95,13 @@ class RecentViewController: UIViewController {
         self.view.backgroundColor = UIColor.backgroundColor
         self.view.addSubview(tableView)
         self.view.addSubview(headerView)
+        self.view.addSubview(noInformationLabel)
         let safeArea = view.layoutMarginsGuide
         NSLayoutConstraint.activate([
+            noInformationLabel.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),
+            noInformationLabel.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 32),
+            noInformationLabel.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -32),
+            
             headerView.topAnchor.constraint(equalTo: safeArea.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
@@ -141,10 +170,7 @@ extension RecentViewController {
                 }
             } else {
                 DispatchQueue.main.async {
-                    self?.information = recentArr
-                    self?.removeSpinner()
-                    self?.tableView.reloadData()
-                }
+                    self?.information = recentArr                }
             }
         }
     }
@@ -153,8 +179,6 @@ extension RecentViewController {
         MockManager.shared.fetchRecentTracksMock { [weak self] recentArr in
             DispatchQueue.main.async {
                 self?.information = recentArr
-                self?.removeSpinner()
-                self?.tableView.reloadData()
             }
         }
     }
