@@ -91,6 +91,12 @@
 		C997D98D26291A5500C41704 /* MediumArtists.json in Resources */ = {isa = PBXBuildFile; fileRef = C997D98B26291A5500C41704 /* MediumArtists.json */; };
 		C997D99226291A9400C41704 /* LongArtists.json in Resources */ = {isa = PBXBuildFile; fileRef = C997D99126291A9400C41704 /* LongArtists.json */; };
 		C997D99326291A9400C41704 /* LongArtists.json in Resources */ = {isa = PBXBuildFile; fileRef = C997D99126291A9400C41704 /* LongArtists.json */; };
+		C997D99526291AD500C41704 /* RecentTracks.json in Resources */ = {isa = PBXBuildFile; fileRef = C997D99426291AD500C41704 /* RecentTracks.json */; };
+		C997D99626291AD500C41704 /* RecentTracks.json in Resources */ = {isa = PBXBuildFile; fileRef = C997D99426291AD500C41704 /* RecentTracks.json */; };
+		C997D99826291AE300C41704 /* Settings.json in Resources */ = {isa = PBXBuildFile; fileRef = C997D99726291AE300C41704 /* Settings.json */; };
+		C997D99926291AE300C41704 /* Settings.json in Resources */ = {isa = PBXBuildFile; fileRef = C997D99726291AE300C41704 /* Settings.json */; };
+		C997D99C26291BF100C41704 /* MockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C997D99B26291BF100C41704 /* MockManager.swift */; };
+		C997D99D26291BF100C41704 /* MockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C997D99B26291BF100C41704 /* MockManager.swift */; };
 		C99B6BD226194943004B88C1 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6BD126194943004B88C1 /* EndpointProtocol.swift */; };
 		C99B6BD326194943004B88C1 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6BD126194943004B88C1 /* EndpointProtocol.swift */; };
 		C99B6BD526194978004B88C1 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6BD426194978004B88C1 /* HTTPMethod.swift */; };
@@ -178,6 +184,9 @@
 		C997D9882629155500C41704 /* ShortArtists.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ShortArtists.json; sourceTree = "<group>"; };
 		C997D98B26291A5500C41704 /* MediumArtists.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MediumArtists.json; sourceTree = "<group>"; };
 		C997D99126291A9400C41704 /* LongArtists.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LongArtists.json; sourceTree = "<group>"; };
+		C997D99426291AD500C41704 /* RecentTracks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecentTracks.json; sourceTree = "<group>"; };
+		C997D99726291AE300C41704 /* Settings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Settings.json; sourceTree = "<group>"; };
+		C997D99B26291BF100C41704 /* MockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockManager.swift; sourceTree = "<group>"; };
 		C99B6BD126194943004B88C1 /* EndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
 		C99B6BD426194978004B88C1 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		C99B6BD7261949CD004B88C1 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
@@ -419,6 +428,8 @@
 		C997D97C2629129700C41704 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				C997D99E26291EF000C41704 /* Other */,
+				C997D99A26291BDF00C41704 /* MockManagers */,
 				C997D9872629153F00C41704 /* TopArtists */,
 				C997D9862629153700C41704 /* TopTracks */,
 			);
@@ -443,6 +454,23 @@
 				C997D99126291A9400C41704 /* LongArtists.json */,
 			);
 			path = TopArtists;
+			sourceTree = "<group>";
+		};
+		C997D99A26291BDF00C41704 /* MockManagers */ = {
+			isa = PBXGroup;
+			children = (
+				C997D99B26291BF100C41704 /* MockManager.swift */,
+			);
+			path = MockManagers;
+			sourceTree = "<group>";
+		};
+		C997D99E26291EF000C41704 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				C997D99426291AD500C41704 /* RecentTracks.json */,
+				C997D99726291AE300C41704 /* Settings.json */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		C99B6BCC261948FC004B88C1 /* Networking */ = {
@@ -608,7 +636,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C997D99526291AD500C41704 /* RecentTracks.json in Resources */,
 				C997D9892629155500C41704 /* ShortArtists.json in Resources */,
+				C997D99826291AE300C41704 /* Settings.json in Resources */,
 				C97D09A7260FA7150019734F /* Assets.xcassets in Resources */,
 				C997D99226291A9400C41704 /* LongArtists.json in Resources */,
 				C997D9842629151A00C41704 /* LongTracks.json in Resources */,
@@ -623,7 +653,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C997D99626291AD500C41704 /* RecentTracks.json in Resources */,
 				C997D98A2629155500C41704 /* ShortArtists.json in Resources */,
+				C997D99926291AE300C41704 /* Settings.json in Resources */,
 				C983022D2612D46400EE54A6 /* Assets.xcassets in Resources */,
 				C997D99326291A9400C41704 /* LongArtists.json in Resources */,
 				C997D9852629151A00C41704 /* LongTracks.json in Resources */,
@@ -765,6 +797,7 @@
 				C99B6BD526194978004B88C1 /* HTTPMethod.swift in Sources */,
 				C97D09BF260FA8E30019734F /* DownloadedImageView.swift in Sources */,
 				C97D09CC260FA94C0019734F /* ArtistViewController.swift in Sources */,
+				C997D99C26291BF100C41704 /* MockManager.swift in Sources */,
 				C9BD2E2A261C214000C0FBDA /* SettingsViewController.swift in Sources */,
 				C93BA24726215B6500D96751 /* AccountInfoModel.swift in Sources */,
 				C99084F226141B4600E2F0E6 /* RecentTrackModel.swift in Sources */,
@@ -810,6 +843,7 @@
 				C99084EA2614097A00E2F0E6 /* TrackModel.swift in Sources */,
 				C99B6BDF26194AB6004B88C1 /* URLParameterEncoder.swift in Sources */,
 				C93BA24526214C4700D96751 /* AccountCardViewModel.swift in Sources */,
+				C997D99D26291BF100C41704 /* MockManager.swift in Sources */,
 				C99B6BD9261949CD004B88C1 /* HTTPTask.swift in Sources */,
 				C983021F2612D46400EE54A6 /* StatisticsCollectionViewCell.swift in Sources */,
 				C9BD2E1E261BF95100C0FBDA /* StrokeAnimation.swift in Sources */,
