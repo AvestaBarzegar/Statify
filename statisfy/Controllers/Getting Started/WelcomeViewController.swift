@@ -44,6 +44,18 @@ class WelcomeViewController: UIViewController {
         return button
     }()
     
+    private let demoButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor.spotifyGreen
+        button.layer.cornerRadius = Constants.cornerRadius.rawValue
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Demo the app", for: .normal)
+        button.titleLabel?.textColor = UIColor.spotifyWhite
+        button.titleLabel?.font = UIFont.bodyFontBolded
+        button.addTarget(self, action: #selector(getStartedClicked), for: .touchUpInside)
+        return button
+    }()
+    
     // MARK: - Actions and Navigation
     
     @objc
@@ -57,6 +69,11 @@ class WelcomeViewController: UIViewController {
         }
 
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    @objc
+    func demoButtonClicked() {
+        
     }
     
     private func handleSignIn(success: Bool) {

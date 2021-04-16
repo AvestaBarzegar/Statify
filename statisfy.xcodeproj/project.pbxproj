@@ -256,7 +256,7 @@
 		C97D0975260FA6C30019734F /* statisfy */ = {
 			isa = PBXGroup;
 			children = (
-				C99B6BCC261948FC004B88C1 /* NetworkingNew */,
+				C99B6BCC261948FC004B88C1 /* Networking */,
 				C97D099B260FA7150019734F /* Controllers */,
 				C97D098A260FA7150019734F /* Misc */,
 				C97D09A6260FA7150019734F /* Models */,
@@ -398,7 +398,7 @@
 			path = TabBarResponseModels;
 			sourceTree = "<group>";
 		};
-		C99B6BCC261948FC004B88C1 /* NetworkingNew */ = {
+		C99B6BCC261948FC004B88C1 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				C99B6BD02619492B004B88C1 /* Encoding */,
@@ -406,7 +406,7 @@
 				C99B6BCE2619491F004B88C1 /* Manager */,
 				C99B6BCD2619491A004B88C1 /* EndPoint */,
 			);
-			path = NetworkingNew;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		C99B6BCD2619491A004B88C1 /* EndPoint */ = {
