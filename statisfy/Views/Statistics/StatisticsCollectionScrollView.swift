@@ -13,6 +13,11 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
     var tracks: [TileInfo]? {
         didSet {
             collectionView.reloadData()
+            if tracks == nil {
+                noInformationLabel.isHidden = false
+            }
+            guard let tracks = tracks else { return }
+            noInformationLabel.isHidden = !tracks.isEmpty
         }
     }
     
@@ -32,6 +37,18 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
     
     // MARK: - Init views
     let padding: CGFloat = 16.0
+    
+    private lazy var noInformationLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "No History Available"
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = UIColor.spotifyWhite
+        label.font = UIFont.welcomeSubtitleFont
+        label.isHidden = true
+        return label
+    }()
     
     lazy var collectionView: UICollectionView = {
         
@@ -76,8 +93,14 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
     
     private func setup() {
         contentView.addSubview(collectionView)
+        contentView.addSubview(noInformationLabel)
         contentView.addSubview(spinner)
         NSLayoutConstraint.activate([
+            noInformationLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            noInformationLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 32),
+            noInformationLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -32),
+            
+            
             collectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
@@ -89,6 +112,7 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
             spinner.heightAnchor.constraint(equalTo: spinner.widthAnchor)
         ])
         spinner.isAnimating = true
+        noInformationLabel.isHidden = true
     }
 
 }
