@@ -11,6 +11,8 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
 
     // MARK: - Data
     
+    private var informationType = AppTabBarController.informationType
+    
     private var information = [TileInformationArray?](repeating: nil, count: 3)
     
     let headerInfo = SectionHeaderViewModel(title: "Top Artists", leftImageName: nil, rightImageName: nil)

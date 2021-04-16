@@ -11,6 +11,8 @@ class SettingsViewController: UIViewController {
 
     // MARK: - Data
     
+    private var informationType = AppTabBarController.informationType
+    
     let headerInfo = SectionHeaderViewModel(title: "Settings", leftImageName: nil, rightImageName: nil)
     
     // MARK: - Initialize Views

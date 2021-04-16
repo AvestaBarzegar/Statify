@@ -10,6 +10,8 @@ import UIKit
 class TrackViewController: UIViewController {
     
     // MARK: - Data
+    
+    private var informationType = AppTabBarController.informationType
 
     private var information = [TileInformationArray?](repeating: nil, count: 3)
     

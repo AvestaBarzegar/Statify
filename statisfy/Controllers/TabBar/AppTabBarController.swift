@@ -7,9 +7,17 @@
 
 import UIKit
 
+enum InformationType {
+    
+    case demo
+    case server
+}
+
 class AppTabBarController: UITabBarController {
     
     // MARK: - Init Views
+    
+    static var informationType: InformationType = .server
     
     private lazy var tabBars: [UITabBarItem] = {
         var arr = [UITabBarItem]()
@@ -77,21 +85,20 @@ class AppTabBarController: UITabBarController {
     }
     
     func refreshAuth() {
-//        TokenManager.shared.refreshToken(completion: { [weak self] _ in
-//            print("refreshed token")
-//            DispatchQueue.main.async {
-//                self?.setupUI()
-//            }
-//        })
-        UserManager.shared.refreshAccessToken { [weak self] _, error in
-            if error != nil {
-                print("error")
-            } else {
-                print("refresh token")
-                DispatchQueue.main.async {
-                    self?.setupUI()
+        switch AppTabBarController.informationType {
+        case .server:
+            UserManager.shared.refreshAccessToken { [weak self] _, error in
+                if error != nil {
+                    print("error")
+                } else {
+                    print("refresh token")
+                    DispatchQueue.main.async {
+                        self?.setupUI()
+                    }
                 }
             }
+        case .demo:
+            break;
         }
     }
 }

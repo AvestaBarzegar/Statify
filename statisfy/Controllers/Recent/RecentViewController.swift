@@ -11,6 +11,8 @@ class RecentViewController: UIViewController {
     
     // MARK: - Data
     
+    private var informationType = AppTabBarController.informationType
+    
     private var information: RecentTracksViewModelArray?
     
     let headerInfo = SectionHeaderViewModel(title: "Recently Played", leftImageName: nil, rightImageName: nil)

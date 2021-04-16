@@ -398,9 +398,17 @@
 			path = TabBarResponseModels;
 			sourceTree = "<group>";
 		};
+		C997D97C2629129700C41704 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		C99B6BCC261948FC004B88C1 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				C997D97C2629129700C41704 /* Mocks */,
 				C99B6BD02619492B004B88C1 /* Encoding */,
 				C99B6BCF26194924004B88C1 /* Service */,
 				C99B6BCE2619491F004B88C1 /* Manager */,
