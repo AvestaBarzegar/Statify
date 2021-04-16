@@ -49,7 +49,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                 try self.configureParameters(bodyParameters: bodyParameters,
                                              urlParameters: urlParameters,
                                              request: &request)
-            case .requestURLBodyEncoded(bodyParameters: let bodyParameters,
+            case .requestBodyURLEncoded(bodyParameters: let bodyParameters,
                                         urlParameters: let urlParameters):
                 try self.configureParametersURLEncoded(bodyParameters: bodyParameters,
                                              urlParameters: urlParameters,

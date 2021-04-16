@@ -23,9 +23,7 @@ final class AuthManager {
     var baseURL: String = "accounts.spotify.com"
     
     var path: String = "/authorize"
-    
-    var pathParameters: String? = "?response_type=code&client_id=\(ClientInfo.clientId.rawValue)"
-    
+        
     var redirectURI: String = "&redirect_uri=\(AuthConstants.redirectURI.rawValue)"
     
     var showDialog: String = "&show_dialog=TRUE"

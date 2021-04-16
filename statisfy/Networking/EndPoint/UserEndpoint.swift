@@ -62,12 +62,12 @@ extension UserAPI: EndPointType {
                                             additionalHeaders: headers)
         case .token(code: let code):
             let bodyParameters: Parameters = ["code": code]
-            return .requestURLBodyEncoded(bodyParameters: bodyParameters,
+            return .requestBodyURLEncoded(bodyParameters: bodyParameters,
                                           urlParameters: nil)
         case .refreshToken:
             guard let refresher = AuthManager.shared.refreshToken else { return .request }
             let bodyParameters: Parameters = ["refresh_token": refresher]
-            return .requestURLBodyEncoded(bodyParameters: bodyParameters,
+            return .requestBodyURLEncoded(bodyParameters: bodyParameters,
                                           urlParameters: nil)
         }
     }
