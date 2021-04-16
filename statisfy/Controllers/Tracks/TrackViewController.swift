@@ -150,6 +150,42 @@ extension TrackViewController: UICollectionViewDataSource, UICollectionViewDeleg
 extension TrackViewController {
     
     private func getInformation() {
+        switch informationType {
+        case .server:
+            fetchServerInfo()
+        case .demo:
+            fetchMockInfo()
+        }
+    }
+    
+    private func fetchMockInfo() {
+        let manager = MockManager.shared
+        manager.fetchTopTracksMock(timeRange: .shortTerm) { [weak self] short in
+            let indexPath = [IndexPath(row: 0, section: 0)]
+            DispatchQueue.main.async {
+                self?.information[0] = short
+                self?.collectionView.reloadItems(at: indexPath)
+            }
+        }
+        
+        manager.fetchTopTracksMock(timeRange: .mediumTerm) { [weak self] medium in
+            let indexPath = [IndexPath(row: 1, section: 0)]
+            DispatchQueue.main.async {
+                self?.information[1] = medium
+                self?.collectionView.reloadItems(at: indexPath)
+            }
+        }
+        manager.fetchTopTracksMock(timeRange: .mediumTerm) { [weak self] long in
+            let indexPath = [IndexPath(row: 2, section: 0)]
+            DispatchQueue.main.async {
+                self?.information[2] = long
+                self?.collectionView.reloadItems(at: indexPath)
+            }
+        }
+    
+    }
+    
+    private func fetchServerInfo() {
         let manager = AnalyticsManager()
 
         // Fetching top tracks in the past 4 weeks

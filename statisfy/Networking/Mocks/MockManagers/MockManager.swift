@@ -29,7 +29,7 @@ final class MockManager {
         completion(artistsViewModel)
     }
     
-    func fetchTopArtistssMock(timeRange: TimeRange, completion: @escaping(_ items: TileInformationArray?) -> Void) {
+    func fetchTopTracksMock(timeRange: TimeRange, completion: @escaping(_ items: TileInformationArray?) -> Void) {
         var fileName = ""
         switch timeRange {
         case .shortTerm:

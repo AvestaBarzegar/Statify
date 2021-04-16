@@ -52,7 +52,7 @@ class SettingsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setup()
-        getInfo()
+        fetchInformation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -140,6 +140,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
                 UserDefaults.standard.setValue(nil, forKey: "access_token")
                 UserDefaults.standard.setValue(nil, forKey: "refresh_token")
                 UserDefaults.standard.setValue(nil, forKey: "expiration_date")
+                AppTabBarController.informationType = .server
                 let window = self.view.window
                 window?.rootViewController = WelcomeViewController()
             } cancelAction: {
@@ -156,7 +157,16 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension SettingsViewController {
     
-    private func getInfo() {
+    private func fetchInformation() {
+        switch informationType {
+        case .server:
+            fetchServerInfo()
+        case .demo:
+            fetchMockInfo()
+        }
+    }
+    
+    private func fetchServerInfo() {
         let manager = UserManager.shared
         manager.getAccountInfo { [weak self] accountInfo, error in
             if let error = error {
@@ -165,6 +175,14 @@ extension SettingsViewController {
                 DispatchQueue.main.async {
                     self?.accountCardView.cardInfo = accountInfo
                 }
+            }
+        }
+    }
+    
+    private func fetchMockInfo() {
+        MockManager.shared.fetchAccountInfo { [weak self] accountInfo in
+            DispatchQueue.main.async {
+                self?.accountCardView.cardInfo = accountInfo
             }
         }
     }

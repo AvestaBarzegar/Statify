@@ -17,7 +17,7 @@ class AppTabBarController: UITabBarController {
     
     // MARK: - Init Views
     
-    static var informationType: InformationType = .server
+    static var informationType: InformationType = .demo
     
     private lazy var tabBars: [UITabBarItem] = {
         var arr = [UITabBarItem]()
@@ -76,28 +76,32 @@ class AppTabBarController: UITabBarController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        refreshAuth()
+        loadInformation()
     }
     
     deinit {
         print("deinit App TabBar")
     }
     
-    func refreshAuth() {
+    func loadInformation() {
         switch AppTabBarController.informationType {
         case .server:
-            UserManager.shared.refreshAccessToken { [weak self] _, error in
-                if error != nil {
-                    print("error")
-                } else {
-                    print("refresh token")
-                    DispatchQueue.main.async {
-                        self?.setupUI()
-                    }
+            refreshAuth()
+        case .demo:
+            self.setupUI()
+        }
+    }
+    
+    func refreshAuth() {
+        UserManager.shared.refreshAccessToken { [weak self] _, error in
+            if error != nil {
+                print("error")
+            } else {
+                print("refresh token")
+                DispatchQueue.main.async {
+                    self?.setupUI()
                 }
             }
-        case .demo:
-            break
         }
     }
 }

@@ -117,6 +117,15 @@ extension RecentViewController {
     
     private func getInformation() {
         self.showSpinner(onView: self.view)
+        switch informationType {
+        case .server:
+            fetchServerInfo()
+        case .demo:
+            fetchMockInfo()
+        }
+    }
+    
+    private func fetchServerInfo() {
         let manager = AnalyticsManager()
         
         manager.getRecent { [weak self] recentArr, error in
@@ -136,6 +145,16 @@ extension RecentViewController {
                     self?.removeSpinner()
                     self?.tableView.reloadData()
                 }
+            }
+        }
+    }
+    
+    private func fetchMockInfo() {
+        MockManager.shared.fetchRecentTracksMock { [weak self] recentArr in
+            DispatchQueue.main.async {
+                self?.information = recentArr
+                self?.removeSpinner()
+                self?.tableView.reloadData()
             }
         }
     }
