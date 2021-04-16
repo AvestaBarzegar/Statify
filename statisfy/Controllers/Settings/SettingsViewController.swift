@@ -169,12 +169,12 @@ extension SettingsViewController {
     private func fetchServerInfo() {
         let manager = UserManager.shared
         manager.getAccountInfo { [weak self] accountInfo, error in
-            if let error = error {
-            } else {
+            if error == nil {
                 DispatchQueue.main.async {
                     self?.accountCardView.cardInfo = accountInfo
                 }
             }
+
         }
     }
     

@@ -24,11 +24,11 @@ class WelcomeViewController: UIViewController {
     private let subHeaderLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Tap the get started button to link your account"
+        label.text = "Tap the get started button to link your Spotify account and view your stats"
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = UIColor.spotifyWhite
-        label.font = UIFont.welcomeSubtitleFont
+        label.font = UIFont.tableCellFontBolded
         return label
     }()
     
