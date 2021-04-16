@@ -18,6 +18,10 @@ struct AccountCardViewModel {
         self.email = accountInfo.email
         self.name = accountInfo.displayName
         self.followerCount = accountInfo.followers?.total
-        self.imageURL = accountInfo.images?[0].url
+        if !(accountInfo.images?.isEmpty ?? false) {
+            self.imageURL = accountInfo.images?[0].url
+        } else {
+            self.imageURL = nil
+        }
     }
 }
