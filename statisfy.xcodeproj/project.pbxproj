@@ -67,7 +67,6 @@
 		C98302242612D46400EE54A6 /* SensitiveInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD817261101460016720D /* SensitiveInformation.swift */; };
 		C98302282612D46400EE54A6 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BD82126117F540016720D /* AuthResponse.swift */; };
 		C98302292612D46400EE54A6 /* MenuBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97059D226100263007FEB90 /* MenuBarItem.swift */; };
-		C983022B2612D46400EE54A6 /* Pods_statisfy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6508EFEE58A1334DFEEB255E /* Pods_statisfy.framework */; };
 		C983022D2612D46400EE54A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97D098B260FA7150019734F /* Assets.xcassets */; };
 		C983022E2612D46400EE54A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97D09B8260FA7E60019734F /* LaunchScreen.storyboard */; };
 		C983023C2612E13B00EE54A6 /* ArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983023B2612E13B00EE54A6 /* ArtistModel.swift */; };
@@ -97,6 +96,7 @@
 		C997D99926291AE300C41704 /* Settings.json in Resources */ = {isa = PBXBuildFile; fileRef = C997D99726291AE300C41704 /* Settings.json */; };
 		C997D99C26291BF100C41704 /* MockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C997D99B26291BF100C41704 /* MockManager.swift */; };
 		C997D99D26291BF100C41704 /* MockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C997D99B26291BF100C41704 /* MockManager.swift */; };
+		C997D99F2629271000C41704 /* ArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983023B2612E13B00EE54A6 /* ArtistModel.swift */; };
 		C99B6BD226194943004B88C1 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6BD126194943004B88C1 /* EndpointProtocol.swift */; };
 		C99B6BD326194943004B88C1 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6BD126194943004B88C1 /* EndpointProtocol.swift */; };
 		C99B6BD526194978004B88C1 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6BD426194978004B88C1 /* HTTPMethod.swift */; };
@@ -219,7 +219,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C983022B2612D46400EE54A6 /* Pods_statisfy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -834,6 +833,7 @@
 				C99B6BD626194978004B88C1 /* HTTPMethod.swift in Sources */,
 				C983021B2612D46400EE54A6 /* AuthViewController.swift in Sources */,
 				C93BA24E26215D6400D96751 /* UserManager.swift in Sources */,
+				C997D99F2629271000C41704 /* ArtistModel.swift in Sources */,
 				C983021C2612D46400EE54A6 /* SectionHeaderViewModel.swift in Sources */,
 				C9BD2E18261BF84500C0FBDA /* ProgressView.swift in Sources */,
 				C9BD2E27261BFBB800C0FBDA /* SpinnerViewControllerExtensions.swift in Sources */,
@@ -1038,7 +1038,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7H66Q22DJD;
 				INFOPLIST_FILE = "statisfy copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1059,7 +1059,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7H66Q22DJD;
 				INFOPLIST_FILE = "statisfy copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
