@@ -17,7 +17,7 @@ class AppTabBarController: UITabBarController {
     
     // MARK: - Init Views
     
-    static var informationType: InformationType = .demo
+    static var informationType: InformationType = .server
     
     private lazy var tabBars: [UITabBarItem] = {
         var arr = [UITabBarItem]()

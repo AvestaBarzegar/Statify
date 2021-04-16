@@ -175,7 +175,7 @@ extension TrackViewController {
                 self?.collectionView.reloadItems(at: indexPath)
             }
         }
-        manager.fetchTopTracksMock(timeRange: .mediumTerm) { [weak self] long in
+        manager.fetchTopTracksMock(timeRange: .longTerm) { [weak self] long in
             let indexPath = [IndexPath(row: 2, section: 0)]
             DispatchQueue.main.async {
                 self?.information[2] = long

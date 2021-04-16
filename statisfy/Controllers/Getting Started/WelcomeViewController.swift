@@ -39,20 +39,19 @@ class WelcomeViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Get Started", for: .normal)
         button.titleLabel?.textColor = UIColor.spotifyWhite
-        button.titleLabel?.font = UIFont.bodyFontBolded
+        button.titleLabel?.font = UIFont.subHeaderFont
         button.addTarget(self, action: #selector(getStartedClicked), for: .touchUpInside)
         return button
     }()
     
     private let demoButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor.spotifyGreen
         button.layer.cornerRadius = Constants.cornerRadius.rawValue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Demo the app", for: .normal)
         button.titleLabel?.textColor = UIColor.spotifyWhite
         button.titleLabel?.font = UIFont.bodyFontBolded
-        button.addTarget(self, action: #selector(getStartedClicked), for: .touchUpInside)
+        button.addTarget(self, action: #selector(demoButtonClicked), for: .touchUpInside)
         return button
     }()
     
@@ -60,6 +59,7 @@ class WelcomeViewController: UIViewController {
     
     @objc
     func getStartedClicked() {
+        AppTabBarController.informationType = .server
         let vc = AuthViewController()
         vc.completionHandler = { [weak vc, weak self] success in
             DispatchQueue.main.async {
@@ -73,7 +73,10 @@ class WelcomeViewController: UIViewController {
     
     @objc
     func demoButtonClicked() {
-        
+        AppTabBarController.informationType = .demo
+        let mainTabBarVC = AppTabBarController()
+        weak var window = self.view.window
+        window?.rootViewController = mainTabBarVC
     }
     
     private func handleSignIn(success: Bool) {
@@ -98,6 +101,7 @@ class WelcomeViewController: UIViewController {
         self.view.addSubview(headerLabel)
         self.view.addSubview(subHeaderLabel)
         self.view.addSubview(getStartedButton)
+        self.view.addSubview(demoButton)
         let safeArea = self.view.layoutMarginsGuide
         
         NSLayoutConstraint.activate([
@@ -107,10 +111,15 @@ class WelcomeViewController: UIViewController {
             subHeaderLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
             subHeaderLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
             
-            getStartedButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -36),
+            getStartedButton.bottomAnchor.constraint(equalTo: demoButton.topAnchor, constant: -18),
             getStartedButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 36),
             getStartedButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -36),
-            getStartedButton.heightAnchor.constraint(equalToConstant: 48)
+            getStartedButton.heightAnchor.constraint(equalToConstant: 48),
+            
+            demoButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -36),
+            demoButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 72),
+            demoButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -72),
+            demoButton.heightAnchor.constraint(equalToConstant: 36)
         ])
     }
     
