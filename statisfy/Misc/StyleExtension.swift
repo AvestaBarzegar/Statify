@@ -75,7 +75,7 @@ extension UIColor {
     }
     
     static var spotifyGreen: UIColor {
-        return UIColor(red: 2/17, green: 43/51, blue: 32/85, alpha: 1)
+        return UIColor(red: 30/255, green: 215/255, blue: 96/255, alpha: 1)
     }
 //    static var spotifyBlack: UIColor {
 //        return UIColor(red: 5/51, green: 4/51, blue: 4/51, alpha: 1)
