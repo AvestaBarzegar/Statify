@@ -16,9 +16,12 @@ class RecentViewController: UIViewController {
     private var information: RecentTracksViewModelArray? {
         didSet {
             self.spinner.isAnimating = false
-            self.tableView.reloadData()
             if information?.allInfo == nil {
                 noInformationLabel.isHidden = false
+            } else {
+                self.tableView.reloadData()
+                let firstIndex = IndexPath(row: 0, section: 0)
+                self.tableView.scrollToRow(at: firstIndex, at: .top, animated: true)
             }
             guard let informationArr = information?.allInfo else { return }
             noInformationLabel.isHidden = !informationArr.isEmpty
