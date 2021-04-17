@@ -10,6 +10,12 @@ import UIKit
 
 let scaleFactor = UIScreen.main.bounds.width/414
 
+enum ViewControllerNames: String {
+    case recentTracks = "recent_vc_info"
+    case topTracks = "tracks_vc_info"
+    case topArtists = "artists_vc_info"
+}
+
 enum Constants: CGFloat {
     
     case cornerRadius = 8.0
