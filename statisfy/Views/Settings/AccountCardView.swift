@@ -18,6 +18,8 @@ class AccountCardView: UIView {
             
             if let imageURL = cardInfo?.imageURL {
                 profileImageView.lazyLoadImageUsingURL(urlString: imageURL, placeholder: nil)
+            } else {
+                profileImageView.isHidden = true
             }
             
             if let email = cardInfo?.email {
@@ -36,12 +38,22 @@ class AccountCardView: UIView {
         }
     }
     
+    private lazy var noImageLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.spotifyWhite
+        label.font = UIFont.tabBarFont
+        label.text = "No Image"
+        label.textAlignment = .center
+        return label
+    }()
+    
     // MARK: - Init Views
     
     private lazy var profileImageView: DownloadedImageView = {
         let imageView = DownloadedImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = UIColor.spotifyGray
+        imageView.backgroundColor = UIColor.systemGray
         imageView.layer.cornerRadius = Constants.cornerRadius.rawValue
         imageView.clipsToBounds = true
         return imageView
@@ -99,6 +111,7 @@ class AccountCardView: UIView {
         self.layer.cornerRadius = Constants.cornerRadius.rawValue
         
         self.backgroundColor = UIColor.spotifyGray
+        self.addSubview(noImageLabel)
         self.addSubview(profileImageView)
         self.addSubview(emailLabel)
         self.addSubview(nameLabel)
@@ -120,7 +133,11 @@ class AccountCardView: UIView {
 
             followerCountLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8),
             followerCountLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8.0),
-            followerCountLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8)
+            followerCountLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8),
+            
+            noImageLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor),
+            noImageLabel.leftAnchor.constraint(equalTo: profileImageView.leftAnchor, constant: 8),
+            noImageLabel.rightAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: -8),
         ])
     }
 }
