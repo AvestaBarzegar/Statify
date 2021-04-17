@@ -31,6 +31,13 @@ class AuthViewController: UIViewController {
         return webView
         
     }()
+    
+    private let spinner: ProgressView = {
+        let spinner = ProgressView(colors: SpinnerColors.normal, lineWidth: 5.0)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        return spinner
+    }()
+    
     // MARK: - Layout Views
     
     override func viewDidLoad() {
@@ -46,7 +53,9 @@ class AuthViewController: UIViewController {
         let safeArea = self.view.layoutMarginsGuide
         self.view.addSubview(headerView)
         self.view.addSubview(webView)
+        self.view.addSubview(spinner)
         webView.navigationDelegate = self
+        
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 8),
@@ -57,7 +66,12 @@ class AuthViewController: UIViewController {
             webView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 8),
             webView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             webView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            webView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+            webView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            
+            spinner.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            spinner.widthAnchor.constraint(equalToConstant: 50),
+            spinner.heightAnchor.constraint(equalTo: spinner.widthAnchor)
         ])
     }
     
@@ -65,6 +79,7 @@ class AuthViewController: UIViewController {
         
         guard let urlObj = AuthManager.shared.urlBuilder() else { return }
         let request = URLRequest(url: urlObj)
+        spinner.isAnimating = true
         webView.load(request)
     }
     
@@ -89,8 +104,28 @@ extension AuthViewController: SectionHeaderViewDelegate {
 
 extension AuthViewController: WKNavigationDelegate {
     
+    
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.spinner.isHidden = true
+        self.spinner.isAnimating = false
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        self.spinner.isHidden = true
+        self.spinner.isAnimating = false
+        
+    }
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        self.spinner.isHidden = true
+        self.spinner.isAnimating = false
+    }
+    
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        
         guard let url = webView.url else { return }
+        spinner.isAnimating = true
         
         // Exchange code for access token
         guard let code = URLComponents(string: url.absoluteString)?.queryItems?.first(where: { $0.name == "code" })?.value else {
