@@ -150,6 +150,22 @@ extension TrackViewController: UICollectionViewDataSource, UICollectionViewDeleg
 extension TrackViewController {
     
     private func getInformation() {
+        let controllerName = ViewControllerNames.topTracks.rawValue
+        if let expiryDate = UserDefaults.standard.object(forKey: controllerName) as? Date {
+            let currentTime = Date().timeIntervalSince1970
+            let expiryTime = expiryDate.timeIntervalSince1970
+            if currentTime >= expiryTime {
+                fetchInfo()
+            }
+        } else {
+            let fiveMinutes: TimeInterval = 240
+            let newExpiryDate = Date().addingTimeInterval(TimeInterval(fiveMinutes))
+            UserDefaults.standard.setValue(newExpiryDate, forKey: controllerName)
+            fetchInfo()
+        }
+    }
+    
+    func fetchInfo() {
         switch informationType {
         case .server:
             fetchServerInfo()
