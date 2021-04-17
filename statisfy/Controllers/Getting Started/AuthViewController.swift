@@ -104,21 +104,21 @@ extension AuthViewController: SectionHeaderViewDelegate {
 
 extension AuthViewController: WKNavigationDelegate {
     
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        self.spinner.isAnimating = false
+    }
     
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        self.spinner.isHidden = true
         self.spinner.isAnimating = false
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        self.spinner.isHidden = true
         self.spinner.isAnimating = false
         
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        self.spinner.isHidden = true
         self.spinner.isAnimating = false
     }
     
