@@ -89,6 +89,13 @@ final class UserManager {
     }
     
     func refreshAccessToken(completion: @escaping(_ token: AuthResponse?, _ error: String?) -> Void) {
+        if !AuthManager.shared.shouldRefreshToken {
+            let refreshToken = UserDefaults.standard.string(forKey: "refresh_token")
+            let accessToken = UserDefaults.standard.string(forKey: "access_token") ?? ""
+            let authResponse = AuthResponse(accessToken: accessToken, expiresIn: nil, refreshToken: refreshToken, scope: nil, tokenType: nil)
+            completion(authResponse, nil)
+            return
+        }
         router.request(.refreshToken) { data, response, error in
             if error != nil {
                 completion(nil, "Please check your network connection.")
@@ -122,8 +129,10 @@ final class UserManager {
         if let refreshTokenVal = result.refreshToken {
             UserDefaults.standard.setValue(refreshTokenVal, forKey: "refresh_token")
         }
-        let expiryDate = Date().addingTimeInterval(TimeInterval(result.expiresIn))
-        UserDefaults.standard.setValue(expiryDate, forKey: "expiration_date")
+        if let expiresIn = result.expiresIn {
+            let expiryDate = Date().addingTimeInterval(TimeInterval(expiresIn))
+            UserDefaults.standard.setValue(expiryDate, forKey: "expiration_date")
+        }
     }
     
 }
