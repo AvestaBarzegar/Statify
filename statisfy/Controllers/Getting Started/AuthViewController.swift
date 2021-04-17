@@ -102,7 +102,9 @@ extension AuthViewController: WKNavigationDelegate {
         
         webView.isHidden = true
         
+        self.showSpinner(onView: self.view)
         UserManager.shared.exchangeCodeForToken(code: code) { [weak self] _, error in
+            self?.removeSpinner()
             DispatchQueue.main.async {
                 if error != nil {
                     self?.webView.removeFromSuperview()

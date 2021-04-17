@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+let scaleFactor = UIScreen.main.bounds.width/414
+
 enum Constants: CGFloat {
     
     case cornerRadius = 8.0
@@ -24,47 +26,47 @@ struct SpinnerColors {
 extension UIFont {
     
     static var headerFont: UIFont {
-        return UIFont.systemFont(ofSize: 36, weight: .bold)
+        return UIFont.systemFont(ofSize: 36 * scaleFactor, weight: .bold)
     }
     
     static var welcomeFont: UIFont {
-        return UIFont.systemFont(ofSize: 28, weight: .semibold)
+        return UIFont.systemFont(ofSize: 28 * scaleFactor, weight: .semibold)
     }
 
     static var welcomeSubtitleFont: UIFont {
-        return UIFont.systemFont(ofSize: 22, weight: .semibold)
+        return UIFont.systemFont(ofSize: 22 * scaleFactor, weight: .semibold)
     }
     
     static var subHeaderFont: UIFont {
-        return UIFont.systemFont(ofSize: 21, weight: .semibold)
+        return UIFont.systemFont(ofSize: 21 * scaleFactor, weight: .semibold)
     }
     
     static var subHeaderFontBold: UIFont {
-        return UIFont.systemFont(ofSize: 21, weight: .bold)
+        return UIFont.systemFont(ofSize: 21 * scaleFactor, weight: .bold)
     }
     
     static var bodyFont: UIFont {
-        return UIFont.systemFont(ofSize: 16, weight: .regular)
+        return UIFont.systemFont(ofSize: 16 * scaleFactor, weight: .regular)
     }
     
     static var tabBarFont: UIFont {
-        return UIFont.systemFont(ofSize: 12, weight: .semibold)
+        return UIFont.systemFont(ofSize: 12 * scaleFactor, weight: .semibold)
     }
     
     static var alertFont: UIFont {
-        return UIFont.systemFont(ofSize: 14, weight: .bold)
+        return UIFont.systemFont(ofSize: 14 * scaleFactor, weight: .bold)
     }
     
     static var bodyFontBolded: UIFont {
-        return UIFont.systemFont(ofSize: 16, weight: .semibold)
+        return UIFont.systemFont(ofSize: 16 * scaleFactor, weight: .semibold)
     }
     
     static var tableCellFontBolded: UIFont {
-        return UIFont.systemFont(ofSize: 18, weight: .bold)
+        return UIFont.systemFont(ofSize: 18 * scaleFactor, weight: .bold)
     }
     
     static var tableCellFontSemiBolded: UIFont {
-        return UIFont.systemFont(ofSize: 18, weight: .semibold)
+        return UIFont.systemFont(ofSize: 18 * scaleFactor, weight: .semibold)
     }
 }
 
