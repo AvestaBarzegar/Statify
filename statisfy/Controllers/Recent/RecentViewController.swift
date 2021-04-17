@@ -145,6 +145,7 @@ extension RecentViewController: UITableViewDataSource, UITableViewDelegate {
 extension RecentViewController {
     
     private func getInformation() {
+        self.showSpinner(onView: self.view)
         let controllerName = ViewControllerNames.recentTracks.rawValue
         if let expiryDate = UserDefaults.standard.object(forKey: controllerName) as? Date {
             let currentTime = Date().timeIntervalSince1970
@@ -185,7 +186,8 @@ extension RecentViewController {
                 }
             } else {
                 DispatchQueue.main.async {
-                    self?.information = recentArr                }
+                    self?.information = recentArr
+                }
             }
         }
     }
