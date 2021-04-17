@@ -140,6 +140,9 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
                 UserDefaults.standard.setValue(nil, forKey: "access_token")
                 UserDefaults.standard.setValue(nil, forKey: "refresh_token")
                 UserDefaults.standard.setValue(nil, forKey: "expiration_date")
+                UserDefaults.standard.setValue(nil, forKey: ViewControllerNames.recentTracks.rawValue)
+                UserDefaults.standard.setValue(nil, forKey: ViewControllerNames.topArtists.rawValue)
+                UserDefaults.standard.setValue(nil, forKey: ViewControllerNames.topTracks.rawValue)
                 AppTabBarController.informationType = .server
                 let window = self.view.window
                 window?.rootViewController = WelcomeViewController()

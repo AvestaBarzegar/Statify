@@ -74,6 +74,7 @@ class AppTabBarController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        refreshUserExpiryDates()
         self.view.addSubview(spinner)
         NSLayoutConstraint.activate([
             spinner.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
@@ -81,6 +82,12 @@ class AppTabBarController: UITabBarController {
             spinner.widthAnchor.constraint(equalToConstant: 50),
             spinner.heightAnchor.constraint(equalTo: spinner.widthAnchor)
         ])
+    }
+    
+    private func refreshUserExpiryDates() {
+        UserDefaults.standard.setValue(nil, forKey: ViewControllerNames.recentTracks.rawValue)
+        UserDefaults.standard.setValue(nil, forKey: ViewControllerNames.topArtists.rawValue)
+        UserDefaults.standard.setValue(nil, forKey: ViewControllerNames.topTracks.rawValue)
     }
     
     private func setupUI() {
