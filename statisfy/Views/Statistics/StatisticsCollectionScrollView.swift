@@ -13,6 +13,11 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
     var tracks: [TileInfo]? {
         didSet {
             collectionView.reloadData()
+            if tracks == nil {
+                noInformationLabel.isHidden = true
+            }
+            guard let tracks = tracks else { return }
+            noInformationLabel.isHidden = !tracks.isEmpty
         }
     }
     
@@ -20,7 +25,6 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
         didSet {
             spinner.isHidden = !animating
             spinner.isAnimating = animating
-            noInformationLabel.isHidden = animating
         }
     }
     
@@ -37,7 +41,11 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
         label.textAlignment = .center
         label.textColor = UIColor.spotifyWhite
         label.font = UIFont.welcomeSubtitleFont
-        label.isHidden = true
+        if let tracks = tracks {
+            label.isHidden = !tracks.isEmpty
+        } else {
+            label.isHidden = false
+        }
         return label
     }()
     
