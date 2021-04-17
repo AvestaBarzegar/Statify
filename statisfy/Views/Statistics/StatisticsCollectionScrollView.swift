@@ -13,10 +13,6 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
     var tracks: [TileInfo]? {
         didSet {
             collectionView.reloadData()
-            if tracks == nil {
-                noInformationLabel.isHidden = false
-            }
-            guard let tracks = tracks else { return }
         }
     }
     
