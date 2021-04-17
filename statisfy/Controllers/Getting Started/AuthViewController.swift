@@ -92,13 +92,13 @@ extension AuthViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         guard let url = webView.url else { return }
         
-        if url.absoluteString == "\(ClientInfo.redirectURI.rawValue)/?error=access_denied" {
-            webView.isHidden = true
-            self.dismiss(animated: true, completion: nil)
-        }
-        
         // Exchange code for access token
-        guard let code = URLComponents(string: url.absoluteString)?.queryItems?.first(where: { $0.name == "code" })?.value else { return }
+        guard let code = URLComponents(string: url.absoluteString)?.queryItems?.first(where: { $0.name == "code" })?.value else {
+            if url.absoluteString.localizedStandardContains(ClientInfo.redirectURI.rawValue) {
+                self.dismiss(animated: true, completion: nil)
+            }
+            return
+        }
         
         webView.isHidden = true
         
