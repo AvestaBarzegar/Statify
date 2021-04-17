@@ -216,7 +216,7 @@ extension TrackViewController {
                 if let error = error {
                     DispatchQueue.main.async {
                         CustomAlertViewController.showAlertOn(self!, "ERROR", error, "Retry", cancelButtonText: "cancel") {
-                            self?.getInformation()
+                            self?.fetchServerInfo()
                         } cancelAction: {
 
                         }
@@ -237,7 +237,7 @@ extension TrackViewController {
                 if let error = error {
                     DispatchQueue.main.async {
                         CustomAlertViewController.showAlertOn(self!, "ERROR", error, "Retry", cancelButtonText: "cancel") {
-                            self?.getInformation()
+                            self?.fetchServerInfo()
                         } cancelAction: {
 
                         }
@@ -258,7 +258,7 @@ extension TrackViewController {
                 if let error = error {
                     DispatchQueue.main.async {
                         CustomAlertViewController.showAlertOn(self!, "ERROR", error, "Retry", cancelButtonText: "cancel") {
-                            self?.getInformation()
+                            self?.fetchServerInfo()
                         } cancelAction: {
 
                         }
