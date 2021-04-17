@@ -15,7 +15,7 @@ class RecentViewController: UIViewController {
     
     private var information: RecentTracksViewModelArray? {
         didSet {
-            self.removeSpinner()
+            self.spinner.isAnimating = false
             self.tableView.reloadData()
             if information?.allInfo == nil {
                 noInformationLabel.isHidden = false
@@ -61,6 +61,13 @@ class RecentViewController: UIViewController {
         return header
     }()
     
+    private let spinner: ProgressView = {
+        let spinner = ProgressView(colors: SpinnerColors.normal, lineWidth: 5.0)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        return spinner
+    }()
+    
+    
     // MARK: - Layout Views
     
     override func viewDidLoad() {
@@ -96,6 +103,7 @@ class RecentViewController: UIViewController {
         self.view.addSubview(tableView)
         self.view.addSubview(headerView)
         self.view.addSubview(noInformationLabel)
+        self.view.addSubview(spinner)
         let safeArea = view.layoutMarginsGuide
         NSLayoutConstraint.activate([
             noInformationLabel.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),
@@ -110,7 +118,12 @@ class RecentViewController: UIViewController {
             tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            
+            spinner.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            spinner.widthAnchor.constraint(equalToConstant: 50),
+            spinner.heightAnchor.constraint(equalTo: spinner.widthAnchor)
         ])
     }
     
@@ -145,7 +158,6 @@ extension RecentViewController: UITableViewDataSource, UITableViewDelegate {
 extension RecentViewController {
     
     private func getInformation() {
-        self.showSpinner(onView: self.view)
         let controllerName = ViewControllerNames.recentTracks.rawValue
         if let expiryDate = UserDefaults.standard.object(forKey: controllerName) as? Date {
             let currentTime = Date().timeIntervalSince1970
@@ -162,6 +174,7 @@ extension RecentViewController {
     }
     
     func fetchInfo() {
+        self.spinner.isAnimating = true
         switch informationType {
         case .server:
             fetchServerInfo()
