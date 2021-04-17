@@ -58,12 +58,12 @@ class TrackViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setup()
-        getInformation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        getInformation()
         UIView.animate(withDuration: Double(Constants.animationDuration.rawValue),
                        delay: 0,
                        options: .curveLinear,
