@@ -61,13 +61,14 @@ class WelcomeViewController: UIViewController {
     func getStartedClicked() {
         AppTabBarController.informationType = .server
         let vc = AuthViewController()
+        vc.modalPresentationStyle = .currentContext
         vc.completionHandler = { [weak vc, weak self] success in
             DispatchQueue.main.async {
                 vc?.dismiss(animated: true, completion: nil)
                 self?.handleSignIn(success: success)
             }
         }
-
+        
         self.present(vc, animated: true, completion: nil)
     }
     

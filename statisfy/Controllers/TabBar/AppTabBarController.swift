@@ -62,15 +62,29 @@ class AppTabBarController: UITabBarController {
         return arr
     }()
     
+    private let spinner: ProgressView = {
+        let spinner = ProgressView(colors: SpinnerColors.normal, lineWidth: 5.0)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        return spinner
+    }()
+    
     // MARK: - Layout Views
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.view.addSubview(spinner)
+        NSLayoutConstraint.activate([
+            spinner.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            spinner.widthAnchor.constraint(equalToConstant: 50),
+            spinner.heightAnchor.constraint(equalTo: spinner.widthAnchor)
+        ])
     }
     
     private func setupUI() {
+        spinner.isAnimating = false
         self.viewControllers = tabViewControllers
     }
     
@@ -84,6 +98,7 @@ class AppTabBarController: UITabBarController {
     }
     
     func loadInformation() {
+        spinner.isAnimating = true
         switch AppTabBarController.informationType {
         case .server:
             refreshAuth()
