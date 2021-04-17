@@ -17,19 +17,14 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
                 noInformationLabel.isHidden = false
             }
             guard let tracks = tracks else { return }
-            noInformationLabel.isHidden = !tracks.isEmpty
         }
     }
     
     var animating: Bool = true {
         didSet {
-            if animating {
-                spinner.isHidden = !animating
-                spinner.isAnimating = animating
-            } else {
-                spinner.isHidden = !animating
-                spinner.isAnimating = animating
-            }
+            spinner.isHidden = !animating
+            spinner.isAnimating = animating
+            noInformationLabel.isHidden = animating
         }
     }
     
