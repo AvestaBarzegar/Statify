@@ -60,19 +60,19 @@ struct RecentTrackViewModel {
         }
         self.imgURL = last.url
         self.numOfListens = nil
-        let firstTimeStamp = recentItem?.playedAt
-        
-        guard let slicedString = firstTimeStamp?.prefix(10) else {
+        guard let dateTimeStamp = recentItem?.playedAt else {
             self.timeStamp = nil
             return
         }
         
-        let dateString = String(slicedString)
-        print(dateString)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let date = dateFormatter.date(from: dateString)
-        let timeStampedDouble = date?.timeIntervalSince1970
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        guard let date = dateFormatter.date(from: dateTimeStamp) else {
+            self.timeStamp = nil
+            return
+        }
+        
+        let timeStampedDouble = date.timeIntervalSince1970
         self.timeStamp = timeStampedDouble
         
     }

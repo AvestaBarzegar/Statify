@@ -25,14 +25,22 @@ class RecentViewController: UIViewController {
             }
             guard let informationArr = information?.allInfo else { return }
             noInformationLabel.isHidden = !informationArr.isEmpty
-            informationMutated.removeAll()
+            informationCleanedUp.removeAll()
             for track in informationArr {
-                
+                if let imgURL = track.imgURL {
+                    if informationCleanedUp[imgURL] != nil {
+                        informationCleanedUp[imgURL]! += 1
+                    } else {
+                        informationCleanedUp[imgURL] = 1
+                    }
+                }
             }
+            
+            
         }
     }
     
-    private var informationMutated: [String: RecentTrackViewModel] = [ : ]
+    private var informationCleanedUp: [String: Int] = [ : ]
     
     let headerInfo = SectionHeaderViewModel(title: "Recently Played", leftImageName: nil, rightImageName: nil)
     
