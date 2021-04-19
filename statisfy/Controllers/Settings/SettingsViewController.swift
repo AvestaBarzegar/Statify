@@ -121,7 +121,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             switch AppTabBarController.informationType {
             case .demo:
-                cell.settingText = "Stop demoing"
+                cell.settingText = "Quit the demo"
             case .server:
                 cell.settingText = "Logout"
             }
