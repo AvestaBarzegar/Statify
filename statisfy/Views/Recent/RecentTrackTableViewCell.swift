@@ -68,7 +68,7 @@ class RecentTrackTableViewCell: UITableViewCell {
     
     private lazy var numOfListensLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.alertFont
+        label.font = UIFont.recentCellSmallFont
         label.textColor = UIColor.spotifyWhite
         label.numberOfLines = 1
         label.lineBreakMode = .byTruncatingTail
@@ -78,7 +78,7 @@ class RecentTrackTableViewCell: UITableViewCell {
     
     private lazy var lastListenedLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.alertFont
+        label.font = UIFont.recentCellSmallFont
         label.textColor = UIColor.spotifyWhite
         label.numberOfLines = 1
         label.lineBreakMode = .byTruncatingTail
