@@ -70,7 +70,6 @@ class RecentViewController: UIViewController {
         return spinner
     }()
     
-    
     // MARK: - Layout Views
     
     override func viewDidLoad() {

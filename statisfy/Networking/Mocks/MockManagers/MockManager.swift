@@ -5,8 +5,6 @@
 //  Created by Avesta Barzegar on 2021-04-15.
 //
 
-
-
 import Foundation
 
 final class MockManager {
@@ -60,7 +58,5 @@ final class MockManager {
         let accountViewModel = AccountCardViewModel(accountInfo: accountInfo)
         completion(accountViewModel)
     }
-    
-    
     
 }

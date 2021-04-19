@@ -99,7 +99,6 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
             noInformationLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 32),
             noInformationLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -32),
             
-            
             collectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),

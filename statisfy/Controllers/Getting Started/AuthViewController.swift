@@ -56,7 +56,6 @@ class AuthViewController: UIViewController {
         self.view.addSubview(spinner)
         webView.navigationDelegate = self
         
-        
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 8),
             headerView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
@@ -107,7 +106,6 @@ extension AuthViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         self.spinner.isAnimating = false
     }
-    
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.spinner.isAnimating = false

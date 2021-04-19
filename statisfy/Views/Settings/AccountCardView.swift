@@ -137,7 +137,7 @@ class AccountCardView: UIView {
             
             noImageLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor),
             noImageLabel.leftAnchor.constraint(equalTo: profileImageView.leftAnchor, constant: 8),
-            noImageLabel.rightAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: -8),
+            noImageLabel.rightAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: -8)
         ])
     }
 }
