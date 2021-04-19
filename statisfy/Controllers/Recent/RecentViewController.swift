@@ -20,8 +20,8 @@ class RecentViewController: UIViewController {
             
             
             for track in informationArr {
-                if let trackName = track.track, let trackArtist = track.artist, let imgURL = track.imgURL {
-                    let weirdString = "\(trackName)+\(trackArtist)+\(imgURL)"
+                if let trackName = track.track, let trackArtist = track.artist {
+                    let weirdString = "\(trackName)+\(trackArtist)+"
                     if informationCleanedUp[weirdString] != nil {
                         informationCleanedUp[weirdString]! += 1
                     } else {
@@ -34,8 +34,8 @@ class RecentViewController: UIViewController {
             var newInformationArr = [RecentTrackViewModel]()
             
             for track in informationArr {
-                if let trackName = track.track, let trackArtist = track.artist, let imgURL = track.imgURL {
-                    let weirdString = "\(trackName)+\(trackArtist)+\(imgURL)"
+                if let trackName = track.track, let trackArtist = track.artist {
+                    let weirdString = "\(trackName)+\(trackArtist)+"
                     if !tracksAddedSet.contains(weirdString) {
                         var viewModel = track
                         viewModel.numOfListens = informationCleanedUp[weirdString]
