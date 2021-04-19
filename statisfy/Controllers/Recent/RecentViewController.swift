@@ -15,6 +15,42 @@ class RecentViewController: UIViewController {
     
     private var information: RecentTracksViewModelArray? {
         didSet {
+            guard let informationArr = information?.allInfo else { return }
+            informationCleanedUp.removeAll()
+            
+            
+            for track in informationArr {
+                if let trackName = track.track, let trackArtist = track.artist, let imgURL = track.imgURL {
+                    let weirdString = "\(trackName)+\(trackArtist)+\(imgURL)"
+                    if informationCleanedUp[weirdString] != nil {
+                        informationCleanedUp[weirdString]! += 1
+                    } else {
+                        informationCleanedUp[weirdString] = 1
+                    }
+                }
+            }
+            
+            var tracksAddedSet = Set<String>()
+            var newInformationArr = [RecentTrackViewModel]()
+            
+            for track in informationArr {
+                if let trackName = track.track, let trackArtist = track.artist, let imgURL = track.imgURL {
+                    let weirdString = "\(trackName)+\(trackArtist)+\(imgURL)"
+                    if !tracksAddedSet.contains(weirdString) {
+                        var viewModel = track
+                        viewModel.numOfListens = informationCleanedUp[weirdString]
+                        newInformationArr.append(viewModel)
+                        tracksAddedSet.insert(weirdString)
+                    }
+                }
+            }
+            informationNew = newInformationArr
+            
+        }
+    }
+    
+    private var informationNew: [RecentTrackViewModel]? {
+        didSet {
             self.spinner.isAnimating = false
             if information?.allInfo == nil {
                 noInformationLabel.isHidden = false
@@ -25,18 +61,6 @@ class RecentViewController: UIViewController {
             }
             guard let informationArr = information?.allInfo else { return }
             noInformationLabel.isHidden = !informationArr.isEmpty
-            informationCleanedUp.removeAll()
-            for track in informationArr {
-                if let imgURL = track.imgURL {
-                    if informationCleanedUp[imgURL] != nil {
-                        informationCleanedUp[imgURL]! += 1
-                    } else {
-                        informationCleanedUp[imgURL] = 1
-                    }
-                }
-            }
-            
-            
         }
     }
     
@@ -152,7 +176,7 @@ class RecentViewController: UIViewController {
 extension RecentViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return information?.allInfo?.count ?? 0
+        return informationNew?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -161,7 +185,7 @@ extension RecentViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentTrackTableViewCell.identifier) as? RecentTrackTableViewCell else { return UITableViewCell() }
-        cell.recentTrackInfo = information?.allInfo?[indexPath.row]
+        cell.recentTrackInfo = informationNew?[indexPath.row]
         
         return cell
         
