@@ -10,7 +10,7 @@ import UIKit
 class RecentTrackTableViewCell: UITableViewCell {
 
     static let identifier = "RecentTrackTableViewCell"
-    static let cellHeight: CGFloat = 108
+    static let cellHeight: CGFloat = 156
         
         // MARK: - Initialize and configure view variables
     var recentTrackInfo: RecentTrackViewModel? {
@@ -54,6 +54,26 @@ class RecentTrackTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    private lazy var numOfListensLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.tableCellFontSemiBolded
+        label.textColor = UIColor.spotifyWhite
+        label.numberOfLines = 1
+        label.lineBreakMode = .byTruncatingTail
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var lastListenedLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.tableCellFontSemiBolded
+        label.textColor = UIColor.spotifyWhite
+        label.numberOfLines = 1
+        label.lineBreakMode = .byTruncatingTail
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
 
     private lazy var songImage: DownloadedImageView = {
         let imageView = DownloadedImageView()
@@ -82,21 +102,34 @@ class RecentTrackTableViewCell: UITableViewCell {
         containerView.addSubview(songImage)
         containerView.addSubview(trackLabel)
         containerView.addSubview(artistLabel)
+        containerView.addSubview(numOfListensLabel)
+        containerView.addSubview(lastListenedLabel)
         NSLayoutConstraint.activate([
             containerView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             containerView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 6),
             containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -6),
+            
             songImage.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16),
             songImage.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -16),
             songImage.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -16),
             songImage.widthAnchor.constraint(equalTo: songImage.heightAnchor),
+            
             trackLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 16),
             trackLabel.topAnchor.constraint(equalTo: songImage.topAnchor, constant: 4),
             trackLabel.rightAnchor.constraint(equalTo: songImage.leftAnchor, constant: -16),
-            artistLabel.bottomAnchor.constraint(equalTo: songImage.bottomAnchor, constant: -4),
+            
+            artistLabel.topAnchor.constraint(equalTo: trackLabel.bottomAnchor, constant: 8),
             artistLabel.leftAnchor.constraint(equalTo: trackLabel.leftAnchor),
-            artistLabel.rightAnchor.constraint(equalTo: trackLabel.rightAnchor)
+            artistLabel.rightAnchor.constraint(equalTo: trackLabel.rightAnchor),
+            
+            numOfListensLabel.topAnchor.constraint(equalTo: artistLabel.bottomAnchor, constant: 8),
+            numOfListensLabel.leftAnchor.constraint(equalTo: trackLabel.leftAnchor),
+            numOfListensLabel.rightAnchor.constraint(equalTo: trackLabel.rightAnchor),
+            
+            lastListenedLabel.topAnchor.constraint(equalTo: numOfListensLabel.bottomAnchor, constant: 8),
+            lastListenedLabel.leftAnchor.constraint(equalTo: trackLabel.leftAnchor),
+            lastListenedLabel.rightAnchor.constraint(equalTo: trackLabel.rightAnchor),
         ])
     }
 
