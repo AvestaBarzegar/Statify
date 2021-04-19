@@ -76,8 +76,8 @@ class WelcomeViewController: UIViewController {
     func demoButtonClicked() {
         AppTabBarController.informationType = .demo
         let mainTabBarVC = AppTabBarController()
-        weak var window = self.view.window
-        window?.rootViewController = mainTabBarVC
+        mainTabBarVC.modalPresentationStyle = .fullScreen
+        self.present(mainTabBarVC, animated: false, completion: nil)
     }
     
     private func handleSignIn(success: Bool) {
