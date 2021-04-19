@@ -13,11 +13,15 @@ struct RecentTrackViewModel {
     // To-do: Change position to let constant <3
     let track: String?
     let imgURL: String?
+    let timeStamp: Double?
+    var numOfListens: Int?
     
     init(artist: String?, track: String?, imgURL: String?) {
         self.artist = artist
         self.track = track
         self.imgURL = imgURL
+        self.numOfListens = nil
+        self.timeStamp = nil
     }
     
     init(track: Track?) {
@@ -34,7 +38,10 @@ struct RecentTrackViewModel {
                 last = image
             }
         }
+        
         self.imgURL = last.url
+        self.numOfListens = nil
+        self.timeStamp = nil
     }
     
     init(recentItem: RecentItem?) {
@@ -52,6 +59,22 @@ struct RecentTrackViewModel {
             }
         }
         self.imgURL = last.url
+        self.numOfListens = nil
+        let firstTimeStamp = recentItem?.playedAt
+        
+        guard let slicedString = firstTimeStamp?.prefix(10) else {
+            self.timeStamp = nil
+            return
+        }
+        
+        let dateString = String(slicedString)
+        print(dateString)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.date(from: dateString)
+        let timeStampedDouble = date?.timeIntervalSince1970
+        self.timeStamp = timeStampedDouble
+        
     }
 }
 
