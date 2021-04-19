@@ -13,7 +13,6 @@ enum AuthConstants: String {
     case recentScope = "user-read-recently-played"
     case userInfoScope = "user-read-private"
     case userEmailScope = "user-read-email"
-    case redirectURI = "http://avestabarzegar.com"
 }
 
 final class AuthManager {
@@ -24,7 +23,7 @@ final class AuthManager {
     
     var path: String = "/authorize"
         
-    var redirectURI: String = "&redirect_uri=\(AuthConstants.redirectURI.rawValue)"
+    var redirectURI: String = "&redirect_uri=\(ClientInfo.redirectURI.rawValue)"
     
     var showDialog: String = "&show_dialog=TRUE"
     
@@ -32,7 +31,7 @@ final class AuthManager {
         URLQueryItem(name: "response_type", value: "code"),
         URLQueryItem(name: "client_id", value: ClientInfo.clientId.rawValue),
         URLQueryItem(name: "scope", value: ("\(AuthConstants.topScope.rawValue),\(AuthConstants.recentScope.rawValue),\(AuthConstants.userInfoScope.rawValue),\(AuthConstants.userEmailScope.rawValue)")),
-        URLQueryItem(name: "redirect_uri", value: AuthConstants.redirectURI.rawValue),
+        URLQueryItem(name: "redirect_uri", value: ClientInfo.redirectURI.rawValue),
         URLQueryItem(name: "show_dialog", value: "TRUE")
     ]
     
