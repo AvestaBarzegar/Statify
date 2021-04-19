@@ -64,7 +64,7 @@ extension UIFont {
     }
     
     static var recentCellSmallFont: UIFont {
-        return UIFont.systemFont(ofSize: 14 * scaleFactor, weight: .semibold)
+        return UIFont.systemFont(ofSize: 13.5 * scaleFactor, weight: .semibold)
     }
     
     static var bodyFontBolded: UIFont {
