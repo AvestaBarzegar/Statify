@@ -32,7 +32,7 @@ class RecentViewController: UIViewController {
         }
     }
     
-    private var informationMutated: [String : RecentTrackViewModel] = [ : ]
+    private var informationMutated: [String: RecentTrackViewModel] = [ : ]
     
     let headerInfo = SectionHeaderViewModel(title: "Recently Played", leftImageName: nil, rightImageName: nil)
     
