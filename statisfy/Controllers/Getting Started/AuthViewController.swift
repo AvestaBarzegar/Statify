@@ -127,7 +127,7 @@ extension AuthViewController: WKNavigationDelegate {
         
         // Exchange code for access token
         guard let code = URLComponents(string: url.absoluteString)?.queryItems?.first(where: { $0.name == "code" })?.value else {
-            if url.absoluteString.localizedStandardContains(ClientInfo.redirectURI.rawValue) {
+            if url.absoluteString.localizedStandardContains("\(ClientInfo.redirectURI.rawValue)/") {
                 self.dismiss(animated: true, completion: nil)
             }
             return
@@ -144,6 +144,7 @@ extension AuthViewController: WKNavigationDelegate {
                     self?.dismiss(animated: true)
                     self?.completionHandler?(false)
                 } else {
+                    print(error)
                     self?.webView.removeFromSuperview()
                     self?.dismiss(animated: true)
                     self?.completionHandler?(true)
