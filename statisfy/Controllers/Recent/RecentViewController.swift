@@ -202,11 +202,14 @@ extension RecentViewController {
             let currentTime = Date().timeIntervalSince1970
             let expiryTime = expiryDate.timeIntervalSince1970
             if currentTime >= expiryTime {
+                let twoMinutes: TimeInterval = 120
+                let newExpiryDate = Date().addingTimeInterval(TimeInterval(twoMinutes))
+                UserDefaults.standard.setValue(newExpiryDate, forKey: controllerName)
                 fetchInfo()
             }
         } else {
-            let fiveMinutes: TimeInterval = 120
-            let newExpiryDate = Date().addingTimeInterval(TimeInterval(fiveMinutes))
+            let twoMinutes: TimeInterval = 120
+            let newExpiryDate = Date().addingTimeInterval(TimeInterval(twoMinutes))
             UserDefaults.standard.setValue(newExpiryDate, forKey: controllerName)
             fetchInfo()
         }

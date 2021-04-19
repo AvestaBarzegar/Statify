@@ -158,8 +158,8 @@ extension TrackViewController {
                 fetchInfo()
             }
         } else {
-            let fiveMinutes: TimeInterval = 7200
-            let newExpiryDate = Date().addingTimeInterval(TimeInterval(fiveMinutes))
+            let oneHour: TimeInterval = 3600
+            let newExpiryDate = Date().addingTimeInterval(TimeInterval(oneHour))
             UserDefaults.standard.setValue(newExpiryDate, forKey: controllerName)
             fetchInfo()
         }
