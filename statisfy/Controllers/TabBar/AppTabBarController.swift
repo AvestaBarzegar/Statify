@@ -76,7 +76,6 @@ class AppTabBarController: UITabBarController {
         // Do any additional setup after loading the view.
         weak var window = self.view.window
         window?.rootViewController = self
-        refreshUserExpiryDates()
         self.view.addSubview(spinner)
         NSLayoutConstraint.activate([
             spinner.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
@@ -99,6 +98,7 @@ class AppTabBarController: UITabBarController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        refreshUserExpiryDates()
         loadInformation()
     }
     
