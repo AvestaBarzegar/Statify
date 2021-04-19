@@ -144,7 +144,6 @@ extension AuthViewController: WKNavigationDelegate {
                     self?.dismiss(animated: true)
                     self?.completionHandler?(false)
                 } else {
-                    print(error)
                     self?.webView.removeFromSuperview()
                     self?.dismiss(animated: true)
                     self?.completionHandler?(true)
