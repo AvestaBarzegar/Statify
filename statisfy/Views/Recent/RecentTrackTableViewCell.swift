@@ -24,6 +24,17 @@ class RecentTrackTableViewCell: UITableViewCell {
             if let track = recentTrackInfo?.track {
                 trackLabel.text = track
             }
+            if let timeStamp = recentTrackInfo?.timeStamp {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM-dd"
+                let date = Date(timeIntervalSince1970: timeStamp)
+                let dateString = dateFormatter.string(from: date)
+                lastListenedLabel.text = "Last listened to on \(dateString)"
+            }
+            if let numOfListens = recentTrackInfo?.numOfListens {
+                let labelString = numOfListens > 1 ? "You've listened to this \(numOfListens) times" : "You've listened to this \(numOfListens) time"
+                numOfListensLabel.text = labelString
+            }
         }
     }
 
@@ -57,7 +68,7 @@ class RecentTrackTableViewCell: UITableViewCell {
     
     private lazy var numOfListensLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.tableCellFontSemiBolded
+        label.font = UIFont.alertFont
         label.textColor = UIColor.spotifyWhite
         label.numberOfLines = 1
         label.lineBreakMode = .byTruncatingTail
@@ -67,7 +78,7 @@ class RecentTrackTableViewCell: UITableViewCell {
     
     private lazy var lastListenedLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.tableCellFontSemiBolded
+        label.font = UIFont.alertFont
         label.textColor = UIColor.spotifyWhite
         label.numberOfLines = 1
         label.lineBreakMode = .byTruncatingTail
@@ -117,19 +128,19 @@ class RecentTrackTableViewCell: UITableViewCell {
             
             trackLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 16),
             trackLabel.topAnchor.constraint(equalTo: songImage.topAnchor, constant: 4),
-            trackLabel.rightAnchor.constraint(equalTo: songImage.leftAnchor, constant: -16),
+            trackLabel.rightAnchor.constraint(equalTo: songImage.leftAnchor, constant: -8),
             
             artistLabel.topAnchor.constraint(equalTo: trackLabel.bottomAnchor, constant: 8),
             artistLabel.leftAnchor.constraint(equalTo: trackLabel.leftAnchor),
             artistLabel.rightAnchor.constraint(equalTo: trackLabel.rightAnchor),
             
-            numOfListensLabel.topAnchor.constraint(equalTo: artistLabel.bottomAnchor, constant: 8),
-            numOfListensLabel.leftAnchor.constraint(equalTo: trackLabel.leftAnchor),
-            numOfListensLabel.rightAnchor.constraint(equalTo: trackLabel.rightAnchor),
-            
-            lastListenedLabel.topAnchor.constraint(equalTo: numOfListensLabel.bottomAnchor, constant: 8),
+            lastListenedLabel.bottomAnchor.constraint(equalTo: songImage.bottomAnchor, constant: -4),
             lastListenedLabel.leftAnchor.constraint(equalTo: trackLabel.leftAnchor),
             lastListenedLabel.rightAnchor.constraint(equalTo: trackLabel.rightAnchor),
+            
+            numOfListensLabel.bottomAnchor.constraint(equalTo: lastListenedLabel.topAnchor, constant: -8),
+            numOfListensLabel.leftAnchor.constraint(equalTo: trackLabel.leftAnchor),
+            numOfListensLabel.rightAnchor.constraint(equalTo: trackLabel.rightAnchor)
         ])
     }
 
