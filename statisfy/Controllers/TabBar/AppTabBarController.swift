@@ -74,6 +74,8 @@ class AppTabBarController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        weak var window = self.view.window
+        window?.rootViewController = self
         refreshUserExpiryDates()
         self.view.addSubview(spinner)
         NSLayoutConstraint.activate([

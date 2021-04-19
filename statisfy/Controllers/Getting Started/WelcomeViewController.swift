@@ -85,8 +85,8 @@ class WelcomeViewController: UIViewController {
         guard success else { return }
         
         let mainTabBarVC = AppTabBarController()
-        weak var window = self.view.window
-        window?.rootViewController = mainTabBarVC
+        mainTabBarVC.modalPresentationStyle = .fullScreen
+        self.present(mainTabBarVC, animated: false, completion: nil)
     }
 
     // MARK: - Layout views
