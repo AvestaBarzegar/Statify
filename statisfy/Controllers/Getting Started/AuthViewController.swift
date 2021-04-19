@@ -25,8 +25,11 @@ class AuthViewController: UIViewController {
         return header
     }()
     
-    private let webView: WKWebView = {
-        let webView = WKWebView(frame: .zero)
+    private lazy var webView: WKWebView = {
+        let config = WKWebViewConfiguration()
+        config.applicationNameForUserAgent = "Version/8.0.2 Safari/600.2.5"
+        config.defaultWebpagePreferences.allowsContentJavaScript = true
+        let webView = WKWebView(frame: .zero, configuration: config)
         webView.translatesAutoresizingMaskIntoConstraints = false
         return webView
         
