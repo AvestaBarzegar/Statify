@@ -168,7 +168,7 @@ extension RecentViewController {
                 fetchInfo()
             }
         } else {
-            let fiveMinutes: TimeInterval = 240
+            let fiveMinutes: TimeInterval = 120
             let newExpiryDate = Date().addingTimeInterval(TimeInterval(fiveMinutes))
             UserDefaults.standard.setValue(newExpiryDate, forKey: controllerName)
             fetchInfo()

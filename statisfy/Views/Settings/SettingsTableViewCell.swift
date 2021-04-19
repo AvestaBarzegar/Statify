@@ -65,7 +65,7 @@ class SettingsTableViewCell: UITableViewCell {
             containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8),
             containerView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 24),
             containerView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -8),
-            containerView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -16),
+            containerView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -24),
             
             settingLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             settingLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 16)
