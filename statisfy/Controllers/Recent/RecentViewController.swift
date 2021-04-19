@@ -18,7 +18,6 @@ class RecentViewController: UIViewController {
             guard let informationArr = information?.allInfo else { return }
             informationCleanedUp.removeAll()
             
-            
             for track in informationArr {
                 if let trackName = track.track, let trackArtist = track.artist {
                     let weirdString = "\(trackName)+\(trackArtist)+"
