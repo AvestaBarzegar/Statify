@@ -11,3 +11,5 @@ By linking your Spotify account to the Statify App, you will be able to view you
 ## What does Statify look and feel 
 
 Below this I have attached some images to give you a feeling for the look and feel for Statify.
+
+![Alt text](/readme-pictures/screen_1.png?raw=true "Test Title")
