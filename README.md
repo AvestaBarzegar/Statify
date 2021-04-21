@@ -1,12 +1,12 @@
 # Statify
 
-## Why did I make this 
+## Why did I make this?
 
 Ever wonder what type of music you enjoy? Want to see who's the biggest Drake fan in your circle? Well with Statify you can find out by comparing with your friends.
 
-## How does Statify 
+## How does Statify work?
 
-By linking your Spotify account to the Statify App, you will be able to view your most listened to tracks and artists in the past 4 weeks, past 6 months, and your most listened to artists since you've had your Spotify account. You can also view up to 50 of the tracks you've listened to recently.
+By linking your Spotify account to the Statify App, you will be able to view your most listened to tracks and artists in the past 4 weeks, past 6 months, and your most listened to artists since you've had your Spotify account. You can also view up to 50 of the tracks you've listened to recently. To link your account, simply download the app and follow the instructions in the app. You simply login through a web view in the app and Statify then presents your information in a visually appealing manner.
 
 ## What does Statify look and feel like?
 
