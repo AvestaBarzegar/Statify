@@ -12,4 +12,4 @@ By linking your Spotify account to the Statify App, you will be able to view you
 
 Below this I have attached some images to give you a feeling for the look and feel for Statify.
 
-![Alt text](/readme-pictures/screen_1.png?raw=true "Test Title") ![Alt text](/readme-pictures/screen_2.png?raw=true "Recent Top Tracks") ![Alt text](/readme-pictures/screen_3.png?raw=true "Test Title") ![Alt text](/readme-pictures/screen_4.png?raw=true "Test Title") ![Alt text](/readme-pictures/screen_5.png?raw=true "Test Title") ![Alt text](/readme-pictures/screen_6.png?raw=true "Test Title")
+<img src="/readme-pictures/screen1.png" width="48">
