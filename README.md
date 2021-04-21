@@ -12,4 +12,4 @@ By linking your Spotify account to the Statify App, you will be able to view you
 
 Below this I have attached some images to give you a feeling for the look and feel for Statify.
 
-<img src="/readme-pictures/screen1.png" width="48">
+<img src="./readme-pictures/screen1.png" width="48">
