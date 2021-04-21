@@ -10,11 +10,34 @@ By linking your Spotify account to the Statify App, you will be able to view you
 
 ## What does Statify look and feel 
 
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
+
 Below this I have attached some images to give you a feeling for the look and feel for Statify.
 
-<img src="readme-pictures/screen_1.png" alt="screen" width="200">
-<img src="readme-pictures/screen_2.png" alt="screen" width="200">
-<img src="readme-pictures/screen_3.png" alt="screen" width="200">
-<img src="readme-pictures/screen_4.png" alt="screen" width="200">
-<img src="readme-pictures/screen_5.png" alt="screen" width="200">
-<img src="readme-pictures/screen_6.png" alt="screen" width="200">
+<div class="row">
+     <div class="column">
+        <img src="readme-pictures/screen_1.png" alt="screen" width="200">
+     </div>
+     <div class="column">
+        <img src="readme-pictures/screen_1.png" alt="screen" width="200">
+     </div>
+     <div class="column">
+        <img src="readme-pictures/screen_1.png" alt="screen" width="200">
+     </div>
+</div> 
+
+<div>
+    <img src="readme-pictures/screen_1.png" alt="screen" width="200">
+    <img src="readme-pictures/screen_2.png" alt="screen" width="200">
+    <img src="readme-pictures/screen_3.png" alt="screen" width="200">
+    <img src="readme-pictures/screen_4.png" alt="screen" width="200">
+    <img src="readme-pictures/screen_5.png" alt="screen" width="200">
+    <img src="readme-pictures/screen_6.png" alt="screen" width="200">
+</div>
