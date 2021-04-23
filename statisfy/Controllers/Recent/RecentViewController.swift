@@ -215,11 +215,23 @@ extension RecentViewController {
         }
     }
     
-    func fetchInfo() {
+    private func fetchInfo() {
         self.spinner.isAnimating = true
         switch informationType {
         case .server:
-            fetchServerInfo()
+            if AuthManager.shared.shouldRefreshToken {
+                UserManager.shared.refreshAccessToken { [weak self] _, error in
+                    if error != nil {
+                        print("error")
+                    } else {
+                        print("refresh token")
+                        self?.fetchServerInfo()
+                        
+                    }
+                }
+            } else {
+                fetchServerInfo()
+            }
         case .demo:
             fetchMockInfo()
         }
