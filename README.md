@@ -10,7 +10,8 @@ By linking your Spotify account to the Statify App, you will be able to view you
 
 ## What does Statify look and feel like?
 
-Below this I have attached some images to give you a feeling for the look and feel for Statify. I have submitted the App to the App Store for approval. I will provide a link to the download page such that you may try the app out for yourself.
+Try out the app using this link.
+[Try Statify](https://apps.apple.com/ca/app/statify/id1563510330)
 
 <div>
     <img src="readme-pictures/screen_1.png" alt="screen" width="175">
