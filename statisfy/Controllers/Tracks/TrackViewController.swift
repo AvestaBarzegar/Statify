@@ -173,7 +173,7 @@ extension TrackViewController {
                     if error != nil {
                         print("error")
                     } else {
-                        print("refresh token")
+                        print("refresh token TrackVC")
                         self?.fetchServerInfo()
                         
                     }
