@@ -10,8 +10,7 @@ By linking your Spotify account to the Statify App, you will be able to view you
 
 ## What does Statify look and feel like?
 
-Try out the app using this link.
-[Try Statify](https://apps.apple.com/ca/app/statify/id1563510330)
+[Try Statify!](https://apps.apple.com/ca/app/statify/id1563510330)
 
 <div>
     <img src="readme-pictures/screen_1.png" alt="screen" width="175">
