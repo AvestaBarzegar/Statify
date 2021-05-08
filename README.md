@@ -1,5 +1,8 @@
 # Statify
 
+## Inquiries about the project can be sent to the following email
+statify.help@gmail.com
+
 ## Why did I make this?
 
 Ever wonder what type of music you enjoy? Want to see who's the biggest Drake fan in your circle? Well with Statify you can find out by comparing with your friends.
