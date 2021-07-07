@@ -15,8 +15,6 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
     
     private var information = [TileInformationArray?](repeating: nil, count: 3)
     
-    let headerInfo = SectionHeaderViewModel(title: "Top Artists", leftImageName: nil, rightImageName: nil)
-    
     // MARK: - Init Views
     
     private lazy var collectionView: UICollectionView = {
@@ -43,13 +41,6 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
         menu.menuBarItemTitles = ["Last 4 Weeks", "Last 6 Months", "All Time"]
         menu.baseViewController = self
         return menu
-    }()
-    
-    private lazy var headerView: SectionHeaderView = {
-        let header = SectionHeaderView()
-        header.translatesAutoresizingMaskIntoConstraints = false
-        header.info = headerInfo
-        return header
     }()
     
     // MARK: - Layout Views
@@ -80,18 +71,13 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func setup() {
+        self.title = "Top Artists"
+        let safeArea = self.view.safeAreaLayoutGuide
         self.collectionView.alpha = 0
         self.view.addSubview(collectionView)
         self.view.addSubview(menuBar)
-        self.view.addSubview(headerView)
-        let safeArea = view.layoutMarginsGuide
         NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: Constants.headerViewHeight.rawValue),
-            
-            menuBar.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+            menuBar.topAnchor.constraint(equalTo: safeArea.topAnchor),
             menuBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             menuBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             menuBar.heightAnchor.constraint(equalToConstant: MenuBarItem.menuHeight),
@@ -106,11 +92,6 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
     func menuScrollItem(indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
     }
-    
-    deinit {
-        print("deinit Artist")
-    }
-    
 }
 
     // MARK: - UICollectionView Methods

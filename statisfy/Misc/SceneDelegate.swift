@@ -88,7 +88,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         } else {
             let rootViewController = AppTabBarController()
-            window.rootViewController = rootViewController
+            let navVC = UINavigationController(rootViewController: rootViewController)
+            navVC.navigationBar.prefersLargeTitles = true
+            window.rootViewController = navVC
             return
         }
     }
