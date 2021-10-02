@@ -10,7 +10,7 @@ import UIKit
 class MenuBar: UIView {
 
     // MARK: - Handling Cell information and states
-    var menuBarItemTitles: [String]?
+    private var menuBarItemTitles: [String]
     
     weak var baseViewController: UIViewController?
     
@@ -73,14 +73,15 @@ class MenuBar: UIView {
 
     // MARK: - Layout Views
     
-    override init(frame: CGRect) {
+    init(frame: CGRect,
+         menuBarItemTitles: [String]) {
+        self.menuBarItemTitles = menuBarItemTitles
         super.init(frame: frame)
         setup()
     }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setup() {
@@ -126,7 +127,7 @@ extension MenuBar: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.current = true
         }
         
-        cell.menuBarItemText = menuBarItemTitles?[indexPath.row]
+        cell.menuBarItemText = menuBarItemTitles[indexPath.row]
         
         return cell
     }
