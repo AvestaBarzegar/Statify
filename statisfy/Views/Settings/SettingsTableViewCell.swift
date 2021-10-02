@@ -23,7 +23,6 @@ class SettingsTableViewCell: UITableViewCell {
     }
     
     // MARK: - Init Views
-    
     let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false

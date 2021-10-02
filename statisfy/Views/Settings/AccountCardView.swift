@@ -15,7 +15,6 @@ class AccountCardView: UIView {
     
     var cardInfo: AccountCardViewModel? {
         didSet {
-            
             if let imageURL = cardInfo?.imageURL {
                 profileImageView.lazyLoadImageUsingURL(urlString: imageURL, placeholder: nil)
             } else {
