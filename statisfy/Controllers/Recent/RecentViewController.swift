@@ -217,9 +217,9 @@ extension RecentViewController {
             if AuthManager.shared.shouldRefreshToken {
                 UserManager.shared.refreshAccessToken { [weak self] _, error in
                     if error != nil {
-                        print("error")
+                        debugPrint("error")
                     } else {
-                        print("refresh token")
+                        debugPrint("refresh token")
                         self?.fetchServerInfo()
                         
                     }

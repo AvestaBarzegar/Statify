@@ -167,9 +167,9 @@ extension TrackViewController {
             if AuthManager.shared.shouldRefreshToken {
                 UserManager.shared.refreshAccessToken { [weak self] _, error in
                     if error != nil {
-                        print("error")
+                        debugPrint("error")
                     } else {
-                        print("refresh token TrackVC")
+                        debugPrint("refresh token TrackVC")
                         self?.fetchServerInfo()
                         
                     }

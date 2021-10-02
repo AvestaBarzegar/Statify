@@ -115,9 +115,9 @@ class AppTabBarController: UITabBarController {
     func refreshAuth() {
         UserManager.shared.refreshAccessToken { [weak self] _, error in
             if error != nil {
-                print("error")
+                debugPrint("error")
             } else {
-                print("refresh token")
+                debugPrint("refresh token")
                 DispatchQueue.main.async {
                     self?.setupUI()
                 }

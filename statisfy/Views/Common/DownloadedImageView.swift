@@ -41,7 +41,7 @@ class DownloadedImageView: UIImageView {
         URLSession.shared.dataTask(with: url as URL, completionHandler: { [ weak self] (data, _, error) in
 
             if error != nil {
-                print(error as Any)
+                debugPrint(error as Any)
                 return
             }
 

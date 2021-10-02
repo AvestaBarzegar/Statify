@@ -49,7 +49,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to undo the changes made on entering the background.
         if AuthManager.shared.isSignedIn && AuthManager.shared.shouldRefreshToken {
             UserManager.shared.refreshAccessToken { _, _ in
-                print("refreshed token on foreground")
+                debugPrint("refreshed token on foreground")
             }
         }
     }
