@@ -38,9 +38,9 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
     }()
 
     private lazy var menuBar: MenuBar = {
-        let menu = MenuBar()
+        let titles = ["Last 4 Weeks", "Last 6 Months", "All Time"]
+        let menu = MenuBar(frame: .zero, menuBarItemTitles: titles)
         menu.translatesAutoresizingMaskIntoConstraints = false
-        menu.menuBarItemTitles = ["Last 4 Weeks", "Last 6 Months", "All Time"]
         menu.baseViewController = self
         return menu
     }()
