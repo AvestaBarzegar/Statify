@@ -13,7 +13,7 @@ let imageCache = NSCache<AnyObject, AnyObject>()
 
 class DownloadedImageView: UIImageView {
 
-    var imageURL: NSURL?
+    private var imageURL: NSURL?
 
     func lazyLoadImageUsingURL(urlString: String, placeholder: String?) {
         guard let url = NSURL(string: urlString.replacingOccurrences(of: " ", with: "")) else {
