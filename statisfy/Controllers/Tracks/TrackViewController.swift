@@ -103,10 +103,6 @@ class TrackViewController: UIViewController {
         ])
     }
     
-    deinit {
-        print("deinit Track")
-    }
-    
     func menuScrollItem(indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
     }

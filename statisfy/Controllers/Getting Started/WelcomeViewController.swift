@@ -123,9 +123,4 @@ class WelcomeViewController: UIViewController {
             demoButton.heightAnchor.constraint(equalToConstant: 36)
         ])
     }
-    
-    deinit {
-        print("deinitialized WelcomeVC")
-    }
-
 }

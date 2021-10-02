@@ -165,11 +165,6 @@ class RecentViewController: UIViewController {
             spinner.heightAnchor.constraint(equalTo: spinner.widthAnchor)
         ])
     }
-    
-    deinit {
-        print("deinit Recent")
-    }
-    
 }
 
 extension RecentViewController: UITableViewDataSource, UITableViewDelegate {

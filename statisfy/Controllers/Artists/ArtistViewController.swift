@@ -106,11 +106,6 @@ class ArtistViewController: UIViewController, UIScrollViewDelegate {
     func menuScrollItem(indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
     }
-    
-    deinit {
-        print("deinit Artist")
-    }
-    
 }
 
     // MARK: - UICollectionView Methods

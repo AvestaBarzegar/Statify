@@ -102,10 +102,6 @@ class AppTabBarController: UITabBarController {
         loadInformation()
     }
     
-    deinit {
-        print("deinit App TabBar")
-    }
-    
     func loadInformation() {
         spinner.isAnimating = true
         switch AppTabBarController.informationType {

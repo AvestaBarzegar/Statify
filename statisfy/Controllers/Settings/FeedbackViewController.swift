@@ -69,7 +69,6 @@ class FeedbackViewController: UIViewController {
     }
     
     deinit {
-        print("deinitialized Feedback VC")
         webView.stopLoading()
         webView.removeFromSuperview()
     }

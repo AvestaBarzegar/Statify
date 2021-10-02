@@ -84,13 +84,6 @@ class AuthViewController: UIViewController {
         spinner.isAnimating = true
         webView.load(request)
     }
-    
-    deinit {
-        print("deinitialized AuthVC")
-        webView.stopLoading()
-        webView.removeFromSuperview()
-    }
-
 }
 
 extension AuthViewController: SectionHeaderViewDelegate {
