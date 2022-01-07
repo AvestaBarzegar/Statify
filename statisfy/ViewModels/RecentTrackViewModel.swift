@@ -78,27 +78,25 @@ struct RecentTrackViewModel {
     }
 }
 
-struct RecentTracksViewModelArray {
+extension RecentTrackViewModel {
     
-    let allInfo: [RecentTrackViewModel]?
-    
-    init(tracks: TrackItem) {
+    static func generateRecentTrackArray(from tracks: TrackItem) -> [RecentTrackViewModel] {
         var recentTracks: [RecentTrackViewModel] = []
-        
+
         for track in tracks.items {
             let recentTrack = RecentTrackViewModel(track: track)
             recentTracks.append(recentTrack)
         }
-        self.allInfo = recentTracks
+        return recentTracks
     }
     
-    init(items: RecentItemsArr) {
+    static func generateRecentTrackArray(from items: RecentItemsArr) -> [RecentTrackViewModel] {
         var recentItems: [RecentTrackViewModel] = []
-        
+
         for item in items.items {
             let recentItem = RecentTrackViewModel(recentItem: item)
             recentItems.append(recentItem)
         }
-        self.allInfo = recentItems
+        return recentItems
     }
 }

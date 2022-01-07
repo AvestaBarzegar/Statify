@@ -13,7 +13,7 @@ class TrackViewController: UIViewController {
     
     private var informationType = AppTabBarController.informationType
 
-    private var information = [TileInformationArray?](repeating: nil, count: 3)
+    private var information = [[TileInfo]?](repeating: nil, count: 3)
     
     let headerInfo = SectionHeaderViewModel(title: "Top Tracks", leftImageName: nil, rightImageName: nil)
     
@@ -38,10 +38,10 @@ class TrackViewController: UIViewController {
     }()
 
     private lazy var menuBar: MenuBar = {
-        let menu = MenuBar()
+        let titles = ["Last 4 Weeks", "Last 6 Months", "All Time"]
+        let menu = MenuBar(frame: .zero, titles: titles)
         menu.translatesAutoresizingMaskIntoConstraints = false
-        menu.menuBarItemTitles = ["Last 4 Weeks", "Last 6 Months", "All Time"]
-        menu.baseViewController = self
+        menu.delegate = self
         return menu
     }()
     
@@ -106,10 +106,6 @@ class TrackViewController: UIViewController {
     deinit {
         print("deinit Track")
     }
-    
-    func menuScrollItem(indexPath: IndexPath) {
-        collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
-    }
 }
 
     // MARK: - UICollectionView Methods
@@ -122,8 +118,8 @@ extension TrackViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatisticsCollectionScrollView.identifier, for: indexPath) as? StatisticsCollectionScrollView
-        cell?.tracks = information[indexPath.row]?.allInfo
-        cell?.animating = !((information[indexPath.row]?.allInfo?.isEmpty) != nil)
+        cell?.tracks = information[indexPath.row]
+        cell?.animating = !((information[indexPath.row]?.isEmpty) != nil)
         return cell ?? UICollectionViewCell()
     }
     
@@ -143,6 +139,14 @@ extension TrackViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         menuBar.sliderViewLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 3
     }
+}
+
+// MARK: MenuBar Delegate
+extension TrackViewController: MenuBarTapDelegate {
+    func didSelect(menuBar: MenuBar, at indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
+    }
+    
 }
 
 // MARK: - Networking Logic

@@ -11,7 +11,7 @@ final class MockManager {
     
     static let shared = MockManager()
     
-    func fetchTopArtistsMock(timeRange: TimeRange, completion: @escaping(_ items: TileInformationArray?) -> Void) {
+    func fetchTopArtistsMock(timeRange: TimeRange, completion: @escaping(_ items: [TileInfo]?) -> Void) {
         var fileName = ""
         switch timeRange {
         case .shortTerm:
@@ -23,11 +23,11 @@ final class MockManager {
         }
         
         let artists = Bundle.main.decode(ArtistItem.self, from: fileName)
-        let artistsViewModel = TileInformationArray(artists: artists)
+        let artistsViewModel = TileInfo.generateArrayOfTileInfo(from: artists)
         completion(artistsViewModel)
     }
     
-    func fetchTopTracksMock(timeRange: TimeRange, completion: @escaping(_ items: TileInformationArray?) -> Void) {
+    func fetchTopTracksMock(timeRange: TimeRange, completion: @escaping(_ items: [TileInfo]?) -> Void) {
         var fileName = ""
         switch timeRange {
         case .shortTerm:
@@ -39,15 +39,15 @@ final class MockManager {
         }
         
         let tracks = Bundle.main.decode(TrackItem.self, from: fileName)
-        let tracksViewModel = TileInformationArray(tracks: tracks)
+        let tracksViewModel = TileInfo.generateArrayOfTileInfo(from: tracks)
         completion(tracksViewModel)
     }
     
-    func fetchRecentTracksMock(completion: @escaping(_ items: RecentTracksViewModelArray?) -> Void) {
+    func fetchRecentTracksMock(completion: @escaping(_ items: [RecentTrackViewModel]?) -> Void) {
         let fileName = "RecentTracks.json"
         
         let recentTracks = Bundle.main.decode(RecentItemsArr.self, from: fileName)
-        let tracksViewModel = RecentTracksViewModelArray(items: recentTracks)
+        let tracksViewModel = RecentTrackViewModel.generateRecentTrackArray(from: recentTracks)
         completion(tracksViewModel)
     }
     

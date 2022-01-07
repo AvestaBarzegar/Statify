@@ -42,7 +42,7 @@ struct AnalyticsManager {
         }
     }
     
-    func getTracks(timeRange: TimeRange, completion: @escaping (_ tracks: TileInformationArray?, _ error: String?) -> Void) {
+    func getTracks(timeRange: TimeRange, completion: @escaping (_ tracks: [TileInfo]?, _ error: String?) -> Void) {
         router.request(.track(timeRange: timeRange)) { data, response, error in
             if error != nil {
                 completion(nil, "Please check your network connection.")
@@ -59,7 +59,7 @@ struct AnalyticsManager {
                     do {
                         let decoder = JSONDecoder()
                         let tracks = try decoder.decode(TrackItem.self, from: responseData)
-                        let tracksViewModel = TileInformationArray(tracks: tracks)
+                        let tracksViewModel = TileInfo.generateArrayOfTileInfo(from: tracks)
                         completion(tracksViewModel, nil)
                         
                     } catch {
@@ -72,7 +72,7 @@ struct AnalyticsManager {
         }
     }
     
-    func getArtists(timeRange: TimeRange, completion: @escaping (_ tracks: TileInformationArray?, _ error: String?) -> Void) {
+    func getArtists(timeRange: TimeRange, completion: @escaping (_ tracks: [TileInfo]?, _ error: String?) -> Void) {
         router.request(.artist(timeRange: timeRange)) { data, response, error in
             if error != nil {
                 completion(nil, "Please check your network connection.")
@@ -89,7 +89,7 @@ struct AnalyticsManager {
                     do {
                         let decoder = JSONDecoder()
                         let artists = try decoder.decode(ArtistItem.self, from: responseData)
-                        let tracksViewModel = TileInformationArray(artists: artists)
+                        let tracksViewModel = TileInfo.generateArrayOfTileInfo(from: artists)
                         completion(tracksViewModel, nil)
                         
                     } catch {
@@ -102,7 +102,7 @@ struct AnalyticsManager {
         }
     }
     
-    func getRecent(completion: @escaping(_ items: RecentTracksViewModelArray?, _ error: String?) -> Void) {
+    func getRecent(completion: @escaping(_ items: [RecentTrackViewModel]?, _ error: String?) -> Void) {
         router.request(.recent) { data, response, error in
             if error != nil {
                 completion(nil, "Please check your network connection.")
@@ -119,7 +119,7 @@ struct AnalyticsManager {
                     do {
                         let decoder = JSONDecoder()
                         let items = try decoder.decode(RecentItemsArr.self, from: responseData)
-                        let tracksViewModel = RecentTracksViewModelArray(items: items)
+                        let tracksViewModel = RecentTrackViewModel.generateRecentTrackArray(from: items)
                         completion(tracksViewModel, nil)
                         
                     } catch {

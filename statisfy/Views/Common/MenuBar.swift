@@ -10,9 +10,9 @@ import UIKit
 class MenuBar: UIView {
 
     // MARK: - Handling Cell information and states
-    var menuBarItemTitles: [String]?
+    var menuBarItemTitles: [String]
     
-    weak var baseViewController: UIViewController?
+    weak var delegate: MenuBarTapDelegate?
     
     var sliderViewLeftAnchorConstraint: NSLayoutConstraint?
     
@@ -73,14 +73,21 @@ class MenuBar: UIView {
 
     // MARK: - Layout Views
     
-    override init(frame: CGRect) {
+    init(frame: CGRect,
+         titles: [String]) {
+        self.menuBarItemTitles = titles
         super.init(frame: frame)
         setup()
     }
-
+    
+    @available(*, unavailable, message: "Use init with titles")
+    override init(frame: CGRect) {
+        fatalError("Use init with titles")
+    }
+    
+    @available(*, unavailable, message: "Use init with titles")
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
+        fatalError("Use init with titles")
     }
     
     private func setup() {
@@ -126,7 +133,7 @@ extension MenuBar: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.current = true
         }
         
-        cell.menuBarItemText = menuBarItemTitles?[indexPath.row]
+        cell.menuBarItemText = menuBarItemTitles[indexPath.row]
         
         return cell
     }
@@ -135,13 +142,11 @@ extension MenuBar: UICollectionViewDelegate, UICollectionViewDataSource {
         oldIndex = currentIndex
         currentIndex = indexPath.row
         
-        if let baseViewController = baseViewController as? TrackViewController {
-            baseViewController.menuScrollItem(indexPath: indexPath)
-        }
-        
-        if let baseViewController = baseViewController as? ArtistViewController {
-            baseViewController.menuScrollItem(indexPath: indexPath)
-        }
+        delegate?.didSelect(menuBar: self, at: indexPath)
     }
     
+}
+
+protocol MenuBarTapDelegate: AnyObject {
+    func didSelect(menuBar: MenuBar, at indexPath: IndexPath)
 }

@@ -61,27 +61,26 @@ struct TileInfo {
     
 }
 
-struct TileInformationArray {
+// MARK: - Extension to generate Arrays
+extension TileInfo {
     
-    let allInfo: [TileInfo]?
-    
-    init(artists: ArtistItem) {
+    static func generateArrayOfTileInfo(from artists: ArtistItem) -> [TileInfo] {
         var tiles: [TileInfo] = []
         
         for (index, artist) in artists.items.enumerated() {
             let tile = TileInfo(artist: artist, index: index + 1)
             tiles.append(tile)
         }
-        self.allInfo = tiles
+        return tiles
     }
     
-    init(tracks: TrackItem) {
+    static func generateArrayOfTileInfo(from tracks: TrackItem) -> [TileInfo] {
         var tiles: [TileInfo] = []
         
         for (index, track) in tracks.items.enumerated() {
             let tile = TileInfo(track: track, index: index + 1)
             tiles.append(tile)
         }
-        self.allInfo = tiles
+        return tiles
     }
 }

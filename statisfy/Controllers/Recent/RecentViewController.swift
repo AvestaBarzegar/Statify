@@ -13,9 +13,9 @@ class RecentViewController: UIViewController {
     
     private var informationType = AppTabBarController.informationType
     
-    private var information: RecentTracksViewModelArray? {
+    private var information: [RecentTrackViewModel]? {
         didSet {
-            guard let informationArr = information?.allInfo else { return }
+            guard let informationArr = information else { return }
             informationCleanedUp.removeAll()
             
             for track in informationArr {
@@ -51,14 +51,14 @@ class RecentViewController: UIViewController {
     private var informationNew: [RecentTrackViewModel]? {
         didSet {
             self.spinner.isAnimating = false
-            if information?.allInfo == nil {
+            if information == nil {
                 noInformationLabel.isHidden = false
             } else {
                 self.tableView.reloadData()
                 let firstIndex = IndexPath(row: 0, section: 0)
                 self.tableView.scrollToRow(at: firstIndex, at: .top, animated: true)
             }
-            guard let informationArr = information?.allInfo else { return }
+            guard let informationArr = information else { return }
             noInformationLabel.isHidden = !informationArr.isEmpty
         }
     }

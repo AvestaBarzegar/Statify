@@ -131,6 +131,7 @@
 		C9BD2E26261BFBB800C0FBDA /* SpinnerViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E25261BFBB800C0FBDA /* SpinnerViewControllerExtensions.swift */; };
 		C9BD2E2A261C214000C0FBDA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E29261C214000C0FBDA /* SettingsViewController.swift */; };
 		C9DDCC8D2788E3A600D41A65 /* SensitiveInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCC8C2788E3A600D41A65 /* SensitiveInformation.swift */; };
+		C9DDCC902788E89900D41A65 /* DataRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCC8F2788E89800D41A65 /* DataRetriever.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -203,6 +204,7 @@
 		C9BD2E25261BFBB800C0FBDA /* SpinnerViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewControllerExtensions.swift; sourceTree = "<group>"; };
 		C9BD2E29261C214000C0FBDA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C9DDCC8C2788E3A600D41A65 /* SensitiveInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensitiveInformation.swift; sourceTree = "<group>"; };
+		C9DDCC8F2788E89800D41A65 /* DataRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRetriever.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +284,7 @@
 		C97D0975260FA6C30019734F /* statisfy */ = {
 			isa = PBXGroup;
 			children = (
+				C9DDCC8E2788E88800D41A65 /* DataManagement */,
 				C99B6BCC261948FC004B88C1 /* Networking */,
 				C97D099B260FA7150019734F /* Controllers */,
 				C97D098A260FA7150019734F /* Misc */,
@@ -555,6 +558,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		C9DDCC8E2788E88800D41A65 /* DataManagement */ = {
+			isa = PBXGroup;
+			children = (
+				C9DDCC8F2788E89800D41A65 /* DataRetriever.swift */,
+			);
+			path = DataManagement;
+			sourceTree = "<group>";
+		};
 		CA83E08D240F364AB2AD9B04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -760,6 +771,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9DDCC902788E89900D41A65 /* DataRetriever.swift in Sources */,
 				C99B6BE726194CCB004B88C1 /* Router.swift in Sources */,
 				C9DDCC8D2788E3A600D41A65 /* SensitiveInformation.swift in Sources */,
 				C99B6BDE26194AB6004B88C1 /* URLParameterEncoder.swift in Sources */,
