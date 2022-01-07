@@ -131,7 +131,8 @@
 		C9BD2E26261BFBB800C0FBDA /* SpinnerViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E25261BFBB800C0FBDA /* SpinnerViewControllerExtensions.swift */; };
 		C9BD2E2A261C214000C0FBDA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E29261C214000C0FBDA /* SettingsViewController.swift */; };
 		C9DDCC8D2788E3A600D41A65 /* SensitiveInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCC8C2788E3A600D41A65 /* SensitiveInformation.swift */; };
-		C9DDCC902788E89900D41A65 /* DataRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCC8F2788E89800D41A65 /* DataRetriever.swift */; };
+		C9DDCC902788E89900D41A65 /* DataRetrieverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCC8F2788E89800D41A65 /* DataRetrieverProtocol.swift */; };
+		C9DDCC922788ED8200D41A65 /* TopTracksDataRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCC912788ED8200D41A65 /* TopTracksDataRetriever.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -204,7 +205,8 @@
 		C9BD2E25261BFBB800C0FBDA /* SpinnerViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewControllerExtensions.swift; sourceTree = "<group>"; };
 		C9BD2E29261C214000C0FBDA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C9DDCC8C2788E3A600D41A65 /* SensitiveInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensitiveInformation.swift; sourceTree = "<group>"; };
-		C9DDCC8F2788E89800D41A65 /* DataRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRetriever.swift; sourceTree = "<group>"; };
+		C9DDCC8F2788E89800D41A65 /* DataRetrieverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRetrieverProtocol.swift; sourceTree = "<group>"; };
+		C9DDCC912788ED8200D41A65 /* TopTracksDataRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTracksDataRetriever.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -561,7 +563,8 @@
 		C9DDCC8E2788E88800D41A65 /* DataManagement */ = {
 			isa = PBXGroup;
 			children = (
-				C9DDCC8F2788E89800D41A65 /* DataRetriever.swift */,
+				C9DDCC8F2788E89800D41A65 /* DataRetrieverProtocol.swift */,
+				C9DDCC912788ED8200D41A65 /* TopTracksDataRetriever.swift */,
 			);
 			path = DataManagement;
 			sourceTree = "<group>";
@@ -771,7 +774,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9DDCC902788E89900D41A65 /* DataRetriever.swift in Sources */,
+				C9DDCC902788E89900D41A65 /* DataRetrieverProtocol.swift in Sources */,
 				C99B6BE726194CCB004B88C1 /* Router.swift in Sources */,
 				C9DDCC8D2788E3A600D41A65 /* SensitiveInformation.swift in Sources */,
 				C99B6BDE26194AB6004B88C1 /* URLParameterEncoder.swift in Sources */,
@@ -813,6 +816,7 @@
 				C97BD8162610FF350016720D /* AuthManager.swift in Sources */,
 				C93BA24A26215C8C00D96751 /* UserEndpoint.swift in Sources */,
 				C99B6BD526194978004B88C1 /* HTTPMethod.swift in Sources */,
+				C9DDCC922788ED8200D41A65 /* TopTracksDataRetriever.swift in Sources */,
 				C97D09BF260FA8E30019734F /* DownloadedImageView.swift in Sources */,
 				C97D09CC260FA94C0019734F /* ArtistViewController.swift in Sources */,
 				C997D99C26291BF100C41704 /* MockManager.swift in Sources */,
