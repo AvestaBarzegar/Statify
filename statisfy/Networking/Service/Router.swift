@@ -10,9 +10,9 @@ import Foundation
 class Router<EndPoint: EndPointType>: NetworkRouter {
     
     private var task: URLSessionTask?
+    private let session: URLSession = URLSession(configuration: .default)
     
     func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion) {
-        let session = URLSession.shared
         do {
             let request = try self.buildRequest(from: route)
             task = session.dataTask(with: request, completionHandler: { data, response, error in
