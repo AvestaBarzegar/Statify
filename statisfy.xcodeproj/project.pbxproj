@@ -373,7 +373,6 @@
 				C97D099C260FA7150019734F /* Recent */,
 				C97D099E260FA7150019734F /* TabBar */,
 				C97D09A0260FA7150019734F /* Tracks */,
-				C97D09A4260FA7150019734F /* Getting Started */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -408,15 +407,6 @@
 				C97D09CB260FA94C0019734F /* ArtistViewController.swift */,
 			);
 			path = Artists;
-			sourceTree = "<group>";
-		};
-		C97D09A4260FA7150019734F /* Getting Started */ = {
-			isa = PBXGroup;
-			children = (
-				C97D09CD260FA9740019734F /* WelcomeViewController.swift */,
-				C97BD819261103E80016720D /* AuthViewController.swift */,
-			);
-			path = "Getting Started";
 			sourceTree = "<group>";
 		};
 		C97D09A6260FA7150019734F /* Models */ = {
@@ -591,6 +581,7 @@
 		C9DFB62A28B74AEF00228CE9 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				C9DFB64128B764B600228CE9 /* TopItems */,
 				C9DFB62B28B74AF800228CE9 /* GettingStarted */,
 			);
 			path = Features;
@@ -599,11 +590,20 @@
 		C9DFB62B28B74AF800228CE9 /* GettingStarted */ = {
 			isa = PBXGroup;
 			children = (
+				C97D09CD260FA9740019734F /* WelcomeViewController.swift */,
+				C97BD819261103E80016720D /* AuthViewController.swift */,
 				C9DFB63228B74B3A00228CE9 /* WelcomeScreen.swift */,
 				C9DFB63B28B7544D00228CE9 /* AuthScreen.swift */,
 				C9DFB63E28B755EA00228CE9 /* LoginViewModel.swift */,
 			);
 			path = GettingStarted;
+			sourceTree = "<group>";
+		};
+		C9DFB64128B764B600228CE9 /* TopItems */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TopItems;
 			sourceTree = "<group>";
 		};
 		CA83E08D240F364AB2AD9B04 /* Frameworks */ = {

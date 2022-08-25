@@ -11,15 +11,15 @@ import Combine
 
 class WelcomeViewController: UIViewController {
     
-    // MARK: - Init views
-    private lazy var welcomeScreen = UIHostingController(rootView: WelcomeScreen(viewModel: viewModel))
-
+    // MARK: - Properties
     let viewModel: LoginViewModel = LoginViewModel()
     private var cancellables: Set<AnyCancellable> = []
     
+    // MARK: - Init views
+    private lazy var welcomeScreen = UIHostingController(rootView: WelcomeScreen(viewModel: viewModel))
+    
     // MARK: - Actions and Navigation
-    @objc
-    func demoButtonClicked() {
+    private func demoButtonClicked() {
         AppTabBarController.informationType = .demo
         let mainTabBarVC = AppTabBarController()
         view.window?.rootViewController = mainTabBarVC
@@ -33,7 +33,7 @@ class WelcomeViewController: UIViewController {
         view.window?.rootViewController = mainTabBarVC
     }
 
-    // MARK: - Layout views
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         

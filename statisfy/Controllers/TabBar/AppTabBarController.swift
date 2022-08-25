@@ -19,47 +19,20 @@ class AppTabBarController: UITabBarController {
     
     static var informationType: InformationType = .server
     
-    private lazy var tabBars: [UITabBarItem] = {
-        var arr = [UITabBarItem]()
-        
-        let tabBarInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
-        
-        let trackItem = UITabBarItem(title: "Tracks", image: UIImage(systemName: "music.note.house"), selectedImage: UIImage(systemName: "music.note.house.fill"))
-        
-        let artistItem = UITabBarItem(title: "Artists", image: UIImage(systemName: "person.3"), selectedImage: UIImage(systemName: "person.3.fill"))
-        
-        let recentItem = UITabBarItem(title: "Recent", image: UIImage(systemName: "clock"), selectedImage: UIImage(systemName: "clock.fill"))
-        
-        let settingsItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape"), selectedImage: UIImage(systemName: "gearshape.fill"))
-        
-        arr.append(trackItem)
-        arr.append(artistItem)
-        arr.append(recentItem)
-        arr.append(settingsItem)
-        return arr
-        
-    }()
-    
     private lazy var tabViewControllers: [UIViewController] = {
-        var arr = [UIViewController]()
-        
         let firstVC = TrackViewController()
-        firstVC.tabBarItem = tabBars[0]
+        firstVC.tabBarItem = UITabBarItem(title: "Tracks", image: UIImage(systemName: "music.note.house"), selectedImage: UIImage(systemName: "music.note.house.fill"))
         
         let secondVC = ArtistViewController()
-        secondVC.tabBarItem = tabBars[1]
+        secondVC.tabBarItem = UITabBarItem(title: "Artists", image: UIImage(systemName: "person.3"), selectedImage: UIImage(systemName: "person.3.fill"))
         
         let thirdVC = RecentViewController()
-        thirdVC.tabBarItem = tabBars[2]
+        thirdVC.tabBarItem = UITabBarItem(title: "Recent", image: UIImage(systemName: "clock"), selectedImage: UIImage(systemName: "clock.fill"))
         
         let fourthVC = SettingsViewController()
-        fourthVC.tabBarItem = tabBars[3]
+        fourthVC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape"), selectedImage: UIImage(systemName: "gearshape.fill"))
         
-        arr.append(firstVC)
-        arr.append(secondVC)
-        arr.append(thirdVC)
-        arr.append(fourthVC)
-        return arr
+        return [firstVC, secondVC, thirdVC, fourthVC]
     }()
     
     private let spinner: ProgressView = {
