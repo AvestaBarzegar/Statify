@@ -6,14 +6,25 @@
 //
 
 import UIKit
+import SwiftUI
 import WebKit
 
 class AuthViewController: UIViewController {
     
+    var viewModel: LoginViewModel
+    
+    // MARK: - Initializers
+    init(viewModel: LoginViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Interaction Logic
     let headerInfo = SectionHeaderViewModel(title: "Login", leftImageName: "xmark.circle.fill", rightImageName: nil)
-    
-    public var completionHandler: ((Bool) -> Void)?
     
     // MARK: - Init Views
     
@@ -52,11 +63,11 @@ class AuthViewController: UIViewController {
     }
     
     private func setup() {
-        self.view.backgroundColor = UIColor.backgroundComplementColor
+        view.backgroundColor = UIColor.backgroundComplementColor
         let safeArea = self.view.layoutMarginsGuide
-        self.view.addSubview(headerView)
-        self.view.addSubview(webView)
-        self.view.addSubview(spinner)
+        view.addSubview(headerView)
+        view.addSubview(webView)
+        view.addSubview(spinner)
         webView.navigationDelegate = self
         
         NSLayoutConstraint.activate([
@@ -78,23 +89,14 @@ class AuthViewController: UIViewController {
     }
     
     private func loadWebView() {
-        
         guard let urlObj = AuthManager.shared.urlBuilder() else { return }
         let request = URLRequest(url: urlObj)
         spinner.isAnimating = true
         webView.load(request)
     }
-    
-    deinit {
-        print("deinitialized AuthVC")
-        webView.stopLoading()
-        webView.removeFromSuperview()
-    }
-
 }
 
 extension AuthViewController: SectionHeaderViewDelegate {
-    
     func didSelectLeftButton() {
         self.dismiss(animated: true, completion: nil)
     }
@@ -142,14 +144,14 @@ extension AuthViewController: WKNavigationDelegate {
         UserManager.shared.exchangeCodeForToken(code: code) { [weak self] _, error in
             self?.removeSpinner()
             DispatchQueue.main.async {
-                if error != nil {
+                if let err = error {
                     self?.webView.removeFromSuperview()
                     self?.dismiss(animated: true)
-                    self?.completionHandler?(false)
+                    self?.viewModel.loginStatus = .failed
                 } else {
                     self?.webView.removeFromSuperview()
                     self?.dismiss(animated: true)
-                    self?.completionHandler?(true)
+                    self?.viewModel.loginStatus = .success
 
                 }
             }

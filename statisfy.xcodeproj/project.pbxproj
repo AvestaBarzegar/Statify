@@ -130,9 +130,20 @@
 		C9BD2E23261BFA2A00C0FBDA /* StrokeColorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E22261BFA2A00C0FBDA /* StrokeColorAnimation.swift */; };
 		C9BD2E26261BFBB800C0FBDA /* SpinnerViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E25261BFBB800C0FBDA /* SpinnerViewControllerExtensions.swift */; };
 		C9BD2E2A261C214000C0FBDA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD2E29261C214000C0FBDA /* SettingsViewController.swift */; };
-		C9DDCC8D2788E3A600D41A65 /* SensitiveInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCC8C2788E3A600D41A65 /* SensitiveInformation.swift */; };
 		C9DDCC902788E89900D41A65 /* DataRetrieverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCC8F2788E89800D41A65 /* DataRetrieverProtocol.swift */; };
 		C9DDCC922788ED8200D41A65 /* TopTracksDataRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCC912788ED8200D41A65 /* TopTracksDataRetriever.swift */; };
+		C9DFB62828B748AB00228CE9 /* SensitiveInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DFB62728B748AB00228CE9 /* SensitiveInfo.swift */; };
+		C9DFB62928B748AB00228CE9 /* SensitiveInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DFB62728B748AB00228CE9 /* SensitiveInfo.swift */; };
+		C9DFB63328B74B3A00228CE9 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DFB63228B74B3A00228CE9 /* WelcomeScreen.swift */; };
+		C9DFB63428B74B3A00228CE9 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DFB63228B74B3A00228CE9 /* WelcomeScreen.swift */; };
+		C9DFB63628B74BF900228CE9 /* SwiftUI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DFB63528B74BF900228CE9 /* SwiftUI+Extensions.swift */; };
+		C9DFB63728B74BF900228CE9 /* SwiftUI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DFB63528B74BF900228CE9 /* SwiftUI+Extensions.swift */; };
+		C9DFB63928B751AB00228CE9 /* Autolayout+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DFB63828B751AB00228CE9 /* Autolayout+Extensions.swift */; };
+		C9DFB63A28B751AB00228CE9 /* Autolayout+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DFB63828B751AB00228CE9 /* Autolayout+Extensions.swift */; };
+		C9DFB63C28B7544D00228CE9 /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DFB63B28B7544D00228CE9 /* AuthScreen.swift */; };
+		C9DFB63D28B7544D00228CE9 /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DFB63B28B7544D00228CE9 /* AuthScreen.swift */; };
+		C9DFB63F28B755EA00228CE9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DFB63E28B755EA00228CE9 /* LoginViewModel.swift */; };
+		C9DFB64028B755EA00228CE9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DFB63E28B755EA00228CE9 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -204,9 +215,14 @@
 		C9BD2E22261BFA2A00C0FBDA /* StrokeColorAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeColorAnimation.swift; sourceTree = "<group>"; };
 		C9BD2E25261BFBB800C0FBDA /* SpinnerViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewControllerExtensions.swift; sourceTree = "<group>"; };
 		C9BD2E29261C214000C0FBDA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		C9DDCC8C2788E3A600D41A65 /* SensitiveInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensitiveInformation.swift; sourceTree = "<group>"; };
 		C9DDCC8F2788E89800D41A65 /* DataRetrieverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRetrieverProtocol.swift; sourceTree = "<group>"; };
 		C9DDCC912788ED8200D41A65 /* TopTracksDataRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTracksDataRetriever.swift; sourceTree = "<group>"; };
+		C9DFB62728B748AB00228CE9 /* SensitiveInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensitiveInfo.swift; sourceTree = "<group>"; };
+		C9DFB63228B74B3A00228CE9 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
+		C9DFB63528B74BF900228CE9 /* SwiftUI+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Extensions.swift"; sourceTree = "<group>"; };
+		C9DFB63828B751AB00228CE9 /* Autolayout+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Autolayout+Extensions.swift"; sourceTree = "<group>"; };
+		C9DFB63B28B7544D00228CE9 /* AuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreen.swift; sourceTree = "<group>"; };
+		C9DFB63E28B755EA00228CE9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +302,7 @@
 		C97D0975260FA6C30019734F /* statisfy */ = {
 			isa = PBXGroup;
 			children = (
+				C9DFB62A28B74AEF00228CE9 /* Features */,
 				C9DDCC8E2788E88800D41A65 /* DataManagement */,
 				C99B6BCC261948FC004B88C1 /* Networking */,
 				C97D099B260FA7150019734F /* Controllers */,
@@ -306,7 +323,9 @@
 				C97D09BC260FA8BC0019734F /* SceneDelegate.swift */,
 				C97D09B8260FA7E60019734F /* LaunchScreen.storyboard */,
 				C97D09BA260FA7FE0019734F /* StyleExtension.swift */,
-				C9DDCC8C2788E3A600D41A65 /* SensitiveInformation.swift */,
+				C9DFB62728B748AB00228CE9 /* SensitiveInfo.swift */,
+				C9DFB63528B74BF900228CE9 /* SwiftUI+Extensions.swift */,
+				C9DFB63828B751AB00228CE9 /* Autolayout+Extensions.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -569,6 +588,24 @@
 			path = DataManagement;
 			sourceTree = "<group>";
 		};
+		C9DFB62A28B74AEF00228CE9 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				C9DFB62B28B74AF800228CE9 /* GettingStarted */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		C9DFB62B28B74AF800228CE9 /* GettingStarted */ = {
+			isa = PBXGroup;
+			children = (
+				C9DFB63228B74B3A00228CE9 /* WelcomeScreen.swift */,
+				C9DFB63B28B7544D00228CE9 /* AuthScreen.swift */,
+				C9DFB63E28B755EA00228CE9 /* LoginViewModel.swift */,
+			);
+			path = GettingStarted;
+			sourceTree = "<group>";
+		};
 		CA83E08D240F364AB2AD9B04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -776,20 +813,24 @@
 			files = (
 				C9DDCC902788E89900D41A65 /* DataRetrieverProtocol.swift in Sources */,
 				C99B6BE726194CCB004B88C1 /* Router.swift in Sources */,
-				C9DDCC8D2788E3A600D41A65 /* SensitiveInformation.swift in Sources */,
 				C99B6BDE26194AB6004B88C1 /* URLParameterEncoder.swift in Sources */,
+				C9DFB63928B751AB00228CE9 /* Autolayout+Extensions.swift in Sources */,
 				C9BD2E23261BFA2A00C0FBDA /* StrokeColorAnimation.swift in Sources */,
 				C97D09A8260FA7150019734F /* AppDelegate.swift in Sources */,
 				C97D09D3260FE5F70019734F /* TileInfo.swift in Sources */,
 				C997D97A2628BC9E00C41704 /* FeedbackViewController.swift in Sources */,
+				C9DFB63328B74B3A00228CE9 /* WelcomeScreen.swift in Sources */,
 				C97059D826101B0E007FEB90 /* RecentTrackViewModel.swift in Sources */,
+				C9DFB62828B748AB00228CE9 /* SensitiveInfo.swift in Sources */,
 				C97D09CA260FA92B0019734F /* TrackViewController.swift in Sources */,
 				C93BA2412621488500D96751 /* AccountCardView.swift in Sources */,
 				C9BD2E1A261BF89700C0FBDA /* ProgressShapeLayer.swift in Sources */,
 				C99B6BDB26194A30004B88C1 /* ParameterEncoding.swift in Sources */,
+				C9DFB63C28B7544D00228CE9 /* AuthScreen.swift in Sources */,
 				C97D09C6260FA91A0019734F /* RecentViewController.swift in Sources */,
 				C97D09CE260FA9740019734F /* WelcomeViewController.swift in Sources */,
 				C9457B7B261CD5BC00B3A60D /* CustomAlertViewController.swift in Sources */,
+				C9DFB63628B74BF900228CE9 /* SwiftUI+Extensions.swift in Sources */,
 				C997D9772628A0C100C41704 /* URLEncodedBody.swift in Sources */,
 				C983023C2612E13B00EE54A6 /* ArtistModel.swift in Sources */,
 				C97D09BB260FA7FE0019734F /* StyleExtension.swift in Sources */,
@@ -815,6 +856,7 @@
 				C97BD8132610F6D70016720D /* SectionHeaderView.swift in Sources */,
 				C97BD8162610FF350016720D /* AuthManager.swift in Sources */,
 				C93BA24A26215C8C00D96751 /* UserEndpoint.swift in Sources */,
+				C9DFB63F28B755EA00228CE9 /* LoginViewModel.swift in Sources */,
 				C99B6BD526194978004B88C1 /* HTTPMethod.swift in Sources */,
 				C9DDCC922788ED8200D41A65 /* TopTracksDataRetriever.swift in Sources */,
 				C97D09BF260FA8E30019734F /* DownloadedImageView.swift in Sources */,
@@ -845,15 +887,19 @@
 				C997C795262DBE5500CA57D3 /* TrackViewController.swift in Sources */,
 				C997C796262DBE5500CA57D3 /* AccountCardView.swift in Sources */,
 				C997C797262DBE5500CA57D3 /* ProgressShapeLayer.swift in Sources */,
+				C9DFB63428B74B3A00228CE9 /* WelcomeScreen.swift in Sources */,
 				C997C798262DBE5500CA57D3 /* ParameterEncoding.swift in Sources */,
 				C997C799262DBE5500CA57D3 /* RecentViewController.swift in Sources */,
 				C997C79A262DBE5500CA57D3 /* WelcomeViewController.swift in Sources */,
 				C997C79B262DBE5500CA57D3 /* CustomAlertViewController.swift in Sources */,
 				C997C79C262DBE5500CA57D3 /* URLEncodedBody.swift in Sources */,
 				C997C79D262DBE5500CA57D3 /* ArtistModel.swift in Sources */,
+				C9DFB64028B755EA00228CE9 /* LoginViewModel.swift in Sources */,
 				C997C79E262DBE5500CA57D3 /* StyleExtension.swift in Sources */,
 				C997C79F262DBE5500CA57D3 /* MenuBar.swift in Sources */,
+				C9DFB63728B74BF900228CE9 /* SwiftUI+Extensions.swift in Sources */,
 				C997C7A0262DBE5500CA57D3 /* SceneDelegate.swift in Sources */,
+				C9DFB63D28B7544D00228CE9 /* AuthScreen.swift in Sources */,
 				C997C7A1262DBE5500CA57D3 /* StatisticsCollectionScrollView.swift in Sources */,
 				C997C7A2262DBE5500CA57D3 /* RotationAnimation.swift in Sources */,
 				C997C7A3262DBE5500CA57D3 /* HTTPTask.swift in Sources */,
@@ -862,7 +908,9 @@
 				C997C7A6262DBE5500CA57D3 /* AuthViewController.swift in Sources */,
 				C997C7A7262DBE5500CA57D3 /* NetworkRouter.swift in Sources */,
 				C997C7A8262DBE5500CA57D3 /* JSONParameterEncoder.swift in Sources */,
+				C9DFB63A28B751AB00228CE9 /* Autolayout+Extensions.swift in Sources */,
 				C997C7A9262DBE5500CA57D3 /* SectionHeaderViewModel.swift in Sources */,
+				C9DFB62928B748AB00228CE9 /* SensitiveInfo.swift in Sources */,
 				C997C7AA262DBE5500CA57D3 /* RecentTrackTableViewCell.swift in Sources */,
 				C997C7AB262DBE5500CA57D3 /* EndpointProtocol.swift in Sources */,
 				C997C7AC262DBE5500CA57D3 /* AppTabBarController.swift in Sources */,
@@ -1018,7 +1066,7 @@
 				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 7H66Q22DJD;
 				INFOPLIST_FILE = statisfy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1041,7 +1089,7 @@
 				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 7H66Q22DJD;
 				INFOPLIST_FILE = statisfy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 let scaleFactor = UIScreen.main.bounds.width/414
 
