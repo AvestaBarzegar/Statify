@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RecentTrackViewModel {
+struct RecentTrackViewModel: Hashable {
     
     let artist: String?
     // To-do: Change position to let constant <3

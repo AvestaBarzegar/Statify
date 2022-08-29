@@ -11,6 +11,12 @@ class RecentViewController: UIViewController {
     
     // MARK: - Data
     
+    private typealias Datasource = UITableViewDiffableDataSource<Section, RecentTrackViewModel>
+    
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, RecentTrackViewModel>
+    
+    private var dataSource: Datasource?
+    
     private var informationType = AppTabBarController.informationType
     
     private var information: [RecentTrackViewModel]? {
@@ -50,10 +56,15 @@ class RecentViewController: UIViewController {
             self.spinner.isAnimating = false
             if information == nil {
                 noInformationLabel.isHidden = false
-            } else if informationNew?.count ?? 0 != 0 {
-                self.tableView.reloadData()
-                let firstIndex = IndexPath(row: 0, section: 0)
-                self.tableView.scrollToRow(at: firstIndex, at: .top, animated: true)
+            } else if let data = informationNew, data.isEmpty == false {
+                var snapshot = Snapshot()
+                snapshot.appendSections([.main])
+                snapshot.appendItems(data)
+                if tableView.numberOfSections == 0 || tableView.numberOfRows(inSection: 0) == 0 {
+                    dataSource?.apply(snapshot, animatingDifferences: false)
+                } else {
+                    dataSource?.apply(snapshot)
+                }
             }
             guard let informationArr = information else { return }
             noInformationLabel.isHidden = !informationArr.isEmpty
@@ -81,7 +92,6 @@ class RecentViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.backgroundColor
         view.delegate = self
-        view.dataSource = self
         view.showsVerticalScrollIndicator = false
         view.showsHorizontalScrollIndicator = false
         view.separatorStyle = .none
@@ -108,6 +118,13 @@ class RecentViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setup()
+        
+        dataSource = Datasource(tableView: tableView, cellProvider: { tableView, indexPath, recentItem in
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentTrackTableViewCell.identifier) as? RecentTrackTableViewCell else { return UITableViewCell() }
+            cell.recentTrackInfo = recentItem
+            
+            return cell
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -167,23 +184,19 @@ class RecentViewController: UIViewController {
     
 }
 
-extension RecentViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return informationNew?.count ?? 0
-    }
+extension RecentViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return RecentTrackTableViewCell.cellHeight
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentTrackTableViewCell.identifier) as? RecentTrackTableViewCell else { return UITableViewCell() }
-        cell.recentTrackInfo = informationNew?[indexPath.row]
-        
-        return cell
-        
-    }
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentTrackTableViewCell.identifier) as? RecentTrackTableViewCell else { return UITableViewCell() }
+//        cell.recentTrackInfo = informationNew?[indexPath.row]
+//
+//        return cell
+//
+//    }
     
 }
 
