@@ -27,9 +27,9 @@ struct TopPageInfo {
 
 /// A protocol that manages a type of TopItems, such as `aritst` or `track`
 protocol TopItemTypeManager {
-    var state: [TopPageInfo] { get }
+    var state: [TopPageInfo?] { get }
     
-    var statePublisher: Published<[TopPageInfo]>.Publisher { get }
+    var statePublisher: Published<[TopPageInfo?]>.Publisher { get }
     
     var errorState: LoadingState { get }
     

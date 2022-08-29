@@ -13,9 +13,9 @@ final class TopTrackManager: TopItemTypeManager {
     
     private let manager = AnalyticsManager()
     
-    @Published var state: [TopPageInfo] = []
+    @Published var state: [TopPageInfo?] = [ nil, nil, nil ]
     
-    var statePublisher: Published<[TopPageInfo]>.Publisher { return $state }
+    var statePublisher: Published<[TopPageInfo?]>.Publisher { return $state }
     
     @Published var errorState: LoadingState = .loading
     

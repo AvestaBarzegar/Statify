@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 
+// Renders a tabbed list of top items that are fed to it by it's manager, generics aren't needed here to be honest
 class TopItemViewController<T: TopItemTypeManager>: UIViewController,
         UICollectionViewDelegate,
         UICollectionViewDataSource,
@@ -19,8 +20,6 @@ class TopItemViewController<T: TopItemTypeManager>: UIViewController,
     private lazy var headerInfo = SectionHeaderViewModel(title: manager.viewTitle.rawValue, leftImageName: nil, rightImageName: nil)
     
     private var subscriptions: Set<AnyCancellable> = []
-    
-    private var isLoading: Bool = true
     
     // MARK: - Init Views
     
@@ -70,7 +69,6 @@ class TopItemViewController<T: TopItemTypeManager>: UIViewController,
         manager.statePublisher
             .receive(on: RunLoop.main	)
             .sink { [weak self] _ in
-                self?.isLoading = false
                 self?.collectionView.reloadData()
             }
             .store(in: &subscriptions)
@@ -79,16 +77,12 @@ class TopItemViewController<T: TopItemTypeManager>: UIViewController,
             .receive(on: RunLoop.main)
             .sink { [weak self] in
                 switch $0 {
-                case .loading:
-                    self?.isLoading = true
-                case .valid:
-                    self?.isLoading = false
                 case .error(let err):
-                    self?.isLoading = false
                     guard let vc = self else { return }
                     CustomAlertViewController.showAlertOn(vc, "ERROR", err, "Retry", cancelButtonText: "cancel") {
                         self?.manager.fetchData()
                     } cancelAction: {}
+                default: break
                 }
             }
             .store(in: &subscriptions)
@@ -148,8 +142,8 @@ class TopItemViewController<T: TopItemTypeManager>: UIViewController,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatisticsCollectionScrollView.identifier, for: indexPath) as? StatisticsCollectionScrollView
-        let tiles = manager.state[indexPath.row].tiles
-        let isLoading = manager.state[indexPath.row].isLoading
+        let tiles = manager.state[indexPath.row]?.tiles
+        let isLoading = manager.state[indexPath.row]?.isLoading ?? true
         cell?.tracks = tiles
         cell?.animating = isLoading
         return cell ?? UICollectionViewCell()
@@ -174,6 +168,8 @@ class TopItemViewController<T: TopItemTypeManager>: UIViewController,
     
     // MARK: - MenuBar
     func didSelect(menuBar: MenuBar, at indexPath: IndexPath) {
+        // Make sure we have enough pages
+        guard indexPath.row < manager.state.count else { return }
         collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
     }
 }
