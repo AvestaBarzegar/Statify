@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TileInfo {
+struct TileInfo: Hashable {
     
     let title: String?
     // To-do: Change position to let constant <3

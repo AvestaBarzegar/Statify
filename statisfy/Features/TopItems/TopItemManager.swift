@@ -20,7 +20,7 @@ enum LoadingState {
     case valid
 }
 
-struct TopPageInfo {
+struct TopPageInfo: Hashable {
     let tiles: [TileInfo]
     let isLoading: Bool
 }

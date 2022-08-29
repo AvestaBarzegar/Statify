@@ -7,16 +7,26 @@
 
 import UIKit
 
+enum Section {
+    case main
+}
+
 // Vertically scrolling scrollView
 class StatisticsCollectionScrollView: UICollectionViewCell {
     
+    private typealias DataSource = UICollectionViewDiffableDataSource<Section, TileInfo>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, TileInfo>
+    
     var tracks: [TileInfo]? {
         didSet {
-            collectionView.reloadData()
-            if tracks == nil {
+            guard let tracks = tracks else {
                 noInformationLabel.isHidden = true
+                return
             }
-            guard let tracks = tracks else { return }
+            var snapshot = Snapshot()
+            snapshot.appendSections([.main])
+            snapshot.appendItems(tracks)
+            dataSource?.apply(snapshot)
             noInformationLabel.isHidden = !tracks.isEmpty
         }
     }
@@ -27,6 +37,8 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
             spinner.isAnimating = animating
         }
     }
+    
+    private var dataSource: DataSource?
     
     static let identifier = "StatisticsCollectionScrollView"
     
@@ -63,7 +75,6 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
         cv.contentInset = insets
         cv.collectionViewLayout = layout
         cv.backgroundColor = UIColor.backgroundColor
-        cv.dataSource = self
         cv.delegate = self
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.showsVerticalScrollIndicator = false
@@ -83,11 +94,13 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
+        setupDatasource()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
+        setupDatasource()
     }
     
     private func setup() {
@@ -112,34 +125,25 @@ class StatisticsCollectionScrollView: UICollectionViewCell {
         spinner.isAnimating = true
         noInformationLabel.isHidden = true
     }
+    
+    private func setupDatasource() {
+        dataSource = DataSource(collectionView: collectionView) { (collectionView, indexPath, tileInfo) -> StatisticsCollectionViewCell? in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatisticsCollectionViewCell.identifier, for: indexPath) as? StatisticsCollectionViewCell else {
+                return StatisticsCollectionViewCell()
+            }
+            cell.tileInfo = tileInfo
+            return cell
+        }
+    }
 
 }
 
-extension StatisticsCollectionScrollView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let tracks = tracks else {
-            return 0
-        }
-        return tracks.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatisticsCollectionViewCell.identifier, for: indexPath) as? StatisticsCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        if let track = tracks?[indexPath.row] {
-            cell.tileInfo = track
-        }
-        
-        return cell
-    }
-    
+extension StatisticsCollectionScrollView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? StatisticsCollectionViewCell
         let artist = cell?.tileInfo?.artist
         debugPrint(artist as Any)
-        
     }
     
 }
