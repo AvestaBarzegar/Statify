@@ -18,32 +18,29 @@ class RecentViewController: UIViewController {
             guard let informationArr = information else { return }
             informationCleanedUp.removeAll()
             
-            for track in informationArr {
-                if let trackName = track.track, let trackArtist = track.artist {
-                    let weirdString = "\(trackName)+\(trackArtist)+"
-                    if informationCleanedUp[weirdString] != nil {
-                        informationCleanedUp[weirdString]! += 1
-                    } else {
-                        informationCleanedUp[weirdString] = 1
-                    }
+            informationArr
+                .filter { $0.track != nil && $0.artist != nil }
+                .forEach {
+                    let trackAndArtist = ($0.track ?? "") + ($0.artist ?? "")
+                    informationCleanedUp[trackAndArtist] = (informationCleanedUp[trackAndArtist] ?? 0) + 1
                 }
-            }
             
             var tracksAddedSet = Set<String>()
-            var newInformationArr = [RecentTrackViewModel]()
             
-            for track in informationArr {
-                if let trackName = track.track, let trackArtist = track.artist {
-                    let weirdString = "\(trackName)+\(trackArtist)+"
-                    if !tracksAddedSet.contains(weirdString) {
-                        var viewModel = track
-                        viewModel.numOfListens = informationCleanedUp[weirdString]
-                        newInformationArr.append(viewModel)
-                        tracksAddedSet.insert(weirdString)
-                    }
+            informationNew = informationArr
+            // Ensure the track and artist isn't nil
+                .filter { $0.track != nil && $0.artist != nil}
+            // Ensure we haven't added it before
+                .filter {
+                    let trackAndArtist = ($0.track ?? "") + ($0.artist ?? "")
+                    return tracksAddedSet.insert(trackAndArtist).inserted
                 }
-            }
-            informationNew = newInformationArr
+                .map {
+                    let trackAndArtist = ($0.track ?? "") + ($0.artist ?? "")
+                    let numOfListens = informationCleanedUp[trackAndArtist]
+                    // Mark the current track+artist as visited
+                    return RecentTrackViewModel(viewModel: $0, listens: numOfListens)
+                }
             
         }
     }
@@ -53,7 +50,7 @@ class RecentViewController: UIViewController {
             self.spinner.isAnimating = false
             if information == nil {
                 noInformationLabel.isHidden = false
-            } else {
+            } else if informationNew?.count ?? 0 != 0 {
                 self.tableView.reloadData()
                 let firstIndex = IndexPath(row: 0, section: 0)
                 self.tableView.scrollToRow(at: firstIndex, at: .top, animated: true)

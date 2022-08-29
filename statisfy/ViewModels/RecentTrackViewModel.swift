@@ -16,6 +16,14 @@ struct RecentTrackViewModel {
     let timeStamp: Double?
     var numOfListens: Int?
     
+    init(viewModel: RecentTrackViewModel, listens: Int?) {
+        self.artist = viewModel.artist
+        self.track = viewModel.track
+        self.imgURL = viewModel.imgURL
+        self.timeStamp = viewModel.timeStamp
+        self.numOfListens = listens
+    }
+    
     init(artist: String?, track: String?, imgURL: String?) {
         self.artist = artist
         self.track = track
