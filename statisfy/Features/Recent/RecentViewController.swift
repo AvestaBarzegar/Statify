@@ -16,13 +16,13 @@ class RecentViewController: UIViewController {
     private var information: [RecentTrackViewModel]? {
         didSet {
             guard let informationArr = information else { return }
-            informationCleanedUp.removeAll()
+            var counts: [String: Int] = [:]
             
             informationArr
                 .filter { $0.track != nil && $0.artist != nil }
                 .forEach {
                     let trackAndArtist = ($0.track ?? "") + ($0.artist ?? "")
-                    informationCleanedUp[trackAndArtist] = (informationCleanedUp[trackAndArtist] ?? 0) + 1
+                    counts[trackAndArtist] = (counts[trackAndArtist] ?? 0) + 1
                 }
             
             var tracksAddedSet = Set<String>()
@@ -37,7 +37,7 @@ class RecentViewController: UIViewController {
                 }
                 .map {
                     let trackAndArtist = ($0.track ?? "") + ($0.artist ?? "")
-                    let numOfListens = informationCleanedUp[trackAndArtist]
+                    let numOfListens = counts[trackAndArtist]
                     // Mark the current track+artist as visited
                     return RecentTrackViewModel(viewModel: $0, listens: numOfListens)
                 }
@@ -59,8 +59,6 @@ class RecentViewController: UIViewController {
             noInformationLabel.isHidden = !informationArr.isEmpty
         }
     }
-    
-    private var informationCleanedUp: [String: Int] = [ : ]
     
     let headerInfo = SectionHeaderViewModel(title: "Recently Played", leftImageName: nil, rightImageName: nil)
     
