@@ -20,10 +20,12 @@ class AppTabBarController: UITabBarController {
     static var informationType: InformationType = .server
     
     private lazy var tabViewControllers: [UIViewController] = {
-        let firstVC = TrackViewController()
+        let trackManager = TopTrackManager()
+        let firstVC = TopItemViewController(manager: trackManager)
         firstVC.tabBarItem = UITabBarItem(title: "Tracks", image: UIImage(systemName: "music.note.house"), selectedImage: UIImage(systemName: "music.note.house.fill"))
         
-        let secondVC = ArtistViewController()
+        let artistManager = TopArtistManager()
+        let secondVC = TopItemViewController(manager: artistManager)
         secondVC.tabBarItem = UITabBarItem(title: "Artists", image: UIImage(systemName: "person.3"), selectedImage: UIImage(systemName: "person.3.fill"))
         
         let thirdVC = RecentViewController()

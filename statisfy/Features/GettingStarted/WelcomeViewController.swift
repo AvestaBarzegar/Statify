@@ -45,8 +45,8 @@ class WelcomeViewController: UIViewController {
             .store(in: &cancellables)
         
         viewModel.$informationType
-            .compactMap { $0 == .demo }
-            .sink { [weak self] in if $0 { self?.demoButtonClicked() } }
+            .filter { $0 == .demo }
+            .sink { [weak self] _ in self?.demoButtonClicked() }
             .store(in: &cancellables)
         // Do any additional setup after loading the view.
     }
