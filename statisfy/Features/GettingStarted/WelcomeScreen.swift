@@ -5,50 +5,96 @@
 //  Created by Avesta Barzegar on 2022-08-25.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
+struct WelcomeScreenFeature: Reducer {
+
+	struct State: Equatable {
+		@PresentationState var authScreenState: String? = nil
+	}
+
+	enum Action {
+		case presentAuthSheet
+		case dismissAuthSheet
+		case authScreenAction(PresentationAction<String>)
+	}
+
+	var body: some ReducerOf<Self> {
+		Reduce { state, action in
+			switch action {
+			case .presentAuthSheet:
+				state.authScreenState = "ABCD"
+				return .none
+			case .dismissAuthSheet:
+				state.authScreenState = nil
+				return .none
+			case .authScreenAction(_):
+				return .none
+			}
+			return .none
+		}
+//		.ifLet(\.$authScreenState, action: /Action.authScreenAction) {
+//			WelcomeScreenFeature()
+//		}
+
+	}
+
+}
+
 struct WelcomeScreen: View {
-    
-    @ObservedObject var viewModel: LoginViewModel
+
+	let store: StoreOf<WelcomeScreenFeature>
     
     var body: some View {
-        ZStack {
-            Color(UIColor.backgroundColor)
-                .ignoresSafeArea()
-            VStack {
-                Spacer()
-                Text("Welcome")
-                    .font(.welcomeFont)
-                    .textColor(.spotifyWhite)
-                    .padding()
-                Text("Tap the get started button to link your account and view your stats")
-                    .font(.welcomeSubtitleFont)
-                    .textColor(.spotifyWhite)
-                    .padding(EdgeInsets(top: 4, leading: 32, bottom: 4, trailing: 32))
-                Spacer()
-                Button("Get Started") {
-                    viewModel.loginStatus = .inprogress
-                }
-                .padding(EdgeInsets(top: 12, leading: 64, bottom: 12, trailing: 64))
-                .background(Color(UIColor.spotifyGreen))
-                .foregroundColor(Color(UIColor.spotifyWhite))
-                .font(Font(uiFont: UIFont.tableCellFontBolded))
-                .cornerRadius(8)
-                Button("Demo the app") {
-                    viewModel.informationType = .demo
-                }
-                .foregroundColor(Color(UIColor.spotifyWhite))
-                .font(Font(uiFont: UIFont.tableCellFontBolded))
-                .padding(EdgeInsets(top: 16, leading: 0, bottom: 48, trailing: 0))
-            }
-        }.fullScreenCover(isPresented: $viewModel.showSheet) {
-            AuthScreen(viewModel: viewModel)
-        }
+		WithViewStore(store, observe: { $0 }) { viewStore in
+			ZStack {
+				Color(UIColor.backgroundColor)
+					.ignoresSafeArea()
+				VStack {
+					Spacer()
+					Text("Welcome")
+						.font(.welcomeFont)
+						.textColor(.spotifyWhite)
+						.padding()
+					Text("Tap the get started button to link your account and view your stats")
+						.font(.welcomeSubtitleFont)
+						.textColor(.spotifyWhite)
+						.padding(EdgeInsets(vertical: Spacing.halfX, horizontal: Spacing.fourX))
+					Spacer()
+					Button("Get Started") {
+						viewStore.send(.presentAuthSheet)
+					}
+					.padding(EdgeInsets(vertical: Spacing.oneAndHalfX, horizontal: Spacing.eightX))
+					.background(Color(UIColor.spotifyGreen))
+					.foregroundColor(Color(UIColor.spotifyWhite))
+					.font(Font(uiFont: UIFont.tableCellFontBolded))
+					.clipShape(RoundedRectangle(cornerRadius: Constants.cornerRadius))
+					Button("Demo the app") {
+						print("ABCD")
+					}
+					.foregroundColor(Color(UIColor.spotifyWhite))
+					.font(Font(uiFont: UIFont.tableCellFontBolded))
+					.padding(EdgeInsets(vertical: Spacing.twoX, horizontal: Spacing.sixX))
+				}
+			}
+//			.fullScreenCover(store: <#T##Store<PresentationState<State>, PresentationAction<Action>>#>, content: <#T##(Store<State, Action>) -> View##(Store<State, Action>) -> View##(_ store: Store<State, Action>) -> View#>)
+//			.fullScreenCover(isPresented: $viewModel.showSheet) {
+//				AuthScreen(viewModel: viewModel)
+//			}
+
+		}
     }
 }
 
 struct WelcomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeScreen(viewModel: LoginViewModel())
+        WelcomeScreen(
+			store: Store(
+				initialState: WelcomeScreenFeature.State(),
+				reducer: {
+					WelcomeScreenFeature()
+				})
+		)
     }
 }

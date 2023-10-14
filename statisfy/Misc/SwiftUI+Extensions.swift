@@ -23,3 +23,11 @@ extension Text {
         return foregroundColor(Color(color))
     }
 }
+
+extension EdgeInsets {
+
+	init(vertical: CGFloat, horizontal: CGFloat) {
+		self.init(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
+	}
+
+}

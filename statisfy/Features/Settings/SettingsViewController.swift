@@ -150,7 +150,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
                 UserDefaults.standard.setValue(nil, forKey: ViewControllerNames.topTracks.rawValue)
                 AppTabBarController.informationType = .server
                 let window = self.view.window
-                window?.rootViewController = WelcomeViewController()
+//                window?.rootViewController = WelcomeViewController()
             } cancelAction: {
                 
             }

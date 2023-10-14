@@ -9,6 +9,21 @@ import Foundation
 import UIKit
 import SwiftUI
 
+enum Spacing {
+	static let halfX: CGFloat = 4.0
+	static let oneX: CGFloat = 8.0
+	static let oneAndHalfX: CGFloat = 12.0
+	static let twoX: CGFloat = 16.0
+	static let threeX: CGFloat = 24.0
+	static let fourX: CGFloat = 32.0
+	static let fiveX: CGFloat = 40.0
+	static let sixX: CGFloat = 48.0
+	static let sevenX: CGFloat = 56.0
+	static let eightX: CGFloat = 64.0
+}
+
+
+
 let scaleFactor = UIScreen.main.bounds.width/414
 
 enum ViewControllerNames: String {
@@ -19,7 +34,9 @@ enum ViewControllerNames: String {
 
 enum Constants: CGFloat {
     
-    case cornerRadius = 8.0
+	static let cornerRadius: CGFloat = 8.0
+
+//    case cornerRadius = 8.0
     case animationDuration = 0.375
     case headerViewHeight = 48
     case buttonSize = 36

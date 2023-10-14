@@ -144,14 +144,14 @@ extension AuthViewController: WKNavigationDelegate {
         UserManager.shared.exchangeCodeForToken(code: code) { [weak self] _, error in
             self?.removeSpinner()
             DispatchQueue.main.async {
-                if let err = error {
+                if error != nil {
                     self?.webView.removeFromSuperview()
                     self?.dismiss(animated: true)
-                    self?.viewModel.loginStatus = .failed
+//                    self?.viewModel.loginStatus = .failed
                 } else {
                     self?.webView.removeFromSuperview()
                     self?.dismiss(animated: true)
-                    self?.viewModel.loginStatus = .success
+//                    self?.viewModel.loginStatus = .success
 
                 }
             }

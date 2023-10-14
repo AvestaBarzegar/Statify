@@ -36,7 +36,7 @@ class StatisticsCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         imageView.backgroundColor = UIColor.systemGray
         imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = Constants.cornerRadius.rawValue
+        imageView.layer.cornerRadius = Constants.cornerRadius
         return imageView
     }()
     

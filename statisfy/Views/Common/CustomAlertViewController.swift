@@ -19,7 +19,7 @@ class CustomAlertViewController: UIViewController {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.spotifyTurkoise
-        view.layer.cornerRadius = Constants.cornerRadius.rawValue * 4
+        view.layer.cornerRadius = Constants.cornerRadius * 4
         return view
     }()
     

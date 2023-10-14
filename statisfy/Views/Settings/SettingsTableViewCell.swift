@@ -28,7 +28,7 @@ class SettingsTableViewCell: UITableViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.spotifyGray
-        view.layer.cornerRadius = Constants.cornerRadius.rawValue
+        view.layer.cornerRadius = Constants.cornerRadius
         return view
     }()
     

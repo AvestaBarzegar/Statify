@@ -54,7 +54,7 @@ class AccountCardView: UIView {
         let imageView = DownloadedImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = UIColor.systemGray
-        imageView.layer.cornerRadius = Constants.cornerRadius.rawValue
+        imageView.layer.cornerRadius = Constants.cornerRadius
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -108,7 +108,7 @@ class AccountCardView: UIView {
     // MARK: - Layout Views
     
     private func sharedLayout() {
-        self.layer.cornerRadius = Constants.cornerRadius.rawValue
+        self.layer.cornerRadius = Constants.cornerRadius
         
         self.backgroundColor = UIColor.spotifyGray
         self.addSubview(noImageLabel)

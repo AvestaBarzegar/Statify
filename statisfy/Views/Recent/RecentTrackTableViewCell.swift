@@ -42,7 +42,7 @@ class RecentTrackTableViewCell: UITableViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.spotifyGray
-        view.layer.cornerRadius = Constants.cornerRadius.rawValue
+        view.layer.cornerRadius = Constants.cornerRadius
         return view
     }()
 
@@ -90,7 +90,7 @@ class RecentTrackTableViewCell: UITableViewCell {
         let imageView = DownloadedImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = UIColor.systemGray
-        imageView.layer.cornerRadius = Constants.cornerRadius.rawValue
+        imageView.layer.cornerRadius = Constants.cornerRadius
         imageView.clipsToBounds = true
         return imageView
     }()
